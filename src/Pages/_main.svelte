@@ -7,7 +7,7 @@
     <Nav />
     <div class="w-full bg-gray-900">
         <h1 class="text-white">Home Page</h1>
-        <Shell title={"regex"} tooltip={"Hello WOlrd"}>
+        <Shell title={"Demo Component"} tooltip={"demo component"}>
             <p>Component on Main Page</p>
         </Shell>
     </div>

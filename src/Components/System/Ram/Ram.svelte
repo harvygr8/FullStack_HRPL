@@ -4,15 +4,17 @@
     import Shell from '../../Misc/Shell.svelte';
 
     // Editing Here
-    let ram;
+    let ram, ramChart;
     onMount(() => {
         // Get context of canvas for drawing chart
-        const ctx = document.getElementById('ram-doughnut').getContext('2d');
+        const canvas = document.getElementById('ram-doughnut');
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
         ipcRenderer.send('get-ram-info');
         ipcRenderer.on('get-ram-info', (e, ramInfo) => {
             ram = ramInfo;
             // Create chart for RAM monitor
-            const ramChart = new Chart(ctx , {
+            ramChart = new Chart(ctx , {
                 type: 'doughnut',
                 options: {
                     cutout: '75%',
@@ -39,11 +41,13 @@
                 }
             });
         });
+
+        return () => ramChart.destroy();
     });
 </script>
 
 <Shell title={"Ram Monitor"} tooltip={"Information about RAM"}>
-    <div>
+    <div class="w-4/5 md:w-1/2 mx-auto">
         <canvas id="ram-doughnut"></canvas>
     {#if ram}
         <p class="text-center text-gray-50 text-sm mt-2">Memory in GB</p>

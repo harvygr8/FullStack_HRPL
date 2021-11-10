@@ -5,6 +5,7 @@ const path = require('path');
 const getCpuInfo = require('./Components/System/Cpu/Cpu.js');
 const getCpuTemps = require('./Components/System/CpuTemps/CpuTemps.js');
 const getRamInfo = require('./Components/System/Ram/Ram.js');
+const getGraphicsInfo = require('./Components/System/Graphics/Graphics.js');
 
 // Live Reload
 require('electron-reload')(__dirname, {
@@ -62,3 +63,4 @@ app.on('activate', () => {
 getCpuInfo();
 getCpuTemps();
 getRamInfo();
+getGraphicsInfo();
