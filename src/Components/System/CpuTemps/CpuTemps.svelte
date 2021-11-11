@@ -9,7 +9,7 @@
     });
 </script>
 
-<Shell title={"CPU Temps"} tooltip={"Information about CPU Temparatures"}>
+<Shell title={"CPU TEMPERATURE"} tooltip={"Information about CPU Temparatures"}>
     <div class="text-gray-50">
     {#if cpu}
         <p>Temparature: {cpu.main} &#176;C</p>

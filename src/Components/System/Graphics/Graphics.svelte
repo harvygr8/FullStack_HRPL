@@ -9,13 +9,13 @@
     });
 </script>
 
-<Shell title={"Graphics Info"} tooltip={"Information about the GPU"}>
+<Shell title={"GRAPHIC CARD INFORMATION"} tooltip={"Information about the GPU"}>
     <div class="text-gray-50">
     {#if graphics}
-        <p>Model: {graphics.model}</p>
-        <p>Vendor: {graphics.vendor}</p>
-        <p>Bus: {graphics.bus}</p>
-        <p>VRAM: {(graphics.vram / 1024).toPrecision(3)} GB</p>
+        <p>Model: <span class="font-bold text-lg">{graphics.model}</p>
+        <p>Vendor: <span class="font-bold text-lg">{graphics.vendor}</p>
+        <p>Bus: <span class="font-bold text-lg">{graphics.bus}</p>
+        <p>VRAM: <span class="font-bold text-lg">{(graphics.vram / 1024).toPrecision(3)} GB</p>
     {:else}
         <p>Fetching Required Info...</p>
     {/if}

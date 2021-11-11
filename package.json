@@ -47,9 +47,12 @@
   "dependencies": {
     "electron-reload": "^1.5.0",
     "electron-squirrel-startup": "^1.0.0",
+    "ping": "^0.4.1",
     "sirv-cli": "^0.4.4",
     "svelte-spa-router": "^3.2.0",
-    "systeminformation": "^5.8.7"
+    "systeminformation": "^5.8.7",
+    "whois": "^2.13.7",
+    "whoiser": "^1.13.0"
   },
   "devDependencies": {
     "@electron-forge/cli": "^6.0.0-beta.50",

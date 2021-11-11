@@ -6,6 +6,8 @@ const getCpuInfo = require('./Components/System/Cpu/Cpu.js');
 const getCpuTemps = require('./Components/System/CpuTemps/CpuTemps.js');
 const getRamInfo = require('./Components/System/Ram/Ram.js');
 const getGraphicsInfo = require('./Components/System/Graphics/Graphics.js');
+const getPingInfo = require('./Components/Network/Ping/Ping.js')
+const getWhoisInfo = require('./Components/Network/Whois/Whois.js');
 
 // Live Reload
 require('electron-reload')(__dirname, {
@@ -22,8 +24,10 @@ if (require('electron-squirrel-startup')) {
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    frame:false,
+    width: 1200,
+    height: 820,
+    transparent:true,
     webPreferences: {
       nodeIntegration: true
     }
@@ -33,7 +37,7 @@ const createWindow = () => {
   mainWindow.loadFile(path.join(__dirname, '../public/index.html'));
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  //mainWindow.webContents.openDevTools();
 };
 
 // This method will be called when Electron has finished
@@ -64,3 +68,5 @@ getCpuInfo();
 getCpuTemps();
 getRamInfo();
 getGraphicsInfo();
+getPingInfo();
+getWhoisInfo();

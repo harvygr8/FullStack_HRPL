@@ -7,6 +7,7 @@
     let ram, ramChart;
     onMount(() => {
         // Get context of canvas for drawing chart
+        //document.getElementById( "ram-doughnut" ).remove();
         const canvas = document.getElementById('ram-doughnut');
         const ctx = canvas.getContext('2d');
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -37,16 +38,28 @@
                         hoverOffset: 0,
                         borderColor: '#333',
                         borderWidth: 1
-                    }] 
+                    }]
                 }
             });
         });
 
-        return () => ramChart.destroy();
+        return () => {
+          console.log("HERE");
+          if(ramChart!=null)
+          {
+            //document.getElementById( "ram-doughnut" ).remove();
+            console.log("exec block");
+            ramChart.destroy();
+            console.log("destroyed");
+          }
+          else{
+            console.log("NF");
+          }
+        }
     });
 </script>
 
-<Shell title={"Ram Monitor"} tooltip={"Information about RAM"}>
+<Shell title={"RAM USAGE CHART"} tooltip={"Plots Ram utilization on a doughnut chart"}>
     <div class="w-4/5 md:w-1/2 mx-auto">
         <canvas id="ram-doughnut"></canvas>
     {#if ram}

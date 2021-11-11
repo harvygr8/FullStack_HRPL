@@ -9,12 +9,12 @@
     });
 </script>
 
-<Shell title={"CPU Info"} tooltip={"Information about the CPU"}>
+<Shell title={"CPU INFORMATION"} tooltip={"Information about the CPU"}>
     <div class="text-gray-50">
     {#if cpu}
-        <p>Processor: {cpu.brand}</p>
-        <p>Speed: {cpu.speed} GHz</p>
-        <p>Cores: {cpu.cores}</p>
+        <p>Processor: <span class="font-bold text-lg">{cpu.brand}</span></p>
+        <p>Speed: <span class="font-bold text-lg">{cpu.speed}</span> GHz</p>
+        <p>Cores: <span class="font-bold text-lg">{cpu.cores}</span></p>
     {:else}
         <p>Fetching Required Info...</p>
     {/if}
