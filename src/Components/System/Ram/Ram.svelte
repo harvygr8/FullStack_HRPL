@@ -4,10 +4,9 @@
     import Shell from '../../Misc/Shell.svelte';
 
     // Editing Here
-    let ram, ramChart;
+    let ram;
+    let ramChart;
     onMount(() => {
-        // Get context of canvas for drawing chart
-        //document.getElementById( "ram-doughnut" ).remove();
         const canvas = document.getElementById('ram-doughnut');
         const ctx = canvas.getContext('2d');
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -44,24 +43,14 @@
         });
 
         return () => {
-          console.log("HERE");
-          if(ramChart!=null)
-          {
-            //document.getElementById( "ram-doughnut" ).remove();
-            console.log("exec block");
-            ramChart.destroy();
-            console.log("destroyed");
-          }
-          else{
-            console.log("NF");
-          }
+          chartStatus.destroy();
         }
     });
 </script>
 
 <Shell title={"RAM USAGE CHART"} tooltip={"Plots Ram utilization on a doughnut chart"}>
     <div class="w-4/5 md:w-1/2 mx-auto">
-        <canvas id="ram-doughnut"></canvas>
+        <canvas bind:this={canvas} id="ram-doughnut"></canvas>
     {#if ram}
         <p class="text-center text-gray-50 text-sm mt-2">Memory in GB</p>
             <!-- <p>Total Memory: {String(ram.total / Math.pow(2, 30)).substring(0, 3 + String(ram.total / Math.pow(2, 30)).indexOf('.'))} GB</p>

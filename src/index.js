@@ -3,7 +3,7 @@ const path = require('path');
 
 // Component function imports
 const getCpuInfo = require('./Components/System/Cpu/Cpu.js');
-const getCpuTemps = require('./Components/System/CpuTemps/CpuTemps.js');
+const getCpuTemps = require('./Components/System/OS/OSinfo.js');
 const getRamInfo = require('./Components/System/Ram/Ram.js');
 const getGraphicsInfo = require('./Components/System/Graphics/Graphics.js');
 const getPingInfo = require('./Components/Network/Ping/Ping.js')
@@ -25,7 +25,7 @@ const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     frame:false,
-    width: 1200,
+    width: 1105,
     height: 820,
     transparent:true,
     webPreferences: {

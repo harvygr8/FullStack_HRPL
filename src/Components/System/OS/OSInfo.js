@@ -3,11 +3,13 @@ const si = require('systeminformation');
 
 const getCpuTemps = () => {
     ipcMain.on('get-cpu-temps', e => {
-        si.cpuTemperature()
+        si.osInfo()
         .then(data => {
             const cpuTemps = {
-                main: data.main,
-                max: data.max
+                platform: data.platform,
+                hostname: data.hostname,
+                kernel: data.kernel,
+                fqdn: data.fqdn,
             };
             e.sender.send('get-cpu-temps', cpuTemps);
         })

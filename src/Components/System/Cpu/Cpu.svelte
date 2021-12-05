@@ -15,6 +15,8 @@
         <p>Processor: <span class="font-bold text-lg">{cpu.brand}</span></p>
         <p>Speed: <span class="font-bold text-lg">{cpu.speed}</span> GHz</p>
         <p>Cores: <span class="font-bold text-lg">{cpu.cores}</span></p>
+        <p>Socket: <span class="font-bold text-lg">{cpu.socket}</span></p>
+
     {:else}
         <p>Fetching Required Info...</p>
     {/if}

@@ -9,11 +9,14 @@
     });
 </script>
 
-<Shell title={"CPU TEMPERATURE"} tooltip={"Information about CPU Temparatures"}>
+<Shell title={"OS / ARCH"} tooltip={"Information about CPU Temparatures"}>
     <div class="text-gray-50">
     {#if cpu}
-        <p>Temparature: {cpu.main} &#176;C</p>
-        <p>Max Temparature: {cpu.max} &#176;C</p>
+        <p>Platform Architecture: <span class="font-bold text-lg">{cpu.platform}</p>
+        <p>Hostname: <span class="font-bold text-lg">{cpu.hostname}</p>
+        <p>Kernel: <span class="font-bold text-lg">{cpu.kernel}</p>
+        <p>FQDN: <span class="font-bold text-lg">{cpu.fqdn}</p>
+
     {:else}
         <p>Fetching Required Info...</p>
     {/if}
