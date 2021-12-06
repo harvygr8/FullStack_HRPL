@@ -22,5 +22,6 @@
 <style>
 	:global(*) {
 		font-family: 'Roboto', sans-serif;
+		/* border-radius: 12px; */
 	}
 </style>

@@ -6,10 +6,11 @@
     // Editing Here
     let ram;
     let ramChart;
+
     onMount(() => {
         const canvas = document.getElementById('ram-doughnut');
         const ctx = canvas.getContext('2d');
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        // ctx.clearRect(0, 0, canvas.width, canvas.height);
         ipcRenderer.send('get-ram-info');
         ipcRenderer.on('get-ram-info', (e, ramInfo) => {
             ram = ramInfo;
@@ -43,14 +44,16 @@
         });
 
         return () => {
-          chartStatus.destroy();
+          ramChart.destroy();
+          console.log("Done");
+          //document.getElementById('ram-doughnut').remove();
         }
     });
 </script>
 
 <Shell title={"RAM USAGE CHART"} tooltip={"Plots Ram utilization on a doughnut chart"}>
     <div class="w-4/5 md:w-1/2 mx-auto">
-        <canvas bind:this={canvas} id="ram-doughnut"></canvas>
+        <canvas id="ram-doughnut"></canvas>
     {#if ram}
         <p class="text-center text-gray-50 text-sm mt-2">Memory in GB</p>
             <!-- <p>Total Memory: {String(ram.total / Math.pow(2, 30)).substring(0, 3 + String(ram.total / Math.pow(2, 30)).indexOf('.'))} GB</p>

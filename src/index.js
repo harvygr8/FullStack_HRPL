@@ -28,6 +28,7 @@ const createWindow = () => {
     width: 1105,
     height: 820,
     transparent:true,
+    roundedCorners:true,
     webPreferences: {
       nodeIntegration: true
     }
