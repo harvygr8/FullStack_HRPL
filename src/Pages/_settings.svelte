@@ -7,7 +7,7 @@
 <main class="flex flex-row">
 <Nav />
 
-    <div style="border-radius:0px 16px 16px 0px" class="w-screen h-screen bg-gray-900">
+    <div class="w-screen h-screen bg-gray-900">
     <!-- <NavHorizontal /> -->
         <div class="container mx-auto">
         <TitleBar />

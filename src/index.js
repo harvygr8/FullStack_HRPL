@@ -8,6 +8,8 @@ const getRamInfo = require('./Components/System/Ram/Ram.js');
 const getGraphicsInfo = require('./Components/System/Graphics/Graphics.js');
 const getPingInfo = require('./Components/Network/Ping/Ping.js')
 const getWhoisInfo = require('./Components/Network/Whois/Whois.js');
+const getWifiInfo = require('./Components/Wifi/Info/Info.js');
+
 
 // Live Reload
 require('electron-reload')(__dirname, {
@@ -71,3 +73,4 @@ getRamInfo();
 getGraphicsInfo();
 getPingInfo();
 getWhoisInfo();
+getWifiInfo();

@@ -19,7 +19,7 @@
   }
 </script>
 
-<div style="border-radius:0px 16px 16px 0px" class="bg-gray-900 flex flex-row justify-between">
+<div class="bg-gray-900 flex flex-row justify-between">
   <div class="drag">
     <p class="text-white text-2xl font-bold pt-1 pl-16 pb-1"></p>
   </div>

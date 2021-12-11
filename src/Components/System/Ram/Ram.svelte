@@ -3,18 +3,20 @@
     import { onMount } from 'svelte';
     import Shell from '../../Misc/Shell.svelte';
 
-    // Editing Here
     let ram;
     let ramChart;
 
+    // Editing Here
     onMount(() => {
         const canvas = document.getElementById('ram-doughnut');
         const ctx = canvas.getContext('2d');
-        // ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
         ipcRenderer.send('get-ram-info');
         ipcRenderer.on('get-ram-info', (e, ramInfo) => {
             ram = ramInfo;
             // Create chart for RAM monitor
+            // If chart already exists, destroy it first
+            if (ramChart) ramChart.destroy();
             ramChart = new Chart(ctx , {
                 type: 'doughnut',
                 options: {
@@ -43,24 +45,20 @@
             });
         });
 
+        // onDestroy
         return () => {
-          ramChart.destroy();
-          console.log("Done");
-          //document.getElementById('ram-doughnut').remove();
+            ramChart.destroy();
         }
     });
 </script>
 
 <Shell title={"RAM USAGE CHART"} tooltip={"Plots Ram utilization on a doughnut chart"}>
-    <div class="w-4/5 md:w-1/2 mx-auto">
+    <div class="w-4/5 md:w-1/2 mx-auto" id="canvas-container">
         <canvas id="ram-doughnut"></canvas>
-    {#if ram}
+        {#if ram}
         <p class="text-center text-gray-50 text-sm mt-2">Memory in GB</p>
-            <!-- <p>Total Memory: {String(ram.total / Math.pow(2, 30)).substring(0, 3 + String(ram.total / Math.pow(2, 30)).indexOf('.'))} GB</p>
-            <p>Used Memory: {String(ram.used / Math.pow(2, 30)).substring(0, 3 + String(ram.total / Math.pow(2, 30)).indexOf('.'))} GB</p>
-            <p>Free Memory: {String(ram.free / Math.pow(2, 30)).substring(0, 3 + String(ram.total / Math.pow(2, 30)).indexOf('.'))} GB</p> -->
-    {:else}
+        {:else}
         <p class="text-gray-50">Fetching Required Info...</p>
-    {/if}
+        {/if}
     </div>
 </Shell>

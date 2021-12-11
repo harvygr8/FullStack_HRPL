@@ -2,7 +2,7 @@
     let isVisible = false;
 </script>
 
-<nav style="border-radius:16px 0 0 16px;" class="w-max h-screen p-2 bg-gray-800 text-gray-50">
+<nav class="w-max h-screen p-2 bg-gray-800 text-gray-50">
     <!-- {#if isVisible} -->
         <div class="flex flex-row justify-center">
           <div class="w-auto flex flex-col">
