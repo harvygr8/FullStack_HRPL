@@ -8,7 +8,11 @@ const getRamInfo = require('./Components/System/Ram/Ram.js');
 const getGraphicsInfo = require('./Components/System/Graphics/Graphics.js');
 const getPingInfo = require('./Components/Network/Ping/Ping.js')
 const getWhoisInfo = require('./Components/Network/Whois/Whois.js');
+const getDnsLookup = require('./Components/Network/Dns/Dns.js');
+const getNetworkInterfaces = require('./Components/Network/NetworkInterfaces/NetworkInterfaces.js');
 const getWifiInfo = require('./Components/Wifi/Info/Info.js');
+const getWifiInterfaces = require('./Components/Wifi/Interfaces/Interfaces.js');
+
 
 
 // Live Reload
@@ -74,3 +78,6 @@ getGraphicsInfo();
 getPingInfo();
 getWhoisInfo();
 getWifiInfo();
+getWifiInterfaces();
+getNetworkInterfaces();
+getDnsLookup();

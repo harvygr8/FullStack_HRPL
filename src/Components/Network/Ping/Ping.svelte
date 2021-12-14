@@ -1,18 +1,24 @@
 <script>
+    import { onDestroy } from 'svelte';
     const { ipcRenderer } = require('electron');
     import Shell from '../../Misc/Shell.svelte';
 
-    let ping , name;
+    let ping , name, pingInterval;
 
     function sendData()
     {
-      setInterval(()=>{
+      pingInterval = setInterval(()=>{
         ipcRenderer.send('get-ping-info',name);
         ipcRenderer.on('get-ping-info', (e, pInfo) => {
             ping = pInfo;
         });
-      },1000)
+      },1000);
     }
+
+    onDestroy(() => {
+      console.log('Component Unmounted');
+      clearInterval(pingInterval);
+    });
 </script>
 
 <Shell title={"PING TOOL"} tooltip={"Check PING Timings"}>

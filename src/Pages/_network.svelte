@@ -4,6 +4,8 @@
     import TitleBar from '../Components/Misc/TitleBar.svelte'
     import Ping from '../Components/Network/Ping/Ping.svelte'
     import Whois from '../Components/Network/Whois/Whois.svelte'
+    import NetworkInterfaces from '../Components/Network/NetworkInterfaces/NetworkInterfaces.svelte'
+    import Dns from '../Components/Network/Dns/Dns.svelte'
 </script>
 
 
@@ -17,6 +19,8 @@
             <div class="p-6 grid grid-cols-2 gap-4">
               <Ping />
               <Whois />
+              <NetworkInterfaces />
+              <Dns />
             </div>
         </div>
     </div>

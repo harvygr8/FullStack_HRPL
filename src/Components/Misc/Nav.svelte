@@ -24,7 +24,7 @@
             <!-- <span class ="mb-6" > -->
               <a href="#/network" class="text-center rounded-md p-2 font-bold hover:text-gray-300 m-3 bg-gray-600 text-sm"><i class="fa fa-plug" aria-hidden="true"></i> NETWORK TOOLS</a>
             <!-- <span class ="mb-2"> -->
-            <a href="#/diagnostics" class="text-center rounded-md p-2 font-bold hover:text-gray-300 m-3 bg-gray-600 text-sm"><i class="fa fa-cubes" aria-hidden="true"></i> COLLECTIONS / MISC </a>
+            <a href="#/diagnostics" class="text-center rounded-md p-2 font-bold hover:text-gray-300 m-3 bg-gray-600 text-sm"><i class="fa fa-cubes" aria-hidden="true"></i> DIAGNOSTICS </a>
             <!-- <p class ="mb-2"> -->
             <a href="#/pentesting" class="text-center rounded-md p-2 font-bold hover:text-gray-300 m-3 bg-gray-600 text-sm"><i class="fa fa-terminal" aria-hidden="true"></i> PENTESTING</a>
             <!-- <p class ="mb-2"> -->
