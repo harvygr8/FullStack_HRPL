@@ -12,8 +12,9 @@ const getDnsLookup = require('./Components/Network/Dns/Dns.js');
 const getNetworkInterfaces = require('./Components/Network/NetworkInterfaces/NetworkInterfaces.js');
 const getWifiInfo = require('./Components/Wifi/Info/Info.js');
 const getWifiInterfaces = require('./Components/Wifi/Interfaces/Interfaces.js');
-
-
+const getSslInfo = require('./Components/Diagnostics/SslChecker/SslChecker.js');
+const getNetstatInfo = require('./Components/Diagnostics/Netstat/Netstat.js');
+const getNetworkSpeed = require('./Components/Diagnostics/NetworkSpeed/NetworkSpeed.js');
 
 // Live Reload
 require('electron-reload')(__dirname, {
@@ -81,3 +82,6 @@ getWifiInfo();
 getWifiInterfaces();
 getNetworkInterfaces();
 getDnsLookup();
+getSslInfo();
+getNetstatInfo();
+getNetworkSpeed();
