@@ -3,7 +3,7 @@ const path = require('path');
 
 // Component function imports
 const getCpuInfo = require('./Components/System/Cpu/Cpu.js');
-const getCpuTemps = require('./Components/System/OS/OSinfo.js');
+const getOsTemps = require('./Components/System/OS/OSinfo.js');
 const getRamInfo = require('./Components/System/Ram/Ram.js');
 const getGraphicsInfo = require('./Components/System/Graphics/Graphics.js');
 const getPingInfo = require('./Components/Network/Ping/Ping.js')
@@ -15,6 +15,7 @@ const getWifiInterfaces = require('./Components/Wifi/Interfaces/Interfaces.js');
 const getSslInfo = require('./Components/Diagnostics/SslChecker/SslChecker.js');
 const getNetstatInfo = require('./Components/Diagnostics/Netstat/Netstat.js');
 const getNetworkSpeed = require('./Components/Diagnostics/NetworkSpeed/NetworkSpeed.js');
+const getOsInfo = require('./Components/System/OS/OSinfo.js');
 
 // Live Reload
 require('electron-reload')(__dirname, {
@@ -73,7 +74,7 @@ app.on('activate', () => {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
 getCpuInfo();
-getCpuTemps();
+getOsInfo();
 getRamInfo();
 getGraphicsInfo();
 getPingInfo();

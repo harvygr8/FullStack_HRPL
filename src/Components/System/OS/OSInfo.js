@@ -1,20 +1,20 @@
 const { ipcMain } = require('electron');
 const si = require('systeminformation');
 
-const getCpuTemps = () => {
-    ipcMain.on('get-cpu-temps', e => {
+const getOsInfo = () => {
+    ipcMain.on('get-os-info', e => {
         si.osInfo()
         .then(data => {
-            const cpuTemps = {
+            const osInfo = {
                 platform: data.platform,
                 hostname: data.hostname,
                 kernel: data.kernel,
                 fqdn: data.fqdn,
             };
-            e.sender.send('get-cpu-temps', cpuTemps);
+            e.sender.send('get-os-info', osInfo);
         })
         .catch(err => console.log(err));
     });
 }
 
-module.exports = getCpuTemps;
+module.exports = getOsInfo;

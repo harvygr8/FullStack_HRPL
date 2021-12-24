@@ -8,7 +8,7 @@ const getCpuInfo = () => {
             const cpuInfo = {
                 brand: data.brand,
                 speed: data.speed,
-                cores: data.cores,
+                cores: data.cores.toPrecision(2),
                 socket: data.socket,
             };
             e.sender.send('get-cpu-info', cpuInfo);

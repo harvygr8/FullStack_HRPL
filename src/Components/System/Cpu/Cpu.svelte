@@ -1,6 +1,7 @@
 <script>
     const { ipcRenderer } = require('electron');
     import Shell from '../../Misc/Shell.svelte';
+    import { settings } from '../../../Stores/settingsStore';
 
     let cpu;
     ipcRenderer.send('get-cpu-info');
@@ -9,16 +10,60 @@
     });
 </script>
 
-<Shell title={"CPU INFORMATION"} tooltip={"Information about the CPU"}>
-    <div class="text-gray-50">
+<Shell 
+    title={"Cpu Information"} 
+    tooltip={"General information about the CPU"}
+>
     {#if cpu}
-        <p>Processor: <span class="font-bold text-lg">{cpu.brand}</span></p>
-        <p>Speed: <span class="font-bold text-lg">{cpu.speed}</span> GHz</p>
-        <p>Cores: <span class="font-bold text-lg">{cpu.cores}</span></p>
-        <p>Socket: <span class="font-bold text-lg">{cpu.socket}</span></p>
-
-    {:else}
-        <p>Fetching Required Info...</p>
-    {/if}
+    <div class="grid grid-cols-2 gap-x-2 gap-y-6">
+        <p class="flex flex-col justify-start items-center">
+            <span 
+                class="text-sm pb-1"
+                style="color: {$settings.fontColor2}"
+            >
+                Processor
+            </span>
+            <span class="font-medium text-lg">
+                {cpu.brand}
+            </span>
+        </p>
+        <p class="flex flex-col justify-start items-center">
+            <span 
+                class="text-sm pb-1"
+                style="color: {$settings.fontColor2}"
+            >
+                Speed
+            </span>
+            <span class="font-medium text-lg">
+                {cpu.speed} GHz
+            </span>
+        </p>
+        <p class="flex flex-col justify-start items-center">
+            <span 
+                class="text-sm pb-1"
+                style="color: {$settings.fontColor2}"
+            >
+                Cores
+            </span>
+            <span class="font-medium text-lg">
+                {cpu.cores}
+            </span>
+        </p>
+        <p class="flex flex-col justify-start items-center">
+            <span 
+                class="text-sm pb-1"
+                style="color: {$settings.fontColor2}"
+            >
+                Socket
+            </span>
+            <span class="font-medium text-lg">
+                {cpu.socket}
+            </span>
+        </p>
     </div>
+    {:else}
+        <p>
+            Fetching Required Info...
+        </p>
+    {/if}
 </Shell>

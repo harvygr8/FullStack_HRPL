@@ -1,42 +1,30 @@
 <script>
-  const { remote } = require('electron');
-
-  let window = remote.getCurrentWindow();
-
-  // Minimize the application
-  function minimizeWindow() {
-    window.minimize();
-  }
-
-  // Maximize the application
-  function maximizeWindow() {
-    window.maximize();
-  }
-
-  // Quit the application
-  function closeWindow() {
-    window.close();
-  }
+    import { settings } from '../../Stores/settingsStore';
+    
+    const { remote } = require("electron");
+    const window = remote.getCurrentWindow();
 </script>
 
-<div class="bg-gray-900 flex flex-row justify-between">
-  <div class="drag">
-    <p class="text-white text-2xl font-bold pt-1 pl-16 pb-1"></p>
-  </div>
-  <div class="drag">
-    <p class="text-white text-2xl font-bold pt-2 pl-6 pb-1">NEURON</p>
-  </div>
-  <div class="p-2">
-    <!-- Buttons need to be fixed! -->
-    <button type="button" on:click={minimizeWindow} class="links mx-2 text-white hover:text-blue-700 fa fa-window-minimize" aria-hidden="true"></button>
-    <button type="button" on:click={maximizeWindow} class="links mx-2 text-white hover:text-blue-700 fa fa-window-maximize" aria-hidden="true"></button>
-    <button type="button" on:click={closeWindow} class="links mx-2 text-white hover:text-blue-700 fa fa-times" aria-hidden="true"></button>
-  </div>
+<div 
+    class="flex flex-row justify-between items-center my-2" 
+    style="color: {$settings.fontColor2}"
+>
+    <div class="drag" />
+    <div class="drag">
+        <h1 class="text-xl">
+            Neuron
+        </h1>
+    </div>
+    <div class="flex flex-row justify-center items-center text-md">
+        <button on:click={() => window.minimize()} class="fa fa-window-minimize " />    
+        <button on:click={() => window.maximize()} class="fa fa-window-maximize mx-6" />    
+        <button on:click={() => window.close()} class="fa fa-times mr-4" />    
+    </div>
 </div>
 
 <style>
-.drag {
-  -webkit-user-select: none;
-  -webkit-app-region: drag;
-}
+    .drag {
+        -webkit-user-select: none;
+        -webkit-app-region: drag;
+    }
 </style>

@@ -3,9 +3,9 @@
 	import Main from './Pages/_main.svelte';
 	import Network from './Pages/_network.svelte';
 	import Diagnostics from './Pages/_diagnostics.svelte';
-	import Pentesting from './Pages/_pentesting.svelte';
 	import Wifi from './Pages/_wifi.svelte';
 	import System from './Pages/_system.svelte';
+	import Api from './Pages/_api.svelte';
 	import Settings from './Pages/_settings.svelte';
 </script>
 
@@ -13,15 +13,14 @@
 	'/': Main,
 	'/network': Network,
 	'/diagnostics': Diagnostics,
-	'/pentesting': Pentesting,
 	'/wifi': Wifi,
 	'/system': System,
+	'/api': Api,
 	'/settings': Settings
 }} />
 
 <style>
-	:global(*) {
+	/* :global(*) {
 		font-family: 'Roboto', sans-serif;
-		/* border-radius: 12px; */
-	}
+	} */
 </style>

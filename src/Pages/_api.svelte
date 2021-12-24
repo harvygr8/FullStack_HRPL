@@ -3,7 +3,7 @@
 </script>
 
 <Page>
-    <div class="grid grid-cols-2 gap-4">
+    <div>
         
     </div>
 </Page>

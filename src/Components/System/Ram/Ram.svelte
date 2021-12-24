@@ -2,6 +2,7 @@
     const { ipcRenderer } = require('electron');
     import { onMount } from 'svelte';
     import Shell from '../../Misc/Shell.svelte';
+    import { settings } from '../../../Stores/settingsStore';
 
     let ram;
     let ramChart;
@@ -52,13 +53,23 @@
     });
 </script>
 
-<Shell title={"RAM USAGE CHART"} tooltip={"Plots Ram utilization on a doughnut chart"}>
-    <div class="w-4/5 md:w-1/2 mx-auto" id="canvas-container">
-        <canvas id="ram-doughnut"></canvas>
+<Shell 
+    title={"Memory Usage Chart"} 
+    tooltip={"Plots ram utilization on a doughnut chart"}
+>
+    <div 
+        class="w-4/5 md:w-1/2 mx-auto" 
+        id="canvas-container"
+    >
+        <canvas id="ram-doughnut" />
         {#if ram}
-        <p class="text-center text-gray-50 text-sm mt-2">Memory in GB</p>
+        <p class="text-center text-sm mt-2">
+            Memory in GB
+        </p>
         {:else}
-        <p class="text-gray-50">Fetching Required Info...</p>
+        <p>
+            Fetching Required Info...
+        </p>
         {/if}
     </div>
 </Shell>

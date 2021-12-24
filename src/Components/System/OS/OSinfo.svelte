@@ -1,24 +1,69 @@
 <script>
     const { ipcRenderer } = require('electron');
     import Shell from '../../Misc/Shell.svelte';
+    import { settings } from '../../../Stores/settingsStore';
 
-    let cpu;
-    ipcRenderer.send('get-cpu-temps');
-    ipcRenderer.on('get-cpu-temps', (e, cpuTemps) => {
-        cpu = cpuTemps;
+    let os;
+    ipcRenderer.send('get-os-info');
+    ipcRenderer.on('get-os-info', (e, osInfo) => {
+        os = osInfo;
     });
 </script>
 
-<Shell title={"OS / ARCH"} tooltip={"Information about CPU Temparatures"}>
-    <div class="text-gray-50">
-    {#if cpu}
-        <p>Platform Architecture: <span class="font-bold text-lg">{cpu.platform}</p>
-        <p>Hostname: <span class="font-bold text-lg">{cpu.hostname}</p>
-        <p>Kernel: <span class="font-bold text-lg">{cpu.kernel}</p>
-        <p>FQDN: <span class="font-bold text-lg">{cpu.fqdn}</p>
-
-    {:else}
-        <p>Fetching Required Info...</p>
-    {/if}
+<Shell 
+    title={"Operating System"} 
+    tooltip={"Information regarding operating system"}
+>
+    {#if os}
+    <div class="grid grid-cols-2 gap-x-2 gap-y-6">
+        <p class="flex flex-col justify-start items-center">
+            <span 
+                class="text-sm pb-1"
+                style="color: {$settings.fontColor2}"
+            >
+                Platform
+            </span>
+            <span class="font-medium text-lg">
+                {os.platform}
+            </span>
+        </p>
+        <p class="flex flex-col justify-start items-center">
+            <span 
+                class="text-sm pb-1"
+                style="color: {$settings.fontColor2}"
+            >
+                Host Name
+            </span>
+            <span class="font-medium text-lg">
+                {os.hostname}
+            </span>
+        </p>
+        <p class="flex flex-col justify-start items-center">
+            <span 
+                class="text-sm pb-1"
+                style="color: {$settings.fontColor2}"
+            >
+                Kernel
+            </span>
+            <span class="font-medium text-lg">
+                {os.kernel}
+            </span>
+        </p>
+        <p class="flex flex-col justify-start items-center">
+            <span 
+                class="text-sm pb-1"
+                style="color: {$settings.fontColor2}"
+            >
+                FQDN
+            </span>
+            <span class="font-medium text-lg">
+                {os.fqdn}
+            </span>
+        </p>
     </div>
+    {:else}
+        <p>
+            Fetching Required Info...
+        </p>
+    {/if}
 </Shell>

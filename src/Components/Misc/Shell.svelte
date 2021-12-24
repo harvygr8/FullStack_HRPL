@@ -1,18 +1,28 @@
 <script>
+    import { settings } from '../../Stores/settingsStore';
+
     export let title = 'Title';
     export let tooltip = 'This is a shell component';
 </script>
 
-<div class="rounded-md shadow-md bg-gray-700 p-2">
-    <div class="flex flex-row justify-between mb-1">
-        <h2 class="text-md text-gray-50 font-bold">{title}</h2>
-        <span class="ml-2 fas fa-info-circle text-gray-50 hover:text-gray-300 cursor-pointer" title="{tooltip}">
-        </span>
+<div 
+    class="rounded-sm shadow-md p-2 " 
+    style="background-color: {$settings.bgColor2}; color: {$settings.fontColor1}"
+>
+    <div class="flex flex-row justify-between items-center">
+        <h3 
+            class="text-2xl font-medium" 
+            style="color: {$settings.fontColor2};"
+        >
+            {title}
+        </h3>
+        <span 
+            class="ml-2 fas fa-info-circle cursor-pointer" 
+            title="{tooltip}" 
+        />
     </div>
-    <hr class="mt-2">
-    <div class="flex flex-row text-gray-50 mt-2">
-        <slot>
-            <p>Component Body</p>
-        </slot>
+    <hr class="my-2">
+    <div>
+        <slot />
     </div>
 </div>

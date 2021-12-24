@@ -11,9 +11,7 @@ const getGraphicsInfo = () => {
                 bus: data.controllers[0].bus,
                 vram: data.controllers[0].vram,
                 connection: data.displays[0].connection,
-                display: data.displays[0].model,
-
-
+                display: data.displays[0].model
             };
             e.sender.send('get-graphics-info', graphicsInfo);
         })

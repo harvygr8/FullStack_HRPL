@@ -1,6 +1,7 @@
 <script>
     const { ipcRenderer } = require('electron');
     import Shell from '../../Misc/Shell.svelte';
+    import { settings } from '../../../Stores/settingsStore';
 
     let graphics;
     ipcRenderer.send('get-graphics-info');
@@ -9,19 +10,83 @@
     });
 </script>
 
-<Shell title={"GRAPHIC CARD INFORMATION"} tooltip={"Information about the GPU"}>
-    <div class="text-gray-50">
+<Shell 
+    title={"Graphics Card Details"} 
+    tooltip={"Information about the GPU"}
+>
     {#if graphics}
-        <p>Model: <span class="font-bold text-lg">{graphics.model}</p>
-        <p>Vendor: <span class="font-bold text-lg">{graphics.vendor}</p>
-        <p>Bus: <span class="font-bold text-lg">{graphics.bus}</p>
-        <p>VRAM: <span class="font-bold text-lg">{(graphics.vram / 1024).toPrecision(3)} GB</p>
-        <p>Connection Type: <span class="font-bold text-lg">{graphics.connection}</p>
-        <p>Display Model: <span class="font-bold text-lg">{graphics.display}</p>
-
-
-    {:else}
-        <p>Fetching Required Info...</p>
-    {/if}
+    <div class="grid grid-cols-2 gap-x-2 gap-y-6">
+        <p class="flex flex-col justify-start items-center">
+            <span 
+                class="text-sm pb-1"
+                style="color: {$settings.fontColor2}"
+            >
+                Model
+            </span>
+            <span class="font-medium text-lg">
+                {graphics.model}
+            </span>
+        </p>
+        <p class="flex flex-col justify-start items-center">
+            <span 
+                class="text-sm pb-1"
+                style="color: {$settings.fontColor2}"
+            >
+                Vendor
+            </span>
+            <span class="font-medium text-lg">
+                {graphics.vendor}
+            </span>
+        </p>
+        <p class="flex flex-col justify-start items-center">
+            <span 
+                class="text-sm pb-1"
+                style="color: {$settings.fontColor2}"
+            >
+                Bus
+            </span>
+            <span class="font-medium text-lg">
+                {graphics.bus}
+            </span>
+        </p>
+        <p class="flex flex-col justify-start items-center">
+            <span 
+                class="text-sm pb-1"
+                style="color: {$settings.fontColor2}"
+            >
+                VRAM
+            </span>
+            <span class="font-medium text-lg">
+                {(graphics.vram / 1024).toPrecision(3)}
+            </span>
+        </p>
+        <p class="flex flex-col justify-start items-center">
+            <span 
+                class="text-sm pb-1"
+                style="color: {$settings.fontColor2}"
+            >
+                Connection
+            </span>
+            <span class="font-medium text-lg">
+                {graphics.connection}
+            </span>
+        </p>
+        <p class="flex flex-col justify-start items-center">
+            <span 
+                class="text-sm pb-1"
+                style="color: {$settings.fontColor2}"
+            >
+                Display Model
+            </span>
+            <span class="font-medium text-lg">
+                {graphics.display}
+            </span>
+        </p>
     </div>
+    {:else}
+        <p>
+            Fetching Required Info...
+        </p>
+    {/if}
+    
 </Shell>
