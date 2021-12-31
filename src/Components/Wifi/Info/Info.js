@@ -7,7 +7,7 @@ const getWifiInfo = () => {
         .then(data => {
             const wifiInfo = data.map(item => {
                 return {
-                    ssid: item.ssid,
+                    ssid: item.ssid ? item.ssid : "Unknown",
                     bssid: item.bssid,
                     mode: item.mode,
                     channel: item.channel,

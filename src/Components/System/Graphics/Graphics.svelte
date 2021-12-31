@@ -1,7 +1,12 @@
 <script>
-    const { ipcRenderer } = require('electron');
+    //Svelte
     import Shell from '../../Misc/Shell.svelte';
+    import Loader from '../../Misc/Loader.svelte'
     import { settings } from '../../../Stores/settingsStore';
+
+    //Electron
+    const { ipcRenderer } = require('electron');
+
 
     let graphics;
     ipcRenderer.send('get-graphics-info');
@@ -10,83 +15,27 @@
     });
 </script>
 
-<Shell 
-    title={"Graphics Card Details"} 
-    tooltip={"Information about the GPU"}
+<Shell
+    title={"GRAPHIC CARD DETAILS"}
+    tooltip={"Information about the Primary Graphics Driver"}
 >
     {#if graphics}
-    <div class="grid grid-cols-2 gap-x-2 gap-y-6">
-        <p class="flex flex-col justify-start items-center">
-            <span 
-                class="text-sm pb-1"
-                style="color: {$settings.fontColor2}"
-            >
-                Model
-            </span>
-            <span class="font-medium text-lg">
-                {graphics.model}
-            </span>
-        </p>
-        <p class="flex flex-col justify-start items-center">
-            <span 
-                class="text-sm pb-1"
-                style="color: {$settings.fontColor2}"
-            >
-                Vendor
-            </span>
-            <span class="font-medium text-lg">
-                {graphics.vendor}
-            </span>
-        </p>
-        <p class="flex flex-col justify-start items-center">
-            <span 
-                class="text-sm pb-1"
-                style="color: {$settings.fontColor2}"
-            >
-                Bus
-            </span>
-            <span class="font-medium text-lg">
-                {graphics.bus}
-            </span>
-        </p>
-        <p class="flex flex-col justify-start items-center">
-            <span 
-                class="text-sm pb-1"
-                style="color: {$settings.fontColor2}"
-            >
-                VRAM
-            </span>
-            <span class="font-medium text-lg">
-                {(graphics.vram / 1024).toPrecision(3)}
-            </span>
-        </p>
-        <p class="flex flex-col justify-start items-center">
-            <span 
-                class="text-sm pb-1"
-                style="color: {$settings.fontColor2}"
-            >
-                Connection
-            </span>
-            <span class="font-medium text-lg">
-                {graphics.connection}
-            </span>
-        </p>
-        <p class="flex flex-col justify-start items-center">
-            <span 
-                class="text-sm pb-1"
-                style="color: {$settings.fontColor2}"
-            >
-                Display Model
-            </span>
-            <span class="font-medium text-lg">
-                {graphics.display}
-            </span>
-        </p>
+    <div class="pl-2 flex flex-col items-start text-gray-50">
+        <p>&#8226; Model:<span class="ml-2 font-bold text-lg" style="color: {$settings.fontColor2}">{graphics.model}</span> </p>
+        <p>&#8226; Vendor:<span class="ml-2 font-bold text-lg" style="color: {$settings.fontColor2}">{graphics.vendor}</span></p>
+        <p>&#8226; Bus:<span class="ml-2 font-bold text-lg" style="color: {$settings.fontColor2}">{graphics.bus}</span></p>
+        <p>&#8226; VRAM:<span class="ml-2 font-bold text-lg" style="color: {$settings.fontColor2}">{graphics.vram}</span></p>
+        <p>&#8226; Connection:<span class="ml-2 font-bold text-lg" style="color: {$settings.fontColor2}">{graphics.connection}</span></p>
+        <p>&#8226; Display Model:<span class="ml-2 font-bold text-lg" style="color: {$settings.fontColor2}">{graphics.display}</span></p>
+        <p>&#8226; Refresh Rate:<span class="ml-2 font-bold text-lg" style="color: {$settings.fontColor2}">{graphics.refresh} Hz</span></p>
+        <p>&#8226; Resolution(X):<span class="ml-2 font-bold text-lg" style="color: {$settings.fontColor2}">{graphics.resx}</span></p>
+        <p>&#8226; Resolution(Y):<span class="ml-2 font-bold text-lg" style="color: {$settings.fontColor2}">{graphics.resy}</span></p>
+
     </div>
     {:else}
-        <p>
-            Fetching Required Info...
-        </p>
+    <div class="flex flex-row justify-center">
+      <Loader />
+    </div>
     {/if}
-    
+
 </Shell>

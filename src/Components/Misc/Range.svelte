@@ -3,7 +3,7 @@
     export let length = 0;
 </script>
 
-<div class="w-full rounded-md bg-gray-200 h-4">
+<div class="w-6/12 rounded-md bg-gray-200 h-4">
     <div style="width: {length}%;" class="h-full rounded-sm {color}" />
 </div>
 

@@ -1,35 +1,50 @@
 <script>
-    const { ipcRenderer } = require('electron');
+
+    //Svelte
     import Shell from '../../Misc/Shell.svelte';
 
+    //Electron
+    const { ipcRenderer } = require('electron');
+
+
     let ssl, host = '';
-    
+
     const getSslInfo = () => {
         ipcRenderer.send('get-ssl-info', host);
         ipcRenderer.on('get-ssl-info', (e, sslInfo) => {
             ssl = sslInfo;
         });
-        host = '';
+        // host = '';
     }
 </script>
 
 <Shell title={"SSL CHECKER"} tooltip={"SSL Certificate checker"}>
     <div class="text-gray-50">
         <div class="flex flex-row">
-            <input class="text-black" type="text" bind:value={host} placeholder="Domain Name">
-            <button on:click={getSslInfo} type="button">Search</button>
+            <input type="text" placeholder="Enter Domain Name" bind:value={host} class="w-10/12 rounded-md m-2 px-1 text-gray-800 font-bold">
+            <button type="button" on:click={getSslInfo} class="text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600">SEARCH</button>
+            <!-- <input class="text-black" type="text" bind:value={host} placeholder="Domain Name">
+            <button on:click={getSslInfo} type="button">Search</button> -->
         </div>
         <div>
             {#if ssl}
                 {#if !ssl.err}
-                    <p>Days Left: <span class="font-bold text-lg">{ssl.daysRemaining}</span></p>
-                    <p>Valid: <span class="font-bold text-lg">{ssl.valid}</span></p>
-                    <p>Valid From: <span class="font-bold text-lg">{ssl.validFrom.substring(0, 10)}</span></p>
-                    <p>Valid To: <span class="font-bold text-lg">{ssl.validTo.substring(0, 10)}</span></p>
-                    <p>Valid For: <span class="font-bold text-lg">{ssl.validFor[0]}</span></p>
+                    <p class="pt-2 ">&#8226; Days Left</p>
+                      <span class="ml-4 font-bold text-lg">{ssl.daysRemaining}</span>
+                    <p class="">&#8226; Valid From</p>
+                      <span class="ml-4 font-bold text-lg">{ssl.validFrom.substring(0, 10)}</span>
+                    <p class="">&#8226; Valid To</p>
+                      <span class="ml-4 font-bold text-lg">{ssl.validTo.substring(0, 10)}</span>
                 {:else}
                     <p><span class="font-bold text-lg">Error: SSL certificate couldn't be found</span></p>
                 {/if}
+            {:else}
+              <p class="pt-2">&#8226; Days Left</p>
+                <span class="ml-4 font-bold text-lg">N/A</span>
+              <p class="">&#8226; Valid From</p>
+                <span class="ml-4 font-bold text-lg">N/A</span>
+              <p class="">&#8226; Valid To</p>
+                <span class="ml-4 font-bold text-lg">N/A</span>
             {/if}
         </div>
     </div>

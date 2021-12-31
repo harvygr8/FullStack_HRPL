@@ -1,21 +1,24 @@
+//Core Electron imports
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
 
 // Component function imports
-const getCpuInfo = require('./Components/System/Cpu/Cpu.js');
-const getOsTemps = require('./Components/System/OS/OSinfo.js');
+const {getCpuInfo , getCpuSpeed} = require('./Components/System/Cpu/Cpu.js');
+const getCpuUsage = require('./Components/System/Usage/Usage.js');
+const getDiskUsage = require('./Components/System/Disk/Disk.js');
 const getRamInfo = require('./Components/System/Ram/Ram.js');
 const getGraphicsInfo = require('./Components/System/Graphics/Graphics.js');
 const getPingInfo = require('./Components/Network/Ping/Ping.js')
 const getWhoisInfo = require('./Components/Network/Whois/Whois.js');
 const getDnsLookup = require('./Components/Network/Dns/Dns.js');
 const getNetworkInterfaces = require('./Components/Network/NetworkInterfaces/NetworkInterfaces.js');
+const getOpenPorts = require('./Components/Network/Ports/Ports.js')
 const getWifiInfo = require('./Components/Wifi/Info/Info.js');
 const getWifiInterfaces = require('./Components/Wifi/Interfaces/Interfaces.js');
 const getSslInfo = require('./Components/Diagnostics/SslChecker/SslChecker.js');
 const getNetstatInfo = require('./Components/Diagnostics/Netstat/Netstat.js');
 const getNetworkSpeed = require('./Components/Diagnostics/NetworkSpeed/NetworkSpeed.js');
-const getOsInfo = require('./Components/System/OS/OSinfo.js');
+const getOsInfo = require('./Components/System/OS/OSInfo.js');
 
 // Live Reload
 require('electron-reload')(__dirname, {
@@ -33,8 +36,8 @@ const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     frame:false,
-    width: 1105,
-    height: 820,
+    width: 1205,
+    height: 950,
     transparent:true,
     roundedCorners:true,
     webPreferences: {
@@ -73,7 +76,11 @@ app.on('activate', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
+
+getDiskUsage();
 getCpuInfo();
+getCpuSpeed();
+getCpuUsage();
 getOsInfo();
 getRamInfo();
 getGraphicsInfo();
@@ -82,6 +89,7 @@ getWhoisInfo();
 getWifiInfo();
 getWifiInterfaces();
 getNetworkInterfaces();
+getOpenPorts();
 getDnsLookup();
 getSslInfo();
 getNetstatInfo();

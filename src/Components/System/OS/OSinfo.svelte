@@ -1,7 +1,13 @@
 <script>
-    const { ipcRenderer } = require('electron');
+
+    //Svelte
     import Shell from '../../Misc/Shell.svelte';
+    import Loader from '../../Misc/Loader.svelte'
     import { settings } from '../../../Stores/settingsStore';
+
+    //Electron
+    const { ipcRenderer } = require('electron');
+
 
     let os;
     ipcRenderer.send('get-os-info');
@@ -10,60 +16,23 @@
     });
 </script>
 
-<Shell 
-    title={"Operating System"} 
-    tooltip={"Information regarding operating system"}
+<Shell
+    title={"OPERATING SYSTEM"}
+    tooltip={"Information about the operating system"}
 >
     {#if os}
-    <div class="grid grid-cols-2 gap-x-2 gap-y-6">
-        <p class="flex flex-col justify-start items-center">
-            <span 
-                class="text-sm pb-1"
-                style="color: {$settings.fontColor2}"
-            >
-                Platform
-            </span>
-            <span class="font-medium text-lg">
-                {os.platform}
-            </span>
-        </p>
-        <p class="flex flex-col justify-start items-center">
-            <span 
-                class="text-sm pb-1"
-                style="color: {$settings.fontColor2}"
-            >
-                Host Name
-            </span>
-            <span class="font-medium text-lg">
-                {os.hostname}
-            </span>
-        </p>
-        <p class="flex flex-col justify-start items-center">
-            <span 
-                class="text-sm pb-1"
-                style="color: {$settings.fontColor2}"
-            >
-                Kernel
-            </span>
-            <span class="font-medium text-lg">
-                {os.kernel}
-            </span>
-        </p>
-        <p class="flex flex-col justify-start items-center">
-            <span 
-                class="text-sm pb-1"
-                style="color: {$settings.fontColor2}"
-            >
-                FQDN
-            </span>
-            <span class="font-medium text-lg">
-                {os.fqdn}
-            </span>
-        </p>
+    <div class="pl-2 flex flex-col items-start text-gray-50">
+        <p>&#8226; Platform:<span class="ml-2 font-bold text-lg" style="color: {$settings.fontColor2}">{os.platform}</span> </p>
+        <p>&#8226; Hostname:<span class="ml-2 font-bold text-lg" style="color: {$settings.fontColor2}">{os.hostname}</span></p>
+
+        <p>&#8226; Kernel:<span class="ml-2 font-bold text-lg" style="color: {$settings.fontColor2}">{os.kernel}</span></p>
+
+        <p>&#8226; Architecture:<span class="ml-2 font-bold text-lg" style="color: {$settings.fontColor2}">{os.arch}</span></p>
+
     </div>
     {:else}
-        <p>
-            Fetching Required Info...
-        </p>
+      <div class="flex flex-row justify-center">
+      <Loader />
+      </div>
     {/if}
 </Shell>

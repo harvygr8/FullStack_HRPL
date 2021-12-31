@@ -1,26 +1,35 @@
 <script>
+
+    //Svelte
     import { settings } from '../../Stores/settingsStore';
-    
+
+    //Electron
     const { remote } = require("electron");
     const window = remote.getCurrentWindow();
+
+    //Exports
+    export let currPage="Home";
 </script>
 
-<div 
-    class="flex flex-row justify-between items-center my-2" 
+<div
+    class="flex flex-row justify-between my-2"
     style="color: {$settings.fontColor2}"
 >
-    <div class="drag" />
-    <div class="drag">
-        <h1 class="text-xl">
-            Neuron
+    <!-- <div class="drag" />
+    <div class="drag"> -->
+        <h1 class="mt-1 text-2xl ml-10 font-medium">
+        Dashboard / <span style="background-color:{$settings.bgColor}" class="pl-2 pr-2 pb-1 rounded-md">{currPage}</span>
         </h1>
-    </div>
+            <!-- NEURON -->
+    <!-- </div> -->
     <div class="flex flex-row justify-center items-center text-md">
-        <button on:click={() => window.minimize()} class="fa fa-window-minimize " />    
-        <button on:click={() => window.maximize()} class="fa fa-window-maximize mx-6" />    
-        <button on:click={() => window.close()} class="fa fa-times mr-4" />    
+        <button on:click={() => window.minimize()} class="fa fa-window-minimize " />
+        <button on:click={() => window.maximize()} class="fa fa-window-maximize mx-6" />
+        <button on:click={() => window.close()} class="fa fa-times mr-4" />
     </div>
 </div>
+<!-- <hr class="mt-2 w-full"> -->
+
 
 <style>
     .drag {

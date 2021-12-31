@@ -1,10 +1,15 @@
+//Svelte
 import { writable } from "svelte/store";
 
+//Export
 export const settings = writable({
-    username: localStorage.username ? localStorage.username : 'User',
+    username: localStorage.username ? localStorage.username : 'Admin',
     bgColor1 : localStorage.bgColor1 ? localStorage.bgColor1 : '#111827',
-    bgColor2 : localStorage.bgColor2 ? localStorage.bgColor2 : '#3C0A64',
+    bgColor2 : localStorage.bgColor2 ? localStorage.bgColor2 : '#1F2937',
     fontColor1 : localStorage.fontColor1 ? localStorage.fontColor1 : '#ffffff',
-    fontColor2 : localStorage.fontColor1 ? localStorage.fontColor2 : '#f0f0f0',
+    fontColor2 : localStorage.fontColor2 ? localStorage.fontColor2 : '#f0f0f0',
+    shellColor : localStorage.linkColor ? localStorage.shellColor : '#374151',
+    linkColor : localStorage.linkColor ? localStorage.linkColor : '#374151',
+    miscColor : localStorage.miscColor ? localStorage.miscColor : '#8B5CF6',
     font : localStorage.font ? localStorage.font : ''
 });

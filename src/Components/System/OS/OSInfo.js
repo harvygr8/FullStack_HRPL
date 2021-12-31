@@ -6,10 +6,10 @@ const getOsInfo = () => {
         si.osInfo()
         .then(data => {
             const osInfo = {
-                platform: data.platform,
+                platform: data.distro,
                 hostname: data.hostname,
                 kernel: data.kernel,
-                fqdn: data.fqdn,
+                arch: data.arch,
             };
             e.sender.send('get-os-info', osInfo);
         })

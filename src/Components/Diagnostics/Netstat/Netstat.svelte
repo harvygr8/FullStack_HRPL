@@ -1,6 +1,11 @@
 <script>
-    const { ipcRenderer } = require('electron');
+
+    //Svelte
     import Shell from '../../Misc/Shell.svelte';
+
+    //Electron
+    const { ipcRenderer } = require('electron');
+
 
     let netstat;
 

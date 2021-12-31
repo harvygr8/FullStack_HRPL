@@ -1,32 +1,44 @@
 <script>
-    const { ipcRenderer } = require('electron');
+
+    //Svelte
     import Shell from '../../Misc/Shell.svelte';
 
+    //Electron
+    const { ipcRenderer } = require('electron');
+
+
     let dns, value = '';
-    
+
     const getDnsInfo = () => {
         ipcRenderer.send('get-dns-lookup', value);
         ipcRenderer.on('get-dns-lookup', (e, dnsInfo) => {
             dns = dnsInfo;
         });
-        value = '';
+        // value = '';
     }
 </script>
 
 <Shell title={"DNS LOOKUP"} tooltip={"DNS Lookup"}>
     <div class="text-gray-50">
         <div class="flex flex-row">
-            <input class="text-black" type="text" bind:value placeholder="Domain Name">
-            <button on:click={getDnsInfo} type="button">Search</button>
+        <input type="text" placeholder="Enter Domain Name" bind:value class="w-10/12 rounded-md m-2 px-1 text-gray-800 font-bold">
+            <button on:click={getDnsInfo} class="text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600" type="button">SEARCH</button>
         </div>
-        <div>
+        <div class="mt-2">
             {#if dns}
                 {#if !dns.err}
-                    <p>IP Address: <span class="font-bold text-lg">{dns.address}</span></p>
-                    <p>Family: <span class="font-bold text-lg">{dns.family}</span></p>
+                    <p>&#8226; IP Address</p>
+                      <span class="ml-8 font-bold text-lg">{dns.address}</span>
+                    <p>&#8226; Family</p>
+                      <span class="ml-8 font-bold text-lg">{dns.family}</span>
                 {:else}
                     <p><span class="font-bold text-lg">Error: DNS couldn't be found</span></p>
                 {/if}
+            {:else}
+            <p>&#8226; IP Address</p>
+              <span class="ml-8 font-bold text-lg">N/A</span>
+            <p>&#8226; Family</p>
+              <span class="ml-8 font-bold text-lg">N/A</span>
             {/if}
         </div>
     </div>

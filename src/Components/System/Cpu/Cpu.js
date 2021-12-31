@@ -15,6 +15,21 @@ const getCpuInfo = () => {
         })
         .catch(err => console.log(err));
     });
-}
+};
 
-module.exports = getCpuInfo;
+
+const getCpuSpeed = () => {
+    ipcMain.on('get-cpu-speed', e => {
+        si.cpuCurrentSpeed()
+        .then(data => {
+            const cpuSpeed = {
+                min: data.min,
+                max:data.max
+            };
+            e.sender.send('get-cpu-speed', cpuSpeed);
+        })
+        .catch(err => console.log(err));
+    });
+};
+
+module.exports = {getCpuInfo , getCpuSpeed};

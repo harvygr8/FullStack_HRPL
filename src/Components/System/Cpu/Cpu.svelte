@@ -1,7 +1,12 @@
 <script>
-    const { ipcRenderer } = require('electron');
+    //Svelte
     import Shell from '../../Misc/Shell.svelte';
+    import Loader from '../../Misc/Loader.svelte'
     import { settings } from '../../../Stores/settingsStore';
+
+    //Electron
+    const { ipcRenderer } = require('electron');
+
 
     let cpu;
     ipcRenderer.send('get-cpu-info');
@@ -10,60 +15,23 @@
     });
 </script>
 
-<Shell 
-    title={"Cpu Information"} 
-    tooltip={"General information about the CPU"}
+<Shell
+    title={"CPU INFORMATION"}
+    tooltip={"Information about the CPU"}
 >
     {#if cpu}
-    <div class="grid grid-cols-2 gap-x-2 gap-y-6">
-        <p class="flex flex-col justify-start items-center">
-            <span 
-                class="text-sm pb-1"
-                style="color: {$settings.fontColor2}"
-            >
-                Processor
-            </span>
-            <span class="font-medium text-lg">
-                {cpu.brand}
-            </span>
-        </p>
-        <p class="flex flex-col justify-start items-center">
-            <span 
-                class="text-sm pb-1"
-                style="color: {$settings.fontColor2}"
-            >
-                Speed
-            </span>
-            <span class="font-medium text-lg">
-                {cpu.speed} GHz
-            </span>
-        </p>
-        <p class="flex flex-col justify-start items-center">
-            <span 
-                class="text-sm pb-1"
-                style="color: {$settings.fontColor2}"
-            >
-                Cores
-            </span>
-            <span class="font-medium text-lg">
-                {cpu.cores}
-            </span>
-        </p>
-        <p class="flex flex-col justify-start items-center">
-            <span 
-                class="text-sm pb-1"
-                style="color: {$settings.fontColor2}"
-            >
-                Socket
-            </span>
-            <span class="font-medium text-lg">
-                {cpu.socket}
-            </span>
-        </p>
+    <div class="pl-2 flex flex-col items-start text-gray-50">
+        <p>&#8226; Processor:<span class="ml-2 font-bold text-lg" style="color: {$settings.fontColor2}">{cpu.brand}</span> </p>
+        <p>&#8226; Speed:<span class="ml-2 font-bold text-lg" style="color: {$settings.fontColor2}">{cpu.speed} GHz</span></p>
+
+        <p>&#8226; Cores:<span class="ml-2 font-bold text-lg" style="color: {$settings.fontColor2}">{cpu.cores}</span></p>
+
+        <p>&#8226; Socket:<span class="ml-2 font-bold text-lg" style="color: {$settings.fontColor2}">{cpu.socket}</span></p>
+
     </div>
     {:else}
-        <p>
-            Fetching Required Info...
-        </p>
+        <div class="flex flex-row justify-center">
+        <Loader />
+        </div>
     {/if}
 </Shell>
