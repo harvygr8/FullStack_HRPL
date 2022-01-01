@@ -8,7 +8,7 @@
 </script>
 
 <main
-    class="h-screen"
+    class="h-full"
     style="font-family: {$settings.font};"
 >
     <div class="flex flex-row h-full">
@@ -18,15 +18,9 @@
             style="background-color: {$settings.bgColor1};"
         >
             <TitleBar currPage={_currPage}/>
-            <div class="page-container p-4 mx-auto">
+            <div class="p-4 mx-auto overflow-auto">
                 <slot />
             </div>
         </div>
     </div>
 </main>
-
-<style>
-    .page-container {
-        max-width: 1024px;
-    }
-</style>

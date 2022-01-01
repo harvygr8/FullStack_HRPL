@@ -1662,6 +1662,7 @@ var app = (function () {
         username: localStorage.username ? localStorage.username : 'Admin',
         bgColor1 : localStorage.bgColor1 ? localStorage.bgColor1 : '#111827',
         bgColor2 : localStorage.bgColor2 ? localStorage.bgColor2 : '#1F2937',
+        bgColor3 : localStorage.bgColor3 ? localStorage.bgColor3 : '#374151',
         fontColor1 : localStorage.fontColor1 ? localStorage.fontColor1 : '#ffffff',
         fontColor2 : localStorage.fontColor2 ? localStorage.fontColor2 : '#f0f0f0',
         shellColor : localStorage.linkColor ? localStorage.shellColor : '#374151',
@@ -1693,11 +1694,11 @@ var app = (function () {
     			span = element("span");
     			t1 = text(/*name*/ ctx[2]);
     			attr_dev(i, "class", i_class_value = "fa " + /*icon*/ ctx[1] + " text-center w-full md:w-8");
-    			add_location(i, file, 27, 12, 537);
+    			add_location(i, file, 27, 12, 536);
     			attr_dev(span, "class", "hidden md:block pl-2");
-    			add_location(span, file, 28, 12, 600);
+    			add_location(span, file, 28, 12, 599);
     			attr_dev(div0, "class", "rounded p-2 flex flex-row items-center");
-    			set_style(div0, "background", /*$settings*/ ctx[3].linkColor);
+    			set_style(div0, "background", /*$settings*/ ctx[3].bgColor3);
     			add_location(div0, file, 23, 8, 398);
     			attr_dev(a, "href", /*link*/ ctx[0]);
     			attr_dev(a, "class", "svelte-1ldhlbv");
@@ -1726,7 +1727,7 @@ var app = (function () {
     			if (dirty & /*name*/ 4) set_data_dev(t1, /*name*/ ctx[2]);
 
     			if (dirty & /*$settings*/ 8) {
-    				set_style(div0, "background", /*$settings*/ ctx[3].linkColor);
+    				set_style(div0, "background", /*$settings*/ ctx[3].bgColor3);
     			}
 
     			if (dirty & /*link*/ 1) {
@@ -1936,15 +1937,15 @@ var app = (function () {
     			create_component(link6.$$.fragment);
     			attr_dev(i, "class", "fa fa-database fa-2x");
     			attr_dev(i, "aria-hidden", "true");
-    			add_location(i, file$1, 15, 4, 483);
+    			add_location(i, file$1, 15, 4, 476);
     			attr_dev(p, "class", "text-center text-2xl mt-1 font-medium");
-    			add_location(p, file$1, 16, 4, 544);
+    			add_location(p, file$1, 16, 4, 537);
     			attr_dev(h2, "class", "text-center text-2xl mt-8 font-medium");
     			set_style(h2, "color", /*$settings*/ ctx[0].fontColor1);
-    			add_location(h2, file$1, 9, 4, 228);
+    			add_location(h2, file$1, 9, 4, 221);
     			attr_dev(div0, "class", "mt-16");
-    			add_location(div0, file$1, 20, 4, 663);
-    			attr_dev(div1, "class", "w-auto h-full px-2 md:px-4");
+    			add_location(div0, file$1, 20, 4, 656);
+    			attr_dev(div1, "class", "w-auto px-2 md:px-4");
     			set_style(div1, "background-color", /*$settings*/ ctx[0].bgColor2);
     			add_location(div1, file$1, 5, 0, 122);
     		},
@@ -2255,14 +2256,14 @@ var app = (function () {
     			t1 = space();
     			div0 = element("div");
     			if (default_slot) default_slot.c();
-    			attr_dev(div0, "class", "page-container p-4 mx-auto svelte-xwborx");
-    			add_location(div0, file$3, 20, 12, 553);
+    			attr_dev(div0, "class", "p-4 mx-auto overflow-auto");
+    			add_location(div0, file$3, 20, 12, 551);
     			attr_dev(div1, "class", "w-full");
     			set_style(div1, "background-color", /*$settings*/ ctx[1].bgColor1);
-    			add_location(div1, file$3, 15, 8, 389);
+    			add_location(div1, file$3, 15, 8, 387);
     			attr_dev(div2, "class", "flex flex-row h-full");
-    			add_location(div2, file$3, 13, 4, 328);
-    			attr_dev(main, "class", "h-screen");
+    			add_location(div2, file$3, 13, 4, 326);
+    			attr_dev(main, "class", "h-full");
     			set_style(main, "font-family", /*$settings*/ ctx[1].font);
     			add_location(main, file$3, 9, 0, 248);
     		},
@@ -2497,7 +2498,7 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			div = element("div");
-    			attr_dev(div, "class", "grid grid-cols-2 gap-4");
+    			attr_dev(div, "class", "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4");
     			add_location(div, file$5, 11, 4, 327);
     		},
     		m: function mount(target, anchor) {
@@ -2627,17 +2628,17 @@ var app = (function () {
     			if (default_slot) default_slot.c();
     			attr_dev(h3, "class", "text-2xl font-medium");
     			set_style(h3, "color", /*$settings*/ ctx[2].fontColor2);
-    			add_location(h3, file$6, 12, 8, 376);
+    			add_location(h3, file$6, 12, 8, 374);
     			attr_dev(span, "class", "ml-2 fas fa-info-circle cursor-pointer");
     			attr_dev(span, "title", /*tooltip*/ ctx[1]);
-    			add_location(span, file$6, 18, 8, 530);
+    			add_location(span, file$6, 18, 8, 528);
     			attr_dev(div0, "class", "flex flex-row justify-between items-center");
-    			add_location(div0, file$6, 11, 4, 310);
+    			add_location(div0, file$6, 11, 4, 308);
     			attr_dev(hr, "class", "my-2");
-    			add_location(hr, file$6, 23, 4, 656);
-    			add_location(div1, file$6, 24, 4, 679);
+    			add_location(hr, file$6, 23, 4, 654);
+    			add_location(div1, file$6, 24, 4, 677);
     			attr_dev(div2, "class", "rounded-md shadow-md p-2 ");
-    			set_style(div2, "background-color", /*$settings*/ ctx[2].shellColor);
+    			set_style(div2, "background-color", /*$settings*/ ctx[2].bgColor3);
     			set_style(div2, "color", /*$settings*/ ctx[2].fontColor1);
     			add_location(div2, file$6, 7, 0, 173);
     		},
@@ -2678,7 +2679,7 @@ var app = (function () {
     			}
 
     			if (!current || dirty & /*$settings*/ 4) {
-    				set_style(div2, "background-color", /*$settings*/ ctx[2].shellColor);
+    				set_style(div2, "background-color", /*$settings*/ ctx[2].bgColor3);
     			}
 
     			if (!current || dirty & /*$settings*/ 4) {
@@ -5512,10 +5513,10 @@ var app = (function () {
     			t3 = space();
     			div1 = element("div");
     			create_component(ping.$$.fragment);
-    			attr_dev(div0, "class", "p-6 grid grid-cols-2 gap-4");
+    			attr_dev(div0, "class", "p-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4");
     			add_location(div0, file$d, 11, 4, 466);
     			attr_dev(div1, "class", "pl-6 pr-6 grid grid-cols-1 gap-2");
-    			add_location(div1, file$d, 17, 4, 601);
+    			add_location(div1, file$d, 17, 4, 631);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div0, anchor);
@@ -5774,9 +5775,9 @@ var app = (function () {
     	let div7;
     	let div0;
     	let input;
+    	let input_maxlength_value;
     	let t0;
     	let button;
-    	let button_maxlength_value;
     	let t2;
     	let div6;
     	let div5;
@@ -5831,38 +5832,38 @@ var app = (function () {
     			t11 = text(t11_value);
     			t12 = text(" ");
     			attr_dev(input, "type", "text");
-    			attr_dev(input, "placeholder", "Enter Text");
+    			attr_dev(input, "placeholder", "Enter Password");
     			attr_dev(input, "class", "w-10/12 rounded-md m-2 px-1 text-gray-800 font-bold");
     			input.required = true;
+    			attr_dev(input, "maxlength", input_maxlength_value = 32);
     			add_location(input, file$f, 54, 10, 2064);
     			attr_dev(button, "type", "button");
-    			attr_dev(button, "maxlength", button_maxlength_value = 32);
     			attr_dev(button, "class", "text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600");
-    			add_location(button, file$f, 55, 10, 2211);
+    			add_location(button, file$f, 62, 10, 2325);
     			attr_dev(div0, "class", "flex flex-row");
     			add_location(div0, file$f, 53, 8, 2025);
     			attr_dev(p0, "class", "text-white font-thin text-lg text-2xl");
-    			add_location(p0, file$f, 64, 14, 2802);
+    			add_location(p0, file$f, 77, 14, 2980);
     			attr_dev(p1, "id", "infoValueCPN");
     			attr_dev(p1, "class", p1_class_value = "font-bold text-white text-3xl " + /*strengthColor*/ ctx[2]);
-    			add_location(p1, file$f, 66, 18, 2928);
+    			add_location(p1, file$f, 79, 18, 3106);
     			attr_dev(div1, "class", "flex flex-row");
-    			add_location(div1, file$f, 65, 16, 2881);
+    			add_location(div1, file$f, 78, 16, 3059);
     			attr_dev(div2, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div2, file$f, 63, 12, 2723);
+    			add_location(div2, file$f, 76, 12, 2901);
     			attr_dev(p2, "class", "text-white font-thin text-lg text-2xl");
-    			add_location(p2, file$f, 71, 14, 3163);
+    			add_location(p2, file$f, 84, 14, 3341);
     			attr_dev(p3, "id", "infoValueCPN");
     			attr_dev(p3, "class", p3_class_value = "font-bold text-white text-3xl " + /*lengthColor*/ ctx[3]);
     			set_style(p3, "text-transform", "uppercase");
-    			add_location(p3, file$f, 73, 18, 3287);
+    			add_location(p3, file$f, 86, 18, 3465);
     			attr_dev(div3, "class", "flex flex-row");
-    			add_location(div3, file$f, 72, 16, 3240);
+    			add_location(div3, file$f, 85, 16, 3418);
     			attr_dev(div4, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div4, file$f, 70, 12, 3084);
+    			add_location(div4, file$f, 83, 12, 3262);
     			attr_dev(div5, "class", "flex flex-row justify-center");
-    			add_location(div5, file$f, 61, 12, 2665);
-    			add_location(div6, file$f, 59, 8, 2607);
+    			add_location(div5, file$f, 74, 12, 2843);
+    			add_location(div6, file$f, 72, 8, 2785);
     			attr_dev(div7, "class", "text-gray-50");
     			add_location(div7, file$f, 52, 4, 1989);
     		},
@@ -7611,7 +7612,7 @@ var app = (function () {
     			create_component(netstat.$$.fragment);
     			t2 = space();
     			create_component(networkspeed.$$.fragment);
-    			attr_dev(div, "class", "p-6 grid grid-cols-2 gap-4");
+    			attr_dev(div, "class", "p-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4");
     			add_location(div, file$j, 10, 4, 472);
     		},
     		m: function mount(target, anchor) {
@@ -11830,7 +11831,7 @@ var app = (function () {
     			create_component(disk.$$.fragment);
     			t4 = space();
     			create_component(usage.$$.fragment);
-    			attr_dev(div, "class", "p-6 grid grid-cols-1 md:grid-cols-2 gap-4");
+    			attr_dev(div, "class", "p-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4");
     			add_location(div, file$v, 13, 4, 561);
     		},
     		m: function mount(target, anchor) {
@@ -12085,7 +12086,7 @@ var app = (function () {
     /* src\Pages\_settings.svelte generated by Svelte v3.19.1 */
     const file$x = "src\\Pages\\_settings.svelte";
 
-    // (60:2) <Shell title={"CONFIGURE APPLICATION"} tooltip={"Change Application Settings"}>
+    // (40:2) <Shell title={"CONFIGURE APPLICATION"} tooltip={"Change Application Settings"}>
     function create_default_slot_1(ctx) {
     	let div7;
     	let div0;
@@ -12103,19 +12104,21 @@ var app = (function () {
     	let t5;
     	let input2;
     	let t6;
+    	let input3;
+    	let t7;
     	let div4;
     	let label2;
-    	let t7;
     	let t8;
-    	let div3;
-    	let input3;
     	let t9;
+    	let div3;
     	let input4;
     	let t10;
+    	let input5;
+    	let t11;
     	let div5;
     	let label3;
-    	let t11;
     	let t12;
+    	let t13;
     	let select;
     	let option0;
     	let option1;
@@ -12123,13 +12126,13 @@ var app = (function () {
     	let option3;
     	let option4;
     	let select_value_value;
-    	let t18;
+    	let t19;
     	let div6;
     	let button0;
-    	let t19;
     	let t20;
-    	let button1;
     	let t21;
+    	let button1;
+    	let t22;
     	let dispose;
 
     	const block = {
@@ -12150,19 +12153,21 @@ var app = (function () {
     			t5 = space();
     			input2 = element("input");
     			t6 = space();
+    			input3 = element("input");
+    			t7 = space();
     			div4 = element("div");
     			label2 = element("label");
-    			t7 = text("Font Colors");
-    			t8 = space();
-    			div3 = element("div");
-    			input3 = element("input");
+    			t8 = text("Font Colors");
     			t9 = space();
+    			div3 = element("div");
     			input4 = element("input");
     			t10 = space();
+    			input5 = element("input");
+    			t11 = space();
     			div5 = element("div");
     			label3 = element("label");
-    			t11 = text("Font");
-    			t12 = space();
+    			t12 = text("Font");
+    			t13 = space();
     			select = element("select");
     			option0 = element("option");
     			option0.textContent = "Default\r\n              ";
@@ -12174,93 +12179,99 @@ var app = (function () {
     			option3.textContent = "Lato\r\n              ";
     			option4 = element("option");
     			option4.textContent = "Montserrat";
-    			t18 = space();
+    			t19 = space();
     			div6 = element("div");
     			button0 = element("button");
-    			t19 = text("APPLY");
-    			t20 = space();
+    			t20 = text("APPLY");
+    			t21 = space();
     			button1 = element("button");
-    			t21 = text("RESET");
+    			t22 = text("RESET");
     			attr_dev(label0, "class", "text-lg pb-2 text-center");
     			set_style(label0, "color", /*$settings*/ ctx[0].fontColor2);
     			attr_dev(label0, "for", "username");
-    			add_location(label0, file$x, 68, 10, 2575);
-    			attr_dev(input0, "class", "w-full sm:w-96 rounded-md p-1 mb-6");
+    			add_location(label0, file$x, 51, 10, 2378);
+    			attr_dev(input0, "class", "w-full sm:w-96 rounded-md p-1 mb-6 text-gray-900");
     			input0.value = /*username*/ ctx[1];
     			attr_dev(input0, "type", "text");
     			attr_dev(input0, "id", "username");
-    			add_location(input0, file$x, 75, 10, 2792);
+    			add_location(input0, file$x, 58, 10, 2595);
     			attr_dev(div0, "class", "flex flex-col justify-start");
-    			add_location(div0, file$x, 67, 6, 2522);
+    			add_location(div0, file$x, 50, 6, 2325);
     			attr_dev(label1, "class", "text-sm pb-2 text-center");
     			set_style(label1, "color", /*$settings*/ ctx[0].fontColor2);
     			attr_dev(label1, "for", "Background Colors");
-    			add_location(label1, file$x, 84, 10, 3068);
-    			attr_dev(input1, "class", "m-3 rounded-sm svelte-3ugp22");
+    			add_location(label1, file$x, 67, 10, 2885);
+    			attr_dev(input1, "class", "m-3 rounded-sm svelte-ri0dr4");
     			input1.value = /*bgColor1*/ ctx[2];
     			attr_dev(input1, "type", "color");
     			attr_dev(input1, "id", "bgColor-1");
-    			add_location(input1, file$x, 92, 14, 3317);
-    			attr_dev(input2, "class", "m-3 rounded-sm svelte-3ugp22");
+    			add_location(input1, file$x, 75, 14, 3134);
+    			attr_dev(input2, "class", "m-3 rounded-sm svelte-ri0dr4");
     			input2.value = /*bgColor2*/ ctx[3];
     			attr_dev(input2, "type", "color");
     			attr_dev(input2, "id", "bgColor-2");
-    			add_location(input2, file$x, 98, 14, 3501);
-    			add_location(div1, file$x, 91, 10, 3296);
+    			add_location(input2, file$x, 81, 14, 3318);
+    			attr_dev(input3, "class", "m-3 rounded-sm svelte-ri0dr4");
+    			input3.value = /*bgColor3*/ ctx[4];
+    			attr_dev(input3, "type", "color");
+    			attr_dev(input3, "id", "bgColor-3");
+    			add_location(input3, file$x, 87, 14, 3502);
+    			add_location(div1, file$x, 74, 10, 3113);
     			attr_dev(div2, "class", "flex flex-col justify-center");
-    			add_location(div2, file$x, 83, 6, 3014);
+    			add_location(div2, file$x, 66, 6, 2831);
     			attr_dev(label2, "class", "text-sm text-center pb-2");
     			set_style(label2, "color", /*$settings*/ ctx[0].fontColor2);
     			attr_dev(label2, "for", "Font Colors");
-    			add_location(label2, file$x, 108, 10, 3796);
-    			attr_dev(input3, "class", "m-3 rounded-sm svelte-3ugp22");
-    			input3.value = /*fontColor1*/ ctx[4];
-    			attr_dev(input3, "type", "color");
-    			attr_dev(input3, "id", "fontColor-1");
-    			add_location(input3, file$x, 116, 14, 4030);
-    			attr_dev(input4, "class", "m-3 rounded-sm svelte-3ugp22");
-    			input4.value = /*fontColor2*/ ctx[5];
+    			add_location(label2, file$x, 97, 10, 3797);
+    			attr_dev(input4, "class", "m-3 rounded-sm svelte-ri0dr4");
+    			input4.value = /*fontColor1*/ ctx[5];
     			attr_dev(input4, "type", "color");
-    			attr_dev(input4, "id", "fontColor-2");
-    			add_location(input4, file$x, 122, 14, 4218);
-    			add_location(div3, file$x, 115, 10, 4009);
+    			attr_dev(input4, "id", "fontColor-1");
+    			add_location(input4, file$x, 105, 14, 4031);
+    			attr_dev(input5, "class", "m-3 rounded-sm svelte-ri0dr4");
+    			input5.value = /*fontColor2*/ ctx[6];
+    			attr_dev(input5, "type", "color");
+    			attr_dev(input5, "id", "fontColor-2");
+    			add_location(input5, file$x, 111, 14, 4219);
+    			add_location(div3, file$x, 104, 10, 4010);
     			attr_dev(div4, "class", "mt-4 flex flex-col justify-center");
-    			add_location(div4, file$x, 107, 6, 3737);
+    			add_location(div4, file$x, 96, 6, 3738);
     			attr_dev(label3, "class", "text-sm pb-2 text-center");
     			set_style(label3, "color", /*$settings*/ ctx[0].fontColor2);
-    			attr_dev(label3, "for", "Font");
-    			add_location(label3, file$x, 132, 10, 4505);
+    			attr_dev(label3, "for", "font");
+    			add_location(label3, file$x, 121, 10, 4506);
     			option0.__value = "";
     			option0.value = option0.__value;
-    			add_location(option0, file$x, 145, 14, 4889);
+    			add_location(option0, file$x, 134, 14, 4890);
     			option1.__value = "Roboto";
     			option1.value = option1.__value;
-    			add_location(option1, file$x, 148, 14, 4974);
+    			add_location(option1, file$x, 137, 14, 4975);
     			option2.__value = "Open Sans";
     			option2.value = option2.__value;
-    			add_location(option2, file$x, 151, 14, 5064);
+    			add_location(option2, file$x, 140, 14, 5065);
     			option3.__value = "Lato";
     			option3.value = option3.__value;
-    			add_location(option3, file$x, 154, 14, 5160);
+    			add_location(option3, file$x, 143, 14, 5161);
     			option4.__value = "Montserrat";
     			option4.value = option4.__value;
-    			add_location(option4, file$x, 157, 14, 5246);
+    			add_location(option4, file$x, 146, 14, 5247);
     			attr_dev(select, "name", "font");
     			attr_dev(select, "id", "font");
     			attr_dev(select, "class", "w-max mb-6 px-2 py-1 rounded-md text-gray-800");
-    			add_location(select, file$x, 139, 10, 4704);
+    			add_location(select, file$x, 128, 10, 4705);
     			attr_dev(div5, "class", "flex flex-col justify-center");
-    			add_location(div5, file$x, 131, 6, 4451);
+    			add_location(div5, file$x, 120, 6, 4452);
     			attr_dev(button0, "class", "text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600");
     			set_style(button0, "color", /*$settings*/ ctx[0].fontColor1);
-    			add_location(button0, file$x, 164, 10, 5462);
+    			add_location(button0, file$x, 153, 10, 5463);
     			attr_dev(button1, "class", "text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600");
     			set_style(button1, "color", /*$settings*/ ctx[0].fontColor1);
-    			add_location(button1, file$x, 171, 10, 5748);
+    			add_location(button1, file$x, 160, 10, 5749);
     			attr_dev(div6, "class", "flex flex-row justify-center items-center");
-    			add_location(div6, file$x, 163, 6, 5395);
-    			attr_dev(div7, "class", "flex flex-col items-center justify-center rounded-md bg-gray-700 p-1");
-    			add_location(div7, file$x, 60, 2, 2267);
+    			add_location(div6, file$x, 152, 6, 5396);
+    			attr_dev(div7, "class", "flex flex-col items-center justify-center rounded-md p-1");
+    			set_style(div7, "background-color", /*$settings*/ ctx[0].bgColor3);
+    			add_location(div7, file$x, 40, 4, 2014);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div7, anchor);
@@ -12278,27 +12289,29 @@ var app = (function () {
     			append_dev(div1, input1);
     			append_dev(div1, t5);
     			append_dev(div1, input2);
-    			append_dev(div7, t6);
+    			append_dev(div1, t6);
+    			append_dev(div1, input3);
+    			append_dev(div7, t7);
     			append_dev(div7, div4);
     			append_dev(div4, label2);
-    			append_dev(label2, t7);
-    			append_dev(div4, t8);
+    			append_dev(label2, t8);
+    			append_dev(div4, t9);
     			append_dev(div4, div3);
-    			append_dev(div3, input3);
-    			append_dev(div3, t9);
     			append_dev(div3, input4);
-    			append_dev(div7, t10);
+    			append_dev(div3, t10);
+    			append_dev(div3, input5);
+    			append_dev(div7, t11);
     			append_dev(div7, div5);
     			append_dev(div5, label3);
-    			append_dev(label3, t11);
-    			append_dev(div5, t12);
+    			append_dev(label3, t12);
+    			append_dev(div5, t13);
     			append_dev(div5, select);
     			append_dev(select, option0);
     			append_dev(select, option1);
     			append_dev(select, option2);
     			append_dev(select, option3);
     			append_dev(select, option4);
-    			select_value_value = /*font*/ ctx[6];
+    			select_value_value = /*font*/ ctx[7];
 
     			for (var i = 0; i < select.options.length; i += 1) {
     				var option = select.options[i];
@@ -12309,17 +12322,17 @@ var app = (function () {
     				}
     			}
 
-    			append_dev(div7, t18);
+    			append_dev(div7, t19);
     			append_dev(div7, div6);
     			append_dev(div6, button0);
-    			append_dev(button0, t19);
-    			append_dev(div6, t20);
+    			append_dev(button0, t20);
+    			append_dev(div6, t21);
     			append_dev(div6, button1);
-    			append_dev(button1, t21);
+    			append_dev(button1, t22);
 
     			dispose = [
-    				listen_dev(button0, "click", /*click_handler*/ ctx[8], false, false, false),
-    				listen_dev(button1, "click", /*click_handler_1*/ ctx[9], false, false, false)
+    				listen_dev(button0, "click", /*click_handler*/ ctx[9], false, false, false),
+    				listen_dev(button1, "click", /*click_handler_1*/ ctx[10], false, false, false)
     			];
     		},
     		p: function update(ctx, dirty) {
@@ -12346,6 +12359,10 @@ var app = (function () {
     			if (dirty & /*$settings*/ 1) {
     				set_style(button1, "color", /*$settings*/ ctx[0].fontColor1);
     			}
+
+    			if (dirty & /*$settings*/ 1) {
+    				set_style(div7, "background-color", /*$settings*/ ctx[0].bgColor3);
+    			}
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div7);
@@ -12357,14 +12374,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1.name,
     		type: "slot",
-    		source: "(60:2) <Shell title={\\\"CONFIGURE APPLICATION\\\"} tooltip={\\\"Change Application Settings\\\"}>",
+    		source: "(40:2) <Shell title={\\\"CONFIGURE APPLICATION\\\"} tooltip={\\\"Change Application Settings\\\"}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (58:0) <Page _currPage="Settings">
+    // (38:0) <Page _currPage="Settings">
     function create_default_slot$p(ctx) {
     	let div;
     	let current;
@@ -12384,7 +12401,7 @@ var app = (function () {
     			div = element("div");
     			create_component(shell.$$.fragment);
     			attr_dev(div, "class", "p-6");
-    			add_location(div, file$x, 58, 0, 2163);
+    			add_location(div, file$x, 38, 0, 1908);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -12394,7 +12411,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const shell_changes = {};
 
-    			if (dirty & /*$$scope, $settings*/ 1025) {
+    			if (dirty & /*$$scope, $settings*/ 2049) {
     				shell_changes.$$scope = { dirty, ctx };
     			}
 
@@ -12419,7 +12436,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$p.name,
     		type: "slot",
-    		source: "(58:0) <Page _currPage=\\\"Settings\\\">",
+    		source: "(38:0) <Page _currPage=\\\"Settings\\\">",
     		ctx
     	});
 
@@ -12452,7 +12469,7 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			const page_changes = {};
 
-    			if (dirty & /*$$scope, $settings*/ 1025) {
+    			if (dirty & /*$$scope, $settings*/ 2049) {
     				page_changes.$$scope = { dirty, ctx };
     			}
 
@@ -12490,6 +12507,7 @@ var app = (function () {
     	let username = $settings.username;
     	let bgColor1 = $settings.bgColor1;
     	let bgColor2 = $settings.bgColor2;
+    	let bgColor3 = $settings.bgColor3;
     	let fontColor1 = $settings.fontColor1;
     	let fontColor2 = $settings.fontColor2;
     	let font = $settings.font;
@@ -12522,6 +12540,14 @@ var app = (function () {
 
     		set_store_value(
     			settings,
+    			$settings.bgColor3 = type == "save"
+    			? document.getElementById("bgColor-3").value
+    			: "#374151",
+    			$settings
+    		);
+
+    		set_store_value(
+    			settings,
     			$settings.fontColor1 = type == "save"
     			? document.getElementById("fontColor-1").value
     			: "#ffffff",
@@ -12536,39 +12562,22 @@ var app = (function () {
     			$settings
     		);
 
+    		// $settings.linkColor = type == 'save' ? document.getElementById('linkColor').value: '#374151',
+    		// $settings.miscColor = type == 'save' ? document.getElementById('miscColor').value: '#8B5CF6',
     		set_store_value(
-    			settings,
-    			$settings.shellColor = type == "save"
-    			? document.getElementById("shellColor").value
-    			: "#374151",
-    			$settings
-    		);
-
-    		(set_store_value(
-    			settings,
-    			$settings.linkColor = type == "save"
-    			? document.getElementById("linkColor").value
-    			: "#374151",
-    			$settings
-    		), set_store_value(
-    			settings,
-    			$settings.miscColor = type == "save"
-    			? document.getElementById("miscColor").value
-    			: "#8B5CF6",
-    			$settings
-    		), set_store_value(
     			settings,
     			$settings.font = type == "save"
     			? document.getElementById("font").value
     			: "",
     			$settings
-    		));
+    		);
 
     		// Set localStorage values
     		localStorage.username = $settings.username;
 
     		localStorage.bgColor1 = $settings.bgColor1;
     		localStorage.bgColor2 = $settings.bgColor2;
+    		localStorage.bgColor3 = $settings.bgColor3;
     		localStorage.fontColor1 = $settings.fontColor1;
     		localStorage.fontColor2 = $settings.fontColor2;
     		localStorage.font = $settings.font;
@@ -12584,6 +12593,7 @@ var app = (function () {
     		username,
     		bgColor1,
     		bgColor2,
+    		bgColor3,
     		fontColor1,
     		fontColor2,
     		font,
@@ -12597,9 +12607,10 @@ var app = (function () {
     		if ("username" in $$props) $$invalidate(1, username = $$props.username);
     		if ("bgColor1" in $$props) $$invalidate(2, bgColor1 = $$props.bgColor1);
     		if ("bgColor2" in $$props) $$invalidate(3, bgColor2 = $$props.bgColor2);
-    		if ("fontColor1" in $$props) $$invalidate(4, fontColor1 = $$props.fontColor1);
-    		if ("fontColor2" in $$props) $$invalidate(5, fontColor2 = $$props.fontColor2);
-    		if ("font" in $$props) $$invalidate(6, font = $$props.font);
+    		if ("bgColor3" in $$props) $$invalidate(4, bgColor3 = $$props.bgColor3);
+    		if ("fontColor1" in $$props) $$invalidate(5, fontColor1 = $$props.fontColor1);
+    		if ("fontColor2" in $$props) $$invalidate(6, fontColor2 = $$props.fontColor2);
+    		if ("font" in $$props) $$invalidate(7, font = $$props.font);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -12611,6 +12622,7 @@ var app = (function () {
     		username,
     		bgColor1,
     		bgColor2,
+    		bgColor3,
     		fontColor1,
     		fontColor2,
     		font,

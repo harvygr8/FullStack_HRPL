@@ -52,8 +52,21 @@
 <Shell title={"PASSWORD STRENGTH CHECKER"} tooltip={"Get detailed analysis of passwords"}>
     <div class="text-gray-50">
         <div class="flex flex-row">
-          <input type="text" placeholder="Enter Text" bind:value={password} class="w-10/12 rounded-md m-2 px-1 text-gray-800 font-bold" required>
-          <button type="button" on:click={checkPassword} maxlength={32} class="text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600">CHECK</button>
+          <input 
+            type="text" 
+            placeholder="Enter Password" 
+            bind:value={password} 
+            class="w-10/12 rounded-md m-2 px-1 text-gray-800 font-bold" 
+            required
+            maxlength={32}
+          >
+          <button 
+            type="button" 
+            on:click={checkPassword}  
+            class="text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600"
+          >
+            CHECK
+        </button>
             <!-- <input class="text-black" type="text" bind:value={password} maxlength={32} placeholder="Enter Password" />
             <button on:click={checkPassword} type="submit">Check</button> -->
         </div>

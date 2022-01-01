@@ -6,6 +6,7 @@ export const settings = writable({
     username: localStorage.username ? localStorage.username : 'Admin',
     bgColor1 : localStorage.bgColor1 ? localStorage.bgColor1 : '#111827',
     bgColor2 : localStorage.bgColor2 ? localStorage.bgColor2 : '#1F2937',
+    bgColor3 : localStorage.bgColor3 ? localStorage.bgColor3 : '#374151',
     fontColor1 : localStorage.fontColor1 ? localStorage.fontColor1 : '#ffffff',
     fontColor2 : localStorage.fontColor2 ? localStorage.fontColor2 : '#f0f0f0',
     shellColor : localStorage.linkColor ? localStorage.shellColor : '#374151',

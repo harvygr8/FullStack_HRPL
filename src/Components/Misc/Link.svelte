@@ -23,7 +23,7 @@ a:hover {
     <a href={link}>
         <div
           class="rounded p-2 flex flex-row items-center"
-          style="background:{$settings.linkColor}"
+          style="background:{$settings.bgColor3}"
         >
             <i class="fa {icon} text-center w-full md:w-8" />
             <span class="hidden md:block pl-2">

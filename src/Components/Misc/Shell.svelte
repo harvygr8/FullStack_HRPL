@@ -7,7 +7,7 @@
 
 <div
     class="rounded-md shadow-md p-2 "
-    style="background-color: {$settings.shellColor}; color: {$settings.fontColor1}"
+    style="background-color: {$settings.bgColor3}; color: {$settings.fontColor1}"
 >
     <div class="flex flex-row justify-between items-center">
         <h3
