@@ -2837,7 +2837,7 @@ var app = (function () {
 
     const file$7 = "src\\Components\\Network\\Ping\\Ping.svelte";
 
-    // (107:4) {:else}
+    // (190:4) {:else}
     function create_else_block$1(ctx) {
     	let div10;
     	let div1;
@@ -2877,6 +2877,10 @@ var app = (function () {
     	let p11;
     	let t23;
     	let p12;
+    	let t24;
+    	let div11;
+    	let canvas;
+    	let div11_class_value;
 
     	const block = {
     		c: function create() {
@@ -2928,59 +2932,66 @@ var app = (function () {
     			p11.textContent = "N/A";
     			t23 = text(" \r\n              ");
     			p12 = element("p");
+    			t24 = space();
+    			div11 = element("div");
+    			canvas = element("canvas");
     			attr_dev(p0, "class", "text-white font-thin text-lg text-xl");
-    			add_location(p0, file$7, 109, 10, 4210);
+    			add_location(p0, file$7, 192, 10, 7175);
     			attr_dev(p1, "id", "infoValueCPN");
     			attr_dev(p1, "class", "font-bold text-white text-3xl");
-    			add_location(p1, file$7, 111, 14, 4323);
+    			add_location(p1, file$7, 194, 14, 7288);
     			attr_dev(p2, "class", "font-bold text-white text-sm");
-    			add_location(p2, file$7, 112, 14, 4410);
+    			add_location(p2, file$7, 195, 14, 7375);
     			attr_dev(div0, "class", "flex flex-row");
-    			add_location(div0, file$7, 110, 12, 4280);
+    			add_location(div0, file$7, 193, 12, 7245);
     			attr_dev(div1, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div1, file$7, 108, 8, 4135);
+    			add_location(div1, file$7, 191, 8, 7100);
     			attr_dev(p3, "class", "text-white font-thin text-lg text-xl");
-    			add_location(p3, file$7, 117, 10, 4577);
+    			add_location(p3, file$7, 200, 10, 7542);
     			attr_dev(p4, "id", "infoValueCPN");
     			attr_dev(p4, "class", "font-bold text-white text-3xl");
-    			add_location(p4, file$7, 119, 14, 4690);
+    			add_location(p4, file$7, 202, 14, 7655);
     			attr_dev(div2, "class", "flex flex-row");
-    			add_location(div2, file$7, 118, 12, 4647);
+    			add_location(div2, file$7, 201, 12, 7612);
     			attr_dev(div3, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div3, file$7, 116, 8, 4502);
+    			add_location(div3, file$7, 199, 8, 7467);
     			attr_dev(p5, "class", "text-white font-thin text-lg text-xl");
-    			add_location(p5, file$7, 124, 10, 4884);
+    			add_location(p5, file$7, 207, 10, 7849);
     			attr_dev(p6, "id", "infoValueCPN");
     			attr_dev(p6, "class", "font-bold text-white text-3xl");
-    			add_location(p6, file$7, 126, 14, 4997);
+    			add_location(p6, file$7, 209, 14, 7962);
     			attr_dev(div4, "class", "flex flex-row");
-    			add_location(div4, file$7, 125, 12, 4954);
+    			add_location(div4, file$7, 208, 12, 7919);
     			attr_dev(div5, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div5, file$7, 123, 8, 4809);
+    			add_location(div5, file$7, 206, 8, 7774);
     			attr_dev(p7, "class", "text-white font-thin text-lg text-xl");
-    			add_location(p7, file$7, 131, 10, 5191);
+    			add_location(p7, file$7, 214, 10, 8156);
     			attr_dev(p8, "id", "infoValueCPN");
     			attr_dev(p8, "class", "font-bold text-white text-3xl");
-    			add_location(p8, file$7, 133, 14, 5305);
+    			add_location(p8, file$7, 216, 14, 8270);
     			attr_dev(p9, "class", "font-bold text-white text-3xl");
-    			add_location(p9, file$7, 134, 14, 5392);
+    			add_location(p9, file$7, 217, 14, 8357);
     			attr_dev(div6, "class", "flex flex-row");
-    			add_location(div6, file$7, 132, 12, 5262);
+    			add_location(div6, file$7, 215, 12, 8227);
     			attr_dev(div7, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div7, file$7, 130, 8, 5116);
+    			add_location(div7, file$7, 213, 8, 8081);
     			attr_dev(p10, "class", "text-white font-thin text-lg text-xl");
-    			add_location(p10, file$7, 139, 10, 5560);
+    			add_location(p10, file$7, 222, 10, 8525);
     			attr_dev(p11, "id", "infoValueCPN");
     			attr_dev(p11, "class", "font-bold text-white text-3xl");
-    			add_location(p11, file$7, 141, 14, 5673);
+    			add_location(p11, file$7, 224, 14, 8638);
     			attr_dev(p12, "class", "font-bold text-white text-sm");
-    			add_location(p12, file$7, 142, 14, 5760);
+    			add_location(p12, file$7, 225, 14, 8725);
     			attr_dev(div8, "class", "flex flex-row");
-    			add_location(div8, file$7, 140, 12, 5630);
+    			add_location(div8, file$7, 223, 12, 8595);
     			attr_dev(div9, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div9, file$7, 138, 8, 5485);
+    			add_location(div9, file$7, 221, 8, 8450);
     			attr_dev(div10, "class", "flex flex-row");
-    			add_location(div10, file$7, 107, 8, 4098);
+    			add_location(div10, file$7, 190, 8, 7063);
+    			attr_dev(canvas, "id", "ping-chart");
+    			add_location(canvas, file$7, 230, 8, 8892);
+    			attr_dev(div11, "class", div11_class_value = "w-11/12 " + (/*isChartVisible*/ ctx[1] ? "block" : "hidden"));
+    			add_location(div11, file$7, 229, 4, 8823);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div10, anchor);
@@ -3021,10 +3032,19 @@ var app = (function () {
     			append_dev(div8, p11);
     			append_dev(div8, t23);
     			append_dev(div8, p12);
+    			insert_dev(target, t24, anchor);
+    			insert_dev(target, div11, anchor);
+    			append_dev(div11, canvas);
     		},
-    		p: noop,
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*isChartVisible*/ 2 && div11_class_value !== (div11_class_value = "w-11/12 " + (/*isChartVisible*/ ctx[1] ? "block" : "hidden"))) {
+    				attr_dev(div11, "class", div11_class_value);
+    			}
+    		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div10);
+    			if (detaching) detach_dev(t24);
+    			if (detaching) detach_dev(div11);
     		}
     	};
 
@@ -3032,14 +3052,14 @@ var app = (function () {
     		block,
     		id: create_else_block$1.name,
     		type: "else",
-    		source: "(107:4) {:else}",
+    		source: "(190:4) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (62:4) {#if ping}
+    // (142:4) {#if ping}
     function create_if_block$1(ctx) {
     	let div10;
     	let div1;
@@ -3089,6 +3109,10 @@ var app = (function () {
     	let t23;
     	let t24;
     	let p13;
+    	let t25;
+    	let div11;
+    	let canvas;
+    	let div11_class_value;
 
     	const block = {
     		c: function create() {
@@ -3109,7 +3133,7 @@ var app = (function () {
     			t6 = space();
     			div2 = element("div");
     			p4 = element("p");
-    			t7 = text(/*packetCount*/ ctx[1]);
+    			t7 = text(/*packetCount*/ ctx[2]);
     			t8 = text(" ");
     			t9 = space();
     			div5 = element("div");
@@ -3142,58 +3166,65 @@ var app = (function () {
     			t23 = text(t23_value);
     			t24 = text(" \r\n              ");
     			p13 = element("p");
+    			t25 = space();
+    			div11 = element("div");
+    			canvas = element("canvas");
     			attr_dev(p0, "class", "text-white font-thin text-lg text-xl");
-    			add_location(p0, file$7, 65, 6, 2364);
+    			add_location(p0, file$7, 145, 6, 5210);
     			attr_dev(p1, "class", "font-bold text-white text-3xl");
-    			add_location(p1, file$7, 67, 10, 2469);
+    			add_location(p1, file$7, 147, 10, 5315);
     			attr_dev(p2, "class", "font-bold text-white text-sm");
-    			add_location(p2, file$7, 68, 10, 2541);
+    			add_location(p2, file$7, 148, 10, 5387);
     			attr_dev(div0, "class", "flex flex-row");
-    			add_location(div0, file$7, 66, 8, 2430);
+    			add_location(div0, file$7, 146, 8, 5276);
     			attr_dev(div1, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div1, file$7, 64, 4, 2293);
+    			add_location(div1, file$7, 144, 4, 5139);
     			attr_dev(p3, "class", "text-white font-thin text-lg text-xl");
-    			add_location(p3, file$7, 73, 6, 2692);
+    			add_location(p3, file$7, 153, 6, 5538);
     			attr_dev(p4, "class", "font-bold text-white text-3xl");
-    			add_location(p4, file$7, 75, 10, 2797);
+    			add_location(p4, file$7, 155, 10, 5643);
     			attr_dev(div2, "class", "flex flex-row");
-    			add_location(div2, file$7, 74, 8, 2758);
+    			add_location(div2, file$7, 154, 8, 5604);
     			attr_dev(div3, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div3, file$7, 72, 4, 2621);
+    			add_location(div3, file$7, 152, 4, 5467);
     			attr_dev(p5, "class", "text-white font-thin text-lg text-xl");
-    			add_location(p5, file$7, 80, 10, 2975);
+    			add_location(p5, file$7, 160, 10, 5821);
     			attr_dev(p6, "class", "font-bold text-white text-3xl");
-    			add_location(p6, file$7, 82, 14, 3088);
+    			add_location(p6, file$7, 162, 14, 5934);
     			attr_dev(p7, "class", "font-bold text-white text-3xl");
-    			add_location(p7, file$7, 83, 14, 3165);
+    			add_location(p7, file$7, 163, 14, 6011);
     			attr_dev(div4, "class", "flex flex-row");
-    			add_location(div4, file$7, 81, 12, 3045);
+    			add_location(div4, file$7, 161, 12, 5891);
     			attr_dev(div5, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div5, file$7, 79, 8, 2900);
+    			add_location(div5, file$7, 159, 8, 5746);
     			attr_dev(p8, "class", "text-white font-thin text-lg text-xl");
-    			add_location(p8, file$7, 88, 10, 3335);
+    			add_location(p8, file$7, 168, 10, 6181);
     			attr_dev(p9, "class", "font-bold text-white text-3xl");
     			set_style(p9, "text-transform", "capitalize");
-    			add_location(p9, file$7, 90, 14, 3449);
+    			add_location(p9, file$7, 170, 14, 6295);
     			attr_dev(p10, "class", "font-bold text-white text-3xl");
-    			add_location(p10, file$7, 91, 14, 3563);
+    			add_location(p10, file$7, 171, 14, 6409);
     			attr_dev(div6, "class", "flex flex-row");
-    			add_location(div6, file$7, 89, 12, 3406);
+    			add_location(div6, file$7, 169, 12, 6252);
     			attr_dev(div7, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div7, file$7, 87, 8, 3260);
+    			add_location(div7, file$7, 167, 8, 6106);
     			attr_dev(p11, "class", "text-white font-thin text-lg text-xl");
-    			add_location(p11, file$7, 96, 10, 3731);
+    			add_location(p11, file$7, 176, 10, 6577);
     			attr_dev(p12, "id", "infoValueCPN");
     			attr_dev(p12, "class", "font-bold text-white text-3xl");
-    			add_location(p12, file$7, 98, 14, 3844);
+    			add_location(p12, file$7, 178, 14, 6690);
     			attr_dev(p13, "class", "font-bold text-white text-sm");
-    			add_location(p13, file$7, 99, 14, 3939);
+    			add_location(p13, file$7, 179, 14, 6785);
     			attr_dev(div8, "class", "flex flex-row");
-    			add_location(div8, file$7, 97, 12, 3801);
+    			add_location(div8, file$7, 177, 12, 6647);
     			attr_dev(div9, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div9, file$7, 95, 8, 3656);
+    			add_location(div9, file$7, 175, 8, 6502);
     			attr_dev(div10, "class", "flex flex-row");
-    			add_location(div10, file$7, 62, 4, 2258);
+    			add_location(div10, file$7, 142, 4, 5104);
+    			attr_dev(canvas, "id", "ping-chart");
+    			add_location(canvas, file$7, 185, 10, 6960);
+    			attr_dev(div11, "class", div11_class_value = "w-11/12 " + (/*isChartVisible*/ ctx[1] ? "block" : "hidden"));
+    			add_location(div11, file$7, 184, 6, 6889);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div10, anchor);
@@ -3240,16 +3271,25 @@ var app = (function () {
     			append_dev(p12, t23);
     			append_dev(div8, t24);
     			append_dev(div8, p13);
+    			insert_dev(target, t25, anchor);
+    			insert_dev(target, div11, anchor);
+    			append_dev(div11, canvas);
     		},
     		p: function update(ctx, dirty) {
     			if (dirty & /*ping*/ 1 && t2_value !== (t2_value = /*ping*/ ctx[0].hst + "")) set_data_dev(t2, t2_value);
-    			if (dirty & /*packetCount*/ 2) set_data_dev(t7, /*packetCount*/ ctx[1]);
+    			if (dirty & /*packetCount*/ 4) set_data_dev(t7, /*packetCount*/ ctx[2]);
     			if (dirty & /*ping*/ 1 && t12_value !== (t12_value = /*ping*/ ctx[0].time + "")) set_data_dev(t12, t12_value);
     			if (dirty & /*ping*/ 1 && t18_value !== (t18_value = /*ping*/ ctx[0].alive + "")) set_data_dev(t18, t18_value);
     			if (dirty & /*ping*/ 1 && t23_value !== (t23_value = /*ping*/ ctx[0].loss + "")) set_data_dev(t23, t23_value);
+
+    			if (dirty & /*isChartVisible*/ 2 && div11_class_value !== (div11_class_value = "w-11/12 " + (/*isChartVisible*/ ctx[1] ? "block" : "hidden"))) {
+    				attr_dev(div11, "class", div11_class_value);
+    			}
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div10);
+    			if (detaching) detach_dev(t25);
+    			if (detaching) detach_dev(div11);
     		}
     	};
 
@@ -3257,14 +3297,14 @@ var app = (function () {
     		block,
     		id: create_if_block$1.name,
     		type: "if",
-    		source: "(62:4) {#if ping}",
+    		source: "(142:4) {#if ping}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (52:0) <Shell title={"PING TOOL"} tooltip={"Check PING Timings"}>
+    // (132:0) <Shell title={"PING TOOL"} tooltip={"Check PING Timings"}>
     function create_default_slot$1(ctx) {
     	let div2;
     	let div0;
@@ -3275,6 +3315,8 @@ var app = (function () {
     	let button1;
     	let t4;
     	let button2;
+    	let t5_value = (/*isChartVisible*/ ctx[1] ? "HIDE GRAPH" : "SHOW GRAPH") + "";
+    	let t5;
     	let t6;
     	let button3;
     	let t8;
@@ -3302,7 +3344,7 @@ var app = (function () {
     			button1.textContent = "STOP";
     			t4 = space();
     			button2 = element("button");
-    			button2.textContent = "GRAPH VIEW";
+    			t5 = text(t5_value);
     			t6 = space();
     			button3 = element("button");
     			button3.textContent = "OPEN LOG";
@@ -3314,25 +3356,25 @@ var app = (function () {
     			attr_dev(input, "placeholder", "Enter IP/Domain");
     			input.value = "";
     			attr_dev(input, "class", "w-3/5 rounded-md m-2 px-1 text-gray-800 font-bold");
-    			add_location(input, file$7, 54, 4, 1418);
+    			add_location(input, file$7, 134, 4, 4198);
     			attr_dev(button0, "type", "button");
     			attr_dev(button0, "class", "text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600");
-    			add_location(button0, file$7, 55, 4, 1551);
+    			add_location(button0, file$7, 135, 4, 4331);
     			attr_dev(button1, "type", "button");
     			attr_dev(button1, "class", "text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600");
-    			add_location(button1, file$7, 56, 4, 1703);
+    			add_location(button1, file$7, 136, 4, 4483);
     			attr_dev(button2, "type", "button");
     			attr_dev(button2, "class", "text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600");
-    			add_location(button2, file$7, 57, 4, 1854);
+    			add_location(button2, file$7, 137, 4, 4634);
     			attr_dev(button3, "type", "button");
     			attr_dev(button3, "class", "text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600");
-    			add_location(button3, file$7, 58, 4, 2011);
+    			add_location(button3, file$7, 138, 4, 4857);
     			attr_dev(div0, "class", "flex flex-row justify-start mt-1");
-    			add_location(div0, file$7, 53, 4, 1366);
+    			add_location(div0, file$7, 133, 4, 4146);
     			attr_dev(div1, "class", "mt-2 flex flex-col items-center text-gray-50");
-    			add_location(div1, file$7, 60, 4, 2178);
+    			add_location(div1, file$7, 140, 4, 5024);
     			attr_dev(div2, "class", "flex flex-col");
-    			add_location(div2, file$7, 52, 2, 1333);
+    			add_location(div2, file$7, 132, 2, 4113);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div2, anchor);
@@ -3344,6 +3386,7 @@ var app = (function () {
     			append_dev(div0, button1);
     			append_dev(div0, t4);
     			append_dev(div0, button2);
+    			append_dev(button2, t5);
     			append_dev(div0, t6);
     			append_dev(div0, button3);
     			append_dev(div2, t8);
@@ -3351,13 +3394,15 @@ var app = (function () {
     			if_block.m(div1, null);
 
     			dispose = [
-    				listen_dev(button0, "click", /*sendData*/ ctx[3], false, false, false),
-    				listen_dev(button1, "click", /*stopTool*/ ctx[2], false, false, false),
-    				listen_dev(button2, "click", /*sendData*/ ctx[3], false, false, false),
-    				listen_dev(button3, "click", /*sendData*/ ctx[3], false, false, false)
+    				listen_dev(button0, "click", /*sendData*/ ctx[4], false, false, false),
+    				listen_dev(button1, "click", /*stopTool*/ ctx[3], false, false, false),
+    				listen_dev(button2, "click", /*click_handler*/ ctx[12], false, false, false),
+    				listen_dev(button3, "click", /*sendData*/ ctx[4], false, false, false)
     			];
     		},
     		p: function update(ctx, dirty) {
+    			if (dirty & /*isChartVisible*/ 2 && t5_value !== (t5_value = (/*isChartVisible*/ ctx[1] ? "HIDE GRAPH" : "SHOW GRAPH") + "")) set_data_dev(t5, t5_value);
+
     			if (current_block_type === (current_block_type = select_block_type(ctx)) && if_block) {
     				if_block.p(ctx, dirty);
     			} else {
@@ -3381,7 +3426,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$1.name,
     		type: "slot",
-    		source: "(52:0) <Shell title={\\\"PING TOOL\\\"} tooltip={\\\"Check PING Timings\\\"}>",
+    		source: "(132:0) <Shell title={\\\"PING TOOL\\\"} tooltip={\\\"Check PING Timings\\\"}>",
     		ctx
     	});
 
@@ -3415,7 +3460,7 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			const shell_changes = {};
 
-    			if (dirty & /*$$scope, ping, packetCount*/ 259) {
+    			if (dirty & /*$$scope, isChartVisible, ping, packetCount*/ 8199) {
     				shell_changes.$$scope = { dirty, ctx };
     			}
 
@@ -3447,8 +3492,11 @@ var app = (function () {
     }
 
     function instance$8($$self, $$props, $$invalidate) {
+    	let $settings;
+    	validate_store(settings, "settings");
+    	component_subscribe($$self, settings, $$value => $$invalidate(10, $settings = $$value));
     	const { ipcRenderer } = require("electron");
-    	let ping, name, pingInterval;
+    	let ping, name, pingInterval, timeList = [], pingChart, isChartVisible = false;
     	let logged = true;
     	let packetCount = 0;
 
@@ -3458,7 +3506,7 @@ var app = (function () {
     	};
 
     	const sendData = () => {
-    		$$invalidate(1, packetCount = 0);
+    		$$invalidate(2, packetCount = 0);
     		name = document.getElementById("dname").value;
 
     		pingInterval = setInterval(
@@ -3470,7 +3518,9 @@ var app = (function () {
     					$$invalidate(0, ping = pInfo);
 
     					if (!logged) {
-    						$$invalidate(1, packetCount += 1);
+    						$$invalidate(2, packetCount += 1);
+    						timeList = [...timeList, ping.time];
+    						console.log(timeList);
 
     						logToText({
     							path: `./PING_${fileStamp}_${ping.hst}.txt`,
@@ -3478,6 +3528,58 @@ var app = (function () {
     							mark: "info",
     							quiet: false
     						});
+
+    						// Create new chart each time ping data is received
+    						const canvas = document.getElementById("ping-chart");
+
+    						const ctx = canvas.getContext("2d");
+    						if (pingChart) pingChart.destroy();
+
+    						pingChart = new Chart(ctx,
+    						{
+    								type: "line",
+    								options: {
+    									color: $settings.fontColor2,
+    									scales: {
+    										x: { ticks: { color: $settings.fontColor2 } },
+    										y: { ticks: { color: $settings.fontColor2 } }
+    									}
+    								},
+    								data: {
+    									labels: [
+    										"0",
+    										"1",
+    										"2",
+    										"3",
+    										"4",
+    										"5",
+    										"6",
+    										"7",
+    										"8",
+    										"9",
+    										"10",
+    										"11",
+    										"12",
+    										"13",
+    										"14",
+    										"15",
+    										"16",
+    										"17",
+    										"18",
+    										"19",
+    										"20"
+    									],
+    									datasets: [
+    										{
+    											label: "Ping Chart",
+    											data: timeList,
+    											borderColor: $settings.miscColor,
+    											backgroundColor: $settings.miscColor,
+    											tension: 0.1
+    										}
+    									]
+    								}
+    							});
 
     						logged = true;
     					}
@@ -3487,21 +3589,87 @@ var app = (function () {
     		);
     	};
 
-    	onDestroy(() => {
-    		$$invalidate(1, packetCount = 0);
-    		console.log("Component Unmounted");
-    		clearInterval(pingInterval);
+    	onMount(() => {
+    		// setInterval(()=>{
+    		const canvas = document.getElementById("ping-chart");
+
+    		const ctx = canvas.getContext("2d");
+
+    		// Create chart for Ping on initial mount
+    		// If chart already exists, destroy it first
+    		if (pingChart) pingChart.destroy();
+
+    		pingChart = new Chart(ctx,
+    		{
+    				type: "line",
+    				options: {
+    					color: $settings.fontColor2,
+    					scales: {
+    						x: { ticks: { color: $settings.fontColor2 } },
+    						y: { ticks: { color: $settings.fontColor2 } }
+    					}
+    				},
+    				data: {
+    					labels: [
+    						"0",
+    						"1",
+    						"2",
+    						"3",
+    						"4",
+    						"5",
+    						"6",
+    						"7",
+    						"8",
+    						"9",
+    						"10",
+    						"11",
+    						"12",
+    						"13",
+    						"14",
+    						"15",
+    						"16",
+    						"17",
+    						"18",
+    						"19",
+    						"20"
+    					],
+    					datasets: [
+    						{
+    							label: "Ping Chart",
+    							data: timeList,
+    							borderColor: $settings.miscColor,
+    							backgroundColor: $settings.miscColor,
+    							tension: 0.1
+    						}
+    					]
+    				}
+    			});
     	});
 
+    	onDestroy(() => {
+    		$$invalidate(2, packetCount = 0);
+    		timeList = [];
+    		console.log("Component Unmounted");
+    		clearInterval(pingInterval);
+    		pingChart.destroy();
+    	});
+
+    	const click_handler = () => $$invalidate(1, isChartVisible = !isChartVisible);
+
     	$$self.$capture_state = () => ({
+    		onMount,
     		onDestroy,
     		Shell,
+    		settings,
     		logToText,
     		fileStamp,
     		ipcRenderer,
     		ping,
     		name,
     		pingInterval,
+    		timeList,
+    		pingChart,
+    		isChartVisible,
     		logged,
     		packetCount,
     		stopTool,
@@ -3510,22 +3678,41 @@ var app = (function () {
     		clearInterval,
     		document,
     		setInterval,
-    		console
+    		console,
+    		Chart,
+    		$settings
     	});
 
     	$$self.$inject_state = $$props => {
     		if ("ping" in $$props) $$invalidate(0, ping = $$props.ping);
     		if ("name" in $$props) name = $$props.name;
     		if ("pingInterval" in $$props) pingInterval = $$props.pingInterval;
+    		if ("timeList" in $$props) timeList = $$props.timeList;
+    		if ("pingChart" in $$props) pingChart = $$props.pingChart;
+    		if ("isChartVisible" in $$props) $$invalidate(1, isChartVisible = $$props.isChartVisible);
     		if ("logged" in $$props) logged = $$props.logged;
-    		if ("packetCount" in $$props) $$invalidate(1, packetCount = $$props.packetCount);
+    		if ("packetCount" in $$props) $$invalidate(2, packetCount = $$props.packetCount);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [ping, packetCount, stopTool, sendData];
+    	return [
+    		ping,
+    		isChartVisible,
+    		packetCount,
+    		stopTool,
+    		sendData,
+    		name,
+    		pingInterval,
+    		timeList,
+    		pingChart,
+    		logged,
+    		$settings,
+    		ipcRenderer,
+    		click_handler
+    	];
     }
 
     class Ping extends SvelteComponentDev {

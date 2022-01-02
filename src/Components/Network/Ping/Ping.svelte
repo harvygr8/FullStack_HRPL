@@ -1,8 +1,9 @@
 <script>
 
     //Svelte
-    import { onDestroy } from 'svelte';
+    import { onMount, onDestroy } from 'svelte';
     import Shell from '../../Misc/Shell.svelte';
+    import { settings } from '../../../Stores/settingsStore'
 
     //Logex
     import {logToText,fileStamp} from '../../../Logex/Logex.js'
@@ -11,7 +12,7 @@
     const { ipcRenderer } = require('electron');
 
 
-    let ping , name, pingInterval;
+    let ping , name, pingInterval, timeList = [], pingChart, isChartVisible = false;
     let logged=true;
     let packetCount=0;
 
@@ -29,23 +30,102 @@
         ipcRenderer.on('get-ping-info', (e, pInfo) => {
             ping = pInfo;
             if(!logged){
-            packetCount +=1;
+              packetCount +=1;
+              timeList = [...timeList, ping.time];
+              console.log(timeList)
             logToText({
               path:`./PING_${fileStamp}_${ping.hst}.txt`,
               content:`Time:${ping.time} ms | Alive:${ping.alive} | Loss:${ping.loss}`,
               mark:'info',
               quiet:false
             });
+
+            // Create new chart each time ping data is received
+            const canvas = document.getElementById('ping-chart');
+            const ctx = canvas.getContext('2d');
+
+            if (pingChart) pingChart.destroy();
+            pingChart = new Chart(ctx , {
+              type: 'line',
+              options: {
+                color: $settings.fontColor2,
+                scales: {
+                  x: {
+                    ticks: {
+                      color: $settings.fontColor2
+                    }
+                  },
+                  y: {
+                    ticks: {
+                      color: $settings.fontColor2
+                    }
+                  }
+                }
+              },
+              data: {
+                labels: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10','11', '12', '13', '14', '15', '16', '17', '18', '19', '20'],
+                datasets: [{
+                    label: 'Ping Chart',
+                    data: timeList,
+                    borderColor: $settings.miscColor,
+                    backgroundColor: $settings.miscColor,
+                    tension: 0.1
+                }]
+              }
+            })         
+
+
+            
             logged=true;
           }
         });
       },1000);
     };
 
+    onMount(() => {
+      // setInterval(()=>{
+        const canvas = document.getElementById('ping-chart');
+        const ctx = canvas.getContext('2d');
+
+        // Create chart for Ping on initial mount
+        // If chart already exists, destroy it first
+        if (pingChart) pingChart.destroy();
+        pingChart = new Chart(ctx , {
+            type: 'line',
+            options: {
+              color: $settings.fontColor2,
+              scales: {
+                x: {
+                  ticks: {
+                    color: $settings.fontColor2
+                  }
+                },
+                y: {
+                  ticks: {
+                    color: $settings.fontColor2
+                  }
+                }
+              }
+            },
+            data: {
+                labels: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10','11', '12', '13', '14', '15', '16', '17', '18', '19', '20'],
+                datasets: [{
+                    label: 'Ping Chart',
+                    data: timeList,
+                    borderColor: $settings.miscColor,
+                    backgroundColor: $settings.miscColor,
+                    tension: 0.1
+                }]
+            }
+        })            
+    });
+    
     onDestroy(() => {
       packetCount=0;
+      timeList = [];
       console.log('Component Unmounted');
       clearInterval(pingInterval);
+      pingChart.destroy()
     });
 </script>
 
@@ -55,7 +135,7 @@
     <input id="dname" type="text" placeholder="Enter IP/Domain" value="" class="w-3/5 rounded-md m-2 px-1 text-gray-800 font-bold">
     <button type="button" on:click={sendData} class="text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600">START</button>
     <button type="button" on:click={stopTool} class="text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600">STOP</button>
-    <button type="button" on:click={sendData} class="text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600">GRAPH VIEW</button>
+    <button type="button" on:click={() => isChartVisible = !isChartVisible} class="text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600">{isChartVisible ? 'HIDE GRAPH' : 'SHOW GRAPH'}</button>
     <button type="button" on:click={sendData} class="text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600">OPEN LOG</button>
     </div>
     <div class="mt-2 flex flex-col items-center text-gray-50">
@@ -102,6 +182,9 @@
         </div>
 
       </div>
+      <div class="w-11/12 {isChartVisible ? 'block' : 'hidden'}">
+          <canvas id="ping-chart" />
+      </div>
 <!-- <p>Alive : {ping.alive}</p> -->
 
     {:else}
@@ -143,8 +226,10 @@
               <p class='font-bold text-white text-sm'></p>
             </div>
         </div>
-
-      </div>
+    </div>
+    <div class="w-11/12 {isChartVisible ? 'block' : 'hidden'}">
+        <canvas id="ping-chart" />
+    </div>
     {/if}
     </div>
   </div>
