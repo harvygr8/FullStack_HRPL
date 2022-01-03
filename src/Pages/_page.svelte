@@ -14,11 +14,11 @@
     <div class="flex flex-row h-full">
         <Nav />
         <div
-            class="w-full"
+            class="w-full h-full overflow-auto"
             style="background-color: {$settings.bgColor1};"
         >
             <TitleBar currPage={_currPage}/>
-            <div class="p-4 mx-auto overflow-auto">
+            <div class="p-4 mx-auto">
                 <slot />
             </div>
         </div>

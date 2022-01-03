@@ -12,7 +12,7 @@
 </script>
 
 <div
-    class="flex flex-row justify-between my-2"
+    class="flex flex-row justify-between my-2 drag"
     style="color: {$settings.fontColor2}"
 >
     <!-- <div class="drag" />
@@ -22,7 +22,7 @@
         </h1>
             <!-- NEURON -->
     <!-- </div> -->
-    <div class="flex flex-row justify-center items-center text-md">
+    <div class="flex flex-row justify-center items-center text-md no-drag">
         <button on:click={() => window.minimize()} class="fa fa-window-minimize " />
         <button on:click={() => window.maximize()} class="fa fa-window-maximize mx-6" />
         <button on:click={() => window.close()} class="fa fa-times mr-4" />
@@ -35,5 +35,9 @@
     .drag {
         -webkit-user-select: none;
         -webkit-app-region: drag;
+    }
+    .no-drag {
+        -webkit-user-select: none;
+        -webkit-app-region: none;
     }
 </style>

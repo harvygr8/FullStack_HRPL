@@ -2085,18 +2085,18 @@ var app = (function () {
     			button2 = element("button");
     			set_style(span, "background-color", /*$settings*/ ctx[1].bgColor);
     			attr_dev(span, "class", "pl-2 pr-2 pb-1 rounded-md");
-    			add_location(span, file$2, 20, 20, 492);
+    			add_location(span, file$2, 20, 20, 497);
     			attr_dev(h1, "class", "mt-1 text-2xl ml-10 font-medium");
-    			add_location(h1, file$2, 19, 8, 426);
+    			add_location(h1, file$2, 19, 8, 431);
     			attr_dev(button0, "class", "fa fa-window-minimize ");
-    			add_location(button0, file$2, 25, 8, 738);
+    			add_location(button0, file$2, 25, 8, 751);
     			attr_dev(button1, "class", "fa fa-window-maximize mx-6");
-    			add_location(button1, file$2, 26, 8, 824);
+    			add_location(button1, file$2, 26, 8, 837);
     			attr_dev(button2, "class", "fa fa-times mr-4");
-    			add_location(button2, file$2, 27, 8, 914);
-    			attr_dev(div0, "class", "flex flex-row justify-center items-center text-md");
-    			add_location(div0, file$2, 24, 4, 665);
-    			attr_dev(div1, "class", "flex flex-row justify-between my-2");
+    			add_location(button2, file$2, 27, 8, 927);
+    			attr_dev(div0, "class", "flex flex-row justify-center items-center text-md no-drag svelte-10hzk5y");
+    			add_location(div0, file$2, 24, 4, 670);
+    			attr_dev(div1, "class", "flex flex-row justify-between my-2 drag svelte-10hzk5y");
     			set_style(div1, "color", /*$settings*/ ctx[1].fontColor2);
     			add_location(div1, file$2, 13, 0, 259);
     		},
@@ -2256,9 +2256,9 @@ var app = (function () {
     			t1 = space();
     			div0 = element("div");
     			if (default_slot) default_slot.c();
-    			attr_dev(div0, "class", "p-4 mx-auto overflow-auto");
-    			add_location(div0, file$3, 20, 12, 551);
-    			attr_dev(div1, "class", "w-full");
+    			attr_dev(div0, "class", "p-4 mx-auto");
+    			add_location(div0, file$3, 20, 12, 572);
+    			attr_dev(div1, "class", "w-full h-full overflow-auto");
     			set_style(div1, "background-color", /*$settings*/ ctx[1].bgColor1);
     			add_location(div1, file$3, 15, 8, 387);
     			attr_dev(div2, "class", "flex flex-row h-full");
@@ -2498,7 +2498,7 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			div = element("div");
-    			attr_dev(div, "class", "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4");
+    			attr_dev(div, "class", "p-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4");
     			add_location(div, file$5, 11, 4, 327);
     		},
     		m: function mount(target, anchor) {
@@ -2936,62 +2936,62 @@ var app = (function () {
     			div11 = element("div");
     			canvas = element("canvas");
     			attr_dev(p0, "class", "text-white font-thin text-lg text-xl");
-    			add_location(p0, file$7, 192, 10, 7175);
+    			add_location(p0, file$7, 192, 10, 7017);
     			attr_dev(p1, "id", "infoValueCPN");
     			attr_dev(p1, "class", "font-bold text-white text-3xl");
-    			add_location(p1, file$7, 194, 14, 7288);
+    			add_location(p1, file$7, 194, 14, 7130);
     			attr_dev(p2, "class", "font-bold text-white text-sm");
-    			add_location(p2, file$7, 195, 14, 7375);
+    			add_location(p2, file$7, 195, 14, 7217);
     			attr_dev(div0, "class", "flex flex-row");
-    			add_location(div0, file$7, 193, 12, 7245);
+    			add_location(div0, file$7, 193, 12, 7087);
     			attr_dev(div1, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div1, file$7, 191, 8, 7100);
+    			add_location(div1, file$7, 191, 8, 6942);
     			attr_dev(p3, "class", "text-white font-thin text-lg text-xl");
-    			add_location(p3, file$7, 200, 10, 7542);
+    			add_location(p3, file$7, 200, 10, 7384);
     			attr_dev(p4, "id", "infoValueCPN");
     			attr_dev(p4, "class", "font-bold text-white text-3xl");
-    			add_location(p4, file$7, 202, 14, 7655);
+    			add_location(p4, file$7, 202, 14, 7497);
     			attr_dev(div2, "class", "flex flex-row");
-    			add_location(div2, file$7, 201, 12, 7612);
+    			add_location(div2, file$7, 201, 12, 7454);
     			attr_dev(div3, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div3, file$7, 199, 8, 7467);
+    			add_location(div3, file$7, 199, 8, 7309);
     			attr_dev(p5, "class", "text-white font-thin text-lg text-xl");
-    			add_location(p5, file$7, 207, 10, 7849);
+    			add_location(p5, file$7, 207, 10, 7691);
     			attr_dev(p6, "id", "infoValueCPN");
     			attr_dev(p6, "class", "font-bold text-white text-3xl");
-    			add_location(p6, file$7, 209, 14, 7962);
+    			add_location(p6, file$7, 209, 14, 7804);
     			attr_dev(div4, "class", "flex flex-row");
-    			add_location(div4, file$7, 208, 12, 7919);
+    			add_location(div4, file$7, 208, 12, 7761);
     			attr_dev(div5, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div5, file$7, 206, 8, 7774);
+    			add_location(div5, file$7, 206, 8, 7616);
     			attr_dev(p7, "class", "text-white font-thin text-lg text-xl");
-    			add_location(p7, file$7, 214, 10, 8156);
+    			add_location(p7, file$7, 214, 10, 7998);
     			attr_dev(p8, "id", "infoValueCPN");
     			attr_dev(p8, "class", "font-bold text-white text-3xl");
-    			add_location(p8, file$7, 216, 14, 8270);
+    			add_location(p8, file$7, 216, 14, 8112);
     			attr_dev(p9, "class", "font-bold text-white text-3xl");
-    			add_location(p9, file$7, 217, 14, 8357);
+    			add_location(p9, file$7, 217, 14, 8199);
     			attr_dev(div6, "class", "flex flex-row");
-    			add_location(div6, file$7, 215, 12, 8227);
+    			add_location(div6, file$7, 215, 12, 8069);
     			attr_dev(div7, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div7, file$7, 213, 8, 8081);
+    			add_location(div7, file$7, 213, 8, 7923);
     			attr_dev(p10, "class", "text-white font-thin text-lg text-xl");
-    			add_location(p10, file$7, 222, 10, 8525);
+    			add_location(p10, file$7, 222, 10, 8367);
     			attr_dev(p11, "id", "infoValueCPN");
     			attr_dev(p11, "class", "font-bold text-white text-3xl");
-    			add_location(p11, file$7, 224, 14, 8638);
+    			add_location(p11, file$7, 224, 14, 8480);
     			attr_dev(p12, "class", "font-bold text-white text-sm");
-    			add_location(p12, file$7, 225, 14, 8725);
+    			add_location(p12, file$7, 225, 14, 8567);
     			attr_dev(div8, "class", "flex flex-row");
-    			add_location(div8, file$7, 223, 12, 8595);
+    			add_location(div8, file$7, 223, 12, 8437);
     			attr_dev(div9, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div9, file$7, 221, 8, 8450);
+    			add_location(div9, file$7, 221, 8, 8292);
     			attr_dev(div10, "class", "flex flex-row");
-    			add_location(div10, file$7, 190, 8, 7063);
+    			add_location(div10, file$7, 190, 8, 6905);
     			attr_dev(canvas, "id", "ping-chart");
-    			add_location(canvas, file$7, 230, 8, 8892);
+    			add_location(canvas, file$7, 230, 8, 8734);
     			attr_dev(div11, "class", div11_class_value = "w-11/12 " + (/*isChartVisible*/ ctx[1] ? "block" : "hidden"));
-    			add_location(div11, file$7, 229, 4, 8823);
+    			add_location(div11, file$7, 229, 4, 8665);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div10, anchor);
@@ -3170,61 +3170,61 @@ var app = (function () {
     			div11 = element("div");
     			canvas = element("canvas");
     			attr_dev(p0, "class", "text-white font-thin text-lg text-xl");
-    			add_location(p0, file$7, 145, 6, 5210);
+    			add_location(p0, file$7, 145, 6, 5052);
     			attr_dev(p1, "class", "font-bold text-white text-3xl");
-    			add_location(p1, file$7, 147, 10, 5315);
+    			add_location(p1, file$7, 147, 10, 5157);
     			attr_dev(p2, "class", "font-bold text-white text-sm");
-    			add_location(p2, file$7, 148, 10, 5387);
+    			add_location(p2, file$7, 148, 10, 5229);
     			attr_dev(div0, "class", "flex flex-row");
-    			add_location(div0, file$7, 146, 8, 5276);
+    			add_location(div0, file$7, 146, 8, 5118);
     			attr_dev(div1, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div1, file$7, 144, 4, 5139);
+    			add_location(div1, file$7, 144, 4, 4981);
     			attr_dev(p3, "class", "text-white font-thin text-lg text-xl");
-    			add_location(p3, file$7, 153, 6, 5538);
+    			add_location(p3, file$7, 153, 6, 5380);
     			attr_dev(p4, "class", "font-bold text-white text-3xl");
-    			add_location(p4, file$7, 155, 10, 5643);
+    			add_location(p4, file$7, 155, 10, 5485);
     			attr_dev(div2, "class", "flex flex-row");
-    			add_location(div2, file$7, 154, 8, 5604);
+    			add_location(div2, file$7, 154, 8, 5446);
     			attr_dev(div3, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div3, file$7, 152, 4, 5467);
+    			add_location(div3, file$7, 152, 4, 5309);
     			attr_dev(p5, "class", "text-white font-thin text-lg text-xl");
-    			add_location(p5, file$7, 160, 10, 5821);
+    			add_location(p5, file$7, 160, 10, 5663);
     			attr_dev(p6, "class", "font-bold text-white text-3xl");
-    			add_location(p6, file$7, 162, 14, 5934);
+    			add_location(p6, file$7, 162, 14, 5776);
     			attr_dev(p7, "class", "font-bold text-white text-3xl");
-    			add_location(p7, file$7, 163, 14, 6011);
+    			add_location(p7, file$7, 163, 14, 5853);
     			attr_dev(div4, "class", "flex flex-row");
-    			add_location(div4, file$7, 161, 12, 5891);
+    			add_location(div4, file$7, 161, 12, 5733);
     			attr_dev(div5, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div5, file$7, 159, 8, 5746);
+    			add_location(div5, file$7, 159, 8, 5588);
     			attr_dev(p8, "class", "text-white font-thin text-lg text-xl");
-    			add_location(p8, file$7, 168, 10, 6181);
+    			add_location(p8, file$7, 168, 10, 6023);
     			attr_dev(p9, "class", "font-bold text-white text-3xl");
     			set_style(p9, "text-transform", "capitalize");
-    			add_location(p9, file$7, 170, 14, 6295);
+    			add_location(p9, file$7, 170, 14, 6137);
     			attr_dev(p10, "class", "font-bold text-white text-3xl");
-    			add_location(p10, file$7, 171, 14, 6409);
+    			add_location(p10, file$7, 171, 14, 6251);
     			attr_dev(div6, "class", "flex flex-row");
-    			add_location(div6, file$7, 169, 12, 6252);
+    			add_location(div6, file$7, 169, 12, 6094);
     			attr_dev(div7, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div7, file$7, 167, 8, 6106);
+    			add_location(div7, file$7, 167, 8, 5948);
     			attr_dev(p11, "class", "text-white font-thin text-lg text-xl");
-    			add_location(p11, file$7, 176, 10, 6577);
+    			add_location(p11, file$7, 176, 10, 6419);
     			attr_dev(p12, "id", "infoValueCPN");
     			attr_dev(p12, "class", "font-bold text-white text-3xl");
-    			add_location(p12, file$7, 178, 14, 6690);
+    			add_location(p12, file$7, 178, 14, 6532);
     			attr_dev(p13, "class", "font-bold text-white text-sm");
-    			add_location(p13, file$7, 179, 14, 6785);
+    			add_location(p13, file$7, 179, 14, 6627);
     			attr_dev(div8, "class", "flex flex-row");
-    			add_location(div8, file$7, 177, 12, 6647);
+    			add_location(div8, file$7, 177, 12, 6489);
     			attr_dev(div9, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div9, file$7, 175, 8, 6502);
+    			add_location(div9, file$7, 175, 8, 6344);
     			attr_dev(div10, "class", "flex flex-row");
-    			add_location(div10, file$7, 142, 4, 5104);
+    			add_location(div10, file$7, 142, 4, 4946);
     			attr_dev(canvas, "id", "ping-chart");
-    			add_location(canvas, file$7, 185, 10, 6960);
+    			add_location(canvas, file$7, 185, 10, 6802);
     			attr_dev(div11, "class", div11_class_value = "w-11/12 " + (/*isChartVisible*/ ctx[1] ? "block" : "hidden"));
-    			add_location(div11, file$7, 184, 6, 6889);
+    			add_location(div11, file$7, 184, 6, 6731);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div10, anchor);
@@ -3356,25 +3356,25 @@ var app = (function () {
     			attr_dev(input, "placeholder", "Enter IP/Domain");
     			input.value = "";
     			attr_dev(input, "class", "w-3/5 rounded-md m-2 px-1 text-gray-800 font-bold");
-    			add_location(input, file$7, 134, 4, 4198);
+    			add_location(input, file$7, 134, 4, 4040);
     			attr_dev(button0, "type", "button");
     			attr_dev(button0, "class", "text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600");
-    			add_location(button0, file$7, 135, 4, 4331);
+    			add_location(button0, file$7, 135, 4, 4173);
     			attr_dev(button1, "type", "button");
     			attr_dev(button1, "class", "text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600");
-    			add_location(button1, file$7, 136, 4, 4483);
+    			add_location(button1, file$7, 136, 4, 4325);
     			attr_dev(button2, "type", "button");
     			attr_dev(button2, "class", "text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600");
-    			add_location(button2, file$7, 137, 4, 4634);
+    			add_location(button2, file$7, 137, 4, 4476);
     			attr_dev(button3, "type", "button");
     			attr_dev(button3, "class", "text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600");
-    			add_location(button3, file$7, 138, 4, 4857);
+    			add_location(button3, file$7, 138, 4, 4699);
     			attr_dev(div0, "class", "flex flex-row justify-start mt-1");
-    			add_location(div0, file$7, 133, 4, 4146);
+    			add_location(div0, file$7, 133, 4, 3988);
     			attr_dev(div1, "class", "mt-2 flex flex-col items-center text-gray-50");
-    			add_location(div1, file$7, 140, 4, 5024);
+    			add_location(div1, file$7, 140, 4, 4866);
     			attr_dev(div2, "class", "flex flex-col");
-    			add_location(div2, file$7, 132, 2, 4113);
+    			add_location(div2, file$7, 132, 2, 3955);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div2, anchor);
@@ -3546,29 +3546,7 @@ var app = (function () {
     									}
     								},
     								data: {
-    									labels: [
-    										"0",
-    										"1",
-    										"2",
-    										"3",
-    										"4",
-    										"5",
-    										"6",
-    										"7",
-    										"8",
-    										"9",
-    										"10",
-    										"11",
-    										"12",
-    										"13",
-    										"14",
-    										"15",
-    										"16",
-    										"17",
-    										"18",
-    										"19",
-    										"20"
-    									],
+    									labels: timeList.map((item, index) => index),
     									datasets: [
     										{
     											label: "Ping Chart",
@@ -3610,29 +3588,7 @@ var app = (function () {
     					}
     				},
     				data: {
-    					labels: [
-    						"0",
-    						"1",
-    						"2",
-    						"3",
-    						"4",
-    						"5",
-    						"6",
-    						"7",
-    						"8",
-    						"9",
-    						"10",
-    						"11",
-    						"12",
-    						"13",
-    						"14",
-    						"15",
-    						"16",
-    						"17",
-    						"18",
-    						"19",
-    						"20"
-    					],
+    					labels: timeList.map((item, index) => index),
     					datasets: [
     						{
     							label: "Ping Chart",
