@@ -14,7 +14,7 @@
     <!-- <i class="fa fa-tachometer fa-2x" aria-hidden="true"></i> -->
     <!-- <i class="fa fa-th fa-2x" aria-hidden="true"></i> -->
     <i class="fa fa-database fa-2x" aria-hidden="true"></i>
-    <p class="text-center text-2xl mt-1 font-medium"> Neuron </p>
+    <p class="text-center text-2xl mt-1 font-medium">{$settings.username}</p>
 
         <!-- {$settings.username} -->
     </h2>

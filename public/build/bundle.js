@@ -1837,6 +1837,8 @@ var app = (function () {
     	let i;
     	let t0;
     	let p;
+    	let t1_value = /*$settings*/ ctx[0].username + "";
+    	let t1;
     	let t2;
     	let div0;
     	let t3;
@@ -1918,7 +1920,7 @@ var app = (function () {
     			i = element("i");
     			t0 = space();
     			p = element("p");
-    			p.textContent = "Neuron";
+    			t1 = text(t1_value);
     			t2 = space();
     			div0 = element("div");
     			t3 = space();
@@ -1944,7 +1946,7 @@ var app = (function () {
     			set_style(h2, "color", /*$settings*/ ctx[0].fontColor1);
     			add_location(h2, file$1, 9, 4, 221);
     			attr_dev(div0, "class", "mt-16");
-    			add_location(div0, file$1, 20, 4, 656);
+    			add_location(div0, file$1, 20, 4, 668);
     			attr_dev(div1, "class", "w-auto px-2 md:px-4");
     			set_style(div1, "background-color", /*$settings*/ ctx[0].bgColor2);
     			add_location(div1, file$1, 5, 0, 122);
@@ -1958,6 +1960,7 @@ var app = (function () {
     			append_dev(h2, i);
     			append_dev(h2, t0);
     			append_dev(h2, p);
+    			append_dev(p, t1);
     			append_dev(div1, t2);
     			append_dev(div1, div0);
     			append_dev(div1, t3);
@@ -1977,6 +1980,8 @@ var app = (function () {
     			current = true;
     		},
     		p: function update(ctx, [dirty]) {
+    			if ((!current || dirty & /*$settings*/ 1) && t1_value !== (t1_value = /*$settings*/ ctx[0].username + "")) set_data_dev(t1, t1_value);
+
     			if (!current || dirty & /*$settings*/ 1) {
     				set_style(h2, "color", /*$settings*/ ctx[0].fontColor1);
     			}
@@ -2242,8 +2247,8 @@ var app = (function () {
     			$$inline: true
     		});
 
-    	const default_slot_template = /*$$slots*/ ctx[3].default;
-    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[2], null);
+    	const default_slot_template = /*$$slots*/ ctx[4].default;
+    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[3], null);
 
     	const block = {
     		c: function create() {
@@ -2257,15 +2262,16 @@ var app = (function () {
     			div0 = element("div");
     			if (default_slot) default_slot.c();
     			attr_dev(div0, "class", "p-4 mx-auto");
-    			add_location(div0, file$3, 20, 12, 572);
+    			add_location(div0, file$3, 41, 12, 1309);
     			attr_dev(div1, "class", "w-full h-full overflow-auto");
     			set_style(div1, "background-color", /*$settings*/ ctx[1].bgColor1);
-    			add_location(div1, file$3, 15, 8, 387);
+    			add_location(div1, file$3, 36, 8, 1124);
     			attr_dev(div2, "class", "flex flex-row h-full");
-    			add_location(div2, file$3, 13, 4, 326);
+    			add_location(div2, file$3, 34, 4, 1063);
     			attr_dev(main, "class", "h-full");
+    			attr_dev(main, "id", "main");
     			set_style(main, "font-family", /*$settings*/ ctx[1].font);
-    			add_location(main, file$3, 9, 0, 248);
+    			add_location(main, file$3, 29, 0, 969);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2291,8 +2297,8 @@ var app = (function () {
     			if (dirty & /*_currPage*/ 1) titlebar_changes.currPage = /*_currPage*/ ctx[0];
     			titlebar.$set(titlebar_changes);
 
-    			if (default_slot && default_slot.p && dirty & /*$$scope*/ 4) {
-    				default_slot.p(get_slot_context(default_slot_template, ctx, /*$$scope*/ ctx[2], null), get_slot_changes(default_slot_template, /*$$scope*/ ctx[2], dirty, null));
+    			if (default_slot && default_slot.p && dirty & /*$$scope*/ 8) {
+    				default_slot.p(get_slot_context(default_slot_template, ctx, /*$$scope*/ ctx[3], null), get_slot_changes(default_slot_template, /*$$scope*/ ctx[3], dirty, null));
     			}
 
     			if (!current || dirty & /*$settings*/ 2) {
@@ -2340,6 +2346,23 @@ var app = (function () {
     	validate_store(settings, "settings");
     	component_subscribe($$self, settings, $$value => $$invalidate(1, $settings = $$value));
     	let { _currPage = "Home" } = $$props;
+
+    	// Add rounded borders when not in fullscreen
+    	// Needs fixing
+    	const addRoundedBorders = () => {
+    		if (screen.width !== window.innerWidth) document.getElementById("main").classList.add("rounded-md"); else document.getElementById("main").classList.add("rounded-none");
+    	};
+
+    	onMount(() => {
+    		window.addEventListener("load", addRoundedBorders);
+    		window.addEventListener("resize", addRoundedBorders);
+
+    		return () => {
+    			window.removeEventListener("load", addRoundedBorders);
+    			window.removeEventListener("resize", addRoundedBorders);
+    		};
+    	});
+
     	const writable_props = ["_currPage"];
 
     	Object.keys($$props).forEach(key => {
@@ -2350,14 +2373,19 @@ var app = (function () {
 
     	$$self.$set = $$props => {
     		if ("_currPage" in $$props) $$invalidate(0, _currPage = $$props._currPage);
-    		if ("$$scope" in $$props) $$invalidate(2, $$scope = $$props.$$scope);
+    		if ("$$scope" in $$props) $$invalidate(3, $$scope = $$props.$$scope);
     	};
 
     	$$self.$capture_state = () => ({
+    		onMount,
     		Nav,
     		TitleBar,
     		settings,
     		_currPage,
+    		addRoundedBorders,
+    		screen,
+    		window,
+    		document,
     		$settings
     	});
 
@@ -2369,7 +2397,7 @@ var app = (function () {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [_currPage, $settings, $$scope, $$slots];
+    	return [_currPage, $settings, addRoundedBorders, $$scope, $$slots];
     }
 
     class Page extends SvelteComponentDev {
@@ -2837,8 +2865,128 @@ var app = (function () {
 
     const file$7 = "src\\Components\\Network\\Ping\\Ping.svelte";
 
-    // (190:4) {:else}
+    // (201:4) {:else}
     function create_else_block$1(ctx) {
+    	let t;
+    	let div;
+    	let canvas;
+    	let div_class_value;
+    	let if_block = !/*isChartVisible*/ ctx[1] && create_if_block_2(ctx);
+
+    	const block = {
+    		c: function create() {
+    			if (if_block) if_block.c();
+    			t = space();
+    			div = element("div");
+    			canvas = element("canvas");
+    			attr_dev(canvas, "id", "ping-chart");
+    			add_location(canvas, file$7, 243, 8, 9040);
+    			attr_dev(div, "class", div_class_value = "w-11/12 h-36 " + (/*isChartVisible*/ ctx[1] ? "block" : "hidden"));
+    			add_location(div, file$7, 242, 4, 8966);
+    		},
+    		m: function mount(target, anchor) {
+    			if (if_block) if_block.m(target, anchor);
+    			insert_dev(target, t, anchor);
+    			insert_dev(target, div, anchor);
+    			append_dev(div, canvas);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (!/*isChartVisible*/ ctx[1]) {
+    				if (!if_block) {
+    					if_block = create_if_block_2(ctx);
+    					if_block.c();
+    					if_block.m(t.parentNode, t);
+    				}
+    			} else if (if_block) {
+    				if_block.d(1);
+    				if_block = null;
+    			}
+
+    			if (dirty & /*isChartVisible*/ 2 && div_class_value !== (div_class_value = "w-11/12 h-36 " + (/*isChartVisible*/ ctx[1] ? "block" : "hidden"))) {
+    				attr_dev(div, "class", div_class_value);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (if_block) if_block.d(detaching);
+    			if (detaching) detach_dev(t);
+    			if (detaching) detach_dev(div);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block$1.name,
+    		type: "else",
+    		source: "(201:4) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (150:4) {#if ping}
+    function create_if_block$1(ctx) {
+    	let t;
+    	let div;
+    	let canvas;
+    	let div_class_value;
+    	let if_block = !/*isChartVisible*/ ctx[1] && create_if_block_1(ctx);
+
+    	const block = {
+    		c: function create() {
+    			if (if_block) if_block.c();
+    			t = space();
+    			div = element("div");
+    			canvas = element("canvas");
+    			attr_dev(canvas, "id", "ping-chart");
+    			add_location(canvas, file$7, 196, 10, 7061);
+    			attr_dev(div, "class", div_class_value = "w-11/12 h-36 " + (/*isChartVisible*/ ctx[1] ? "block" : "hidden"));
+    			add_location(div, file$7, 195, 6, 6985);
+    		},
+    		m: function mount(target, anchor) {
+    			if (if_block) if_block.m(target, anchor);
+    			insert_dev(target, t, anchor);
+    			insert_dev(target, div, anchor);
+    			append_dev(div, canvas);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (!/*isChartVisible*/ ctx[1]) {
+    				if (if_block) {
+    					if_block.p(ctx, dirty);
+    				} else {
+    					if_block = create_if_block_1(ctx);
+    					if_block.c();
+    					if_block.m(t.parentNode, t);
+    				}
+    			} else if (if_block) {
+    				if_block.d(1);
+    				if_block = null;
+    			}
+
+    			if (dirty & /*isChartVisible*/ 2 && div_class_value !== (div_class_value = "w-11/12 h-36 " + (/*isChartVisible*/ ctx[1] ? "block" : "hidden"))) {
+    				attr_dev(div, "class", div_class_value);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (if_block) if_block.d(detaching);
+    			if (detaching) detach_dev(t);
+    			if (detaching) detach_dev(div);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$1.name,
+    		type: "if",
+    		source: "(150:4) {#if ping}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (202:8) {#if !isChartVisible}
+    function create_if_block_2(ctx) {
     	let div10;
     	let div1;
     	let p0;
@@ -2877,10 +3025,6 @@ var app = (function () {
     	let p11;
     	let t23;
     	let p12;
-    	let t24;
-    	let div11;
-    	let canvas;
-    	let div11_class_value;
 
     	const block = {
     		c: function create() {
@@ -2932,66 +3076,59 @@ var app = (function () {
     			p11.textContent = "N/A";
     			t23 = text(" \r\n              ");
     			p12 = element("p");
-    			t24 = space();
-    			div11 = element("div");
-    			canvas = element("canvas");
     			attr_dev(p0, "class", "text-white font-thin text-lg text-xl");
-    			add_location(p0, file$7, 192, 10, 7017);
+    			add_location(p0, file$7, 204, 10, 7307);
     			attr_dev(p1, "id", "infoValueCPN");
     			attr_dev(p1, "class", "font-bold text-white text-3xl");
-    			add_location(p1, file$7, 194, 14, 7130);
+    			add_location(p1, file$7, 206, 14, 7420);
     			attr_dev(p2, "class", "font-bold text-white text-sm");
-    			add_location(p2, file$7, 195, 14, 7217);
+    			add_location(p2, file$7, 207, 14, 7507);
     			attr_dev(div0, "class", "flex flex-row");
-    			add_location(div0, file$7, 193, 12, 7087);
+    			add_location(div0, file$7, 205, 12, 7377);
     			attr_dev(div1, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div1, file$7, 191, 8, 6942);
+    			add_location(div1, file$7, 203, 8, 7232);
     			attr_dev(p3, "class", "text-white font-thin text-lg text-xl");
-    			add_location(p3, file$7, 200, 10, 7384);
+    			add_location(p3, file$7, 212, 10, 7674);
     			attr_dev(p4, "id", "infoValueCPN");
     			attr_dev(p4, "class", "font-bold text-white text-3xl");
-    			add_location(p4, file$7, 202, 14, 7497);
+    			add_location(p4, file$7, 214, 14, 7787);
     			attr_dev(div2, "class", "flex flex-row");
-    			add_location(div2, file$7, 201, 12, 7454);
+    			add_location(div2, file$7, 213, 12, 7744);
     			attr_dev(div3, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div3, file$7, 199, 8, 7309);
+    			add_location(div3, file$7, 211, 8, 7599);
     			attr_dev(p5, "class", "text-white font-thin text-lg text-xl");
-    			add_location(p5, file$7, 207, 10, 7691);
+    			add_location(p5, file$7, 219, 10, 7981);
     			attr_dev(p6, "id", "infoValueCPN");
     			attr_dev(p6, "class", "font-bold text-white text-3xl");
-    			add_location(p6, file$7, 209, 14, 7804);
+    			add_location(p6, file$7, 221, 14, 8094);
     			attr_dev(div4, "class", "flex flex-row");
-    			add_location(div4, file$7, 208, 12, 7761);
+    			add_location(div4, file$7, 220, 12, 8051);
     			attr_dev(div5, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div5, file$7, 206, 8, 7616);
+    			add_location(div5, file$7, 218, 8, 7906);
     			attr_dev(p7, "class", "text-white font-thin text-lg text-xl");
-    			add_location(p7, file$7, 214, 10, 7998);
+    			add_location(p7, file$7, 226, 10, 8288);
     			attr_dev(p8, "id", "infoValueCPN");
     			attr_dev(p8, "class", "font-bold text-white text-3xl");
-    			add_location(p8, file$7, 216, 14, 8112);
+    			add_location(p8, file$7, 228, 14, 8402);
     			attr_dev(p9, "class", "font-bold text-white text-3xl");
-    			add_location(p9, file$7, 217, 14, 8199);
+    			add_location(p9, file$7, 229, 14, 8489);
     			attr_dev(div6, "class", "flex flex-row");
-    			add_location(div6, file$7, 215, 12, 8069);
+    			add_location(div6, file$7, 227, 12, 8359);
     			attr_dev(div7, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div7, file$7, 213, 8, 7923);
+    			add_location(div7, file$7, 225, 8, 8213);
     			attr_dev(p10, "class", "text-white font-thin text-lg text-xl");
-    			add_location(p10, file$7, 222, 10, 8367);
+    			add_location(p10, file$7, 234, 10, 8657);
     			attr_dev(p11, "id", "infoValueCPN");
     			attr_dev(p11, "class", "font-bold text-white text-3xl");
-    			add_location(p11, file$7, 224, 14, 8480);
+    			add_location(p11, file$7, 236, 14, 8770);
     			attr_dev(p12, "class", "font-bold text-white text-sm");
-    			add_location(p12, file$7, 225, 14, 8567);
+    			add_location(p12, file$7, 237, 14, 8857);
     			attr_dev(div8, "class", "flex flex-row");
-    			add_location(div8, file$7, 223, 12, 8437);
+    			add_location(div8, file$7, 235, 12, 8727);
     			attr_dev(div9, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div9, file$7, 221, 8, 8292);
+    			add_location(div9, file$7, 233, 8, 8582);
     			attr_dev(div10, "class", "flex flex-row");
-    			add_location(div10, file$7, 190, 8, 6905);
-    			attr_dev(canvas, "id", "ping-chart");
-    			add_location(canvas, file$7, 230, 8, 8734);
-    			attr_dev(div11, "class", div11_class_value = "w-11/12 " + (/*isChartVisible*/ ctx[1] ? "block" : "hidden"));
-    			add_location(div11, file$7, 229, 4, 8665);
+    			add_location(div10, file$7, 202, 8, 7195);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div10, anchor);
@@ -3032,35 +3169,25 @@ var app = (function () {
     			append_dev(div8, p11);
     			append_dev(div8, t23);
     			append_dev(div8, p12);
-    			insert_dev(target, t24, anchor);
-    			insert_dev(target, div11, anchor);
-    			append_dev(div11, canvas);
-    		},
-    		p: function update(ctx, dirty) {
-    			if (dirty & /*isChartVisible*/ 2 && div11_class_value !== (div11_class_value = "w-11/12 " + (/*isChartVisible*/ ctx[1] ? "block" : "hidden"))) {
-    				attr_dev(div11, "class", div11_class_value);
-    			}
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div10);
-    			if (detaching) detach_dev(t24);
-    			if (detaching) detach_dev(div11);
     		}
     	};
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_else_block$1.name,
-    		type: "else",
-    		source: "(190:4) {:else}",
+    		id: create_if_block_2.name,
+    		type: "if",
+    		source: "(202:8) {#if !isChartVisible}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (142:4) {#if ping}
-    function create_if_block$1(ctx) {
+    // (151:4) {#if !isChartVisible}
+    function create_if_block_1(ctx) {
     	let div10;
     	let div1;
     	let p0;
@@ -3109,10 +3236,6 @@ var app = (function () {
     	let t23;
     	let t24;
     	let p13;
-    	let t25;
-    	let div11;
-    	let canvas;
-    	let div11_class_value;
 
     	const block = {
     		c: function create() {
@@ -3166,65 +3289,58 @@ var app = (function () {
     			t23 = text(t23_value);
     			t24 = text(" \r\n              ");
     			p13 = element("p");
-    			t25 = space();
-    			div11 = element("div");
-    			canvas = element("canvas");
     			attr_dev(p0, "class", "text-white font-thin text-lg text-xl");
-    			add_location(p0, file$7, 145, 6, 5052);
+    			add_location(p0, file$7, 155, 6, 5293);
     			attr_dev(p1, "class", "font-bold text-white text-3xl");
-    			add_location(p1, file$7, 147, 10, 5157);
+    			add_location(p1, file$7, 157, 10, 5398);
     			attr_dev(p2, "class", "font-bold text-white text-sm");
-    			add_location(p2, file$7, 148, 10, 5229);
+    			add_location(p2, file$7, 158, 10, 5470);
     			attr_dev(div0, "class", "flex flex-row");
-    			add_location(div0, file$7, 146, 8, 5118);
+    			add_location(div0, file$7, 156, 8, 5359);
     			attr_dev(div1, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div1, file$7, 144, 4, 4981);
+    			add_location(div1, file$7, 154, 4, 5222);
     			attr_dev(p3, "class", "text-white font-thin text-lg text-xl");
-    			add_location(p3, file$7, 153, 6, 5380);
+    			add_location(p3, file$7, 163, 6, 5621);
     			attr_dev(p4, "class", "font-bold text-white text-3xl");
-    			add_location(p4, file$7, 155, 10, 5485);
+    			add_location(p4, file$7, 165, 10, 5726);
     			attr_dev(div2, "class", "flex flex-row");
-    			add_location(div2, file$7, 154, 8, 5446);
+    			add_location(div2, file$7, 164, 8, 5687);
     			attr_dev(div3, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div3, file$7, 152, 4, 5309);
+    			add_location(div3, file$7, 162, 4, 5550);
     			attr_dev(p5, "class", "text-white font-thin text-lg text-xl");
-    			add_location(p5, file$7, 160, 10, 5663);
+    			add_location(p5, file$7, 170, 10, 5904);
     			attr_dev(p6, "class", "font-bold text-white text-3xl");
-    			add_location(p6, file$7, 162, 14, 5776);
+    			add_location(p6, file$7, 172, 14, 6017);
     			attr_dev(p7, "class", "font-bold text-white text-3xl");
-    			add_location(p7, file$7, 163, 14, 5853);
+    			add_location(p7, file$7, 173, 14, 6094);
     			attr_dev(div4, "class", "flex flex-row");
-    			add_location(div4, file$7, 161, 12, 5733);
+    			add_location(div4, file$7, 171, 12, 5974);
     			attr_dev(div5, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div5, file$7, 159, 8, 5588);
+    			add_location(div5, file$7, 169, 8, 5829);
     			attr_dev(p8, "class", "text-white font-thin text-lg text-xl");
-    			add_location(p8, file$7, 168, 10, 6023);
+    			add_location(p8, file$7, 178, 10, 6264);
     			attr_dev(p9, "class", "font-bold text-white text-3xl");
     			set_style(p9, "text-transform", "capitalize");
-    			add_location(p9, file$7, 170, 14, 6137);
+    			add_location(p9, file$7, 180, 14, 6378);
     			attr_dev(p10, "class", "font-bold text-white text-3xl");
-    			add_location(p10, file$7, 171, 14, 6251);
+    			add_location(p10, file$7, 181, 14, 6492);
     			attr_dev(div6, "class", "flex flex-row");
-    			add_location(div6, file$7, 169, 12, 6094);
+    			add_location(div6, file$7, 179, 12, 6335);
     			attr_dev(div7, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div7, file$7, 167, 8, 5948);
+    			add_location(div7, file$7, 177, 8, 6189);
     			attr_dev(p11, "class", "text-white font-thin text-lg text-xl");
-    			add_location(p11, file$7, 176, 10, 6419);
+    			add_location(p11, file$7, 186, 10, 6660);
     			attr_dev(p12, "id", "infoValueCPN");
     			attr_dev(p12, "class", "font-bold text-white text-3xl");
-    			add_location(p12, file$7, 178, 14, 6532);
+    			add_location(p12, file$7, 188, 14, 6773);
     			attr_dev(p13, "class", "font-bold text-white text-sm");
-    			add_location(p13, file$7, 179, 14, 6627);
+    			add_location(p13, file$7, 189, 14, 6868);
     			attr_dev(div8, "class", "flex flex-row");
-    			add_location(div8, file$7, 177, 12, 6489);
+    			add_location(div8, file$7, 187, 12, 6730);
     			attr_dev(div9, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div9, file$7, 175, 8, 6344);
+    			add_location(div9, file$7, 185, 8, 6585);
     			attr_dev(div10, "class", "flex flex-row");
-    			add_location(div10, file$7, 142, 4, 4946);
-    			attr_dev(canvas, "id", "ping-chart");
-    			add_location(canvas, file$7, 185, 10, 6802);
-    			attr_dev(div11, "class", div11_class_value = "w-11/12 " + (/*isChartVisible*/ ctx[1] ? "block" : "hidden"));
-    			add_location(div11, file$7, 184, 6, 6731);
+    			add_location(div10, file$7, 151, 4, 5181);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div10, anchor);
@@ -3271,9 +3387,6 @@ var app = (function () {
     			append_dev(p12, t23);
     			append_dev(div8, t24);
     			append_dev(div8, p13);
-    			insert_dev(target, t25, anchor);
-    			insert_dev(target, div11, anchor);
-    			append_dev(div11, canvas);
     		},
     		p: function update(ctx, dirty) {
     			if (dirty & /*ping*/ 1 && t2_value !== (t2_value = /*ping*/ ctx[0].hst + "")) set_data_dev(t2, t2_value);
@@ -3281,30 +3394,24 @@ var app = (function () {
     			if (dirty & /*ping*/ 1 && t12_value !== (t12_value = /*ping*/ ctx[0].time + "")) set_data_dev(t12, t12_value);
     			if (dirty & /*ping*/ 1 && t18_value !== (t18_value = /*ping*/ ctx[0].alive + "")) set_data_dev(t18, t18_value);
     			if (dirty & /*ping*/ 1 && t23_value !== (t23_value = /*ping*/ ctx[0].loss + "")) set_data_dev(t23, t23_value);
-
-    			if (dirty & /*isChartVisible*/ 2 && div11_class_value !== (div11_class_value = "w-11/12 " + (/*isChartVisible*/ ctx[1] ? "block" : "hidden"))) {
-    				attr_dev(div11, "class", div11_class_value);
-    			}
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div10);
-    			if (detaching) detach_dev(t25);
-    			if (detaching) detach_dev(div11);
     		}
     	};
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$1.name,
+    		id: create_if_block_1.name,
     		type: "if",
-    		source: "(142:4) {#if ping}",
+    		source: "(151:4) {#if !isChartVisible}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (132:0) <Shell title={"PING TOOL"} tooltip={"Check PING Timings"}>
+    // (140:0) <Shell title={"PING TOOL"} tooltip={"Check PING Timings"}>
     function create_default_slot$1(ctx) {
     	let div2;
     	let div0;
@@ -3315,7 +3422,7 @@ var app = (function () {
     	let button1;
     	let t4;
     	let button2;
-    	let t5_value = (/*isChartVisible*/ ctx[1] ? "HIDE GRAPH" : "SHOW GRAPH") + "";
+    	let t5_value = (/*isChartVisible*/ ctx[1] ? "SHOW STATS" : "SHOW GRAPH") + "";
     	let t5;
     	let t6;
     	let button3;
@@ -3347,7 +3454,7 @@ var app = (function () {
     			t5 = text(t5_value);
     			t6 = space();
     			button3 = element("button");
-    			button3.textContent = "OPEN LOG";
+    			button3.textContent = "CLEAR DATA";
     			t8 = space();
     			div1 = element("div");
     			if_block.c();
@@ -3356,25 +3463,25 @@ var app = (function () {
     			attr_dev(input, "placeholder", "Enter IP/Domain");
     			input.value = "";
     			attr_dev(input, "class", "w-3/5 rounded-md m-2 px-1 text-gray-800 font-bold");
-    			add_location(input, file$7, 134, 4, 4040);
+    			add_location(input, file$7, 142, 4, 4245);
     			attr_dev(button0, "type", "button");
     			attr_dev(button0, "class", "text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600");
-    			add_location(button0, file$7, 135, 4, 4173);
+    			add_location(button0, file$7, 143, 4, 4378);
     			attr_dev(button1, "type", "button");
     			attr_dev(button1, "class", "text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600");
-    			add_location(button1, file$7, 136, 4, 4325);
+    			add_location(button1, file$7, 144, 4, 4530);
     			attr_dev(button2, "type", "button");
     			attr_dev(button2, "class", "text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600");
-    			add_location(button2, file$7, 137, 4, 4476);
+    			add_location(button2, file$7, 145, 4, 4681);
     			attr_dev(button3, "type", "button");
     			attr_dev(button3, "class", "text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600");
-    			add_location(button3, file$7, 138, 4, 4699);
+    			add_location(button3, file$7, 146, 4, 4904);
     			attr_dev(div0, "class", "flex flex-row justify-start mt-1");
-    			add_location(div0, file$7, 133, 4, 3988);
+    			add_location(div0, file$7, 141, 4, 4193);
     			attr_dev(div1, "class", "mt-2 flex flex-col items-center text-gray-50");
-    			add_location(div1, file$7, 140, 4, 4866);
+    			add_location(div1, file$7, 148, 4, 5074);
     			attr_dev(div2, "class", "flex flex-col");
-    			add_location(div2, file$7, 132, 2, 3955);
+    			add_location(div2, file$7, 140, 2, 4160);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div2, anchor);
@@ -3396,12 +3503,12 @@ var app = (function () {
     			dispose = [
     				listen_dev(button0, "click", /*sendData*/ ctx[4], false, false, false),
     				listen_dev(button1, "click", /*stopTool*/ ctx[3], false, false, false),
-    				listen_dev(button2, "click", /*click_handler*/ ctx[12], false, false, false),
-    				listen_dev(button3, "click", /*sendData*/ ctx[4], false, false, false)
+    				listen_dev(button2, "click", /*click_handler*/ ctx[13], false, false, false),
+    				listen_dev(button3, "click", /*clearData*/ ctx[5], false, false, false)
     			];
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*isChartVisible*/ 2 && t5_value !== (t5_value = (/*isChartVisible*/ ctx[1] ? "HIDE GRAPH" : "SHOW GRAPH") + "")) set_data_dev(t5, t5_value);
+    			if (dirty & /*isChartVisible*/ 2 && t5_value !== (t5_value = (/*isChartVisible*/ ctx[1] ? "SHOW STATS" : "SHOW GRAPH") + "")) set_data_dev(t5, t5_value);
 
     			if (current_block_type === (current_block_type = select_block_type(ctx)) && if_block) {
     				if_block.p(ctx, dirty);
@@ -3426,7 +3533,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$1.name,
     		type: "slot",
-    		source: "(132:0) <Shell title={\\\"PING TOOL\\\"} tooltip={\\\"Check PING Timings\\\"}>",
+    		source: "(140:0) <Shell title={\\\"PING TOOL\\\"} tooltip={\\\"Check PING Timings\\\"}>",
     		ctx
     	});
 
@@ -3460,7 +3567,7 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			const shell_changes = {};
 
-    			if (dirty & /*$$scope, isChartVisible, ping, packetCount*/ 8199) {
+    			if (dirty & /*$$scope, isChartVisible, ping, packetCount*/ 16391) {
     				shell_changes.$$scope = { dirty, ctx };
     			}
 
@@ -3494,9 +3601,9 @@ var app = (function () {
     function instance$8($$self, $$props, $$invalidate) {
     	let $settings;
     	validate_store(settings, "settings");
-    	component_subscribe($$self, settings, $$value => $$invalidate(10, $settings = $$value));
+    	component_subscribe($$self, settings, $$value => $$invalidate(11, $settings = $$value));
     	const { ipcRenderer } = require("electron");
-    	let ping, name, pingInterval, timeList = [], pingChart, isChartVisible = false;
+    	let ping, name, pingInterval, timeList = [], pingChart, isChartVisible = true;
     	let logged = true;
     	let packetCount = 0;
 
@@ -3539,6 +3646,7 @@ var app = (function () {
     						{
     								type: "line",
     								options: {
+    									maintainAspectRatio: false,
     									color: $settings.fontColor2,
     									scales: {
     										x: { ticks: { color: $settings.fontColor2 } },
@@ -3581,6 +3689,7 @@ var app = (function () {
     		{
     				type: "line",
     				options: {
+    					maintainAspectRatio: false,
     					color: $settings.fontColor2,
     					scales: {
     						x: { ticks: { color: $settings.fontColor2 } },
@@ -3610,6 +3719,12 @@ var app = (function () {
     		pingChart.destroy();
     	});
 
+    	const clearData = () => {
+    		clearInterval(pingInterval);
+    		$$invalidate(0, ping = null);
+    		timeList = [];
+    	};
+
     	const click_handler = () => $$invalidate(1, isChartVisible = !isChartVisible);
 
     	$$self.$capture_state = () => ({
@@ -3630,6 +3745,7 @@ var app = (function () {
     		packetCount,
     		stopTool,
     		sendData,
+    		clearData,
     		require,
     		clearInterval,
     		document,
@@ -3660,6 +3776,7 @@ var app = (function () {
     		packetCount,
     		stopTool,
     		sendData,
+    		clearData,
     		name,
     		pingInterval,
     		timeList,
@@ -4220,7 +4337,7 @@ var app = (function () {
     	let if_block_anchor;
 
     	function select_block_type_1(ctx, dirty) {
-    		if (/*interfaces*/ ctx[0].length > 0) return create_if_block_1;
+    		if (/*interfaces*/ ctx[0].length > 0) return create_if_block_1$1;
     		return create_else_block_2;
     	}
 
@@ -4299,11 +4416,11 @@ var app = (function () {
     }
 
     // (20:8) {#if interfaces.length > 0}
-    function create_if_block_1(ctx) {
+    function create_if_block_1$1(ctx) {
     	let if_block_anchor;
 
     	function select_block_type_2(ctx, dirty) {
-    		if (/*interfaces*/ ctx[0].length > 1) return create_if_block_2;
+    		if (/*interfaces*/ ctx[0].length > 1) return create_if_block_2$1;
     		return create_else_block_1;
     	}
 
@@ -4340,7 +4457,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1.name,
+    		id: create_if_block_1$1.name,
     		type: "if",
     		source: "(20:8) {#if interfaces.length > 0}",
     		ctx
@@ -4416,7 +4533,7 @@ var app = (function () {
     }
 
     // (21:12) {#if interfaces.length > 1}
-    function create_if_block_2(ctx) {
+    function create_if_block_2$1(ctx) {
     	let each_1_anchor;
     	let each_value = /*interfaces*/ ctx[0];
     	validate_each_argument(each_value);
@@ -4474,7 +4591,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_2.name,
+    		id: create_if_block_2$1.name,
     		type: "if",
     		source: "(21:12) {#if interfaces.length > 1}",
     		ctx
@@ -4890,7 +5007,7 @@ var app = (function () {
     	let if_block_anchor;
 
     	function select_block_type_1(ctx, dirty) {
-    		if (!/*dns*/ ctx[0].err) return create_if_block_1$1;
+    		if (!/*dns*/ ctx[0].err) return create_if_block_1$2;
     		return create_else_block$4;
     	}
 
@@ -4972,7 +5089,7 @@ var app = (function () {
     }
 
     // (29:16) {#if !dns.err}
-    function create_if_block_1$1(ctx) {
+    function create_if_block_1$2(ctx) {
     	let p0;
     	let t1;
     	let span0;
@@ -5033,7 +5150,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1$1.name,
+    		id: create_if_block_1$2.name,
     		type: "if",
     		source: "(29:16) {#if !dns.err}",
     		ctx
@@ -5250,7 +5367,13 @@ var app = (function () {
     /* src\Components\Network\Ports\Ports.svelte generated by Svelte v3.19.1 */
     const file$c = "src\\Components\\Network\\Ports\\Ports.svelte";
 
-    // (45:12) {:else}
+    function get_each_context$1(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[6] = list[i];
+    	return child_ctx;
+    }
+
+    // (47:12) {:else}
     function create_else_block$5(ctx) {
     	let p;
     	let t1;
@@ -5263,9 +5386,9 @@ var app = (function () {
     			t1 = space();
     			span = element("span");
     			span.textContent = "N/A";
-    			add_location(p, file$c, 45, 12, 1435);
+    			add_location(p, file$c, 47, 12, 1519);
     			attr_dev(span, "class", "ml-8 font-bold text-lg");
-    			add_location(span, file$c, 46, 12, 1474);
+    			add_location(span, file$c, 48, 12, 1558);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -5286,15 +5409,15 @@ var app = (function () {
     		block,
     		id: create_else_block$5.name,
     		type: "else",
-    		source: "(45:12) {:else}",
+    		source: "(47:12) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (38:29) 
-    function create_if_block_1$2(ctx) {
+    // (40:29) 
+    function create_if_block_1$3(ctx) {
     	let div;
     	let current;
     	const loader = new Loader({ $$inline: true });
@@ -5304,7 +5427,7 @@ var app = (function () {
     			div = element("div");
     			create_component(loader.$$.fragment);
     			attr_dev(div, "class", "flex flex-row justify-center");
-    			add_location(div, file$c, 39, 14, 1224);
+    			add_location(div, file$c, 41, 14, 1308);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -5329,9 +5452,9 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1$2.name,
+    		id: create_if_block_1$3.name,
     		type: "if",
-    		source: "(38:29) ",
+    		source: "(40:29) ",
     		ctx
     	});
 
@@ -5342,35 +5465,70 @@ var app = (function () {
     function create_if_block$5(ctx) {
     	let p;
     	let t1;
-    	let span;
-    	let t2;
+    	let each_1_anchor;
+    	let each_value = /*port*/ ctx[0];
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block$1(get_each_context$1(ctx, each_value, i));
+    	}
 
     	const block = {
     		c: function create() {
     			p = element("p");
     			p.textContent = "• Open Ports";
     			t1 = space();
-    			span = element("span");
-    			t2 = text(/*port*/ ctx[0]);
-    			add_location(p, file$c, 35, 14, 1037);
-    			attr_dev(span, "class", "ml-8 font-bold text-lg");
-    			add_location(span, file$c, 36, 14, 1078);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			each_1_anchor = empty();
+    			add_location(p, file$c, 35, 14, 1044);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
     			insert_dev(target, t1, anchor);
-    			insert_dev(target, span, anchor);
-    			append_dev(span, t2);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(target, anchor);
+    			}
+
+    			insert_dev(target, each_1_anchor, anchor);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*port*/ 1) set_data_dev(t2, /*port*/ ctx[0]);
+    			if (dirty & /*port*/ 1) {
+    				each_value = /*port*/ ctx[0];
+    				validate_each_argument(each_value);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context$1(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block$1(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(each_1_anchor.parentNode, each_1_anchor);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value.length;
+    			}
     		},
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(p);
     			if (detaching) detach_dev(t1);
-    			if (detaching) detach_dev(span);
+    			destroy_each(each_blocks, detaching);
+    			if (detaching) detach_dev(each_1_anchor);
     		}
     	};
 
@@ -5379,6 +5537,42 @@ var app = (function () {
     		id: create_if_block$5.name,
     		type: "if",
     		source: "(35:12) {#if port}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (37:14) {#each port as portNumber}
+    function create_each_block$1(ctx) {
+    	let span;
+    	let t_value = /*portNumber*/ ctx[6] + "";
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			span = element("span");
+    			t = text(t_value);
+    			attr_dev(span, "class", "ml-8 font-bold text-lg block");
+    			add_location(span, file$c, 37, 14, 1127);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, span, anchor);
+    			append_dev(span, t);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*port*/ 1 && t_value !== (t_value = /*portNumber*/ ctx[6] + "")) set_data_dev(t, t_value);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(span);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block$1.name,
+    		type: "each",
+    		source: "(37:14) {#each port as portNumber}",
     		ctx
     	});
 
@@ -5398,7 +5592,7 @@ var app = (function () {
     	let if_block;
     	let current;
     	let dispose;
-    	const if_block_creators = [create_if_block$5, create_if_block_1$2, create_else_block$5];
+    	const if_block_creators = [create_if_block$5, create_if_block_1$3, create_else_block$5];
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
@@ -5430,7 +5624,7 @@ var app = (function () {
     			add_location(button, file$c, 31, 12, 805);
     			attr_dev(div0, "class", "flex flex-row");
     			add_location(div0, file$c, 29, 8, 641);
-    			attr_dev(div1, "class", "mt-2");
+    			attr_dev(div1, "class", "mt-2 w-full");
     			add_location(div1, file$c, 33, 8, 979);
     			attr_dev(div2, "class", "text-gray-50");
     			add_location(div2, file$c, 28, 4, 605);
@@ -5535,7 +5729,7 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			const shell_changes = {};
 
-    			if (dirty & /*$$scope, port, search, value*/ 71) {
+    			if (dirty & /*$$scope, port, search, value*/ 519) {
     				shell_changes.$$scope = { dirty, ctx };
     			}
 
@@ -5630,77 +5824,75 @@ var app = (function () {
 
     // (11:0) <Page _currPage="Network">
     function create_default_slot$6(ctx) {
+    	let div1;
     	let div0;
     	let t0;
     	let t1;
     	let t2;
     	let t3;
-    	let div1;
     	let current;
+    	const ping = new Ping({ $$inline: true });
     	const whois = new Whois({ $$inline: true });
     	const networkinterfaces = new NetworkInterfaces({ $$inline: true });
     	const dns = new Dns({ $$inline: true });
     	const ports = new Ports({ $$inline: true });
-    	const ping = new Ping({ $$inline: true });
 
     	const block = {
     		c: function create() {
-    			div0 = element("div");
-    			create_component(whois.$$.fragment);
-    			t0 = space();
-    			create_component(networkinterfaces.$$.fragment);
-    			t1 = space();
-    			create_component(dns.$$.fragment);
-    			t2 = space();
-    			create_component(ports.$$.fragment);
-    			t3 = space();
     			div1 = element("div");
+    			div0 = element("div");
     			create_component(ping.$$.fragment);
-    			attr_dev(div0, "class", "p-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4");
-    			add_location(div0, file$d, 11, 4, 466);
-    			attr_dev(div1, "class", "pl-6 pr-6 grid grid-cols-1 gap-2");
-    			add_location(div1, file$d, 17, 4, 631);
+    			t0 = space();
+    			create_component(whois.$$.fragment);
+    			t1 = space();
+    			create_component(networkinterfaces.$$.fragment);
+    			t2 = space();
+    			create_component(dns.$$.fragment);
+    			t3 = space();
+    			create_component(ports.$$.fragment);
+    			attr_dev(div0, "class", "col-span-1 md:col-span-2 xl:col-span-3");
+    			add_location(div0, file$d, 12, 6, 544);
+    			attr_dev(div1, "class", "p-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4");
+    			add_location(div1, file$d, 11, 4, 466);
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div0, anchor);
-    			mount_component(whois, div0, null);
-    			append_dev(div0, t0);
-    			mount_component(networkinterfaces, div0, null);
-    			append_dev(div0, t1);
-    			mount_component(dns, div0, null);
-    			append_dev(div0, t2);
-    			mount_component(ports, div0, null);
-    			insert_dev(target, t3, anchor);
     			insert_dev(target, div1, anchor);
-    			mount_component(ping, div1, null);
+    			append_dev(div1, div0);
+    			mount_component(ping, div0, null);
+    			append_dev(div1, t0);
+    			mount_component(whois, div1, null);
+    			append_dev(div1, t1);
+    			mount_component(networkinterfaces, div1, null);
+    			append_dev(div1, t2);
+    			mount_component(dns, div1, null);
+    			append_dev(div1, t3);
+    			mount_component(ports, div1, null);
     			current = true;
     		},
     		i: function intro(local) {
     			if (current) return;
+    			transition_in(ping.$$.fragment, local);
     			transition_in(whois.$$.fragment, local);
     			transition_in(networkinterfaces.$$.fragment, local);
     			transition_in(dns.$$.fragment, local);
     			transition_in(ports.$$.fragment, local);
-    			transition_in(ping.$$.fragment, local);
     			current = true;
     		},
     		o: function outro(local) {
+    			transition_out(ping.$$.fragment, local);
     			transition_out(whois.$$.fragment, local);
     			transition_out(networkinterfaces.$$.fragment, local);
     			transition_out(dns.$$.fragment, local);
     			transition_out(ports.$$.fragment, local);
-    			transition_out(ping.$$.fragment, local);
     			current = false;
     		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div0);
+    			if (detaching) detach_dev(div1);
+    			destroy_component(ping);
     			destroy_component(whois);
     			destroy_component(networkinterfaces);
     			destroy_component(dns);
     			destroy_component(ports);
-    			if (detaching) detach_dev(t3);
-    			if (detaching) detach_dev(div1);
-    			destroy_component(ping);
     		}
     	};
 
@@ -6360,7 +6552,7 @@ var app = (function () {
     	let if_block_anchor;
 
     	function select_block_type_1(ctx, dirty) {
-    		if (!/*ssl*/ ctx[0].err) return create_if_block_1$3;
+    		if (!/*ssl*/ ctx[0].err) return create_if_block_1$4;
     		return create_else_block$6;
     	}
 
@@ -6442,7 +6634,7 @@ var app = (function () {
     }
 
     // (31:16) {#if !ssl.err}
-    function create_if_block_1$3(ctx) {
+    function create_if_block_1$4(ctx) {
     	let p0;
     	let t1;
     	let span0;
@@ -6531,7 +6723,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1$3.name,
+    		id: create_if_block_1$4.name,
     		type: "if",
     		source: "(31:16) {#if !ssl.err}",
     		ctx
@@ -6747,7 +6939,7 @@ var app = (function () {
     /* src\Components\Diagnostics\Netstat\Netstat.svelte generated by Svelte v3.19.1 */
     const file$h = "src\\Components\\Diagnostics\\Netstat\\Netstat.svelte";
 
-    function get_each_context$1(ctx, list, i) {
+    function get_each_context$2(ctx, list, i) {
     	const child_ctx = ctx.slice();
     	child_ctx[2] = list[i];
     	return child_ctx;
@@ -6793,7 +6985,7 @@ var app = (function () {
     	let if_block_anchor;
 
     	function select_block_type_1(ctx, dirty) {
-    		if (/*netstat*/ ctx[0].length > 1) return create_if_block_1$4;
+    		if (/*netstat*/ ctx[0].length > 1) return create_if_block_1$5;
     		return create_else_block$7;
     	}
 
@@ -6927,14 +7119,14 @@ var app = (function () {
     }
 
     // (23:16) {#if netstat.length > 1}
-    function create_if_block_1$4(ctx) {
+    function create_if_block_1$5(ctx) {
     	let each_1_anchor;
     	let each_value = /*netstat*/ ctx[0];
     	validate_each_argument(each_value);
     	let each_blocks = [];
 
     	for (let i = 0; i < each_value.length; i += 1) {
-    		each_blocks[i] = create_each_block$1(get_each_context$1(ctx, each_value, i));
+    		each_blocks[i] = create_each_block$2(get_each_context$2(ctx, each_value, i));
     	}
 
     	const block = {
@@ -6959,12 +7151,12 @@ var app = (function () {
     				let i;
 
     				for (i = 0; i < each_value.length; i += 1) {
-    					const child_ctx = get_each_context$1(ctx, each_value, i);
+    					const child_ctx = get_each_context$2(ctx, each_value, i);
 
     					if (each_blocks[i]) {
     						each_blocks[i].p(child_ctx, dirty);
     					} else {
-    						each_blocks[i] = create_each_block$1(child_ctx);
+    						each_blocks[i] = create_each_block$2(child_ctx);
     						each_blocks[i].c();
     						each_blocks[i].m(each_1_anchor.parentNode, each_1_anchor);
     					}
@@ -6985,7 +7177,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1$4.name,
+    		id: create_if_block_1$5.name,
     		type: "if",
     		source: "(23:16) {#if netstat.length > 1}",
     		ctx
@@ -6995,7 +7187,7 @@ var app = (function () {
     }
 
     // (24:20) {#each netstat as ns}
-    function create_each_block$1(ctx) {
+    function create_each_block$2(ctx) {
     	let p0;
     	let t0;
     	let span0;
@@ -7072,7 +7264,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_each_block$1.name,
+    		id: create_each_block$2.name,
     		type: "each",
     		source: "(24:20) {#each netstat as ns}",
     		ctx
@@ -7273,7 +7465,7 @@ var app = (function () {
     }
 
     // (34:12) {#if started}
-    function create_if_block_2$1(ctx) {
+    function create_if_block_2$2(ctx) {
     	let current;
     	const loader = new Loader({ $$inline: true });
 
@@ -7302,7 +7494,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_2$1.name,
+    		id: create_if_block_2$2.name,
     		type: "if",
     		source: "(34:12) {#if started}",
     		ctx
@@ -7316,7 +7508,7 @@ var app = (function () {
     	let if_block_anchor;
 
     	function select_block_type_1(ctx, dirty) {
-    		if (!/*networkSpeed*/ ctx[0].err) return create_if_block_1$5;
+    		if (!/*networkSpeed*/ ctx[0].err) return create_if_block_1$6;
     		return create_else_block$8;
     	}
 
@@ -7409,7 +7601,7 @@ var app = (function () {
     }
 
     // (44:10) {#if !networkSpeed.err}
-    function create_if_block_1$5(ctx) {
+    function create_if_block_1$6(ctx) {
     	let div4;
     	let div1;
     	let p0;
@@ -7497,7 +7689,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1$5.name,
+    		id: create_if_block_1$6.name,
     		type: "if",
     		source: "(44:10) {#if !networkSpeed.err}",
     		ctx
@@ -7514,7 +7706,7 @@ var app = (function () {
     	let if_block0;
     	let t;
     	let current;
-    	const if_block_creators = [create_if_block_2$1, create_else_block_1$4];
+    	const if_block_creators = [create_if_block_2$2, create_else_block_1$4];
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
@@ -7890,7 +8082,7 @@ var app = (function () {
     /* src\Components\Wifi\Info\Info.svelte generated by Svelte v3.19.1 */
     const file$k = "src\\Components\\Wifi\\Info\\Info.svelte";
 
-    function get_each_context$2(ctx, list, i) {
+    function get_each_context$3(ctx, list, i) {
     	const child_ctx = ctx.slice();
     	child_ctx[6] = list[i];
     	return child_ctx;
@@ -7999,7 +8191,7 @@ var app = (function () {
     	let each_blocks = [];
 
     	for (let i = 0; i < each_value.length; i += 1) {
-    		each_blocks[i] = create_each_block$2(get_each_context$2(ctx, each_value, i));
+    		each_blocks[i] = create_each_block$3(get_each_context$3(ctx, each_value, i));
     	}
 
     	const block = {
@@ -8173,12 +8365,12 @@ var app = (function () {
     				let i;
 
     				for (i = 0; i < each_value.length; i += 1) {
-    					const child_ctx = get_each_context$2(ctx, each_value, i);
+    					const child_ctx = get_each_context$3(ctx, each_value, i);
 
     					if (each_blocks[i]) {
     						each_blocks[i].p(child_ctx, dirty);
     					} else {
-    						each_blocks[i] = create_each_block$2(child_ctx);
+    						each_blocks[i] = create_each_block$3(child_ctx);
     						each_blocks[i].c();
     						each_blocks[i].m(ul, null);
     					}
@@ -8249,7 +8441,7 @@ var app = (function () {
     }
 
     // (41:10) {#each info as wifi}
-    function create_each_block$2(ctx) {
+    function create_each_block$3(ctx) {
     	let li;
     	let t0_value = /*wifi*/ ctx[6].ssid + "";
     	let t0;
@@ -8292,7 +8484,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_each_block$2.name,
+    		id: create_each_block$3.name,
     		type: "each",
     		source: "(41:10) {#each info as wifi}",
     		ctx
@@ -8498,7 +8690,7 @@ var app = (function () {
     /* src\Components\Wifi\Ssid\Ssid.svelte generated by Svelte v3.19.1 */
     const file$l = "src\\Components\\Wifi\\Ssid\\Ssid.svelte";
 
-    function get_each_context$3(ctx, list, i) {
+    function get_each_context$4(ctx, list, i) {
     	const child_ctx = ctx.slice();
     	child_ctx[0] = list[i].ssid;
     	child_ctx[3] = i;
@@ -8540,7 +8732,7 @@ var app = (function () {
     	let if_block_anchor;
 
     	function select_block_type_1(ctx, dirty) {
-    		if (/*ssid*/ ctx[0].length > 1) return create_if_block_1$6;
+    		if (/*ssid*/ ctx[0].length > 1) return create_if_block_1$7;
     		return create_else_block$a;
     	}
 
@@ -8630,14 +8822,14 @@ var app = (function () {
     }
 
     // (15:8) {#if ssid.length > 1}
-    function create_if_block_1$6(ctx) {
+    function create_if_block_1$7(ctx) {
     	let each_1_anchor;
     	let each_value = /*ssid*/ ctx[0];
     	validate_each_argument(each_value);
     	let each_blocks = [];
 
     	for (let i = 0; i < each_value.length; i += 1) {
-    		each_blocks[i] = create_each_block$3(get_each_context$3(ctx, each_value, i));
+    		each_blocks[i] = create_each_block$4(get_each_context$4(ctx, each_value, i));
     	}
 
     	const block = {
@@ -8662,12 +8854,12 @@ var app = (function () {
     				let i;
 
     				for (i = 0; i < each_value.length; i += 1) {
-    					const child_ctx = get_each_context$3(ctx, each_value, i);
+    					const child_ctx = get_each_context$4(ctx, each_value, i);
 
     					if (each_blocks[i]) {
     						each_blocks[i].p(child_ctx, dirty);
     					} else {
-    						each_blocks[i] = create_each_block$3(child_ctx);
+    						each_blocks[i] = create_each_block$4(child_ctx);
     						each_blocks[i].c();
     						each_blocks[i].m(each_1_anchor.parentNode, each_1_anchor);
     					}
@@ -8688,7 +8880,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1$6.name,
+    		id: create_if_block_1$7.name,
     		type: "if",
     		source: "(15:8) {#if ssid.length > 1}",
     		ctx
@@ -8698,7 +8890,7 @@ var app = (function () {
     }
 
     // (16:12) {#each ssid as {ssid}
-    function create_each_block$3(ctx) {
+    function create_each_block$4(ctx) {
     	let p;
     	let t0_value = /*_id*/ ctx[3] + 1 + "";
     	let t0;
@@ -8735,7 +8927,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_each_block$3.name,
+    		id: create_each_block$4.name,
     		type: "each",
     		source: "(16:12) {#each ssid as {ssid}",
     		ctx
@@ -8894,7 +9086,7 @@ var app = (function () {
     /* src\Components\Wifi\Interfaces\Interfaces.svelte generated by Svelte v3.19.1 */
     const file$m = "src\\Components\\Wifi\\Interfaces\\Interfaces.svelte";
 
-    function get_each_context$4(ctx, list, i) {
+    function get_each_context$5(ctx, list, i) {
     	const child_ctx = ctx.slice();
     	child_ctx[2] = list[i].id;
     	child_ctx[4] = i;
@@ -8936,7 +9128,7 @@ var app = (function () {
     	let if_block_anchor;
 
     	function select_block_type_1(ctx, dirty) {
-    		if (/*interfaces*/ ctx[0].length > 0) return create_if_block_1$7;
+    		if (/*interfaces*/ ctx[0].length > 0) return create_if_block_1$8;
     		return create_else_block_1$6;
     	}
 
@@ -9013,11 +9205,11 @@ var app = (function () {
     }
 
     // (15:8) {#if interfaces.length > 0}
-    function create_if_block_1$7(ctx) {
+    function create_if_block_1$8(ctx) {
     	let if_block_anchor;
 
     	function select_block_type_2(ctx, dirty) {
-    		if (/*interfaces*/ ctx[0].length > 1) return create_if_block_2$2;
+    		if (/*interfaces*/ ctx[0].length > 1) return create_if_block_2$3;
     		return create_else_block$b;
     	}
 
@@ -9054,7 +9246,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1$7.name,
+    		id: create_if_block_1$8.name,
     		type: "if",
     		source: "(15:8) {#if interfaces.length > 0}",
     		ctx
@@ -9107,14 +9299,14 @@ var app = (function () {
     }
 
     // (16:12) {#if interfaces.length > 1}
-    function create_if_block_2$2(ctx) {
+    function create_if_block_2$3(ctx) {
     	let each_1_anchor;
     	let each_value = /*interfaces*/ ctx[0];
     	validate_each_argument(each_value);
     	let each_blocks = [];
 
     	for (let i = 0; i < each_value.length; i += 1) {
-    		each_blocks[i] = create_each_block$4(get_each_context$4(ctx, each_value, i));
+    		each_blocks[i] = create_each_block$5(get_each_context$5(ctx, each_value, i));
     	}
 
     	const block = {
@@ -9139,12 +9331,12 @@ var app = (function () {
     				let i;
 
     				for (i = 0; i < each_value.length; i += 1) {
-    					const child_ctx = get_each_context$4(ctx, each_value, i);
+    					const child_ctx = get_each_context$5(ctx, each_value, i);
 
     					if (each_blocks[i]) {
     						each_blocks[i].p(child_ctx, dirty);
     					} else {
-    						each_blocks[i] = create_each_block$4(child_ctx);
+    						each_blocks[i] = create_each_block$5(child_ctx);
     						each_blocks[i].c();
     						each_blocks[i].m(each_1_anchor.parentNode, each_1_anchor);
     					}
@@ -9165,7 +9357,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_2$2.name,
+    		id: create_if_block_2$3.name,
     		type: "if",
     		source: "(16:12) {#if interfaces.length > 1}",
     		ctx
@@ -9175,7 +9367,7 @@ var app = (function () {
     }
 
     // (17:16) {#each interfaces as {id}
-    function create_each_block$4(ctx) {
+    function create_each_block$5(ctx) {
     	let p;
     	let t0_value = /*_id*/ ctx[4] + 1 + "";
     	let t0;
@@ -9212,7 +9404,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_each_block$4.name,
+    		id: create_each_block$5.name,
     		type: "each",
     		source: "(17:16) {#each interfaces as {id}",
     		ctx

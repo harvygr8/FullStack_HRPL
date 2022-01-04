@@ -36,10 +36,10 @@ const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     frame:false,
-    width: 1205,
-    height: 950,
+    minWidth: 600,
+    minHeight: 700,
     transparent:true,
-    roundedCorners:true,
+    fullscreen: true,
     webPreferences: {
       nodeIntegration: true
     }

@@ -12,7 +12,7 @@
     const { ipcRenderer } = require('electron');
 
 
-    let ping , name, pingInterval, timeList = [], pingChart, isChartVisible = false;
+    let ping , name, pingInterval, timeList = [], pingChart, isChartVisible = true;
     let logged=true;
     let packetCount=0;
 
@@ -48,6 +48,7 @@
             pingChart = new Chart(ctx , {
               type: 'line',
               options: {
+                maintainAspectRatio: false,
                 color: $settings.fontColor2,
                 scales: {
                   x: {
@@ -93,6 +94,7 @@
         pingChart = new Chart(ctx , {
             type: 'line',
             options: {
+              maintainAspectRatio: false,
               color: $settings.fontColor2,
               scales: {
                 x: {
@@ -127,6 +129,12 @@
       clearInterval(pingInterval);
       pingChart.destroy()
     });
+
+    const clearData = () => {
+      clearInterval(pingInterval);
+      ping = null;
+      timeList = [];
+    }
 </script>
 
 <Shell title={"PING TOOL"} tooltip={"Check PING Timings"}>
@@ -135,13 +143,15 @@
     <input id="dname" type="text" placeholder="Enter IP/Domain" value="" class="w-3/5 rounded-md m-2 px-1 text-gray-800 font-bold">
     <button type="button" on:click={sendData} class="text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600">START</button>
     <button type="button" on:click={stopTool} class="text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600">STOP</button>
-    <button type="button" on:click={() => isChartVisible = !isChartVisible} class="text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600">{isChartVisible ? 'HIDE GRAPH' : 'SHOW GRAPH'}</button>
-    <button type="button" on:click={sendData} class="text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600">OPEN LOG</button>
+    <button type="button" on:click={() => isChartVisible = !isChartVisible} class="text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600">{isChartVisible ? 'SHOW STATS' : 'SHOW GRAPH'}</button>
+    <button type="button" on:click={clearData} class="text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600">CLEAR DATA</button>
     </div>
     <div class="mt-2 flex flex-col items-center text-gray-50">
     {#if ping}
+    {#if !isChartVisible}
     <div class='flex flex-row'>
 
+    
     <div class='p-4 m-2 flex flex-col justify-center items-center'>
       <p class='text-white font-thin text-lg text-xl'>Host</p>
         <div class='flex flex-row'>
@@ -182,12 +192,14 @@
         </div>
 
       </div>
-      <div class="w-11/12 {isChartVisible ? 'block' : 'hidden'}">
+      {/if}
+      <div class="w-11/12 h-36 {isChartVisible ? 'block' : 'hidden'}">
           <canvas id="ping-chart" />
       </div>
 <!-- <p>Alive : {ping.alive}</p> -->
 
     {:else}
+        {#if !isChartVisible}
         <div class='flex flex-row'>
         <div class='p-4 m-2 flex flex-col justify-center items-center'>
           <p class='text-white font-thin text-lg text-xl'>Host</p>
@@ -227,7 +239,8 @@
             </div>
         </div>
     </div>
-    <div class="w-11/12 {isChartVisible ? 'block' : 'hidden'}">
+    {/if}
+    <div class="w-11/12 h-36 {isChartVisible ? 'block' : 'hidden'}">
         <canvas id="ping-chart" />
     </div>
     {/if}

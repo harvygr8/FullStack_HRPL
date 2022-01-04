@@ -31,10 +31,12 @@
         <input type="text" placeholder="Enter IP" bind:value class="w-10/12 rounded-md m-2 px-1 text-gray-800 font-bold">
             <button on:click={getPortInfo} class="text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600" type="button">SCAN</button>
         </div>
-        <div class="mt-2">
+        <div class="mt-2 w-full">
             {#if port}
               <p>&#8226; Open Ports</p>
-              <span class="ml-8 font-bold text-lg">{port}</span>
+              {#each port as portNumber}
+              <span class="ml-8 font-bold text-lg block">{portNumber}</span>
+              {/each}
             {:else if search}
               <!-- <p>&#8226; SEARCHING</p> -->
               <div class="flex flex-row justify-center">

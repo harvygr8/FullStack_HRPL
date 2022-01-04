@@ -10,11 +10,12 @@
 
 <Page _currPage="Network">
     <div class="p-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+      <div class="col-span-1 md:col-span-2 xl:col-span-3">
+        <Ping />
+      </div>
       <Whois />
       <NetworkInterfaces />
       <Dns />
       <Ports/>
     </div>
-    <div class="pl-6 pr-6 grid grid-cols-1 gap-2">
-    <Ping />
 </Page>
