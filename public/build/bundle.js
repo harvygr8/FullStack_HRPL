@@ -1943,15 +1943,15 @@ var app = (function () {
     			create_component(link6.$$.fragment);
     			attr_dev(i, "class", "fa fa-database fa-2x");
     			attr_dev(i, "aria-hidden", "true");
-    			add_location(i, file$1, 16, 4, 490);
+    			add_location(i, file$1, 16, 4, 495);
     			attr_dev(p, "class", "text-center text-2xl mt-1 font-medium");
-    			add_location(p, file$1, 17, 4, 551);
+    			add_location(p, file$1, 17, 4, 556);
     			attr_dev(h2, "class", "text-center text-2xl mt-8 font-medium");
     			set_style(h2, "color", /*$settings*/ ctx[0].fontColor1);
-    			add_location(h2, file$1, 10, 4, 235);
+    			add_location(h2, file$1, 10, 4, 240);
     			attr_dev(div0, "class", "mt-16");
-    			add_location(div0, file$1, 21, 4, 682);
-    			attr_dev(div1, "class", "w-auto px-2 md:px-4");
+    			add_location(div0, file$1, 21, 4, 687);
+    			attr_dev(div1, "class", "w-auto px-4 sticky top-0");
     			attr_dev(div1, "id", "nav");
     			set_style(div1, "background-color", /*$settings*/ ctx[0].bgColor2);
     			add_location(div1, file$1, 5, 0, 122);
@@ -2095,20 +2095,21 @@ var app = (function () {
     			button2 = element("button");
     			set_style(span, "background-color", /*$settings*/ ctx[1].bgColor);
     			attr_dev(span, "class", "pl-2 pr-2 pb-1 rounded-md");
-    			add_location(span, file$2, 20, 20, 497);
+    			add_location(span, file$2, 19, 20, 555);
     			attr_dev(h1, "class", "mt-1 text-2xl ml-10 font-medium");
-    			add_location(h1, file$2, 19, 8, 431);
+    			add_location(h1, file$2, 18, 8, 489);
     			attr_dev(button0, "class", "fa fa-window-minimize ");
-    			add_location(button0, file$2, 25, 8, 751);
+    			add_location(button0, file$2, 24, 8, 809);
     			attr_dev(button1, "class", "fa fa-window-maximize mx-6");
-    			add_location(button1, file$2, 26, 8, 837);
+    			add_location(button1, file$2, 25, 8, 895);
     			attr_dev(button2, "class", "fa fa-times mr-4");
-    			add_location(button2, file$2, 27, 8, 927);
+    			add_location(button2, file$2, 26, 8, 985);
     			attr_dev(div0, "class", "flex flex-row justify-center items-center text-md no-drag svelte-10hzk5y");
-    			add_location(div0, file$2, 24, 4, 670);
-    			attr_dev(div1, "class", "flex flex-row justify-between my-2 drag svelte-10hzk5y");
+    			add_location(div0, file$2, 23, 4, 728);
+    			attr_dev(div1, "class", "flex flex-row justify-between my-2 drag w-full sticky top-0 svelte-10hzk5y");
     			set_style(div1, "color", /*$settings*/ ctx[1].fontColor2);
-    			add_location(div1, file$2, 13, 0, 259);
+    			set_style(div1, "background-color", /*$settings*/ ctx[1].bgColor1);
+    			add_location(div1, file$2, 12, 0, 257);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2142,6 +2143,10 @@ var app = (function () {
 
     			if (dirty & /*$settings*/ 2) {
     				set_style(div1, "color", /*$settings*/ ctx[1].fontColor2);
+    			}
+
+    			if (dirty & /*$settings*/ 2) {
+    				set_style(div1, "background-color", /*$settings*/ ctx[1].bgColor1);
     			}
     		},
     		i: noop,
@@ -2252,8 +2257,8 @@ var app = (function () {
     			$$inline: true
     		});
 
-    	const default_slot_template = /*$$slots*/ ctx[4].default;
-    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[3], null);
+    	const default_slot_template = /*$$slots*/ ctx[3].default;
+    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[2], null);
 
     	const block = {
     		c: function create() {
@@ -2266,17 +2271,17 @@ var app = (function () {
     			t1 = space();
     			div0 = element("div");
     			if (default_slot) default_slot.c();
-    			attr_dev(div0, "class", "p-4 mx-auto svelte-1h01vsw");
-    			add_location(div0, file$3, 51, 12, 1832);
-    			attr_dev(div1, "class", "w-full h-full overflow-auto svelte-1h01vsw");
+    			attr_dev(div0, "class", "px-4 mx-auto overflow-auto content-height svelte-1kd848o");
+    			add_location(div0, file$3, 53, 12, 1945);
+    			attr_dev(div1, "class", "w-full h-full svelte-1kd848o");
     			attr_dev(div1, "id", "main");
     			set_style(div1, "background-color", /*$settings*/ ctx[1].bgColor1);
-    			add_location(div1, file$3, 45, 8, 1624);
-    			attr_dev(div2, "class", "flex flex-row h-full svelte-1h01vsw");
-    			add_location(div2, file$3, 43, 4, 1563);
-    			attr_dev(main, "class", "h-full svelte-1h01vsw");
+    			add_location(div1, file$3, 47, 8, 1751);
+    			attr_dev(div2, "class", "flex flex-row h-full svelte-1kd848o");
+    			add_location(div2, file$3, 45, 4, 1690);
+    			attr_dev(main, "class", "h-full svelte-1kd848o");
     			set_style(main, "font-family", /*$settings*/ ctx[1].font);
-    			add_location(main, file$3, 39, 0, 1485);
+    			add_location(main, file$3, 41, 0, 1612);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2302,8 +2307,8 @@ var app = (function () {
     			if (dirty & /*_currPage*/ 1) titlebar_changes.currPage = /*_currPage*/ ctx[0];
     			titlebar.$set(titlebar_changes);
 
-    			if (default_slot && default_slot.p && dirty & /*$$scope*/ 8) {
-    				default_slot.p(get_slot_context(default_slot_template, ctx, /*$$scope*/ ctx[3], null), get_slot_changes(default_slot_template, /*$$scope*/ ctx[3], dirty, null));
+    			if (default_slot && default_slot.p && dirty & /*$$scope*/ 4) {
+    				default_slot.p(get_slot_context(default_slot_template, ctx, /*$$scope*/ ctx[2], null), get_slot_changes(default_slot_template, /*$$scope*/ ctx[2], dirty, null));
     			}
 
     			if (!current || dirty & /*$settings*/ 2) {
@@ -2351,33 +2356,6 @@ var app = (function () {
     	validate_store(settings, "settings");
     	component_subscribe($$self, settings, $$value => $$invalidate(1, $settings = $$value));
     	let { _currPage = "Home" } = $$props;
-
-    	// Add rounded borders when not in fullscreen
-    	// Remove any borders when in fullscreen
-    	const addRoundedBorders = () => {
-    		if (screen.width !== window.innerWidth) {
-    			document.getElementById("nav").classList.add("rounded-l-3xl");
-    			document.getElementById("main").classList.add("rounded-r-3xl");
-    			document.getElementById("nav").classList.remove("rounded-none");
-    			document.getElementById("main").classList.remove("rounded-none");
-    		} else {
-    			document.getElementById("nav").classList.add("rounded-none");
-    			document.getElementById("main").classList.add("rounded-none");
-    			document.getElementById("nav").classList.remove("rounded-l-3xl");
-    			document.getElementById("main").classList.remove("rounded-r-3xl");
-    		}
-    	};
-
-    	onMount(() => {
-    		window.addEventListener("load", addRoundedBorders);
-    		window.addEventListener("resize", addRoundedBorders);
-
-    		return () => {
-    			window.removeEventListener("load", addRoundedBorders);
-    			window.removeEventListener("resize", addRoundedBorders);
-    		};
-    	});
-
     	const writable_props = ["_currPage"];
 
     	Object.keys($$props).forEach(key => {
@@ -2388,7 +2366,7 @@ var app = (function () {
 
     	$$self.$set = $$props => {
     		if ("_currPage" in $$props) $$invalidate(0, _currPage = $$props._currPage);
-    		if ("$$scope" in $$props) $$invalidate(3, $$scope = $$props.$$scope);
+    		if ("$$scope" in $$props) $$invalidate(2, $$scope = $$props.$$scope);
     	};
 
     	$$self.$capture_state = () => ({
@@ -2397,10 +2375,6 @@ var app = (function () {
     		TitleBar,
     		settings,
     		_currPage,
-    		addRoundedBorders,
-    		screen,
-    		window,
-    		document,
     		$settings
     	});
 
@@ -2412,7 +2386,7 @@ var app = (function () {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [_currPage, $settings, addRoundedBorders, $$scope, $$slots];
+    	return [_currPage, $settings, $$scope, $$slots];
     }
 
     class Page extends SvelteComponentDev {

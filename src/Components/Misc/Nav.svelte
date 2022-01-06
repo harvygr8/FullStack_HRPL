@@ -4,7 +4,7 @@
 </script>
 
 <div
-    class="w-auto px-2 md:px-4"
+    class="w-auto px-4 sticky top-0"
     id="nav"
     style="background-color: {$settings.bgColor2};"
 >

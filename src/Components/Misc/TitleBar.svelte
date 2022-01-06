@@ -1,5 +1,4 @@
 <script>
-
     //Svelte
     import { settings } from '../../Stores/settingsStore';
 
@@ -12,8 +11,8 @@
 </script>
 
 <div
-    class="flex flex-row justify-between my-2 drag"
-    style="color: {$settings.fontColor2}"
+    class="flex flex-row justify-between my-2 drag w-full sticky top-0"
+    style="color: {$settings.fontColor2}; background-color: {$settings.bgColor1}"
 >
     <!-- <div class="drag" />
     <div class="drag"> -->
