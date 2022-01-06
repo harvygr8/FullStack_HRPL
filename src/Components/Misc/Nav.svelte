@@ -5,6 +5,7 @@
 
 <div
     class="w-auto px-2 md:px-4"
+    id="nav"
     style="background-color: {$settings.bgColor2};"
 >
     <h2

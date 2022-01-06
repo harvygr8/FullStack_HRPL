@@ -13,7 +13,7 @@
     let font = $settings.font;
 
     const applyChanges = type => {
-        // Set store values
+        // Set store values 
         $settings.username = type == 'save' ? document.getElementById('username').value : 'Admin';
         $settings.bgColor1 = type == 'save' ? document.getElementById('bgColor-1').value : '#111827';
         $settings.bgColor2 = type == 'save' ? document.getElementById('bgColor-2').value : '#1F2937';
@@ -32,6 +32,15 @@
         localStorage.fontColor1 = $settings.fontColor1;
         localStorage.fontColor2 = $settings.fontColor2;
         localStorage.font = $settings.font;
+
+        // Set state variable values
+        username = $settings.username;
+        bgColor1 = $settings.bgColor1;
+        bgColor2 = $settings.bgColor2;
+        bgColor3 = $settings.bgColor3;
+        fontColor1 = $settings.fontColor1;
+        fontColor2 = $settings.fontColor2;
+        font = $settings.font;
     };
 </script>
 

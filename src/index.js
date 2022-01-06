@@ -37,7 +37,7 @@ const createWindow = () => {
   const mainWindow = new BrowserWindow({
     frame:false,
     minWidth: 600,
-    minHeight: 700,
+    minHeight: 720,
     transparent:true,
     fullscreen: true,
     webPreferences: {
