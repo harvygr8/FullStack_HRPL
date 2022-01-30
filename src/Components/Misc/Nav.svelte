@@ -23,7 +23,7 @@
     <Link link={'#/'} icon={'fa-home'} name={'HOME'} />
     <Link link={'#/network'} icon={'fa-plug'} name={'NETWORK'} />
     <Link link={'#/diagnostics'} icon={'fa-cubes'} name={'DIAGNOSTICS'} />
-    <Link link={'#/wifi'} icon={'fa-wifi'} name={'WI-FI'} />
+    <!-- <Link link={'#/wifi'} icon={'fa-wifi'} name={'WI-FI'} /> -->
     <Link link={'#/system'} icon={'fa-microchip'} name={'SYSTEM'} />
     <Link link={'#/api'} icon={'fa-terminal'} name={'API'} />
     <Link link={'#/settings'} icon={'fa-cog'} name={'SETTINGS'} />

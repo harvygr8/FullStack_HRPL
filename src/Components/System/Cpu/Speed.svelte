@@ -11,11 +11,13 @@
 
     setInterval(()=>{
       ipcRenderer.send('get-cpu-speed');
-      ipcRenderer.on('get-cpu-speed', (e, speedInfo) => {
-          cpuSpeed = speedInfo;
-          //console.log(cpuSpeed)
-      });
-    },1000)
+    },1000);
+
+    //Fixed this
+    ipcRenderer.on('get-cpu-speed', (e, speedInfo) => {
+        cpuSpeed = speedInfo;
+        //console.log(cpuSpeed)
+    });
 
 </script>
 

@@ -30,7 +30,7 @@
     // onMount(() => {
     //     window.addEventListener('load', addRoundedBorders);
     //     window.addEventListener('resize', addRoundedBorders);
-        
+
     //     return () => {
     //         window.removeEventListener('load', addRoundedBorders);
     //         window.removeEventListener('resize', addRoundedBorders);

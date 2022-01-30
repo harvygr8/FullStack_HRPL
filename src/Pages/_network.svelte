@@ -6,6 +6,8 @@
     import NetworkInterfaces from '../Components/Network/NetworkInterfaces/NetworkInterfaces.svelte'
     import Dns from '../Components/Network/Dns/Dns.svelte'
     import Ports from '../Components/Network/Ports/Ports.svelte'
+    import Netstat from '../Components/Diagnostics/Netstat/Netstat.svelte';
+
 </script>
 
 <Page _currPage="Network">
@@ -16,6 +18,8 @@
       <Whois />
       <NetworkInterfaces />
       <Dns />
+      <Ports/>
+      <Netstat/>
       <Ports/>
     </div>
 </Page>
