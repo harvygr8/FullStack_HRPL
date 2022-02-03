@@ -31,7 +31,7 @@
         <input type="text" placeholder="Enter IP" bind:value class="w-10/12 rounded-md m-2 px-1 text-gray-800 font-bold">
             <button on:click={getPortInfo} class="text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600" type="button">SCAN</button>
         </div>
-        <div class="mt-2 w-full">
+        <div class="mt-2 max-h-48 overflow-auto w-full">
             {#if port}
               <p>&#8226; Open Ports</p>
               {#each port as portNumber}

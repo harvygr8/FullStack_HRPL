@@ -9,7 +9,6 @@ const getDiskUsage = require('./Components/System/Disk/Disk.js');
 const getRamInfo = require('./Components/System/Ram/Ram.js');
 const getGraphicsInfo = require('./Components/System/Graphics/Graphics.js');
 const getPingInfo = require('./Components/Network/Ping/Ping.js')
-const getWhoisInfo = require('./Components/Network/Whois/Whois.js');
 const getDnsLookup = require('./Components/Network/Dns/Dns.js');
 const getNetworkInterfaces = require('./Components/Network/NetworkInterfaces/NetworkInterfaces.js');
 const getOpenPorts = require('./Components/Network/Ports/Ports.js')
@@ -19,6 +18,7 @@ const getSslInfo = require('./Components/Diagnostics/SslChecker/SslChecker.js');
 const getNetstatInfo = require('./Components/Diagnostics/Netstat/Netstat.js');
 const getNetworkSpeed = require('./Components/Diagnostics/NetworkSpeed/NetworkSpeed.js');
 const getOsInfo = require('./Components/System/OS/OSInfo.js');
+const getIpInfo = require('./Components/Network/IPTools/IPTools.js');
 
 // Live Reload
 require('electron-reload')(__dirname, {
@@ -78,6 +78,7 @@ app.on('activate', () => {
 // code. You can also put them in separate files and import them here.
 
 getDiskUsage();
+getIpInfo();
 getCpuInfo();
 getCpuSpeed();
 getCpuUsage();
@@ -85,7 +86,6 @@ getOsInfo();
 getRamInfo();
 getGraphicsInfo();
 getPingInfo();
-getWhoisInfo();
 getWifiInfo();
 getWifiInterfaces();
 getNetworkInterfaces();

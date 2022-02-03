@@ -2,10 +2,11 @@
     //Svelte
     import Page from './_page.svelte';
     import Ping from '../Components/Network/Ping/Ping.svelte'
-    import Whois from '../Components/Network/Whois/Whois.svelte'
+    import IPTools from '../Components/Network/IPTools/IPTools.svelte'
     import NetworkInterfaces from '../Components/Network/NetworkInterfaces/NetworkInterfaces.svelte'
     import Dns from '../Components/Network/Dns/Dns.svelte'
     import Ports from '../Components/Network/Ports/Ports.svelte'
+    import SslChecker from '../Components/Diagnostics/SslChecker/SslChecker.svelte';
     import Netstat from '../Components/Diagnostics/Netstat/Netstat.svelte';
 
 </script>
@@ -15,11 +16,11 @@
       <div class="col-span-1 md:col-span-2 xl:col-span-3">
         <Ping />
       </div>
-      <Whois />
+      <IPTools />
       <NetworkInterfaces />
       <Dns />
       <Ports/>
       <Netstat/>
-      <Ports/>
+      <SslChecker/>
     </div>
 </Page>

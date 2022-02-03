@@ -22,7 +22,7 @@
         <div class = "h-64 overflow-x-hidden">
 
             <div class="flex flex-col">
-            <div class="overflow-x-hidden sm:-mx-6 lg:-mx-8">
+            <div class="overflow-scroll sm:-mx-6 lg:-mx-8">
               <div class="py-1 inline-block min-w-full sm:px-6 lg:px-8">
                 {#if netstat}
                   <table class="">

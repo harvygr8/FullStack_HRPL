@@ -27,6 +27,27 @@ const getOpenPorts=()=>{
           for(const obj of d){
             if(obj.status === "open"){
               if(finalData.includes(obj.port)==false){
+                if(obj.port===80){
+                  finalData.push("HTTP: ")
+                }
+                if(obj.port===21){
+                  finalData.push("FTP: ")
+                }
+                if(obj.port===22){
+                  finalData.push("SSH: ")
+                }
+                if(obj.port===25){
+                  finalData.push("SMTP: ")
+                }
+                if(obj.port===43){
+                  finalData.push("WHOIS: ")
+                }
+                if(obj.port===53){
+                  finalData.push("DNS: ")
+                }
+                if(obj.port===443){
+                  finalData.push("HTTPS: ")
+                }
                 finalData.push(obj.port);
               };
             };

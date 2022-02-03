@@ -49,16 +49,33 @@ const startRT = () => {
 
               let ob;
 
-              if(fil.length===4){
+              if(execMd===cmd[0]) //windows
+              {
+                if(fil.length===4){
 
-                ob = {
-                    'proto' : fil[0],
-                    'localip' : fil[1],
-                    'foriegnip':fil[2],
-                    'state':fil[3]
+                  ob = {
+                      'proto' : fil[0],
+                      'localip' : fil[1],
+                      'foriegnip':fil[2],
+                      'state':fil[3]
+                  }
+                  finalArr.push(ob);
                 }
-                finalArr.push(ob);
               }
+              else if(execMd===cmd[1]) //linux
+              {
+                if(fil.length===6){
+
+                  ob = {
+                      'proto' : fil[0],
+                      'localip' : fil[3],
+                      'foriegnip':fil[4],
+                      'state':fil[5]
+                  }
+                  finalArr.push(ob);
+                }
+              }
+
             }
             e.sender.send('get-netstat-info',finalArr);
         });

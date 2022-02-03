@@ -2,7 +2,6 @@
     //Svelte
     import Page from './_page.svelte';
     import PasswordStrength from '../Components/Diagnostics/PasswordStrength/PasswordStrength.svelte';
-    import SslChecker from '../Components/Diagnostics/SslChecker/SslChecker.svelte';
     import NetworkSpeed from '../Components/Diagnostics/NetworkSpeed/NetworkSpeed.svelte';
     import Info from '../Components/Wifi/Info/Info.svelte';
 
@@ -14,7 +13,6 @@
           <Info />
         </div>
         <PasswordStrength />
-        <SslChecker />
         <NetworkSpeed />
     </div>
 </Page>
