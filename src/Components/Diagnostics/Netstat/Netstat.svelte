@@ -22,7 +22,7 @@
         <div class = "h-64 overflow-x-hidden">
 
             <div class="flex flex-col">
-            <div class="overflow-scroll sm:-mx-6 lg:-mx-8">
+            <div class="overflow-auto sm:-mx-6 lg:-mx-8">
               <div class="py-1 inline-block min-w-full sm:px-6 lg:px-8">
                 {#if netstat}
                   <table class="">
@@ -92,3 +92,26 @@
         </div>
     </div>
 </Shell>
+
+<style>
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+      width: 12px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+      background: #374151;
+      margin-top: 24px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+      background: #8B5CF6;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+      background: #6241ad;
+  }
+</style>

@@ -3,6 +3,36 @@
 
     export let title = 'Title';
     export let tooltip = 'This is a shell component';
+
+    // Check if component is in storage
+    function checkInStorage(component) {
+        const favorites = localStorage.favorites;
+        // Returns true if pokemon is in localStorage / team
+        if (strToArr(favorites).some(item => item === component)) return true;
+        // Returns false if pokemon is not present
+        else return false;
+    }
+
+    // Function to add / remove component from favourites
+    function toggleFavourites(component) {
+        const favorites = localStorage.favorites;
+        // Remove component if already present in favorites
+        if (strToArr(favorites).some(item => item === component)) {
+            localStorage.favorites = (strToArr(favorites).filter(item => item !== component)).toString();
+        }
+        // Add component if not present in favorites
+        else {
+            const newFavorites = strToArr(localStorage.favorites);
+            newFavorites.push(component)
+            localStorage.favorites = (newFavorites).toString()
+        }
+    }
+
+    // Helper function
+    function strToArr(str) {
+    if (!str) return [];
+    return str.split(',');
+}
 </script>
 
 <div
@@ -16,10 +46,18 @@
         >
             {title}
         </h3>
-        <span
-            class="ml-2 fas fa-info-circle cursor-pointer"
-            title="{tooltip}"
-        />
+        <div>
+            <span
+                class="ml-2 fas fa-info-circle cursor-pointer"
+                title="{tooltip}"
+            />
+            <span
+                class="ml-2 fas fa-star cursor-pointer {checkInStorage(title) ? 'text-yellow-500' : ''}"
+                title="Add to favourites"
+                on:click={() => toggleFavourites(title)}
+            />
+
+        </div>
     </div>
     <hr class="my-2">
     <div>

@@ -1,5 +1,0 @@
-[22:59:16]:[INFO]: Time:0 ms | Alive:false | Loss:NaN
-[22:59:17]:[INFO]: Time:0 ms | Alive:false | Loss:NaN
-[22:59:18]:[INFO]: Time:0 ms | Alive:false | Loss:NaN
-[22:59:19]:[INFO]: Time:0 ms | Alive:false | Loss:NaN
-[22:59:20]:[INFO]: Time:0 ms | Alive:false | Loss:NaN
