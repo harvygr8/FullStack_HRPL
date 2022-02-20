@@ -17,7 +17,7 @@ const getNetworkSpeed = () => {
       .then(result => {
           //console.log(result);
           let logStream = fs.createWriteStream('./netspeedlog.txt', {flags: 'w'});
-          logStream.write(result.downloadSpeed);
+          logStream.write(result.downloadSpeed.toString());
           //console.log(result.downloadSpeed);
           e.sender.send('get-network-speed',result);
       })
