@@ -44,7 +44,7 @@ router.get('/users/:id', async (req, res) => {
             })
         }
         return res.status(200).json({
-            data: data[0],
+            data: data,
             error: null
         }) 
     } catch (err) {
