@@ -1,7 +1,7 @@
 <script>
     //Svelte
     import Page from './_page.svelte';
-    import { settings } from '../Stores/settingsStore';    
+    import { settings } from '../Stores/settingsStore';
     import Greeting from '../Components/Main/Greeting.svelte'
 
     // Components
@@ -24,7 +24,7 @@
     import Usage from '../Components/System/Usage/Usage.svelte';
     import Info from '../Components/Wifi/Info/Info.svelte';
     import Interfaces from '../Components/Wifi/Interfaces/Interfaces.svelte';
-    import Ssid from '../Components/Wifi/Ssid/Ssid.svelte'; 
+    import Ssid from '../Components/Wifi/Ssid/Ssid.svelte';
 
     const components = [
       {
@@ -96,9 +96,7 @@
     // Function to check if a component is present in favorites
     function checkInStorage(component) {
       const favorites = localStorage.favorites;
-      // Returns true if pokemon is in localStorage / team
       if (strToArr(favorites).some(item => item === component)) return true;
-      // Returns false if pokemon is not present
       else return false;
     }
 
@@ -106,7 +104,7 @@
     function strToArr(str) {
       if (!str) return [];
       return str.split(',');
-    } 
+    }
 
 </script>
 
@@ -121,7 +119,7 @@
     </div>
     {:else}
     <h2 class="text-center text-2xl mt-4 px-6 font-medium" style="color: {$settings.fontColor1}">
-      FAVOURITE WIDGETS
+      Favourite Widgets
     </h2>
     <div class="p-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
       <!-- <Greeting /> -->

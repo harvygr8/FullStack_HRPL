@@ -6,7 +6,7 @@
     import { settings } from '../../../Stores/settingsStore'
 
     //Logex
-    import {logToText,fileStamp} from '../../../Logex/Logex.js'
+    import {logToText,logSimple,fileStamp} from '../../../Logex/Logex.js'
 
     //Electron
     const { ipcRenderer } = require('electron');
@@ -32,13 +32,18 @@
             if(!logged){
               packetCount +=1;
               timeList = [...timeList, ping.time];
-              console.log(timeList)
+              //console.log(timeList);
+              //console.log(''+ping.time);
+
             logToText({
-              path:`./PING_${fileStamp}_${ping.hst}.txt`,
+              path:`./logs/clean_logs/PING_${fileStamp}_${ping.hst}.txt`,
               content:`Time:${ping.time} ms | Alive:${ping.alive} | Loss:${ping.loss}`,
               mark:'info',
               quiet:false
             });
+
+            logSimple('./logs/api_logs/PingLog.txt',''+ping.time);
+
 
             // Create new chart each time ping data is received
             const canvas = document.getElementById('ping-chart');
@@ -73,10 +78,10 @@
                     tension: 0.1
                 }]
               }
-            })         
+            })
 
 
-            
+
             logged=true;
           }
         });
@@ -119,9 +124,9 @@
                     tension: 0.1
                 }]
             }
-        })            
+        })
     });
-    
+
     onDestroy(() => {
       packetCount=0;
       timeList = [];
@@ -151,7 +156,7 @@
     {#if !isChartVisible}
     <div class='flex flex-row'>
 
-    
+
     <div class='p-4 m-2 flex flex-col justify-center items-center'>
       <p class='text-white font-thin text-lg text-xl'>Host</p>
         <div class='flex flex-row'>

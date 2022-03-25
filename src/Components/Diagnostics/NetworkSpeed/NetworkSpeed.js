@@ -15,10 +15,7 @@ const getNetworkSpeed = () => {
     ipcMain.on('get-network-speed', async (e) => {
       universalSpeedtest.runSpeedtestNet()
       .then(result => {
-          //console.log(result);
-          let logStream = fs.createWriteStream('./netspeedlog.txt', {flags: 'w'});
-          logStream.write(result.downloadSpeed.toString());
-          //console.log(result.downloadSpeed);
+          console.log(result);
           e.sender.send('get-network-speed',result);
       })
       .catch(err =>{

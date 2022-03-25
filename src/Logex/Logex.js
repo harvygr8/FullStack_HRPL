@@ -1,9 +1,14 @@
 const fs = require('fs')
 
+const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
 let fName = new Date();
-let day = fName.getDay();
-let month = fName.getMonth();
+let day = days[fName.getDay()];
+let month = months[fName.getMonth()];
 let year = fName.getFullYear();
+
+
 
 const fileStamp = `${day}_${month}_${year}`;
 
@@ -53,6 +58,13 @@ function logToText(params){
   if(!params.quiet) console.log(`${Header.MSG}Logged to File`);
 }
 
-export {logToText,fileStamp};
+
+function logSimple(path,content){
+  let wstream = fs.createWriteStream(path, {flags:'w'});
+  wstream.write(content);
+  wstream.end();
+}
+
+export {logToText,logSimple,fileStamp};
 
 //logToText({path:'test.txt',content:"HELLO",mark:'info'},false);

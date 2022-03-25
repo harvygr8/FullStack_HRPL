@@ -52,18 +52,18 @@
 <Shell title={"PASSWORD STRENGTH CHECKER"} tooltip={"Get detailed analysis of passwords"}>
     <div class="text-gray-50">
         <div class="flex flex-row">
-          <input 
-            type="text" 
-            placeholder="Enter Password" 
-            bind:value={password} 
-            class="w-10/12 rounded-md m-2 px-1 text-gray-800 font-bold" 
+          <input
+            type="text"
+            placeholder="Enter Password"
+            bind:value={password}
+            class="w-10/12 rounded-md m-2 px-1 text-gray-800 font-bold"
             required
             maxlength={32}
           >
-          <button 
-            type="button" 
-            on:click={checkPassword}  
-            class="text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600"
+          <button
+            type="button"
+            on:click={checkPassword}
+            class="text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thi hover:bg-purple-600"
           >
             CHECK
         </button>
@@ -75,14 +75,14 @@
             <div class="flex flex-row justify-center">
 
             <div class='p-4 m-2 flex flex-col justify-center items-center'>
-              <p class='text-white font-thin text-lg text-2xl'>Strength</p>
+              <p class='text-white text-lg text-2xl'>Strength</p>
                 <div class='flex flex-row'>
                   <p id="infoValueCPN" class='font-bold text-white text-3xl {strengthColor}'>{strength} %</p>&nbsp
                 </div>
             </div>
 
             <div class='p-4 m-2 flex flex-col justify-center items-center'>
-              <p class='text-white font-thin text-lg text-2xl'>Length</p>
+              <p class='text-white text-lg text-2xl'>Length</p>
                 <div class='flex flex-row'>
                   <p id="infoValueCPN" class='font-bold text-white text-3xl {lengthColor}' style="text-transform: uppercase;">{password.length}</p>&nbsp
                 </div>

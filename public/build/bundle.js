@@ -2508,8 +2508,8 @@ var app = (function () {
     	let div2;
     	let current;
     	let dispose;
-    	const default_slot_template = /*$$slots*/ ctx[4].default;
-    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[3], null);
+    	const default_slot_template = /*$$slots*/ ctx[6].default;
+    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[5], null);
 
     	const block = {
     		c: function create() {
@@ -2529,27 +2529,27 @@ var app = (function () {
     			if (default_slot) default_slot.c();
     			attr_dev(h3, "class", "text-2xl font-medium");
     			set_style(h3, "color", /*$settings*/ ctx[2].fontColor2);
-    			add_location(h3, file$5, 42, 8, 1518);
+    			add_location(h3, file$5, 44, 8, 1615);
     			attr_dev(span0, "class", "ml-2 fas fa-info-circle cursor-pointer");
     			attr_dev(span0, "title", /*tooltip*/ ctx[1]);
-    			add_location(span0, file$5, 49, 12, 1691);
+    			add_location(span0, file$5, 51, 12, 1788);
 
     			attr_dev(span1, "class", span1_class_value = "ml-2 fas fa-star cursor-pointer " + (checkInStorage(/*title*/ ctx[0])
     			? "text-yellow-500"
     			: ""));
 
     			attr_dev(span1, "title", "Add to favourites");
-    			add_location(span1, file$5, 53, 12, 1825);
-    			add_location(div0, file$5, 48, 8, 1672);
+    			add_location(span1, file$5, 55, 12, 1922);
+    			add_location(div0, file$5, 50, 8, 1769);
     			attr_dev(div1, "class", "flex flex-row justify-between items-center");
-    			add_location(div1, file$5, 41, 4, 1452);
+    			add_location(div1, file$5, 43, 4, 1549);
     			attr_dev(hr, "class", "my-2");
-    			add_location(hr, file$5, 61, 4, 2089);
-    			add_location(div2, file$5, 62, 4, 2112);
+    			add_location(hr, file$5, 63, 4, 2189);
+    			add_location(div2, file$5, 64, 4, 2212);
     			attr_dev(div3, "class", "rounded-md shadow-md p-2 ");
     			set_style(div3, "background-color", /*$settings*/ ctx[2].bgColor3);
     			set_style(div3, "color", /*$settings*/ ctx[2].fontColor1);
-    			add_location(div3, file$5, 37, 0, 1317);
+    			add_location(div3, file$5, 39, 0, 1414);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2574,7 +2574,7 @@ var app = (function () {
     			}
 
     			current = true;
-    			dispose = listen_dev(span1, "click", /*click_handler*/ ctx[5], false, false, false);
+    			dispose = listen_dev(span1, "click", /*click_handler*/ ctx[7], false, false, false);
     		},
     		p: function update(ctx, [dirty]) {
     			if (!current || dirty & /*title*/ 1) set_data_dev(t0, /*title*/ ctx[0]);
@@ -2593,8 +2593,8 @@ var app = (function () {
     				attr_dev(span1, "class", span1_class_value);
     			}
 
-    			if (default_slot && default_slot.p && dirty & /*$$scope*/ 8) {
-    				default_slot.p(get_slot_context(default_slot_template, ctx, /*$$scope*/ ctx[3], null), get_slot_changes(default_slot_template, /*$$scope*/ ctx[3], dirty, null));
+    			if (default_slot && default_slot.p && dirty & /*$$scope*/ 32) {
+    				default_slot.p(get_slot_context(default_slot_template, ctx, /*$$scope*/ ctx[5], null), get_slot_changes(default_slot_template, /*$$scope*/ ctx[5], dirty, null));
     			}
 
     			if (!current || dirty & /*$settings*/ 4) {
@@ -2641,10 +2641,11 @@ var app = (function () {
     }
 
     // Function to add / remove component from favourites
-    function toggleFavourites(component) {
+    function toggleFavourites(e, component) {
     	const favorites = localStorage.favorites;
+    	let elem = e.srcElement;
+    	elem.classList += "text-yellow-500";
 
-    	// Remove component if already present in favorites
     	if (strToArr(favorites).some(item => item === component)) {
     		localStorage.favorites = strToArr(favorites).filter(item => item !== component).toString();
     	} else // Add component if not present in favorites
@@ -2665,6 +2666,7 @@ var app = (function () {
     	let $settings;
     	validate_store(settings, "settings");
     	component_subscribe($$self, settings, $$value => $$invalidate(2, $settings = $$value));
+    	const { getCurrentWindow, globalShortcut } = require("electron").remote;
     	let { title = "Title" } = $$props;
     	let { tooltip = "This is a shell component" } = $$props;
     	const writable_props = ["title", "tooltip"];
@@ -2674,21 +2676,24 @@ var app = (function () {
     	});
 
     	let { $$slots = {}, $$scope } = $$props;
-    	const click_handler = () => toggleFavourites(title);
+    	const click_handler = e => toggleFavourites(e, title);
 
     	$$self.$set = $$props => {
     		if ("title" in $$props) $$invalidate(0, title = $$props.title);
     		if ("tooltip" in $$props) $$invalidate(1, tooltip = $$props.tooltip);
-    		if ("$$scope" in $$props) $$invalidate(3, $$scope = $$props.$$scope);
+    		if ("$$scope" in $$props) $$invalidate(5, $$scope = $$props.$$scope);
     	};
 
     	$$self.$capture_state = () => ({
     		settings,
+    		getCurrentWindow,
+    		globalShortcut,
     		title,
     		tooltip,
     		checkInStorage,
     		toggleFavourites,
     		strToArr,
+    		require,
     		localStorage,
     		$settings
     	});
@@ -2702,7 +2707,16 @@ var app = (function () {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [title, tooltip, $settings, $$scope, $$slots, click_handler];
+    	return [
+    		title,
+    		tooltip,
+    		$settings,
+    		getCurrentWindow,
+    		globalShortcut,
+    		$$scope,
+    		$$slots,
+    		click_handler
+    	];
     }
 
     class Shell extends SvelteComponentDev {
@@ -3197,24 +3211,155 @@ var app = (function () {
     	}
     }
 
+    const fs = require('fs');
+
+    const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+    let fName = new Date();
+    let day = days[fName.getDay()];
+    let month = months[fName.getMonth()];
+    let year = fName.getFullYear();
+
+
+
+    const fileStamp = `${day}_${month}_${year}`;
+
+    const Markers ={
+      INFO:'[INFO]:',
+      WARN:'[WARN]:',
+    };
+    Object.freeze(Markers);
+
+    //Reserved for Library
+    const Header={
+      MSG:'[MESSAGE]:',
+      ERR:'[ERROR]:'
+    };
+    Object.freeze(Header);
+
+
+    function logToText(params){
+
+      let currMark='';
+      let content;
+      let timeStamp = new Date();
+      let hours = timeStamp.getHours();
+      let minutes = timeStamp.getMinutes();
+      let seconds = timeStamp.getSeconds();
+
+      switch(params.mark){
+        case 'info':
+          currMark = Markers.INFO;
+          break;
+        case 'warn':
+          currMark = Markers.WARN;
+          break;
+        default:
+          if(!params.quiet) console.log(`${Header.ERR}No Valid Marker Specified,Logger Quitting`);
+          return;
+      }
+
+
+      content = `[${hours}:${minutes}:${seconds}]:${currMark} ${params.content}\n`;
+
+      let stream = fs.createWriteStream(params.path, {flags:'a'});
+      stream.write(content);
+      stream.end();
+
+
+      if(!params.quiet) console.log(`${Header.MSG}Logged to File`);
+    }
+
+
+    function logSimple(path,content){
+      let wstream = fs.createWriteStream(path, {flags:'w'});
+      wstream.write(content);
+      wstream.end();
+    }
+
+    //logToText({path:'test.txt',content:"HELLO",mark:'info'},false);
+
     /* src\Components\Diagnostics\NetworkSpeed\NetworkSpeed.svelte generated by Svelte v3.19.1 */
+
     const file$8 = "src\\Components\\Diagnostics\\NetworkSpeed\\NetworkSpeed.svelte";
 
-    // (37:14) {:else}
+    // (59:14) {:else}
     function create_else_block_1(ctx) {
     	let button;
+    	let t1;
+    	let div4;
+    	let div1;
+    	let p0;
+    	let t3;
+    	let div0;
+    	let p1;
+    	let t5;
+    	let div3;
+    	let p2;
+    	let t7;
+    	let div2;
+    	let p3;
     	let dispose;
 
     	const block = {
     		c: function create() {
     			button = element("button");
     			button.textContent = "START TEST";
+    			t1 = space();
+    			div4 = element("div");
+    			div1 = element("div");
+    			p0 = element("p");
+    			p0.textContent = "Speed";
+    			t3 = space();
+    			div0 = element("div");
+    			p1 = element("p");
+    			p1.textContent = "N/A Mbps";
+    			t5 = space();
+    			div3 = element("div");
+    			p2 = element("p");
+    			p2.textContent = "Time";
+    			t7 = space();
+    			div2 = element("div");
+    			p3 = element("p");
+    			p3.textContent = "N/A s";
     			attr_dev(button, "type", "button");
     			attr_dev(button, "class", "text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600");
-    			add_location(button, file$8, 37, 16, 1000);
+    			add_location(button, file$8, 59, 16, 1765);
+    			attr_dev(p0, "class", "text-white text-lg text-xl");
+    			add_location(p0, file$8, 64, 16, 2081);
+    			attr_dev(p1, "class", "font-bold text-white text-2xl");
+    			add_location(p1, file$8, 66, 20, 2197);
+    			attr_dev(div0, "class", "flex flex-row");
+    			add_location(div0, file$8, 65, 18, 2148);
+    			attr_dev(div1, "class", "flex flex-col items-center text-gray-50 pr-8");
+    			add_location(div1, file$8, 63, 16, 2005);
+    			attr_dev(p2, "class", "text-white text-lg text-xl");
+    			add_location(p2, file$8, 71, 16, 2397);
+    			attr_dev(p3, "class", "font-bold text-white text-2xl");
+    			add_location(p3, file$8, 73, 20, 2512);
+    			attr_dev(div2, "class", "flex flex-row");
+    			add_location(div2, file$8, 72, 18, 2463);
+    			attr_dev(div3, "class", "flex flex-col items-center text-gray-50 pl-8");
+    			add_location(div3, file$8, 70, 16, 2321);
+    			attr_dev(div4, "class", "flex flex-row justify-center mt-1");
+    			add_location(div4, file$8, 61, 16, 1937);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, button, anchor);
+    			insert_dev(target, t1, anchor);
+    			insert_dev(target, div4, anchor);
+    			append_dev(div4, div1);
+    			append_dev(div1, p0);
+    			append_dev(div1, t3);
+    			append_dev(div1, div0);
+    			append_dev(div0, p1);
+    			append_dev(div4, t5);
+    			append_dev(div4, div3);
+    			append_dev(div3, p2);
+    			append_dev(div3, t7);
+    			append_dev(div3, div2);
+    			append_dev(div2, p3);
     			dispose = listen_dev(button, "click", /*startTest*/ ctx[2], false, false, false);
     		},
     		p: noop,
@@ -3222,6 +3367,8 @@ var app = (function () {
     		o: noop,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(button);
+    			if (detaching) detach_dev(t1);
+    			if (detaching) detach_dev(div4);
     			dispose();
     		}
     	};
@@ -3230,14 +3377,14 @@ var app = (function () {
     		block,
     		id: create_else_block_1.name,
     		type: "else",
-    		source: "(37:14) {:else}",
+    		source: "(59:14) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (34:12) {#if started}
+    // (56:12) {#if started}
     function create_if_block_2(ctx) {
     	let current;
     	const loader = new Loader({ $$inline: true });
@@ -3269,14 +3416,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(34:12) {#if started}",
+    		source: "(56:12) {#if started}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (43:8) {#if networkSpeed}
+    // (83:8) {#if networkSpeed}
     function create_if_block$2(ctx) {
     	let if_block_anchor;
 
@@ -3320,14 +3467,14 @@ var app = (function () {
     		block,
     		id: create_if_block$2.name,
     		type: "if",
-    		source: "(43:8) {#if networkSpeed}",
+    		source: "(83:8) {#if networkSpeed}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (61:12) {:else}
+    // (101:12) {:else}
     function create_else_block$1(ctx) {
     	let div1;
     	let div0;
@@ -3342,11 +3489,11 @@ var app = (function () {
     			p = element("p");
     			t = text(t_value);
     			attr_dev(p, "class", "text-white font-medium text-lg text-xl");
-    			add_location(p, file$8, 64, 18, 2307);
+    			add_location(p, file$8, 104, 18, 3785);
     			attr_dev(div0, "class", "flex flex-col items-center text-gray-50 p-4");
-    			add_location(div0, file$8, 63, 18, 2230);
+    			add_location(div0, file$8, 103, 18, 3708);
     			attr_dev(div1, "class", "flex flex-row justify-center mt-1");
-    			add_location(div1, file$8, 61, 14, 2160);
+    			add_location(div1, file$8, 101, 14, 3638);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -3366,14 +3513,14 @@ var app = (function () {
     		block,
     		id: create_else_block$1.name,
     		type: "else",
-    		source: "(61:12) {:else}",
+    		source: "(101:12) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (44:10) {#if !networkSpeed.err}
+    // (84:10) {#if !networkSpeed.err}
     function create_if_block_1(ctx) {
     	let div4;
     	let div1;
@@ -3414,24 +3561,24 @@ var app = (function () {
     			p3 = element("p");
     			t7 = text(t7_value);
     			t8 = text(" s");
-    			attr_dev(p0, "class", "text-white font-medium text-lg text-xl");
-    			add_location(p0, file$8, 46, 16, 1498);
+    			attr_dev(p0, "class", "text-white text-lg text-xl");
+    			add_location(p0, file$8, 86, 16, 3000);
     			attr_dev(p1, "class", "font-bold text-white text-2xl");
-    			add_location(p1, file$8, 48, 20, 1626);
+    			add_location(p1, file$8, 88, 20, 3116);
     			attr_dev(div0, "class", "flex flex-row");
-    			add_location(div0, file$8, 47, 18, 1577);
+    			add_location(div0, file$8, 87, 18, 3067);
     			attr_dev(div1, "class", "flex flex-col items-center text-gray-50 pr-8");
-    			add_location(div1, file$8, 45, 16, 1422);
-    			attr_dev(p2, "class", "text-white font-medium text-lg text-xl");
-    			add_location(p2, file$8, 53, 16, 1851);
+    			add_location(div1, file$8, 85, 16, 2924);
+    			attr_dev(p2, "class", "text-white text-lg text-xl");
+    			add_location(p2, file$8, 93, 16, 3341);
     			attr_dev(p3, "class", "font-bold text-white text-2xl");
-    			add_location(p3, file$8, 55, 20, 1978);
+    			add_location(p3, file$8, 95, 20, 3456);
     			attr_dev(div2, "class", "flex flex-row");
-    			add_location(div2, file$8, 54, 18, 1929);
+    			add_location(div2, file$8, 94, 18, 3407);
     			attr_dev(div3, "class", "flex flex-col items-center text-gray-50 pl-8");
-    			add_location(div3, file$8, 52, 16, 1775);
+    			add_location(div3, file$8, 92, 16, 3265);
     			attr_dev(div4, "class", "flex flex-row justify-center mt-1");
-    			add_location(div4, file$8, 44, 12, 1356);
+    			add_location(div4, file$8, 84, 12, 2858);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div4, anchor);
@@ -3464,14 +3611,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(44:10) {#if !networkSpeed.err}",
+    		source: "(84:10) {#if !networkSpeed.err}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (31:0) <Shell title={"NETWORK SPEED"} tooltip={"List network speed"}>
+    // (53:0) <Shell title={"NETWORK SPEED"} tooltip={"List network speed"}>
     function create_default_slot$1(ctx) {
     	let div1;
     	let div0;
@@ -3499,9 +3646,9 @@ var app = (function () {
     			t = space();
     			if (if_block1) if_block1.c();
     			attr_dev(div0, "class", "flex flex-col justify-center items-center mt-1");
-    			add_location(div0, file$8, 32, 8, 766);
+    			add_location(div0, file$8, 54, 8, 1531);
     			attr_dev(div1, "class", "flex flex-col justify-center mt-1 text-gray-50");
-    			add_location(div1, file$8, 31, 4, 696);
+    			add_location(div1, file$8, 53, 4, 1461);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -3569,7 +3716,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$1.name,
     		type: "slot",
-    		source: "(31:0) <Shell title={\\\"NETWORK SPEED\\\"} tooltip={\\\"List network speed\\\"}>",
+    		source: "(53:0) <Shell title={\\\"NETWORK SPEED\\\"} tooltip={\\\"List network speed\\\"}>",
     		ctx
     	});
 
@@ -3654,12 +3801,29 @@ var app = (function () {
 
     		console.log(networkSpeed);
     		$$invalidate(1, started = false);
+
+    		if (!networkSpeed.err) {
+    			logSimple("./logs/api_logs/NetSpeedLog.txt", "" + networkSpeed.downloadSpeed);
+    			logSimple("./logs/api_logs/ispLog.txt", "" + networkSpeed.client.isp);
+    			logSimple("./logs/api_logs/testServerLocationLog.txt", "" + networkSpeed.server.city);
+
+    			//logSimple('./logs/raw_logs/NetSpeedLog.txt',''+networkSpeed.downloadSpeed);
+    			logToText({
+    				path: `./logs/clean_logs/NETSPEED_${fileStamp}.txt`,
+    				content: `Test Time:${networkSpeed.totalTime} s | Speed:${networkSpeed.downloadSpeed} mbps`,
+    				mark: "info",
+    				quiet: false
+    			});
+    		}
     	});
 
     	$$self.$capture_state = () => ({
     		Shell,
     		Loader,
     		ipcRenderer,
+    		logToText,
+    		logSimple,
+    		fileStamp,
     		networkSpeed,
     		started,
     		err,
@@ -3877,32 +4041,32 @@ var app = (function () {
     			attr_dev(input, "maxlength", input_maxlength_value = 32);
     			add_location(input, file$a, 54, 10, 2064);
     			attr_dev(button, "type", "button");
-    			attr_dev(button, "class", "text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600");
-    			add_location(button, file$a, 62, 10, 2325);
+    			attr_dev(button, "class", "text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thi hover:bg-purple-600");
+    			add_location(button, file$a, 62, 10, 2320);
     			attr_dev(div0, "class", "flex flex-row");
     			add_location(div0, file$a, 53, 8, 2025);
-    			attr_dev(p0, "class", "text-white font-thin text-lg text-2xl");
-    			add_location(p0, file$a, 77, 14, 2980);
+    			attr_dev(p0, "class", "text-white text-lg text-2xl");
+    			add_location(p0, file$a, 77, 14, 2970);
     			attr_dev(p1, "id", "infoValueCPN");
     			attr_dev(p1, "class", p1_class_value = "font-bold text-white text-3xl " + /*strengthColor*/ ctx[2]);
-    			add_location(p1, file$a, 79, 18, 3106);
+    			add_location(p1, file$a, 79, 18, 3086);
     			attr_dev(div1, "class", "flex flex-row");
-    			add_location(div1, file$a, 78, 16, 3059);
+    			add_location(div1, file$a, 78, 16, 3039);
     			attr_dev(div2, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div2, file$a, 76, 12, 2901);
-    			attr_dev(p2, "class", "text-white font-thin text-lg text-2xl");
-    			add_location(p2, file$a, 84, 14, 3341);
+    			add_location(div2, file$a, 76, 12, 2891);
+    			attr_dev(p2, "class", "text-white text-lg text-2xl");
+    			add_location(p2, file$a, 84, 14, 3321);
     			attr_dev(p3, "id", "infoValueCPN");
     			attr_dev(p3, "class", p3_class_value = "font-bold text-white text-3xl " + /*lengthColor*/ ctx[3]);
     			set_style(p3, "text-transform", "uppercase");
-    			add_location(p3, file$a, 86, 18, 3465);
+    			add_location(p3, file$a, 86, 18, 3435);
     			attr_dev(div3, "class", "flex flex-row");
-    			add_location(div3, file$a, 85, 16, 3418);
+    			add_location(div3, file$a, 85, 16, 3388);
     			attr_dev(div4, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div4, file$a, 83, 12, 3262);
+    			add_location(div4, file$a, 83, 12, 3242);
     			attr_dev(div5, "class", "flex flex-row justify-center");
-    			add_location(div5, file$a, 74, 12, 2843);
-    			add_location(div6, file$a, 72, 8, 2785);
+    			add_location(div5, file$a, 74, 12, 2833);
+    			add_location(div6, file$a, 72, 8, 2775);
     			attr_dev(div7, "class", "text-gray-50");
     			add_location(div7, file$a, 52, 4, 1989);
     		},
@@ -6429,68 +6593,11 @@ var app = (function () {
     	}
     }
 
-    const fs = require('fs');
-
-    let fName = new Date();
-    let day = fName.getDay();
-    let month = fName.getMonth();
-    let year = fName.getFullYear();
-
-    const fileStamp = `${day}_${month}_${year}`;
-
-    const Markers ={
-      INFO:'[INFO]:',
-      WARN:'[WARN]:',
-    };
-    Object.freeze(Markers);
-
-    //Reserved for Library
-    const Header={
-      MSG:'[MESSAGE]:',
-      ERR:'[ERROR]:'
-    };
-    Object.freeze(Header);
-
-
-    function logToText(params){
-
-      let currMark='';
-      let content;
-      let timeStamp = new Date();
-      let hours = timeStamp.getHours();
-      let minutes = timeStamp.getMinutes();
-      let seconds = timeStamp.getSeconds();
-
-      switch(params.mark){
-        case 'info':
-          currMark = Markers.INFO;
-          break;
-        case 'warn':
-          currMark = Markers.WARN;
-          break;
-        default:
-          if(!params.quiet) console.log(`${Header.ERR}No Valid Marker Specified,Logger Quitting`);
-          return;
-      }
-
-
-      content = `[${hours}:${minutes}:${seconds}]:${currMark} ${params.content}\n`;
-
-      let stream = fs.createWriteStream(params.path, {flags:'a'});
-      stream.write(content);
-      stream.end();
-
-
-      if(!params.quiet) console.log(`${Header.MSG}Logged to File`);
-    }
-
-    //logToText({path:'test.txt',content:"HELLO",mark:'info'},false);
-
     /* src\Components\Network\Ping\Ping.svelte generated by Svelte v3.19.1 */
 
     const file$f = "src\\Components\\Network\\Ping\\Ping.svelte";
 
-    // (201:4) {:else}
+    // (206:4) {:else}
     function create_else_block$6(ctx) {
     	let t;
     	let div;
@@ -6505,9 +6612,9 @@ var app = (function () {
     			div = element("div");
     			canvas = element("canvas");
     			attr_dev(canvas, "id", "ping-chart");
-    			add_location(canvas, file$f, 243, 8, 9040);
+    			add_location(canvas, file$f, 248, 8, 9146);
     			attr_dev(div, "class", div_class_value = "w-11/12 h-36 " + (/*isChartVisible*/ ctx[1] ? "block" : "hidden"));
-    			add_location(div, file$f, 242, 4, 8966);
+    			add_location(div, file$f, 247, 4, 9072);
     		},
     		m: function mount(target, anchor) {
     			if (if_block) if_block.m(target, anchor);
@@ -6542,14 +6649,14 @@ var app = (function () {
     		block,
     		id: create_else_block$6.name,
     		type: "else",
-    		source: "(201:4) {:else}",
+    		source: "(206:4) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (150:4) {#if ping}
+    // (155:4) {#if ping}
     function create_if_block$7(ctx) {
     	let t;
     	let div;
@@ -6564,9 +6671,9 @@ var app = (function () {
     			div = element("div");
     			canvas = element("canvas");
     			attr_dev(canvas, "id", "ping-chart");
-    			add_location(canvas, file$f, 196, 10, 7061);
+    			add_location(canvas, file$f, 201, 10, 7167);
     			attr_dev(div, "class", div_class_value = "w-11/12 h-36 " + (/*isChartVisible*/ ctx[1] ? "block" : "hidden"));
-    			add_location(div, file$f, 195, 6, 6985);
+    			add_location(div, file$f, 200, 6, 7091);
     		},
     		m: function mount(target, anchor) {
     			if (if_block) if_block.m(target, anchor);
@@ -6603,14 +6710,14 @@ var app = (function () {
     		block,
     		id: create_if_block$7.name,
     		type: "if",
-    		source: "(150:4) {#if ping}",
+    		source: "(155:4) {#if ping}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (202:8) {#if !isChartVisible}
+    // (207:8) {#if !isChartVisible}
     function create_if_block_2$2(ctx) {
     	let div10;
     	let div1;
@@ -6702,58 +6809,58 @@ var app = (function () {
     			t23 = text(" \r\n              ");
     			p12 = element("p");
     			attr_dev(p0, "class", "text-white font-thin text-lg text-xl");
-    			add_location(p0, file$f, 204, 10, 7307);
+    			add_location(p0, file$f, 209, 10, 7413);
     			attr_dev(p1, "id", "infoValueCPN");
     			attr_dev(p1, "class", "font-bold text-white text-3xl");
-    			add_location(p1, file$f, 206, 14, 7420);
+    			add_location(p1, file$f, 211, 14, 7526);
     			attr_dev(p2, "class", "font-bold text-white text-sm");
-    			add_location(p2, file$f, 207, 14, 7507);
+    			add_location(p2, file$f, 212, 14, 7613);
     			attr_dev(div0, "class", "flex flex-row");
-    			add_location(div0, file$f, 205, 12, 7377);
+    			add_location(div0, file$f, 210, 12, 7483);
     			attr_dev(div1, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div1, file$f, 203, 8, 7232);
+    			add_location(div1, file$f, 208, 8, 7338);
     			attr_dev(p3, "class", "text-white font-thin text-lg text-xl");
-    			add_location(p3, file$f, 212, 10, 7674);
+    			add_location(p3, file$f, 217, 10, 7780);
     			attr_dev(p4, "id", "infoValueCPN");
     			attr_dev(p4, "class", "font-bold text-white text-3xl");
-    			add_location(p4, file$f, 214, 14, 7787);
+    			add_location(p4, file$f, 219, 14, 7893);
     			attr_dev(div2, "class", "flex flex-row");
-    			add_location(div2, file$f, 213, 12, 7744);
+    			add_location(div2, file$f, 218, 12, 7850);
     			attr_dev(div3, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div3, file$f, 211, 8, 7599);
+    			add_location(div3, file$f, 216, 8, 7705);
     			attr_dev(p5, "class", "text-white font-thin text-lg text-xl");
-    			add_location(p5, file$f, 219, 10, 7981);
+    			add_location(p5, file$f, 224, 10, 8087);
     			attr_dev(p6, "id", "infoValueCPN");
     			attr_dev(p6, "class", "font-bold text-white text-3xl");
-    			add_location(p6, file$f, 221, 14, 8094);
+    			add_location(p6, file$f, 226, 14, 8200);
     			attr_dev(div4, "class", "flex flex-row");
-    			add_location(div4, file$f, 220, 12, 8051);
+    			add_location(div4, file$f, 225, 12, 8157);
     			attr_dev(div5, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div5, file$f, 218, 8, 7906);
+    			add_location(div5, file$f, 223, 8, 8012);
     			attr_dev(p7, "class", "text-white font-thin text-lg text-xl");
-    			add_location(p7, file$f, 226, 10, 8288);
+    			add_location(p7, file$f, 231, 10, 8394);
     			attr_dev(p8, "id", "infoValueCPN");
     			attr_dev(p8, "class", "font-bold text-white text-3xl");
-    			add_location(p8, file$f, 228, 14, 8402);
+    			add_location(p8, file$f, 233, 14, 8508);
     			attr_dev(p9, "class", "font-bold text-white text-3xl");
-    			add_location(p9, file$f, 229, 14, 8489);
+    			add_location(p9, file$f, 234, 14, 8595);
     			attr_dev(div6, "class", "flex flex-row");
-    			add_location(div6, file$f, 227, 12, 8359);
+    			add_location(div6, file$f, 232, 12, 8465);
     			attr_dev(div7, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div7, file$f, 225, 8, 8213);
+    			add_location(div7, file$f, 230, 8, 8319);
     			attr_dev(p10, "class", "text-white font-thin text-lg text-xl");
-    			add_location(p10, file$f, 234, 10, 8657);
+    			add_location(p10, file$f, 239, 10, 8763);
     			attr_dev(p11, "id", "infoValueCPN");
     			attr_dev(p11, "class", "font-bold text-white text-3xl");
-    			add_location(p11, file$f, 236, 14, 8770);
+    			add_location(p11, file$f, 241, 14, 8876);
     			attr_dev(p12, "class", "font-bold text-white text-sm");
-    			add_location(p12, file$f, 237, 14, 8857);
+    			add_location(p12, file$f, 242, 14, 8963);
     			attr_dev(div8, "class", "flex flex-row");
-    			add_location(div8, file$f, 235, 12, 8727);
+    			add_location(div8, file$f, 240, 12, 8833);
     			attr_dev(div9, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div9, file$f, 233, 8, 8582);
+    			add_location(div9, file$f, 238, 8, 8688);
     			attr_dev(div10, "class", "flex flex-row");
-    			add_location(div10, file$f, 202, 8, 7195);
+    			add_location(div10, file$f, 207, 8, 7301);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div10, anchor);
@@ -6804,14 +6911,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2$2.name,
     		type: "if",
-    		source: "(202:8) {#if !isChartVisible}",
+    		source: "(207:8) {#if !isChartVisible}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (151:4) {#if !isChartVisible}
+    // (156:4) {#if !isChartVisible}
     function create_if_block_1$4(ctx) {
     	let div10;
     	let div1;
@@ -6915,57 +7022,57 @@ var app = (function () {
     			t24 = text(" \r\n              ");
     			p13 = element("p");
     			attr_dev(p0, "class", "text-white font-thin text-lg text-xl");
-    			add_location(p0, file$f, 155, 6, 5293);
+    			add_location(p0, file$f, 160, 6, 5399);
     			attr_dev(p1, "class", "font-bold text-white text-3xl");
-    			add_location(p1, file$f, 157, 10, 5398);
+    			add_location(p1, file$f, 162, 10, 5504);
     			attr_dev(p2, "class", "font-bold text-white text-sm");
-    			add_location(p2, file$f, 158, 10, 5470);
+    			add_location(p2, file$f, 163, 10, 5576);
     			attr_dev(div0, "class", "flex flex-row");
-    			add_location(div0, file$f, 156, 8, 5359);
+    			add_location(div0, file$f, 161, 8, 5465);
     			attr_dev(div1, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div1, file$f, 154, 4, 5222);
+    			add_location(div1, file$f, 159, 4, 5328);
     			attr_dev(p3, "class", "text-white font-thin text-lg text-xl");
-    			add_location(p3, file$f, 163, 6, 5621);
+    			add_location(p3, file$f, 168, 6, 5727);
     			attr_dev(p4, "class", "font-bold text-white text-3xl");
-    			add_location(p4, file$f, 165, 10, 5726);
+    			add_location(p4, file$f, 170, 10, 5832);
     			attr_dev(div2, "class", "flex flex-row");
-    			add_location(div2, file$f, 164, 8, 5687);
+    			add_location(div2, file$f, 169, 8, 5793);
     			attr_dev(div3, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div3, file$f, 162, 4, 5550);
+    			add_location(div3, file$f, 167, 4, 5656);
     			attr_dev(p5, "class", "text-white font-thin text-lg text-xl");
-    			add_location(p5, file$f, 170, 10, 5904);
+    			add_location(p5, file$f, 175, 10, 6010);
     			attr_dev(p6, "class", "font-bold text-white text-3xl");
-    			add_location(p6, file$f, 172, 14, 6017);
+    			add_location(p6, file$f, 177, 14, 6123);
     			attr_dev(p7, "class", "font-bold text-white text-3xl");
-    			add_location(p7, file$f, 173, 14, 6094);
+    			add_location(p7, file$f, 178, 14, 6200);
     			attr_dev(div4, "class", "flex flex-row");
-    			add_location(div4, file$f, 171, 12, 5974);
+    			add_location(div4, file$f, 176, 12, 6080);
     			attr_dev(div5, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div5, file$f, 169, 8, 5829);
+    			add_location(div5, file$f, 174, 8, 5935);
     			attr_dev(p8, "class", "text-white font-thin text-lg text-xl");
-    			add_location(p8, file$f, 178, 10, 6264);
+    			add_location(p8, file$f, 183, 10, 6370);
     			attr_dev(p9, "class", "font-bold text-white text-3xl");
     			set_style(p9, "text-transform", "capitalize");
-    			add_location(p9, file$f, 180, 14, 6378);
+    			add_location(p9, file$f, 185, 14, 6484);
     			attr_dev(p10, "class", "font-bold text-white text-3xl");
-    			add_location(p10, file$f, 181, 14, 6492);
+    			add_location(p10, file$f, 186, 14, 6598);
     			attr_dev(div6, "class", "flex flex-row");
-    			add_location(div6, file$f, 179, 12, 6335);
+    			add_location(div6, file$f, 184, 12, 6441);
     			attr_dev(div7, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div7, file$f, 177, 8, 6189);
+    			add_location(div7, file$f, 182, 8, 6295);
     			attr_dev(p11, "class", "text-white font-thin text-lg text-xl");
-    			add_location(p11, file$f, 186, 10, 6660);
+    			add_location(p11, file$f, 191, 10, 6766);
     			attr_dev(p12, "id", "infoValueCPN");
     			attr_dev(p12, "class", "font-bold text-white text-3xl");
-    			add_location(p12, file$f, 188, 14, 6773);
+    			add_location(p12, file$f, 193, 14, 6879);
     			attr_dev(p13, "class", "font-bold text-white text-sm");
-    			add_location(p13, file$f, 189, 14, 6868);
+    			add_location(p13, file$f, 194, 14, 6974);
     			attr_dev(div8, "class", "flex flex-row");
-    			add_location(div8, file$f, 187, 12, 6730);
+    			add_location(div8, file$f, 192, 12, 6836);
     			attr_dev(div9, "class", "p-4 m-2 flex flex-col justify-center items-center");
-    			add_location(div9, file$f, 185, 8, 6585);
+    			add_location(div9, file$f, 190, 8, 6691);
     			attr_dev(div10, "class", "flex flex-row");
-    			add_location(div10, file$f, 151, 4, 5181);
+    			add_location(div10, file$f, 156, 4, 5291);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div10, anchor);
@@ -7029,14 +7136,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1$4.name,
     		type: "if",
-    		source: "(151:4) {#if !isChartVisible}",
+    		source: "(156:4) {#if !isChartVisible}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (140:0) <Shell title={"PING TOOL"} tooltip={"Check PING Timings"}>
+    // (145:0) <Shell title={"PING TOOL"} tooltip={"Check PING Timings"}>
     function create_default_slot$7(ctx) {
     	let div2;
     	let div0;
@@ -7088,25 +7195,25 @@ var app = (function () {
     			attr_dev(input, "placeholder", "Enter IP/Domain");
     			input.value = "";
     			attr_dev(input, "class", "w-3/5 rounded-md m-2 px-1 text-gray-800 font-bold");
-    			add_location(input, file$f, 142, 4, 4245);
+    			add_location(input, file$f, 147, 4, 4355);
     			attr_dev(button0, "type", "button");
     			attr_dev(button0, "class", "text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600");
-    			add_location(button0, file$f, 143, 4, 4378);
+    			add_location(button0, file$f, 148, 4, 4488);
     			attr_dev(button1, "type", "button");
     			attr_dev(button1, "class", "text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600");
-    			add_location(button1, file$f, 144, 4, 4530);
+    			add_location(button1, file$f, 149, 4, 4640);
     			attr_dev(button2, "type", "button");
     			attr_dev(button2, "class", "text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600");
-    			add_location(button2, file$f, 145, 4, 4681);
+    			add_location(button2, file$f, 150, 4, 4791);
     			attr_dev(button3, "type", "button");
     			attr_dev(button3, "class", "text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600");
-    			add_location(button3, file$f, 146, 4, 4904);
+    			add_location(button3, file$f, 151, 4, 5014);
     			attr_dev(div0, "class", "flex flex-row justify-start mt-1");
-    			add_location(div0, file$f, 141, 4, 4193);
+    			add_location(div0, file$f, 146, 4, 4303);
     			attr_dev(div1, "class", "mt-2 flex flex-col items-center text-gray-50");
-    			add_location(div1, file$f, 148, 4, 5074);
+    			add_location(div1, file$f, 153, 4, 5184);
     			attr_dev(div2, "class", "flex flex-col");
-    			add_location(div2, file$f, 140, 2, 4160);
+    			add_location(div2, file$f, 145, 2, 4270);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div2, anchor);
@@ -7158,7 +7265,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$7.name,
     		type: "slot",
-    		source: "(140:0) <Shell title={\\\"PING TOOL\\\"} tooltip={\\\"Check PING Timings\\\"}>",
+    		source: "(145:0) <Shell title={\\\"PING TOOL\\\"} tooltip={\\\"Check PING Timings\\\"}>",
     		ctx
     	});
 
@@ -7252,14 +7359,17 @@ var app = (function () {
     					if (!logged) {
     						$$invalidate(2, packetCount += 1);
     						timeList = [...timeList, ping.time];
-    						console.log(timeList);
 
+    						//console.log(timeList);
+    						//console.log(''+ping.time);
     						logToText({
-    							path: `./PING_${fileStamp}_${ping.hst}.txt`,
+    							path: `./logs/clean_logs/PING_${fileStamp}_${ping.hst}.txt`,
     							content: `Time:${ping.time} ms | Alive:${ping.alive} | Loss:${ping.loss}`,
     							mark: "info",
     							quiet: false
     						});
+
+    						logSimple("./logs/api_logs/PingLog.txt", "" + ping.time);
 
     						// Create new chart each time ping data is received
     						const canvas = document.getElementById("ping-chart");
@@ -7358,6 +7468,7 @@ var app = (function () {
     		Shell,
     		settings,
     		logToText,
+    		logSimple,
     		fileStamp,
     		ipcRenderer,
     		ping,
@@ -7375,9 +7486,9 @@ var app = (function () {
     		clearInterval,
     		document,
     		setInterval,
-    		console,
     		Chart,
-    		$settings
+    		$settings,
+    		console
     	});
 
     	$$self.$inject_state = $$props => {
@@ -12222,7 +12333,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (122:4) {:else}
+    // (120:4) {:else}
     function create_else_block$i(ctx) {
     	let h2;
     	let t0;
@@ -12244,7 +12355,7 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			h2 = element("h2");
-    			t0 = text("FAVOURITE WIDGETS");
+    			t0 = text("Favourite Widgets");
     			t1 = space();
     			div = element("div");
 
@@ -12254,9 +12365,9 @@ var app = (function () {
 
     			attr_dev(h2, "class", "text-center text-2xl mt-4 px-6 font-medium");
     			set_style(h2, "color", /*$settings*/ ctx[0].fontColor1);
-    			add_location(h2, file$s, 122, 4, 3869);
+    			add_location(h2, file$s, 120, 4, 3753);
     			attr_dev(div, "class", "p-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4");
-    			add_location(div, file$s, 125, 4, 4004);
+    			add_location(div, file$s, 123, 4, 3888);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h2, anchor);
@@ -12333,14 +12444,14 @@ var app = (function () {
     		block,
     		id: create_else_block$i.name,
     		type: "else",
-    		source: "(122:4) {:else}",
+    		source: "(120:4) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (116:4) {#if !localStorage.favorites}
+    // (114:4) {#if !localStorage.favorites}
     function create_if_block$k(ctx) {
     	let div;
     	let h2;
@@ -12353,9 +12464,9 @@ var app = (function () {
     			t = text("You do not have any favourite widgets.");
     			attr_dev(h2, "class", "text-xl font-medium");
     			set_style(h2, "color", /*$settings*/ ctx[0].fontColor1);
-    			add_location(h2, file$s, 117, 6, 3707);
+    			add_location(h2, file$s, 115, 6, 3591);
     			attr_dev(div, "class", "flex flex-col justify-center items-center h-full");
-    			add_location(div, file$s, 116, 4, 3637);
+    			add_location(div, file$s, 114, 4, 3521);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -12378,14 +12489,14 @@ var app = (function () {
     		block,
     		id: create_if_block$k.name,
     		type: "if",
-    		source: "(116:4) {#if !localStorage.favorites}",
+    		source: "(114:4) {#if !localStorage.favorites}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (129:6) {#if checkInStorage(name)}
+    // (127:6) {#if checkInStorage(name)}
     function create_if_block_1$8(ctx) {
     	let switch_instance_anchor;
     	let current;
@@ -12454,14 +12565,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1$8.name,
     		type: "if",
-    		source: "(129:6) {#if checkInStorage(name)}",
+    		source: "(127:6) {#if checkInStorage(name)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (128:6) {#each components as {name, component}}
+    // (126:6) {#each components as {name, component}}
     function create_each_block$7(ctx) {
     	let show_if = checkInStorage$1(/*name*/ ctx[2]);
     	let if_block_anchor;
@@ -12500,14 +12611,14 @@ var app = (function () {
     		block,
     		id: create_each_block$7.name,
     		type: "each",
-    		source: "(128:6) {#each components as {name, component}}",
+    		source: "(126:6) {#each components as {name, component}}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (113:0) <Page>
+    // (111:0) <Page>
     function create_default_slot$k(ctx) {
     	let current_block_type_index;
     	let if_block;
@@ -12556,7 +12667,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$k.name,
     		type: "slot",
-    		source: "(113:0) <Page>",
+    		source: "(111:0) <Page>",
     		ctx
     	});
 
@@ -12621,10 +12732,7 @@ var app = (function () {
 
     function checkInStorage$1(component) {
     	const favorites = localStorage.favorites;
-
-    	// Returns true if pokemon is in localStorage / team
-    	if (strToArr$1(favorites).some(item => item === component)) return true; else // Returns false if pokemon is not present
-    	return false;
+    	if (strToArr$1(favorites).some(item => item === component)) return true; else return false;
     }
 
     // Helper function

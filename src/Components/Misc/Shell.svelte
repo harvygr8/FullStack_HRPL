@@ -1,5 +1,6 @@
 <script>
     import { settings } from '../../Stores/settingsStore';
+    const {getCurrentWindow, globalShortcut} = require('electron').remote;
 
     export let title = 'Title';
     export let tooltip = 'This is a shell component';
@@ -14,9 +15,10 @@
     }
 
     // Function to add / remove component from favourites
-    function toggleFavourites(component) {
+    function toggleFavourites(e,component) {
         const favorites = localStorage.favorites;
-        // Remove component if already present in favorites
+        let elem = e.srcElement;
+        elem.classList += "text-yellow-500";
         if (strToArr(favorites).some(item => item === component)) {
             localStorage.favorites = (strToArr(favorites).filter(item => item !== component)).toString();
         }
@@ -54,7 +56,7 @@
             <span
                 class="ml-2 fas fa-star cursor-pointer {checkInStorage(title) ? 'text-yellow-500' : ''}"
                 title="Add to favourites"
-                on:click={() => toggleFavourites(title)}
+                on:click={(e) => toggleFavourites(e,title)}
             />
 
         </div>
