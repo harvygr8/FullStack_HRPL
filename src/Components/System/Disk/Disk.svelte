@@ -33,11 +33,11 @@
                     color: 'rgb(249, 250, 251)',
                 },
                 data: {
-                    labels: ['Total Space', 'Free Space'],
+                    labels: ['Used Space', 'Free Space'],
                     datasets: [{
                         label: 'Disk Usage Monitor',
                         data: [
-                            disk.total / Math.pow(10, 9),
+                            (disk.total / Math.pow(10, 9)) - (disk.free / Math.pow(10, 9)),
                             disk.free / Math.pow(10, 9)
                         ],
                         backgroundColor: [

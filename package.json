@@ -66,6 +66,7 @@
     "svelte-spa-router": "^3.2.0",
     "systeminformation": "^5.8.7",
     "universal-speedtest": "^2.0.2",
+    "uuid": "^8.3.2",
     "whois": "^2.13.7",
     "whois-light": "^1.1.2",
     "whoiser": "^1.13.0"

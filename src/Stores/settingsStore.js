@@ -1,9 +1,11 @@
 //Svelte
 import { writable } from "svelte/store";
+import { v4 as uuidv4 } from 'uuid';
 
 //Export
 export const settings = writable({
     username: localStorage.username ? localStorage.username : 'Admin',
+    id: localStorage.id ? localStorage.id : uuidv4(),
     bgColor1 : localStorage.bgColor1 ? localStorage.bgColor1 : '#111827',
     bgColor2 : localStorage.bgColor2 ? localStorage.bgColor2 : '#1F2937',
     bgColor3 : localStorage.bgColor3 ? localStorage.bgColor3 : '#374151',

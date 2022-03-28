@@ -1659,11 +1659,86 @@ var app = (function () {
     	}
     }
 
+    // Unique ID creation requires a high quality random # generator. In the browser we therefore
+    // require the crypto API and do not support built-in fallback to lower quality random number
+    // generators (like Math.random()).
+    var getRandomValues;
+    var rnds8 = new Uint8Array(16);
+    function rng() {
+      // lazy load so that environments that need to polyfill have a chance to do so
+      if (!getRandomValues) {
+        // getRandomValues needs to be invoked in a context where "this" is a Crypto implementation. Also,
+        // find the complete implementation of crypto (msCrypto) on IE11.
+        getRandomValues = typeof crypto !== 'undefined' && crypto.getRandomValues && crypto.getRandomValues.bind(crypto) || typeof msCrypto !== 'undefined' && typeof msCrypto.getRandomValues === 'function' && msCrypto.getRandomValues.bind(msCrypto);
+
+        if (!getRandomValues) {
+          throw new Error('crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported');
+        }
+      }
+
+      return getRandomValues(rnds8);
+    }
+
+    var REGEX = /^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|00000000-0000-0000-0000-000000000000)$/i;
+
+    function validate(uuid) {
+      return typeof uuid === 'string' && REGEX.test(uuid);
+    }
+
+    /**
+     * Convert array of 16 byte values to UUID string format of the form:
+     * XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+     */
+
+    var byteToHex = [];
+
+    for (var i = 0; i < 256; ++i) {
+      byteToHex.push((i + 0x100).toString(16).substr(1));
+    }
+
+    function stringify(arr) {
+      var offset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+      // Note: Be careful editing this code!  It's been tuned for performance
+      // and works in ways you may not expect. See https://github.com/uuidjs/uuid/pull/434
+      var uuid = (byteToHex[arr[offset + 0]] + byteToHex[arr[offset + 1]] + byteToHex[arr[offset + 2]] + byteToHex[arr[offset + 3]] + '-' + byteToHex[arr[offset + 4]] + byteToHex[arr[offset + 5]] + '-' + byteToHex[arr[offset + 6]] + byteToHex[arr[offset + 7]] + '-' + byteToHex[arr[offset + 8]] + byteToHex[arr[offset + 9]] + '-' + byteToHex[arr[offset + 10]] + byteToHex[arr[offset + 11]] + byteToHex[arr[offset + 12]] + byteToHex[arr[offset + 13]] + byteToHex[arr[offset + 14]] + byteToHex[arr[offset + 15]]).toLowerCase(); // Consistency check for valid UUID.  If this throws, it's likely due to one
+      // of the following:
+      // - One or more input array values don't map to a hex octet (leading to
+      // "undefined" in the uuid)
+      // - Invalid input values for the RFC `version` or `variant` fields
+
+      if (!validate(uuid)) {
+        throw TypeError('Stringified UUID is invalid');
+      }
+
+      return uuid;
+    }
+
+    function v4(options, buf, offset) {
+      options = options || {};
+      var rnds = options.random || (options.rng || rng)(); // Per 4.4, set bits for version and `clock_seq_hi_and_reserved`
+
+      rnds[6] = rnds[6] & 0x0f | 0x40;
+      rnds[8] = rnds[8] & 0x3f | 0x80; // Copy bytes to buffer, if provided
+
+      if (buf) {
+        offset = offset || 0;
+
+        for (var i = 0; i < 16; ++i) {
+          buf[offset + i] = rnds[i];
+        }
+
+        return buf;
+      }
+
+      return stringify(rnds);
+    }
+
     //Svelte
 
     //Export
     const settings = writable({
         username: localStorage.username ? localStorage.username : 'Admin',
+        id: localStorage.id ? localStorage.id : v4(),
         bgColor1 : localStorage.bgColor1 ? localStorage.bgColor1 : '#111827',
         bgColor2 : localStorage.bgColor2 ? localStorage.bgColor2 : '#1F2937',
         bgColor3 : localStorage.bgColor3 ? localStorage.bgColor3 : '#374151',
@@ -9028,7 +9103,7 @@ var app = (function () {
     			div = element("div");
     			create_component(loader.$$.fragment);
     			attr_dev(div, "class", "flex flex-row justify-center");
-    			add_location(div, file$k, 77, 8, 2257);
+    			add_location(div, file$k, 77, 8, 2290);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -9070,7 +9145,7 @@ var app = (function () {
     			p = element("p");
     			p.textContent = "Disk Space in GB";
     			attr_dev(p, "class", "text-center text-sm mt-2");
-    			add_location(p, file$k, 73, 8, 2150);
+    			add_location(p, file$k, 73, 8, 2183);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -9119,10 +9194,10 @@ var app = (function () {
     			t = space();
     			if_block.c();
     			attr_dev(canvas, "id", "disk-doughnut");
-    			add_location(canvas, file$k, 71, 8, 2091);
+    			add_location(canvas, file$k, 71, 8, 2124);
     			attr_dev(div, "class", "w-4/5 md:w-1/2 mx-auto");
     			attr_dev(div, "id", "canvas-container");
-    			add_location(div, file$k, 67, 4, 1999);
+    			add_location(div, file$k, 67, 4, 2032);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -9264,11 +9339,14 @@ var app = (function () {
     						color: "rgb(249, 250, 251)"
     					},
     					data: {
-    						labels: ["Total Space", "Free Space"],
+    						labels: ["Used Space", "Free Space"],
     						datasets: [
     							{
     								label: "Disk Usage Monitor",
-    								data: [disk.total / Math.pow(10, 9), disk.free / Math.pow(10, 9)],
+    								data: [
+    									disk.total / Math.pow(10, 9) - disk.free / Math.pow(10, 9),
+    									disk.free / Math.pow(10, 9)
+    								],
     								backgroundColor: ["rgb(167, 139, 250)", "rgb(124, 58, 237)", "rgb(91, 33, 182)"],
     								hoverOffset: 0,
     								borderColor: "#000000",
@@ -13359,20 +13437,251 @@ var app = (function () {
     /* src\Pages\_api.svelte generated by Svelte v3.19.1 */
     const file$w = "src\\Pages\\_api.svelte";
 
-    // (6:0) <Page _currPage="API">
-    function create_default_slot$o(ctx) {
+    // (86:8) {#if isChecked}
+    function create_if_block$l(ctx) {
     	let div;
+    	let h3;
+    	let t1;
+    	let table;
+    	let tr0;
+    	let td0;
+    	let t3;
+    	let td1;
+    	let input0;
+    	let t4;
+    	let tr1;
+    	let td2;
+    	let t6;
+    	let td3;
+    	let input1;
+    	let t7;
+    	let tr2;
+    	let td4;
+    	let t9;
+    	let td5;
+    	let input2;
+    	let dispose;
 
     	const block = {
     		c: function create() {
     			div = element("div");
-    			add_location(div, file$w, 6, 4, 105);
+    			h3 = element("h3");
+    			h3.textContent = "Data to be sent to the API";
+    			t1 = space();
+    			table = element("table");
+    			tr0 = element("tr");
+    			td0 = element("td");
+    			td0.textContent = "Network Speed";
+    			t3 = space();
+    			td1 = element("td");
+    			input0 = element("input");
+    			t4 = space();
+    			tr1 = element("tr");
+    			td2 = element("td");
+    			td2.textContent = "Your Location";
+    			t6 = space();
+    			td3 = element("td");
+    			input1 = element("input");
+    			t7 = space();
+    			tr2 = element("tr");
+    			td4 = element("td");
+    			td4.textContent = "Signal Frequency";
+    			t9 = space();
+    			td5 = element("td");
+    			input2 = element("input");
+    			attr_dev(h3, "class", "text-xl mb-2");
+    			add_location(h3, file$w, 87, 12, 3517);
+    			attr_dev(td0, "class", "py-2 pr-16");
+    			add_location(td0, file$w, 92, 20, 3697);
+    			attr_dev(input0, "type", "checkbox");
+    			add_location(input0, file$w, 94, 24, 3790);
+    			add_location(td1, file$w, 93, 20, 3760);
+    			add_location(tr0, file$w, 91, 16, 3671);
+    			attr_dev(td2, "class", "py-2 pr-16");
+    			add_location(td2, file$w, 102, 20, 4087);
+    			attr_dev(input1, "type", "checkbox");
+    			add_location(input1, file$w, 104, 24, 4180);
+    			add_location(td3, file$w, 103, 20, 4150);
+    			add_location(tr1, file$w, 101, 16, 4061);
+    			attr_dev(td4, "class", "py-2 pr-16");
+    			add_location(td4, file$w, 112, 20, 4479);
+    			attr_dev(input2, "type", "checkbox");
+    			add_location(input2, file$w, 114, 24, 4575);
+    			add_location(td5, file$w, 113, 20, 4545);
+    			add_location(tr2, file$w, 111, 16, 4453);
+    			attr_dev(table, "class", "table-auto text-md");
+    			add_location(table, file$w, 90, 12, 3619);
+    			set_style(div, "color", /*$settings*/ ctx[4].fontColor1);
+    			add_location(div, file$w, 86, 8, 3459);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
+    			append_dev(div, h3);
+    			append_dev(div, t1);
+    			append_dev(div, table);
+    			append_dev(table, tr0);
+    			append_dev(tr0, td0);
+    			append_dev(tr0, t3);
+    			append_dev(tr0, td1);
+    			append_dev(td1, input0);
+    			input0.checked = /*isSpeed*/ ctx[1];
+    			append_dev(table, t4);
+    			append_dev(table, tr1);
+    			append_dev(tr1, td2);
+    			append_dev(tr1, t6);
+    			append_dev(tr1, td3);
+    			append_dev(td3, input1);
+    			input1.checked = /*isLocation*/ ctx[2];
+    			append_dev(table, t7);
+    			append_dev(table, tr2);
+    			append_dev(tr2, td4);
+    			append_dev(tr2, t9);
+    			append_dev(tr2, td5);
+    			append_dev(td5, input2);
+    			input2.checked = /*isFrequency*/ ctx[3];
+
+    			dispose = [
+    				listen_dev(input0, "change", /*input0_change_handler*/ ctx[8]),
+    				listen_dev(input0, "click", /*click_handler*/ ctx[9], false, false, false),
+    				listen_dev(input1, "change", /*input1_change_handler*/ ctx[10]),
+    				listen_dev(input1, "click", /*click_handler_1*/ ctx[11], false, false, false),
+    				listen_dev(input2, "change", /*input2_change_handler*/ ctx[12]),
+    				listen_dev(input2, "click", /*click_handler_2*/ ctx[13], false, false, false)
+    			];
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*isSpeed*/ 2) {
+    				input0.checked = /*isSpeed*/ ctx[1];
+    			}
+
+    			if (dirty & /*isLocation*/ 4) {
+    				input1.checked = /*isLocation*/ ctx[2];
+    			}
+
+    			if (dirty & /*isFrequency*/ 8) {
+    				input2.checked = /*isFrequency*/ ctx[3];
+    			}
+
+    			if (dirty & /*$settings*/ 16) {
+    				set_style(div, "color", /*$settings*/ ctx[4].fontColor1);
+    			}
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div);
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$l.name,
+    		type: "if",
+    		source: "(86:8) {#if isChecked}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (59:0) <Page _currPage="API">
+    function create_default_slot$o(ctx) {
+    	let div2;
+    	let div0;
+    	let h1;
+    	let t0;
+    	let t1;
+    	let label;
+    	let input;
+    	let t2;
+    	let span;
+    	let t3;
+    	let div1;
+    	let t5;
+    	let dispose;
+    	let if_block = /*isChecked*/ ctx[0] && create_if_block$l(ctx);
+
+    	const block = {
+    		c: function create() {
+    			div2 = element("div");
+    			div0 = element("div");
+    			h1 = element("h1");
+    			t0 = text("Allow Neuron to collect system related information such as network speed, location and frequency");
+    			t1 = space();
+    			label = element("label");
+    			input = element("input");
+    			t2 = space();
+    			span = element("span");
+    			t3 = space();
+    			div1 = element("div");
+    			div1.textContent = "Note : This information is only being collected as part of a public API for developers.\r\n            This data will only be used for building third-party applications, provide better services \r\n            by Internet Service Providers etc.";
+    			t5 = space();
+    			if (if_block) if_block.c();
+    			attr_dev(h1, "class", "text-xl mt-4");
+    			set_style(h1, "color", /*$settings*/ ctx[4].fontColor1);
+    			add_location(h1, file$w, 61, 12, 2412);
+    			attr_dev(input, "type", "checkbox");
+    			attr_dev(input, "id", "toggle-api");
+    			attr_dev(input, "class", "svelte-1hml6e");
+    			add_location(input, file$w, 71, 16, 2787);
+    			attr_dev(span, "class", "slider round svelte-1hml6e");
+    			add_location(span, file$w, 77, 16, 2993);
+    			attr_dev(label, "for", "toggle-api");
+    			attr_dev(label, "class", "switch ml-4 mt-6 svelte-1hml6e");
+    			add_location(label, file$w, 67, 12, 2671);
+    			attr_dev(div0, "class", "flex flex-row justify-between items-center");
+    			add_location(div0, file$w, 60, 8, 2342);
+    			attr_dev(div1, "class", "text-white p-2 my-8 rounded-md bg-green-500 border-4 border-green-700 ");
+    			add_location(div1, file$w, 80, 8, 3070);
+    			attr_dev(div2, "class", "p-6");
+    			add_location(div2, file$w, 59, 4, 2315);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div2, anchor);
+    			append_dev(div2, div0);
+    			append_dev(div0, h1);
+    			append_dev(h1, t0);
+    			append_dev(div0, t1);
+    			append_dev(div0, label);
+    			append_dev(label, input);
+    			input.checked = /*isChecked*/ ctx[0];
+    			append_dev(label, t2);
+    			append_dev(label, span);
+    			append_dev(div2, t3);
+    			append_dev(div2, div1);
+    			append_dev(div2, t5);
+    			if (if_block) if_block.m(div2, null);
+
+    			dispose = [
+    				listen_dev(input, "change", /*input_change_handler*/ ctx[7]),
+    				listen_dev(input, "click", toggleAPI, false, false, false)
+    			];
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*$settings*/ 16) {
+    				set_style(h1, "color", /*$settings*/ ctx[4].fontColor1);
+    			}
+
+    			if (dirty & /*isChecked*/ 1) {
+    				input.checked = /*isChecked*/ ctx[0];
+    			}
+
+    			if (/*isChecked*/ ctx[0]) {
+    				if (if_block) {
+    					if_block.p(ctx, dirty);
+    				} else {
+    					if_block = create_if_block$l(ctx);
+    					if_block.c();
+    					if_block.m(div2, null);
+    				}
+    			} else if (if_block) {
+    				if_block.d(1);
+    				if_block = null;
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div2);
+    			if (if_block) if_block.d();
+    			run_all(dispose);
     		}
     	};
 
@@ -13380,7 +13689,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$o.name,
     		type: "slot",
-    		source: "(6:0) <Page _currPage=\\\"API\\\">",
+    		source: "(59:0) <Page _currPage=\\\"API\\\">",
     		ctx
     	});
 
@@ -13413,7 +13722,7 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			const page_changes = {};
 
-    			if (dirty & /*$$scope*/ 1) {
+    			if (dirty & /*$$scope, $settings, isFrequency, isLocation, isSpeed, isChecked*/ 16415) {
     				page_changes.$$scope = { dirty, ctx };
     			}
 
@@ -13444,9 +13753,134 @@ var app = (function () {
     	return block;
     }
 
+    function toggleAPI() {
+    	localStorage.checked = localStorage.checked === "true" ? false : true;
+    }
+
+    // Function to toggle params checkbox
+    function toggleParams(type) {
+    	switch (type) {
+    		case "speed":
+    			localStorage.speed = localStorage.speed === "true" ? false : true;
+    			break;
+    		case "location":
+    			localStorage.location = localStorage.location === "true" ? false : true;
+    			break;
+    		case "frequency":
+    			localStorage.frequency = localStorage.frequency === "true" ? false : true;
+    			break;
+    	}
+    }
+
     function instance$w($$self, $$props, $$invalidate) {
-    	$$self.$capture_state = () => ({ Page });
-    	return [];
+    	let $settings;
+    	validate_store(settings, "settings");
+    	component_subscribe($$self, settings, $$value => $$invalidate(4, $settings = $$value));
+    	const fs = require("fs");
+    	let isChecked = localStorage.checked === "true" ? true : false;
+    	let isSpeed = localStorage.speed === "true" ? true : false;
+    	let isLocation = localStorage.location === "true" ? true : false;
+    	let isFrequency = localStorage.frequency == "true" ? true : false;
+
+    	// Function to send data to API
+    	function sendData() {
+    		if (isChecked) {
+    			// Read data from log files
+    			const speed = fs.readFileSync("./logs/api_logs/NetSpeedLog.txt", "utf8");
+
+    			const frequency = fs.readFileSync("./logs/api_logs/PingLog.txt", "utf8");
+    			const location = fs.readFileSync("./logs/api_logs/testServerLocationLog.txt", "utf8");
+
+    			fetch("http://127.0.0.1:3000/api/users", {
+    				method: "POST",
+    				headers: { "Content-Type": "application/json" },
+    				body: JSON.stringify({
+    					id: $settings.id,
+    					speed: isSpeed && speed.trim() ? speed : null,
+    					frequency: isFrequency && frequency.trim() ? frequency : null,
+    					location: isLocation && location.trim() ? location : null
+    				})
+    			}).then(res => res.json()).then(data => console.log(data.data));
+    		}
+    	}
+
+    	// Call the function every 10 minutes
+    	setInterval(sendData, 5000);
+
+    	function input_change_handler() {
+    		isChecked = this.checked;
+    		$$invalidate(0, isChecked);
+    	}
+
+    	function input0_change_handler() {
+    		isSpeed = this.checked;
+    		$$invalidate(1, isSpeed);
+    	}
+
+    	const click_handler = () => toggleParams("speed");
+
+    	function input1_change_handler() {
+    		isLocation = this.checked;
+    		$$invalidate(2, isLocation);
+    	}
+
+    	const click_handler_1 = () => toggleParams("location");
+
+    	function input2_change_handler() {
+    		isFrequency = this.checked;
+    		$$invalidate(3, isFrequency);
+    	}
+
+    	const click_handler_2 = () => toggleParams("frequency");
+
+    	$$self.$capture_state = () => ({
+    		onMount,
+    		Page,
+    		settings,
+    		fs,
+    		isChecked,
+    		isSpeed,
+    		isLocation,
+    		isFrequency,
+    		toggleAPI,
+    		toggleParams,
+    		sendData,
+    		require,
+    		localStorage,
+    		fetch,
+    		JSON,
+    		$settings,
+    		console,
+    		setInterval
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ("isChecked" in $$props) $$invalidate(0, isChecked = $$props.isChecked);
+    		if ("isSpeed" in $$props) $$invalidate(1, isSpeed = $$props.isSpeed);
+    		if ("isLocation" in $$props) $$invalidate(2, isLocation = $$props.isLocation);
+    		if ("isFrequency" in $$props) $$invalidate(3, isFrequency = $$props.isFrequency);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [
+    		isChecked,
+    		isSpeed,
+    		isLocation,
+    		isFrequency,
+    		$settings,
+    		fs,
+    		sendData,
+    		input_change_handler,
+    		input0_change_handler,
+    		click_handler,
+    		input1_change_handler,
+    		click_handler_1,
+    		input2_change_handler,
+    		click_handler_2
+    	];
     }
 
     class Api extends SvelteComponentDev {
@@ -14158,10 +14592,7 @@ var app = (function () {
     //Svelte
 
     const app = new App({
-    	target: document.body,
-    	props: {
-
-    	}
+    	target: document.body
     });
 
     return app;

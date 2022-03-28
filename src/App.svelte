@@ -1,6 +1,5 @@
 <script>
-
-	//Svelte
+	// Page components for the different pages
 	import Router from 'svelte-spa-router';
 	import Main from './Pages/_main.svelte';
 	import Network from './Pages/_network.svelte';
@@ -19,9 +18,3 @@
 	'/api': Api,
 	'/settings': Settings
 }} />
-
-<style>
-	/* :global(*) {
-		font-family: 'Roboto', sans-serif;
-	} */
-</style>
