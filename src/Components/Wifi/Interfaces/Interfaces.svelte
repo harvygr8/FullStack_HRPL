@@ -9,7 +9,7 @@
     });
 </script>
 
-<Shell title={"AVAILABLE WIFI INTERFACES"} tooltip={"List of available wifi interfaces"}>
+<Shell title={"Wifi Interfaces"} tooltip={"List of available wifi interfaces"}>
     <div class="text-gray-50">
     {#if interfaces}
         {#if interfaces.length > 0}

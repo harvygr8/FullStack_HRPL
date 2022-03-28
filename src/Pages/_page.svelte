@@ -48,7 +48,7 @@
         <div
             class="w-full h-full"
             id="main"
-            style="background-color: {$settings.bgColor1};"
+            style="background-color: {$settings.bgColor2};"
         >
             <TitleBar currPage={_currPage}/>
             <div class="px-4 mx-auto overflow-auto content-height">

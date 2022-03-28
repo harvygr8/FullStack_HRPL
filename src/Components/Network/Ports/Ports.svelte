@@ -25,17 +25,17 @@
 
 </script>
 
-<Shell title={"PORT SCAN"} tooltip={"Scan Open Ports"}>
+<Shell title={"Port Scanning"} tooltip={"Scan Open Ports"}>
     <div class="text-gray-50">
         <div class="flex flex-row">
-        <input type="text" placeholder="Enter IP" bind:value class="w-10/12 rounded-md m-2 px-1 text-gray-800 font-bold">
-            <button on:click={getPortInfo} class="text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600" type="button">SCAN</button>
+        <input type="text" placeholder="Enter IP" bind:value class="w-10/12 rounded-md m-2 px-1 text-gray-800 font-semibold">
+            <button on:click={getPortInfo} class="text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-semibold hover:bg-purple-600" type="button">Scan</button>
         </div>
         <div class="mt-2 max-h-48 overflow-auto w-full">
             {#if port}
               <p>&#8226; Open Ports</p>
               {#each port as portNumber}
-              <span class="ml-8 font-bold text-lg block">{portNumber}</span>
+              <span class="ml-8 font-semibold text-lg block">{portNumber}</span>
               {/each}
             {:else if search}
               <!-- <p>&#8226; SEARCHING</p> -->
@@ -46,7 +46,7 @@
                 <p>&#8226; porterr</p> -->
             {:else}
             <p>&#8226; Open Ports</p>
-            <span class="ml-8 font-bold text-lg">N/A</span>
+            <span class="ml-8 font-semibold text-lg">N/A</span>
             {/if}
         </div>
     </div>

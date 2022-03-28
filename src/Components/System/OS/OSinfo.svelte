@@ -17,7 +17,7 @@
 </script>
 
 <Shell
-    title={"OPERATING SYSTEM"}
+    title={"Operating System"}
     tooltip={"Information about the operating system"}
 >
     {#if os}

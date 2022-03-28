@@ -52,8 +52,8 @@
         }
     }
 
-    // Call the function every 10 minutes
-    setInterval(sendData, 5000);
+    // Call the function every 10 seconds
+    setInterval(sendData, 10000);
 </script>
 
 <Page _currPage="API">
@@ -61,7 +61,7 @@
         <div class="flex flex-row justify-between items-center">
             <h1 
                 class="text-xl mt-4"
-                style="color: {$settings.fontColor1}"
+                style="color: {$settings.fontColor2}"
             >
                 Allow Neuron to collect system related information such as network speed, location and frequency
             </h1>
@@ -84,13 +84,13 @@
             by Internet Service Providers etc.
         </div>
         {#if isChecked}
-        <div style="color: {$settings.fontColor1};">
+        <div style="color: {$settings.fontColor2};">
             <h3 class="text-xl mb-2">
                 Data to be sent to the API
             </h3>
             <table class="table-auto text-md">
                 <tr>
-                    <td class="py-2 pr-16">Network Speed</td>
+                    <td class="py-2 pr-16" style="color: {$settings.fontColor2}">Network Speed</td>
                     <td>
                         <input 
                             type="checkbox"
@@ -100,7 +100,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="py-2 pr-16">Your Location</td>
+                    <td class="py-2 pr-16" style="color: {$settings.fontColor2}">Your Location</td>
                     <td>
                         <input 
                             type="checkbox"
@@ -110,7 +110,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="py-2 pr-16">Signal Frequency</td>
+                    <td class="py-2 pr-16" style="color: {$settings.fontColor2}">Signal Frequency</td>
                     <td>
                         <input 
                             type="checkbox"
@@ -131,6 +131,7 @@
   position: relative;
   display: inline-block;
   width: 50px;
+  min-width: 50px;
   height: 24px;
 }
 

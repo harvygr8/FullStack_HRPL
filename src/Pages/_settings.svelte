@@ -8,6 +8,7 @@
     let bgColor1 = $settings.bgColor1;
     let bgColor2 = $settings.bgColor2;
     let bgColor3 = $settings.bgColor3;
+    let bgColor4 = $settings.bgColor4;
     let fontColor1 = $settings.fontColor1;
     let fontColor2 = $settings.fontColor2;
     let font = $settings.font;
@@ -15,9 +16,10 @@
     const applyChanges = type => {
         // Set store values 
         $settings.username = type == 'save' ? document.getElementById('username').value : 'Admin';
-        $settings.bgColor1 = type == 'save' ? document.getElementById('bgColor-1').value : '#111827';
-        $settings.bgColor2 = type == 'save' ? document.getElementById('bgColor-2').value : '#1F2937';
+        $settings.bgColor1 = type == 'save' ? document.getElementById('bgColor-1').value : '#1F2937';
+        $settings.bgColor2 = type == 'save' ? document.getElementById('bgColor-2').value : '#111827';
         $settings.bgColor3 = type == 'save' ? document.getElementById('bgColor-3').value : '#374151';
+        $settings.bgColor4 = type == 'save' ? document.getElementById('bgColor-4').value : '#a855f7';
         $settings.fontColor1 = type == 'save' ? document.getElementById('fontColor-1').value : '#ffffff';
         $settings.fontColor2 = type == 'save' ? document.getElementById('fontColor-2').value : '#f0f0f0';
         // $settings.linkColor = type == 'save' ? document.getElementById('linkColor').value: '#374151',
@@ -29,6 +31,7 @@
         localStorage.bgColor1 = $settings.bgColor1;
         localStorage.bgColor2 = $settings.bgColor2;
         localStorage.bgColor3 = $settings.bgColor3;
+        localStorage.bgColor4 = $settings.bgColor4;
         localStorage.fontColor1 = $settings.fontColor1;
         localStorage.fontColor2 = $settings.fontColor2;
         localStorage.font = $settings.font;
@@ -38,6 +41,7 @@
         bgColor1 = $settings.bgColor1;
         bgColor2 = $settings.bgColor2;
         bgColor3 = $settings.bgColor3;
+        bgColor4 = $settings.bgColor4;
         fontColor1 = $settings.fontColor1;
         fontColor2 = $settings.fontColor2;
         font = $settings.font;
@@ -46,7 +50,7 @@
 
 <Page _currPage="Settings">
 <div class="p-6">
-  <Shell title={"CONFIGURE APPLICATION"} tooltip={"Change Application Settings"}>
+  <Shell title={"Application Settings"} tooltip={"Change Application Settings"}>
     <div 
     class="flex flex-col items-center justify-center rounded-md p-1" 
     style="background-color: {$settings.bgColor3};"  
@@ -57,25 +61,25 @@
       >
       </h2> -->
       <!-- Username -->
-      <div class="flex flex-col justify-start">
+      <div class="flex flex-col justify-start mb-6">
           <label
-              class="text-lg pb-2 text-center"
+              class="font-semibold pb-2 text-center"
               style="color: {$settings.fontColor2};"
               for="username"
           >
               Dashboard Username
           </label>
           <input
-              class="w-full sm:w-96 rounded-md p-1 mb-6 text-gray-900"
+              class="w-full sm:w-96 rounded-md p-1 text-gray-800"
               value={username}
               type="text"
               id="username"
           />
       </div>
       <!-- Background Colors -->
-      <div class="flex flex-col justify-center">
+      <div class="flex flex-col justify-center mb-6">
           <label
-              class="text-sm pb-2 text-center"
+              class="font-semibold text-center pb-2"
               style="color: {$settings.fontColor2};"
               for="Background Colors"
           >
@@ -83,29 +87,35 @@
           </label>
           <div>
               <input
-                  class="m-3 rounded-sm"
+                  class="mx-3 rounded-sm"
                   value={bgColor1}
                   type="color"
                   id="bgColor-1"
               />
               <input
-                  class="m-3 rounded-sm"
+                  class="mx-3 rounded-sm"
                   value={bgColor2}
                   type="color"
                   id="bgColor-2"
               />
               <input
-                  class="m-3 rounded-sm"
+                  class="mx-3 rounded-sm"
                   value={bgColor3}
                   type="color"
                   id="bgColor-3"
               />
+              <input
+                  class="mx-3 rounded-sm"
+                  value={bgColor4}
+                  type="color"
+                  id="bgColor-4"
+              />
           </div>
       </div>
       <!-- Font Colors -->
-      <div class="mt-4 flex flex-col justify-center">
+      <div class="flex flex-col justify-center mb-6">
           <label
-              class="text-sm text-center pb-2"
+              class="font-semibold text-center pb-2"
               style="color: {$settings.fontColor2};"
               for="Font Colors"
           >
@@ -113,13 +123,13 @@
           </label>
           <div>
               <input
-                  class="m-3 rounded-sm"
+                  class="mx-3 rounded-sm"
                   value={fontColor1}
                   type="color"
                   id="fontColor-1"
               />
               <input
-                  class="m-3 rounded-sm"
+                  class="mx-3 rounded-sm"
                   value={fontColor2}
                   type="color"
                   id="fontColor-2"
@@ -127,19 +137,19 @@
           </div>
       </div>
       <!-- Font -->
-      <div class="flex flex-col justify-center">
+      <div class="flex flex-col justify-center mb-6">
           <label
-              class="text-sm pb-2 text-center"
+              class="font-semibold pb-2 text-center pb-2"
               style="color: {$settings.fontColor2};"
               for="font"
           >
-              Font
+              Font Style
           </label>
           <select
               value={font}
               name="font"
               id="font"
-              class="w-max mb-6 px-2 py-1 rounded-md text-gray-800"
+              class="w-max mb-4 px-2 py-1 rounded-md text-gray-800"
           >
               <option value="">
                   Default
@@ -161,18 +171,18 @@
       <!-- Buttons -->
       <div class="flex flex-row justify-center items-center">
           <button
-              class="text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600"
+              class="text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-semibold hover:bg-purple-600"
               style="color: {$settings.fontColor1};"
               on:click={() => applyChanges('save')}
           >
-              APPLY
+              Apply
           </button>
           <button
-              class="text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-thin hover:bg-purple-600"
+              class="text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-semibold hover:bg-purple-600"
               style="color: {$settings.fontColor1};"
               on:click={() => applyChanges('reset')}
           >
-              RESET
+              Reset
           </button>
       </div>
   </div>
@@ -184,10 +194,10 @@
 <style>
     input[type=color]
     {
-	    width: 40px;
-	    height: 40px;
+	    width: 24px;
+	    height: 24px;
 	    border: none;
-	    border-radius: 8px;
+	    border-radius: 9999px;
 	    background: none;
     }
 
@@ -196,6 +206,6 @@
     }
     input[type="color"]::-webkit-color-swatch {
 	    border: solid 1px #000; /*change color of the swatch border here*/
-	    border-radius: 8px;
+	    border-radius: 9999px;
     }
 </style>

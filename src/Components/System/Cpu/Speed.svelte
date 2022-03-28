@@ -21,7 +21,7 @@
 
 </script>
 
-<Shell title={"CPU SPEED"} tooltip={"List network speed"}>
+<Shell title={"CPU Speed"} tooltip={"List network speed"}>
     <div class="flex flex-col justify-center mt-1 text-gray-50">
         {#if cpuSpeed}
         <div class ="flex flex-row justify-center mt-1">

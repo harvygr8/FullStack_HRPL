@@ -12,12 +12,12 @@
 
 <div
     class="flex flex-row justify-between my-2 drag w-full sticky top-0"
-    style="color: {$settings.fontColor2}; background-color: {$settings.bgColor1}"
+    style="color: {$settings.fontColor2}; background-color: {$settings.bgColor2}"
 >
     <!-- <div class="drag" />
     <div class="drag"> -->
-        <h1 class="mt-1 text-2xl ml-10 font-medium">
-        Dashboard / <span style="background-color:{$settings.bgColor}" class="pl-2 pr-2 pb-1 rounded-md">{currPage}</span>
+        <h1 class="mt-1 text-xl ml-4 font-semibold">
+        Neuron / <span style="background-color:{$settings.bgColor2}" class="pr-2 pb-1 rounded-md">{currPage}</span>
         </h1>
             <!-- NEURON -->
     <!-- </div> -->

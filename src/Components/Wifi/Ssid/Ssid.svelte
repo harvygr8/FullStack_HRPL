@@ -9,7 +9,7 @@
     });
 </script>
 
-<Shell title={"AVAILABLE WIFI NETWORKS"} tooltip={"SSID of all available wifi networks"}>
+<Shell title={"Wifi Networks"} tooltip={"SSID of all available wifi networks"}>
     <div class="text-gray-50">
     {#if ssid}
         {#if ssid.length > 1}

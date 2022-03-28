@@ -23,7 +23,7 @@
 </script>
 
 <Shell
-    title={"WIFI INFORMATION"}
+    title={"Wifi Connections"}
     tooltip={"General wifi related information"}
 >
     {#if info}
@@ -40,8 +40,7 @@
       <!-- add empty check -->
           {#each info as wifi}
           <li
-              class="cursor-pointer rounded m-2 p-2"
-              style="background:{$settings.miscColor};display: inline-block;"
+              class="text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-semibold hover:bg-purple-600 cursor-pointer inline-block"
               on:click={() => displayInfo(wifi.ssid)}
           >
           {wifi.ssid}
@@ -51,70 +50,70 @@
     </div>
 
     <!-- Display required information -->
-    <div class="grid grid-cols-2 lg:grid-cols-3 gap-x-2 gap-y-6">
+    <div class="grid grid-cols-2 gap-x-2 gap-y-6">
         <p class="flex flex-col justify-start items-center">
             <span
-                class="text-sm pb-1"
+                class=" pb-1"
                 style="color: {$settings.fontColor2}"
             >
                 SSID
             </span>
-            <span class="font-medium text-lg">
+            <span class="font-semibold text-lg">
                 {data.ssid}
             </span>
         </p>
         <p class="flex flex-col justify-start items-center">
             <span
-                class="text-sm pb-1"
+                class=" pb-1"
                 style="color: {$settings.fontColor2}"
             >
                 BSSID
             </span>
-            <span class="font-medium text-lg">
+            <span class="font-semibold text-lg">
                 {data.bssid}
             </span>
         </p>
         <p class="flex flex-col justify-start items-center">
             <span
-                class="text-sm pb-1"
+                class=" pb-1"
                 style="color: {$settings.fontColor2}"
             >
                 Mode
             </span>
-            <span class="font-medium text-lg">
+            <span class="font-semibold text-lg">
                 <!-- {data.mode} --> N/A
             </span>
         </p>
         <p class="flex flex-col justify-start items-center">
             <span
-                class="text-sm pb-1"
+                class=" pb-1"
                 style="color: {$settings.fontColor2}"
             >
                 Channel
             </span>
-            <span class="font-medium text-lg">
+            <span class="font-semibold text-lg">
                 {data.channel}
             </span>
         </p>
         <p class="flex flex-col justify-start items-center">
             <span
-                class="text-sm pb-1"
+                class=" pb-1"
                 style="color: {$settings.fontColor2}"
             >
                 Frequency
             </span>
-            <span class="font-medium text-lg">
-                {data.frequency}
+            <span class="font-semibold text-lg">
+                {data.frequency} GHz
             </span>
         </p>
         <p class="flex flex-col justify-start items-center">
             <span
-                class="text-sm pb-1"
+                class=" pb-1"
                 style="color: {$settings.fontColor2}"
             >
                 Security
             </span>
-            <span class="font-medium text-lg">
+            <span class="font-semibold text-lg">
                 {data.security}
             </span>
         </p>

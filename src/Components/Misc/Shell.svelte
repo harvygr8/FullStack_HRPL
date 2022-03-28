@@ -1,7 +1,7 @@
 <script>
     import { settings } from '../../Stores/settingsStore';
-    const {getCurrentWindow, globalShortcut} = require('electron').remote;
 
+    // Props
     export let title = 'Title';
     export let tooltip = 'This is a shell component';
 
@@ -18,7 +18,7 @@
     function toggleFavourites(e,component) {
         const favorites = localStorage.favorites;
         let elem = e.srcElement;
-        elem.classList += "text-yellow-500";
+        elem.classList += "text-yellow-300";
         if (strToArr(favorites).some(item => item === component)) {
             localStorage.favorites = (strToArr(favorites).filter(item => item !== component)).toString();
         }
@@ -43,7 +43,7 @@
 >
     <div class="flex flex-row justify-between items-center">
         <h3
-            class="text-2xl font-medium"
+            class="text-lg font-semibold"
             style="color: {$settings.fontColor2};"
         >
             {title}
@@ -61,7 +61,7 @@
 
         </div>
     </div>
-    <hr class="my-2">
+    <hr class="my-1 h-px bg-white">
     <div>
         <slot />
     </div>

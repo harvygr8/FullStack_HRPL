@@ -28,67 +28,67 @@
 
     const components = [
       {
-        name: 'PING TOOL',
+        name: 'Ping Tool',
         component: Ping
       },
       {
-        name: 'IP LOOKUP',
+        name: 'IP Lookup',
         component: IpTools
       },
       {
-        name: 'AVAILABLE INTERFACES',
+        name: 'Available Interfaces',
         component: NetworkInterfaces
       },
       {
-        name: 'DNS LOOKUP',
+        name: 'DNS Lookup',
         component: Dns
       },
       {
-        name: 'PORT SCAN',
+        name: 'Port Scanning',
         component: Ports
       },
       {
-        name: 'NETSTAT',
+        name: 'Netstat',
         component: Netstat
       },
       {
-        name: 'SSL CHECKER',
+        name: 'SSL Checker',
         component: SslChecker
       },
       {
-        name: 'WIFI INFORMATION',
+        name: 'Wifi Information',
         component: Info
       },
       {
-        name: 'PASSWORD STRENGTH CHECKER',
+        name: 'Password Checker',
         component: PasswordStrength
       },
       {
-        name: 'NETWORK SPEED',
+        name: 'Network Speed',
         component: NetworkSpeed
       },
       {
-        name: 'CPU INFORMATION',
+        name: 'CPU Information',
         component: Cpu
       },
       {
-        name: 'OPERATING SYSTEM',
+        name: 'Operating System',
         component: OSinfo
       },
       {
-        name: 'RAM USAGE',
+        name: 'Ram Monitor',
         component: Ram
       },
       {
-        name: 'GRAPHIC CARD DETAILS',
+        name: 'Graphics Card Data',
         component: Graphics
       },
       {
-        name: 'DISK SPACE',
+        name: 'Disk Space',
         component: Disk
       },
       {
-        name: 'CPU LOAD',
+        name: 'CPU Utilization',
         component: Usage
       }
     ];
@@ -113,7 +113,7 @@
     <!-- <p class = "text-3xl text-white font-bold">Hello {$settings.username}!</p> -->
     {#if !localStorage.favorites}
     <div class="flex flex-col justify-center items-center h-full">
-      <h2 class="text-xl font-medium" style="color: {$settings.fontColor1}">
+      <h2 class="text-lg font-semibold" style="color: {$settings.fontColor1}">
         You do not have any favourite widgets.
       </h2>
     </div>

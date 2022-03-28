@@ -14,7 +14,7 @@
     };
 </script>
 
-<Shell title={"WHOIS LOOKUP"} tooltip={"Check WHOIS"}>
+<Shell title={"Whois Lookup"} tooltip={"Check WHOIS"}>
   <div class="flex flex-col">
     <div class="flex flex-row justify-start">
     <input type="text" placeholder="Enter IP" bind:value={ip} class="w-10/12 rounded-md m-2 px-1 text-gray-800 font-bold">

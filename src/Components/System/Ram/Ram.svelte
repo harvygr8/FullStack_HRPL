@@ -67,7 +67,7 @@
 </script>
 
 <Shell
-    title={"RAM USAGE"}
+    title={"Ram Monitor"}
     tooltip={"RAM utilization plotted on a doughnut chart"}
 >
     <div

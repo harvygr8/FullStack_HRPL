@@ -62,7 +62,7 @@
 </script>
 
 <Shell
-    title={"DISK SPACE"}
+    title={"Disk Space"}
     tooltip={"Disk Space plotted on a Pie chart"}
 >
     <div

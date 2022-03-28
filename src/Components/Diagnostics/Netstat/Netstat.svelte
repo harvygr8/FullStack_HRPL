@@ -17,7 +17,7 @@
 
 </script>
 
-<Shell title={"NETSTAT"} tooltip={"List all current connections"}>
+<Shell title={"Netstat"} tooltip={"List all current connections"}>
     <div class="text-gray-50">
         <div class = "h-64 overflow-x-hidden">
 

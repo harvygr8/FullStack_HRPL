@@ -67,7 +67,7 @@
 </script>
 
 <Shell
-    title={"CPU LOAD"}
+    title={"CPU Utilization"}
     tooltip={"CPU Load plotted on a Pie chart"}
 >
     <div

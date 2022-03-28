@@ -16,7 +16,7 @@
 </script>
 
 <Shell
-    title={"CPU INFORMATION"}
+    title={"CPU Information"}
     tooltip={"Information about the CPU"}
 >
     {#if cpu}
