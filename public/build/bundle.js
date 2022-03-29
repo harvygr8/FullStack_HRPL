@@ -5752,7 +5752,7 @@ var app = (function () {
     			div = element("div");
     			create_component(loader.$$.fragment);
     			attr_dev(div, "class", "flex flex-row justify-center svelte-5avmh9");
-    			add_location(div, file$d, 50, 6, 2057);
+    			add_location(div, file$d, 50, 6, 2061);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -5813,9 +5813,9 @@ var app = (function () {
     			if_block.c();
     			if_block_anchor = empty();
     			attr_dev(span, "class", "font-semibold text-lg text-purple-400 svelte-5avmh9");
-    			add_location(span, file$d, 25, 66, 744);
+    			add_location(span, file$d, 25, 66, 748);
     			attr_dev(p, "class", "font-semibold text-lg svelte-5avmh9");
-    			add_location(p, file$d, 25, 6, 684);
+    			add_location(p, file$d, 25, 6, 688);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -5871,7 +5871,7 @@ var app = (function () {
     			p = element("p");
     			p.textContent = "Couldn't find any interfaces.";
     			attr_dev(p, "class", "svelte-5avmh9");
-    			add_location(p, file$d, 47, 12, 1985);
+    			add_location(p, file$d, 47, 12, 1989);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -5970,13 +5970,13 @@ var app = (function () {
     			span1 = element("span");
     			t4 = text(t4_value);
     			attr_dev(span0, "class", "font-semibold text-lg svelte-5avmh9");
-    			add_location(span0, file$d, 43, 22, 1757);
+    			add_location(span0, file$d, 43, 22, 1761);
     			attr_dev(p0, "class", "svelte-5avmh9");
-    			add_location(p0, file$d, 43, 16, 1751);
+    			add_location(p0, file$d, 43, 16, 1755);
     			attr_dev(span1, "class", "font-semibold text-lg svelte-5avmh9");
-    			add_location(span1, file$d, 44, 48, 1872);
+    			add_location(span1, file$d, 44, 48, 1876);
     			attr_dev(p1, "class", "pl-8 svelte-5avmh9");
-    			add_location(p1, file$d, 44, 16, 1840);
+    			add_location(p1, file$d, 44, 16, 1844);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p0, anchor);
@@ -6094,9 +6094,9 @@ var app = (function () {
     			span = element("span");
     			t1 = text(t1_value);
     			attr_dev(span, "class", "font-semibold text-lg svelte-5avmh9");
-    			add_location(span, file$d, 34, 51, 1292);
+    			add_location(span, file$d, 34, 51, 1296);
     			attr_dev(p, "class", "pl-8 svelte-5avmh9");
-    			add_location(p, file$d, 34, 20, 1261);
+    			add_location(p, file$d, 34, 20, 1265);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -6136,9 +6136,9 @@ var app = (function () {
     			span = element("span");
     			span.textContent = "N/A";
     			attr_dev(span, "class", "font-semibold text-lg svelte-5avmh9");
-    			add_location(span, file$d, 32, 51, 1162);
+    			add_location(span, file$d, 32, 51, 1166);
     			attr_dev(p, "class", "pl-8 svelte-5avmh9");
-    			add_location(p, file$d, 32, 20, 1131);
+    			add_location(p, file$d, 32, 20, 1135);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -6225,23 +6225,23 @@ var app = (function () {
     			span3 = element("span");
     			t12 = text(t12_value);
     			attr_dev(br, "class", "svelte-5avmh9");
-    			add_location(br, file$d, 29, 16, 987);
+    			add_location(br, file$d, 29, 16, 991);
     			attr_dev(span0, "class", "font-semibold text-lg svelte-5avmh9");
-    			add_location(span0, file$d, 30, 27, 1021);
+    			add_location(span0, file$d, 30, 27, 1025);
     			attr_dev(p0, "class", "svelte-5avmh9");
-    			add_location(p0, file$d, 30, 16, 1010);
+    			add_location(p0, file$d, 30, 16, 1014);
     			attr_dev(span1, "class", "font-semibold text-lg svelte-5avmh9");
-    			add_location(span1, file$d, 36, 51, 1422);
+    			add_location(span1, file$d, 36, 51, 1426);
     			attr_dev(p1, "class", "pl-8 svelte-5avmh9");
-    			add_location(p1, file$d, 36, 20, 1391);
+    			add_location(p1, file$d, 36, 20, 1395);
     			attr_dev(span2, "class", "font-semibold text-lg svelte-5avmh9");
-    			add_location(span2, file$d, 37, 44, 1520);
+    			add_location(span2, file$d, 37, 44, 1524);
     			attr_dev(p2, "class", "pl-8 svelte-5avmh9");
-    			add_location(p2, file$d, 37, 20, 1496);
+    			add_location(p2, file$d, 37, 20, 1500);
     			attr_dev(span3, "class", "font-semibold text-lg svelte-5avmh9");
-    			add_location(span3, file$d, 38, 47, 1624);
+    			add_location(span3, file$d, 38, 47, 1628);
     			attr_dev(p3, "class", "pl-8 svelte-5avmh9");
-    			add_location(p3, file$d, 38, 20, 1597);
+    			add_location(p3, file$d, 38, 20, 1601);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, br, anchor);
@@ -6334,7 +6334,7 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			if_block.c();
-    			attr_dev(div, "class", "text-gray-50 h-60 overflow-auto svelte-5avmh9");
+    			attr_dev(div, "class", "text-gray-50 max-h-48 overflow-auto svelte-5avmh9");
     			add_location(div, file$d, 23, 4, 609);
     		},
     		m: function mount(target, anchor) {
@@ -12573,9 +12573,9 @@ var app = (function () {
 
     			attr_dev(h2, "class", "text-center text-2xl mt-4 px-6 font-medium");
     			set_style(h2, "color", /*$settings*/ ctx[0].fontColor1);
-    			add_location(h2, file$s, 125, 4, 3925);
+    			add_location(h2, file$s, 125, 4, 3926);
     			attr_dev(div, "class", "p-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4");
-    			add_location(div, file$s, 128, 4, 4060);
+    			add_location(div, file$s, 128, 4, 4061);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h2, anchor);
@@ -12672,9 +12672,9 @@ var app = (function () {
     			t = text("You do not have any favourite widgets.");
     			attr_dev(h2, "class", "text-lg font-semibold");
     			set_style(h2, "color", /*$settings*/ ctx[0].fontColor1);
-    			add_location(h2, file$s, 120, 6, 3761);
+    			add_location(h2, file$s, 120, 6, 3762);
     			attr_dev(div, "class", "flex flex-col justify-center items-center h-full");
-    			add_location(div, file$s, 119, 4, 3691);
+    			add_location(div, file$s, 119, 4, 3692);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);

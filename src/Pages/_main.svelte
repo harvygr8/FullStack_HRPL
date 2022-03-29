@@ -25,7 +25,7 @@
     import Info from '../Components/Wifi/Info/Info.svelte';
     import Interfaces from '../Components/Wifi/Interfaces/Interfaces.svelte';
     import Ssid from '../Components/Wifi/Ssid/Ssid.svelte';
-    import LocalDevices from '../Components/Diagnostics/ArpLD/LocalDevices.svelte'
+    import LocalDevices from '../Components/Diagnostics/ArpLD/LocalDevices.svelte';
 
     const components = [
       {
