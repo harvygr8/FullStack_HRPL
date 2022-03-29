@@ -1,0 +1,4 @@
+[20:58:43]:[INFO]: Time:1 ms | Alive:true | Loss:0.00
+[20:58:44]:[INFO]: Time:1 ms | Alive:true | Loss:0.00
+[20:58:45]:[INFO]: Time:1 ms | Alive:true | Loss:0.00
+[20:58:46]:[INFO]: Time:1 ms | Alive:true | Loss:0.00
