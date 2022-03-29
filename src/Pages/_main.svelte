@@ -25,6 +25,7 @@
     import Info from '../Components/Wifi/Info/Info.svelte';
     import Interfaces from '../Components/Wifi/Interfaces/Interfaces.svelte';
     import Ssid from '../Components/Wifi/Ssid/Ssid.svelte';
+    import LocalDevices from '../Components/Diagnostics/ArpLD/LocalDevices.svelte'
 
     const components = [
       {
@@ -38,6 +39,10 @@
       {
         name: 'Available Interfaces',
         component: NetworkInterfaces
+      },
+      {
+        name: 'Local Devices',
+        component: LocalDevices
       },
       {
         name: 'DNS Lookup',
