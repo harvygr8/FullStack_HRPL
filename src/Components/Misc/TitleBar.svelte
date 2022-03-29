@@ -16,7 +16,7 @@
 >
     <!-- <div class="drag" />
     <div class="drag"> -->
-        <h1 class="mt-1 text-xl ml-4 font-semibold">
+        <h1 class="mt-1 text-xl ml-10 font-semibold uppercase">
         Neuron / <span style="background-color:{$settings.bgColor2}" class="pr-2 pb-1 rounded-md">{currPage}</span>
         </h1>
             <!-- NEURON -->

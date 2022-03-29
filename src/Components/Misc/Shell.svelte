@@ -43,7 +43,7 @@
 >
     <div class="flex flex-row justify-between items-center">
         <h3
-            class="text-lg font-semibold"
+            class="text-lg font-semibold uppercase"
             style="color: {$settings.fontColor2};"
         >
             {title}

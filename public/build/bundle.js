@@ -1737,7 +1737,7 @@ var app = (function () {
 
     //Export
     const settings = writable({
-        username: localStorage.username ? localStorage.username : 'Admin',
+        username: localStorage.username ? localStorage.username : 'Neuron',
         id: localStorage.id ? localStorage.id : v4(),
         bgColor1 : localStorage.bgColor1 ? localStorage.bgColor1 : '#1F2937',
         bgColor2 : localStorage.bgColor2 ? localStorage.bgColor2 : '#111827',
@@ -1777,7 +1777,7 @@ var app = (function () {
     			t1 = text(/*name*/ ctx[2]);
     			attr_dev(i, "class", i_class_value = "fa " + /*icon*/ ctx[1] + " text-center w-full md:w-8");
     			add_location(i, file, 27, 12, 536);
-    			attr_dev(span, "class", "hidden md:block pl-2 font-semibold");
+    			attr_dev(span, "class", "hidden md:block pl-2 font-semibold uppercase");
     			add_location(span, file, 28, 12, 599);
     			attr_dev(div0, "class", "rounded p-2 flex flex-row items-center");
     			set_style(div0, "background", /*$settings*/ ctx[3].bgColor3);
@@ -2156,17 +2156,17 @@ var app = (function () {
     			button2 = element("button");
     			set_style(span, "background-color", /*$settings*/ ctx[1].bgColor2);
     			attr_dev(span, "class", "pr-2 pb-1 rounded-md");
-    			add_location(span, file$2, 19, 17, 552);
-    			attr_dev(h1, "class", "mt-1 text-xl ml-4 font-semibold");
+    			add_location(span, file$2, 19, 17, 563);
+    			attr_dev(h1, "class", "mt-1 text-xl ml-10 font-semibold uppercase");
     			add_location(h1, file$2, 18, 8, 489);
     			attr_dev(button0, "class", "fa fa-window-minimize ");
-    			add_location(button0, file$2, 24, 8, 802);
+    			add_location(button0, file$2, 24, 8, 813);
     			attr_dev(button1, "class", "fa fa-window-maximize mx-6");
-    			add_location(button1, file$2, 25, 8, 888);
+    			add_location(button1, file$2, 25, 8, 899);
     			attr_dev(button2, "class", "fa fa-times mr-4");
-    			add_location(button2, file$2, 26, 8, 978);
+    			add_location(button2, file$2, 26, 8, 989);
     			attr_dev(div0, "class", "flex flex-row justify-center items-center text-md no-drag svelte-10hzk5y");
-    			add_location(div0, file$2, 23, 4, 721);
+    			add_location(div0, file$2, 23, 4, 732);
     			attr_dev(div1, "class", "flex flex-row justify-between my-2 drag w-full sticky top-0 svelte-10hzk5y");
     			set_style(div1, "color", /*$settings*/ ctx[1].fontColor2);
     			set_style(div1, "background-color", /*$settings*/ ctx[1].bgColor2);
@@ -2605,25 +2605,25 @@ var app = (function () {
     			t4 = space();
     			div2 = element("div");
     			if (default_slot) default_slot.c();
-    			attr_dev(h3, "class", "text-lg font-semibold");
+    			attr_dev(h3, "class", "text-lg font-semibold uppercase");
     			set_style(h3, "color", /*$settings*/ ctx[2].fontColor2);
     			add_location(h3, file$5, 44, 8, 1553);
     			attr_dev(span0, "class", "ml-2 fas fa-info-circle cursor-pointer");
     			attr_dev(span0, "title", /*tooltip*/ ctx[1]);
-    			add_location(span0, file$5, 51, 12, 1727);
+    			add_location(span0, file$5, 51, 12, 1737);
 
     			attr_dev(span1, "class", span1_class_value = "ml-2 fas fa-star cursor-pointer " + (checkInStorage(/*title*/ ctx[0])
     			? "text-yellow-500"
     			: ""));
 
     			attr_dev(span1, "title", "Add to favourites");
-    			add_location(span1, file$5, 55, 12, 1861);
-    			add_location(div0, file$5, 50, 8, 1708);
+    			add_location(span1, file$5, 55, 12, 1871);
+    			add_location(div0, file$5, 50, 8, 1718);
     			attr_dev(div1, "class", "flex flex-row justify-between items-center");
     			add_location(div1, file$5, 43, 4, 1487);
     			attr_dev(hr, "class", "my-1 h-px bg-white");
-    			add_location(hr, file$5, 63, 4, 2128);
-    			add_location(div2, file$5, 64, 4, 2165);
+    			add_location(hr, file$5, 63, 4, 2138);
+    			add_location(div2, file$5, 64, 4, 2175);
     			attr_dev(div3, "class", "rounded-md shadow-md p-2 ");
     			set_style(div3, "background-color", /*$settings*/ ctx[2].bgColor3);
     			set_style(div3, "color", /*$settings*/ ctx[2].fontColor1);
@@ -5752,7 +5752,7 @@ var app = (function () {
     			div = element("div");
     			create_component(loader.$$.fragment);
     			attr_dev(div, "class", "flex flex-row justify-center svelte-5avmh9");
-    			add_location(div, file$d, 50, 6, 2061);
+    			add_location(div, file$d, 50, 6, 2057);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -5813,9 +5813,9 @@ var app = (function () {
     			if_block.c();
     			if_block_anchor = empty();
     			attr_dev(span, "class", "font-semibold text-lg text-purple-400 svelte-5avmh9");
-    			add_location(span, file$d, 25, 66, 748);
+    			add_location(span, file$d, 25, 66, 744);
     			attr_dev(p, "class", "font-semibold text-lg svelte-5avmh9");
-    			add_location(p, file$d, 25, 6, 688);
+    			add_location(p, file$d, 25, 6, 684);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -5871,7 +5871,7 @@ var app = (function () {
     			p = element("p");
     			p.textContent = "Couldn't find any interfaces.";
     			attr_dev(p, "class", "svelte-5avmh9");
-    			add_location(p, file$d, 47, 12, 1989);
+    			add_location(p, file$d, 47, 12, 1985);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -5970,13 +5970,13 @@ var app = (function () {
     			span1 = element("span");
     			t4 = text(t4_value);
     			attr_dev(span0, "class", "font-semibold text-lg svelte-5avmh9");
-    			add_location(span0, file$d, 43, 22, 1761);
+    			add_location(span0, file$d, 43, 22, 1757);
     			attr_dev(p0, "class", "svelte-5avmh9");
-    			add_location(p0, file$d, 43, 16, 1755);
+    			add_location(p0, file$d, 43, 16, 1751);
     			attr_dev(span1, "class", "font-semibold text-lg svelte-5avmh9");
-    			add_location(span1, file$d, 44, 48, 1876);
+    			add_location(span1, file$d, 44, 48, 1872);
     			attr_dev(p1, "class", "pl-8 svelte-5avmh9");
-    			add_location(p1, file$d, 44, 16, 1844);
+    			add_location(p1, file$d, 44, 16, 1840);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p0, anchor);
@@ -6094,9 +6094,9 @@ var app = (function () {
     			span = element("span");
     			t1 = text(t1_value);
     			attr_dev(span, "class", "font-semibold text-lg svelte-5avmh9");
-    			add_location(span, file$d, 34, 51, 1296);
+    			add_location(span, file$d, 34, 51, 1292);
     			attr_dev(p, "class", "pl-8 svelte-5avmh9");
-    			add_location(p, file$d, 34, 20, 1265);
+    			add_location(p, file$d, 34, 20, 1261);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -6136,9 +6136,9 @@ var app = (function () {
     			span = element("span");
     			span.textContent = "N/A";
     			attr_dev(span, "class", "font-semibold text-lg svelte-5avmh9");
-    			add_location(span, file$d, 32, 51, 1166);
+    			add_location(span, file$d, 32, 51, 1162);
     			attr_dev(p, "class", "pl-8 svelte-5avmh9");
-    			add_location(p, file$d, 32, 20, 1135);
+    			add_location(p, file$d, 32, 20, 1131);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -6225,23 +6225,23 @@ var app = (function () {
     			span3 = element("span");
     			t12 = text(t12_value);
     			attr_dev(br, "class", "svelte-5avmh9");
-    			add_location(br, file$d, 29, 16, 991);
+    			add_location(br, file$d, 29, 16, 987);
     			attr_dev(span0, "class", "font-semibold text-lg svelte-5avmh9");
-    			add_location(span0, file$d, 30, 27, 1025);
+    			add_location(span0, file$d, 30, 27, 1021);
     			attr_dev(p0, "class", "svelte-5avmh9");
-    			add_location(p0, file$d, 30, 16, 1014);
+    			add_location(p0, file$d, 30, 16, 1010);
     			attr_dev(span1, "class", "font-semibold text-lg svelte-5avmh9");
-    			add_location(span1, file$d, 36, 51, 1426);
+    			add_location(span1, file$d, 36, 51, 1422);
     			attr_dev(p1, "class", "pl-8 svelte-5avmh9");
-    			add_location(p1, file$d, 36, 20, 1395);
+    			add_location(p1, file$d, 36, 20, 1391);
     			attr_dev(span2, "class", "font-semibold text-lg svelte-5avmh9");
-    			add_location(span2, file$d, 37, 44, 1524);
+    			add_location(span2, file$d, 37, 44, 1520);
     			attr_dev(p2, "class", "pl-8 svelte-5avmh9");
-    			add_location(p2, file$d, 37, 20, 1500);
+    			add_location(p2, file$d, 37, 20, 1496);
     			attr_dev(span3, "class", "font-semibold text-lg svelte-5avmh9");
-    			add_location(span3, file$d, 38, 47, 1628);
+    			add_location(span3, file$d, 38, 47, 1624);
     			attr_dev(p3, "class", "pl-8 svelte-5avmh9");
-    			add_location(p3, file$d, 38, 20, 1601);
+    			add_location(p3, file$d, 38, 20, 1597);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, br, anchor);
@@ -6334,7 +6334,7 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			if_block.c();
-    			attr_dev(div, "class", "text-gray-50 max-h-48 overflow-auto svelte-5avmh9");
+    			attr_dev(div, "class", "text-gray-50 h-60 overflow-auto svelte-5avmh9");
     			add_location(div, file$d, 23, 4, 609);
     		},
     		m: function mount(target, anchor) {
@@ -6505,7 +6505,7 @@ var app = (function () {
 
     const file$e = "src\\Components\\Network\\Ping\\Ping.svelte";
 
-    // (206:4) {:else}
+    // (205:4) {:else}
     function create_else_block$6(ctx) {
     	let t;
     	let div;
@@ -6520,9 +6520,9 @@ var app = (function () {
     			div = element("div");
     			canvas = element("canvas");
     			attr_dev(canvas, "id", "ping-chart");
-    			add_location(canvas, file$e, 248, 8, 9014);
+    			add_location(canvas, file$e, 247, 8, 8965);
     			attr_dev(div, "class", div_class_value = "w-11/12 h-36 " + (/*isChartVisible*/ ctx[1] ? "block" : "hidden"));
-    			add_location(div, file$e, 247, 4, 8940);
+    			add_location(div, file$e, 246, 4, 8891);
     		},
     		m: function mount(target, anchor) {
     			if (if_block) if_block.m(target, anchor);
@@ -6557,7 +6557,7 @@ var app = (function () {
     		block,
     		id: create_else_block$6.name,
     		type: "else",
-    		source: "(206:4) {:else}",
+    		source: "(205:4) {:else}",
     		ctx
     	});
 
@@ -6579,9 +6579,9 @@ var app = (function () {
     			div = element("div");
     			canvas = element("canvas");
     			attr_dev(canvas, "id", "ping-chart");
-    			add_location(canvas, file$e, 201, 10, 7121);
+    			add_location(canvas, file$e, 200, 10, 7067);
     			attr_dev(div, "class", div_class_value = "w-11/12 h-36 " + (/*isChartVisible*/ ctx[1] ? "block" : "hidden"));
-    			add_location(div, file$e, 200, 6, 7045);
+    			add_location(div, file$e, 199, 6, 6991);
     		},
     		m: function mount(target, anchor) {
     			if (if_block) if_block.m(target, anchor);
@@ -6625,7 +6625,7 @@ var app = (function () {
     	return block;
     }
 
-    // (207:8) {#if !isChartVisible}
+    // (206:8) {#if !isChartVisible}
     function create_if_block_2$2(ctx) {
     	let div10;
     	let div1;
@@ -6717,58 +6717,58 @@ var app = (function () {
     			t23 = text(" \r\n              ");
     			p12 = element("p");
     			attr_dev(p0, "class", "text-white");
-    			add_location(p0, file$e, 209, 10, 7385);
+    			add_location(p0, file$e, 208, 10, 7336);
     			attr_dev(p1, "id", "infoValueCPN");
     			attr_dev(p1, "class", "font-semibold text-white text-xl");
-    			add_location(p1, file$e, 211, 14, 7472);
+    			add_location(p1, file$e, 210, 14, 7423);
     			attr_dev(p2, "class", "font-semibold text-white text-sm");
-    			add_location(p2, file$e, 212, 14, 7562);
+    			add_location(p2, file$e, 211, 14, 7513);
     			attr_dev(div0, "class", "flex flex-row");
-    			add_location(div0, file$e, 210, 12, 7429);
+    			add_location(div0, file$e, 209, 12, 7380);
     			attr_dev(div1, "class", "p-2 m-2 flex flex-col justify-center items-center");
-    			add_location(div1, file$e, 208, 8, 7310);
+    			add_location(div1, file$e, 207, 8, 7261);
     			attr_dev(p3, "class", "text-white");
-    			add_location(p3, file$e, 217, 10, 7733);
+    			add_location(p3, file$e, 216, 10, 7684);
     			attr_dev(p4, "id", "infoValueCPN");
     			attr_dev(p4, "class", "font-semibold text-white text-xl");
-    			add_location(p4, file$e, 219, 14, 7820);
+    			add_location(p4, file$e, 218, 14, 7771);
     			attr_dev(div2, "class", "flex flex-row");
-    			add_location(div2, file$e, 218, 12, 7777);
+    			add_location(div2, file$e, 217, 12, 7728);
     			attr_dev(div3, "class", "p-2 m-2 flex flex-col justify-center items-center");
-    			add_location(div3, file$e, 216, 8, 7658);
+    			add_location(div3, file$e, 215, 8, 7609);
     			attr_dev(p5, "class", "text-white");
-    			add_location(p5, file$e, 224, 10, 8017);
+    			add_location(p5, file$e, 223, 10, 7968);
     			attr_dev(p6, "id", "infoValueCPN");
     			attr_dev(p6, "class", "font-semibold text-white text-xl");
-    			add_location(p6, file$e, 226, 14, 8104);
+    			add_location(p6, file$e, 225, 14, 8055);
     			attr_dev(div4, "class", "flex flex-row");
-    			add_location(div4, file$e, 225, 12, 8061);
+    			add_location(div4, file$e, 224, 12, 8012);
     			attr_dev(div5, "class", "p-2 m-2 flex flex-col justify-center items-center");
-    			add_location(div5, file$e, 223, 8, 7942);
+    			add_location(div5, file$e, 222, 8, 7893);
     			attr_dev(p7, "class", "text-white");
-    			add_location(p7, file$e, 231, 10, 8301);
+    			add_location(p7, file$e, 230, 10, 8252);
     			attr_dev(p8, "id", "infoValueCPN");
     			attr_dev(p8, "class", "font-semibold text-white text-xl");
-    			add_location(p8, file$e, 233, 14, 8389);
+    			add_location(p8, file$e, 232, 14, 8340);
     			attr_dev(p9, "class", "font-semibold text-white text-xl");
-    			add_location(p9, file$e, 234, 14, 8479);
+    			add_location(p9, file$e, 233, 14, 8430);
     			attr_dev(div6, "class", "flex flex-row");
-    			add_location(div6, file$e, 232, 12, 8346);
+    			add_location(div6, file$e, 231, 12, 8297);
     			attr_dev(div7, "class", "p-2 m-2 flex flex-col justify-center items-center");
-    			add_location(div7, file$e, 230, 8, 8226);
+    			add_location(div7, file$e, 229, 8, 8177);
     			attr_dev(p10, "class", "text-white");
-    			add_location(p10, file$e, 239, 10, 8650);
+    			add_location(p10, file$e, 238, 10, 8601);
     			attr_dev(p11, "id", "infoValueCPN");
     			attr_dev(p11, "class", "font-semibold text-white text-xl");
-    			add_location(p11, file$e, 241, 14, 8737);
+    			add_location(p11, file$e, 240, 14, 8688);
     			attr_dev(p12, "class", "font-semibold text-white text-sm");
-    			add_location(p12, file$e, 242, 14, 8827);
+    			add_location(p12, file$e, 241, 14, 8778);
     			attr_dev(div8, "class", "flex flex-row");
-    			add_location(div8, file$e, 240, 12, 8694);
+    			add_location(div8, file$e, 239, 12, 8645);
     			attr_dev(div9, "class", "p-2 m-2 flex flex-col justify-center items-center");
-    			add_location(div9, file$e, 238, 8, 8575);
-    			attr_dev(div10, "class", "grid grid-cols-2 md:grid-cols-3");
-    			add_location(div10, file$e, 207, 8, 7255);
+    			add_location(div9, file$e, 237, 8, 8526);
+    			attr_dev(div10, "class", "h-36 grid grid-cols-5 md:grid-cols-5");
+    			add_location(div10, file$e, 206, 8, 7201);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div10, anchor);
@@ -6819,7 +6819,7 @@ var app = (function () {
     		block,
     		id: create_if_block_2$2.name,
     		type: "if",
-    		source: "(207:8) {#if !isChartVisible}",
+    		source: "(206:8) {#if !isChartVisible}",
     		ctx
     	});
 
@@ -6837,45 +6837,44 @@ var app = (function () {
     	let t2_value = /*ping*/ ctx[0].hst + "";
     	let t2;
     	let t3;
-    	let p2;
     	let t4;
     	let div3;
-    	let p3;
+    	let p2;
     	let t6;
     	let div2;
-    	let p4;
+    	let p3;
     	let t7;
     	let t8;
     	let t9;
     	let div5;
-    	let p5;
+    	let p4;
     	let t11;
     	let div4;
-    	let p6;
+    	let p5;
     	let t12_value = /*ping*/ ctx[0].time + "";
     	let t12;
     	let t13;
-    	let p7;
+    	let p6;
     	let t15;
     	let div7;
-    	let p8;
+    	let p7;
     	let t17;
     	let div6;
-    	let p9;
+    	let p8;
     	let t18_value = /*ping*/ ctx[0].alive + "";
     	let t18;
     	let t19;
-    	let p10;
+    	let p9;
     	let t20;
     	let div9;
-    	let p11;
+    	let p10;
     	let t22;
     	let div8;
-    	let p12;
+    	let p11;
     	let t23_value = /*ping*/ ctx[0].loss + "";
     	let t23;
     	let t24;
-    	let p13;
+    	let p12;
 
     	const block = {
     		c: function create() {
@@ -6887,100 +6886,97 @@ var app = (function () {
     			div0 = element("div");
     			p1 = element("p");
     			t2 = text(t2_value);
-    			t3 = text(" \r\n          ");
-    			p2 = element("p");
+    			t3 = text(" ");
     			t4 = space();
     			div3 = element("div");
-    			p3 = element("p");
-    			p3.textContent = "Sent";
+    			p2 = element("p");
+    			p2.textContent = "Sent";
     			t6 = space();
     			div2 = element("div");
-    			p4 = element("p");
+    			p3 = element("p");
     			t7 = text(/*packetCount*/ ctx[2]);
     			t8 = text(" ");
     			t9 = space();
     			div5 = element("div");
-    			p5 = element("p");
-    			p5.textContent = "Time";
+    			p4 = element("p");
+    			p4.textContent = "Time";
     			t11 = space();
     			div4 = element("div");
-    			p6 = element("p");
+    			p5 = element("p");
     			t12 = text(t12_value);
     			t13 = text(" \r\n              ");
-    			p7 = element("p");
-    			p7.textContent = "ms";
+    			p6 = element("p");
+    			p6.textContent = "ms";
     			t15 = space();
     			div7 = element("div");
-    			p8 = element("p");
-    			p8.textContent = "Alive";
+    			p7 = element("p");
+    			p7.textContent = "Alive";
     			t17 = space();
     			div6 = element("div");
-    			p9 = element("p");
+    			p8 = element("p");
     			t18 = text(t18_value);
     			t19 = text(" \r\n              ");
-    			p10 = element("p");
+    			p9 = element("p");
     			t20 = space();
     			div9 = element("div");
-    			p11 = element("p");
-    			p11.textContent = "Loss";
+    			p10 = element("p");
+    			p10.textContent = "Loss";
     			t22 = space();
     			div8 = element("div");
-    			p12 = element("p");
+    			p11 = element("p");
     			t23 = text(t23_value);
     			t24 = text(" \r\n              ");
-    			p13 = element("p");
+    			p12 = element("p");
     			attr_dev(p0, "class", "text-white");
-    			add_location(p0, file$e, 160, 6, 5454);
+    			add_location(p0, file$e, 160, 6, 5460);
     			attr_dev(p1, "class", "font-semibold text-white text-xl");
-    			add_location(p1, file$e, 162, 10, 5533);
-    			attr_dev(p2, "class", "font-semibold text-white text-sm");
-    			add_location(p2, file$e, 163, 10, 5608);
+    			add_location(p1, file$e, 162, 10, 5539);
     			attr_dev(div0, "class", "flex flex-row");
-    			add_location(div0, file$e, 161, 8, 5494);
+    			add_location(div0, file$e, 161, 8, 5500);
     			attr_dev(div1, "class", "p-2 m-2 flex flex-col justify-center items-center");
-    			add_location(div1, file$e, 159, 4, 5383);
-    			attr_dev(p3, "class", "text-white");
-    			add_location(p3, file$e, 168, 6, 5763);
-    			attr_dev(p4, "class", "font-semibold text-white text-xl");
-    			add_location(p4, file$e, 170, 10, 5842);
+    			add_location(div1, file$e, 159, 4, 5389);
+    			attr_dev(p2, "class", "text-white");
+    			add_location(p2, file$e, 167, 6, 5709);
+    			attr_dev(p3, "class", "font-semibold text-white text-xl");
+    			add_location(p3, file$e, 169, 10, 5788);
     			attr_dev(div2, "class", "flex flex-row");
-    			add_location(div2, file$e, 169, 8, 5803);
+    			add_location(div2, file$e, 168, 8, 5749);
     			attr_dev(div3, "class", "p-2 m-2 flex flex-col justify-center items-center");
-    			add_location(div3, file$e, 167, 4, 5692);
-    			attr_dev(p5, "class", "text-white");
-    			add_location(p5, file$e, 175, 10, 6023);
+    			add_location(div3, file$e, 166, 4, 5638);
+    			attr_dev(p4, "class", "text-white");
+    			add_location(p4, file$e, 174, 10, 5969);
+    			attr_dev(p5, "class", "font-semibold text-white text-xl");
+    			add_location(p5, file$e, 176, 14, 6056);
     			attr_dev(p6, "class", "font-semibold text-white text-xl");
-    			add_location(p6, file$e, 177, 14, 6110);
-    			attr_dev(p7, "class", "font-semibold text-white text-xl");
-    			add_location(p7, file$e, 178, 14, 6190);
+    			add_location(p6, file$e, 177, 14, 6136);
     			attr_dev(div4, "class", "flex flex-row");
-    			add_location(div4, file$e, 176, 12, 6067);
+    			add_location(div4, file$e, 175, 12, 6013);
     			attr_dev(div5, "class", "p-2 m-2 flex flex-col justify-center items-center");
-    			add_location(div5, file$e, 174, 8, 5948);
-    			attr_dev(p8, "class", "text-white");
-    			add_location(p8, file$e, 183, 10, 6363);
+    			add_location(div5, file$e, 173, 8, 5894);
+    			attr_dev(p7, "class", "text-white");
+    			add_location(p7, file$e, 182, 10, 6309);
+    			attr_dev(p8, "class", "font-semibold text-white text-xl");
+    			set_style(p8, "text-transform", "capitalize");
+    			add_location(p8, file$e, 184, 14, 6397);
     			attr_dev(p9, "class", "font-semibold text-white text-xl");
-    			set_style(p9, "text-transform", "capitalize");
-    			add_location(p9, file$e, 185, 14, 6451);
-    			attr_dev(p10, "class", "font-semibold text-white text-xl");
-    			add_location(p10, file$e, 186, 14, 6568);
+    			add_location(p9, file$e, 185, 14, 6514);
     			attr_dev(div6, "class", "flex flex-row");
-    			add_location(div6, file$e, 184, 12, 6408);
-    			attr_dev(div7, "class", "p-2 m-2 flex flex-col justify-center items-center");
-    			add_location(div7, file$e, 182, 8, 6288);
-    			attr_dev(p11, "class", "text-white");
-    			add_location(p11, file$e, 191, 10, 6739);
-    			attr_dev(p12, "id", "infoValueCPN");
-    			attr_dev(p12, "class", "font-semibold text-white text-xl");
-    			add_location(p12, file$e, 193, 14, 6826);
-    			attr_dev(p13, "class", "font-semibold text-white text-sm");
-    			add_location(p13, file$e, 194, 14, 6924);
+    			add_location(div6, file$e, 183, 12, 6354);
+    			attr_dev(div7, "class", "p-1 m-1 flex flex-col justify-center items-center");
+    			add_location(div7, file$e, 181, 8, 6234);
+    			attr_dev(p10, "class", "text-white");
+    			add_location(p10, file$e, 190, 10, 6685);
+    			attr_dev(p11, "id", "infoValueCPN");
+    			attr_dev(p11, "class", "font-semibold text-white text-xl");
+    			add_location(p11, file$e, 192, 14, 6772);
+    			attr_dev(p12, "class", "font-semibold text-white text-sm");
+    			add_location(p12, file$e, 193, 14, 6870);
     			attr_dev(div8, "class", "flex flex-row");
-    			add_location(div8, file$e, 192, 12, 6783);
-    			attr_dev(div9, "class", "p-2 m-2 flex flex-col justify-center items-center");
-    			add_location(div9, file$e, 190, 8, 6664);
-    			attr_dev(div10, "class", "grid grid-cols-2 md:grid-cols-3");
-    			add_location(div10, file$e, 156, 4, 5328);
+    			add_location(div8, file$e, 191, 12, 6729);
+    			attr_dev(div9, "class", "p-1 m-1 flex flex-col justify-center items-center");
+    			add_location(div9, file$e, 189, 8, 6610);
+    			attr_dev(div10, "class", "h-36 grid grid-cols-5 md:grid-cols-5");
+    			add_location(div10, file$e, 156, 4, 5329);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div10, anchor);
@@ -6991,42 +6987,41 @@ var app = (function () {
     			append_dev(div0, p1);
     			append_dev(p1, t2);
     			append_dev(div0, t3);
-    			append_dev(div0, p2);
     			append_dev(div10, t4);
     			append_dev(div10, div3);
-    			append_dev(div3, p3);
+    			append_dev(div3, p2);
     			append_dev(div3, t6);
     			append_dev(div3, div2);
-    			append_dev(div2, p4);
-    			append_dev(p4, t7);
+    			append_dev(div2, p3);
+    			append_dev(p3, t7);
     			append_dev(div2, t8);
     			append_dev(div10, t9);
     			append_dev(div10, div5);
-    			append_dev(div5, p5);
+    			append_dev(div5, p4);
     			append_dev(div5, t11);
     			append_dev(div5, div4);
-    			append_dev(div4, p6);
-    			append_dev(p6, t12);
+    			append_dev(div4, p5);
+    			append_dev(p5, t12);
     			append_dev(div4, t13);
-    			append_dev(div4, p7);
+    			append_dev(div4, p6);
     			append_dev(div10, t15);
     			append_dev(div10, div7);
-    			append_dev(div7, p8);
+    			append_dev(div7, p7);
     			append_dev(div7, t17);
     			append_dev(div7, div6);
-    			append_dev(div6, p9);
-    			append_dev(p9, t18);
+    			append_dev(div6, p8);
+    			append_dev(p8, t18);
     			append_dev(div6, t19);
-    			append_dev(div6, p10);
+    			append_dev(div6, p9);
     			append_dev(div10, t20);
     			append_dev(div10, div9);
-    			append_dev(div9, p11);
+    			append_dev(div9, p10);
     			append_dev(div9, t22);
     			append_dev(div9, div8);
-    			append_dev(div8, p12);
-    			append_dev(p12, t23);
+    			append_dev(div8, p11);
+    			append_dev(p11, t23);
     			append_dev(div8, t24);
-    			append_dev(div8, p13);
+    			append_dev(div8, p12);
     		},
     		p: function update(ctx, dirty) {
     			if (dirty & /*ping*/ 1 && t2_value !== (t2_value = /*ping*/ ctx[0].hst + "")) set_data_dev(t2, t2_value);
@@ -7062,7 +7057,7 @@ var app = (function () {
     	let button1;
     	let t4;
     	let button2;
-    	let t5_value = (/*isChartVisible*/ ctx[1] ? "Show Stats" : "Show Graph") + "";
+    	let t5_value = (/*isChartVisible*/ ctx[1] ? "Stats" : "Graph") + "";
     	let t5;
     	let t6;
     	let button3;
@@ -7094,7 +7089,7 @@ var app = (function () {
     			t5 = text(t5_value);
     			t6 = space();
     			button3 = element("button");
-    			button3.textContent = "Clear Data";
+    			button3.textContent = "Clear";
     			t8 = space();
     			div1 = element("div");
     			if_block.c();
@@ -7103,23 +7098,23 @@ var app = (function () {
     			attr_dev(input, "placeholder", "Enter IP/Domain");
     			input.value = "";
     			attr_dev(input, "class", "w-3/5 rounded-md m-2 px-1 text-gray-800 font-semibold");
-    			add_location(input, file$e, 147, 4, 4372);
+    			add_location(input, file$e, 147, 4, 4380);
     			attr_dev(button0, "type", "button");
     			attr_dev(button0, "class", "text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-semibold hover:bg-purple-600");
-    			add_location(button0, file$e, 148, 4, 4509);
+    			add_location(button0, file$e, 148, 4, 4517);
     			attr_dev(button1, "type", "button");
     			attr_dev(button1, "class", "text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-semibold hover:bg-purple-600");
-    			add_location(button1, file$e, 149, 4, 4665);
+    			add_location(button1, file$e, 149, 4, 4673);
     			attr_dev(button2, "type", "button");
     			attr_dev(button2, "class", "text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-semibold hover:bg-purple-600");
-    			add_location(button2, file$e, 150, 4, 4820);
+    			add_location(button2, file$e, 150, 4, 4828);
     			attr_dev(button3, "type", "button");
     			attr_dev(button3, "class", "text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-semibold hover:bg-purple-600");
-    			add_location(button3, file$e, 151, 4, 5047);
-    			attr_dev(div0, "class", "flex flex-row justify-center mt-1");
+    			add_location(button3, file$e, 151, 4, 5045);
+    			attr_dev(div0, "class", "flex flex-row justify-center mt-1 md:h-12");
     			add_location(div0, file$e, 146, 4, 4319);
-    			attr_dev(div1, "class", "mt-2 flex flex-col items-center text-gray-50");
-    			add_location(div1, file$e, 153, 4, 5221);
+    			attr_dev(div1, "class", "mt-1 md:mt-3 flex flex-col items-center text-gray-50");
+    			add_location(div1, file$e, 153, 4, 5214);
     			attr_dev(div2, "class", "flex flex-col");
     			add_location(div2, file$e, 145, 2, 4286);
     		},
@@ -7148,7 +7143,7 @@ var app = (function () {
     			];
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*isChartVisible*/ 2 && t5_value !== (t5_value = (/*isChartVisible*/ ctx[1] ? "Show Stats" : "Show Graph") + "")) set_data_dev(t5, t5_value);
+    			if (dirty & /*isChartVisible*/ 2 && t5_value !== (t5_value = (/*isChartVisible*/ ctx[1] ? "Stats" : "Graph") + "")) set_data_dev(t5, t5_value);
 
     			if (current_block_type === (current_block_type = select_block_type(ctx)) && if_block) {
     				if_block.p(ctx, dirty);
@@ -10765,7 +10760,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (121:4) {:else}
+    // (151:4) {:else}
     function create_else_block$f(ctx) {
     	let div;
     	let current;
@@ -10775,8 +10770,8 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			create_component(loader.$$.fragment);
-    			attr_dev(div, "class", "flex flex-row justify-center");
-    			add_location(div, file$o, 121, 4, 3597);
+    			attr_dev(div, "class", "flex flex-row justify-center svelte-1fd2ujq");
+    			add_location(div, file$o, 151, 4, 4907);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -10803,7 +10798,7 @@ var app = (function () {
     		block,
     		id: create_else_block$f.name,
     		type: "else",
-    		source: "(121:4) {:else}",
+    		source: "(151:4) {:else}",
     		ctx
     	});
 
@@ -10814,56 +10809,40 @@ var app = (function () {
     function create_if_block$h(ctx) {
     	let p0;
     	let t0;
+    	let div2;
     	let div0;
     	let ul;
     	let t1;
     	let div1;
     	let p1;
-    	let span0;
-    	let t2;
     	let t3;
-    	let span1;
+    	let span0;
     	let t4_value = /*data*/ ctx[1].ssid + "";
     	let t4;
     	let t5;
     	let p2;
-    	let span2;
-    	let t6;
     	let t7;
-    	let span3;
+    	let span1;
     	let t8_value = /*data*/ ctx[1].bssid + "";
     	let t8;
     	let t9;
     	let p3;
-    	let span4;
-    	let t10;
     	let t11;
-    	let span5;
+    	let span2;
+    	let t12_value = /*data*/ ctx[1].frequency + "";
+    	let t12;
     	let t13;
     	let p4;
-    	let span6;
-    	let t14;
     	let t15;
-    	let span7;
-    	let t16_value = /*data*/ ctx[1].channel + "";
+    	let span3;
+    	let t16_value = /*data*/ ctx[1].security + "";
     	let t16;
     	let t17;
     	let p5;
-    	let span8;
-    	let t18;
     	let t19;
-    	let span9;
-    	let t20_value = /*data*/ ctx[1].frequency + "";
+    	let span4;
+    	let t20_value = /*data*/ ctx[1].channel + "";
     	let t20;
-    	let t21;
-    	let t22;
-    	let p6;
-    	let span10;
-    	let t23;
-    	let t24;
-    	let span11;
-    	let t25_value = /*data*/ ctx[1].security + "";
-    	let t25;
     	let each_value = /*info*/ ctx[0];
     	validate_each_argument(each_value);
     	let each_blocks = [];
@@ -10876,6 +10855,7 @@ var app = (function () {
     		c: function create() {
     			p0 = element("p");
     			t0 = space();
+    			div2 = element("div");
     			div0 = element("div");
     			ul = element("ul");
 
@@ -10886,153 +10866,104 @@ var app = (function () {
     			t1 = space();
     			div1 = element("div");
     			p1 = element("p");
-    			span0 = element("span");
-    			t2 = text("SSID");
+    			p1.textContent = "◆ SSID";
     			t3 = space();
-    			span1 = element("span");
+    			span0 = element("span");
     			t4 = text(t4_value);
     			t5 = space();
     			p2 = element("p");
-    			span2 = element("span");
-    			t6 = text("BSSID");
+    			p2.textContent = "◆ BSSID";
     			t7 = space();
-    			span3 = element("span");
+    			span1 = element("span");
     			t8 = text(t8_value);
     			t9 = space();
     			p3 = element("p");
-    			span4 = element("span");
-    			t10 = text("Mode");
+    			p3.textContent = "◆ Frequency";
     			t11 = space();
-    			span5 = element("span");
-    			span5.textContent = "N/A";
+    			span2 = element("span");
+    			t12 = text(t12_value);
     			t13 = space();
     			p4 = element("p");
-    			span6 = element("span");
-    			t14 = text("Channel");
+    			p4.textContent = "◆ Security";
     			t15 = space();
-    			span7 = element("span");
+    			span3 = element("span");
     			t16 = text(t16_value);
     			t17 = space();
     			p5 = element("p");
-    			span8 = element("span");
-    			t18 = text("Frequency");
+    			p5.textContent = "◆ Channel";
     			t19 = space();
-    			span9 = element("span");
+    			span4 = element("span");
     			t20 = text(t20_value);
-    			t21 = text(" GHz");
-    			t22 = space();
-    			p6 = element("p");
-    			span10 = element("span");
-    			t23 = text("Security");
-    			t24 = space();
-    			span11 = element("span");
-    			t25 = text(t25_value);
-    			attr_dev(p0, "class", "text-sm");
+    			attr_dev(p0, "class", "text-sm svelte-1fd2ujq");
     			set_style(p0, "color", /*$settings*/ ctx[2].fontColor2);
     			set_style(p0, "text-align", "center");
     			add_location(p0, file$o, 30, 4, 780);
-    			attr_dev(ul, "class", "");
-    			add_location(ul, file$o, 38, 6, 1011);
-    			attr_dev(div0, "class", "flex flex-row justify-center items-center mb-2");
-    			add_location(div0, file$o, 37, 4, 943);
-    			attr_dev(span0, "class", " pb-1");
-    			set_style(span0, "color", /*$settings*/ ctx[2].fontColor2);
-    			add_location(span0, file$o, 54, 12, 1565);
-    			attr_dev(span1, "class", "font-semibold text-lg");
-    			add_location(span1, file$o, 60, 12, 1728);
-    			attr_dev(p1, "class", "flex flex-col justify-start items-center");
-    			add_location(p1, file$o, 53, 8, 1499);
-    			attr_dev(span2, "class", " pb-1");
-    			set_style(span2, "color", /*$settings*/ ctx[2].fontColor2);
-    			add_location(span2, file$o, 65, 12, 1904);
-    			attr_dev(span3, "class", "font-semibold text-lg");
-    			add_location(span3, file$o, 71, 12, 2068);
-    			attr_dev(p2, "class", "flex flex-col justify-start items-center");
-    			add_location(p2, file$o, 64, 8, 1838);
-    			attr_dev(span4, "class", " pb-1");
-    			set_style(span4, "color", /*$settings*/ ctx[2].fontColor2);
-    			add_location(span4, file$o, 76, 12, 2245);
-    			attr_dev(span5, "class", "font-semibold text-lg");
-    			add_location(span5, file$o, 82, 12, 2408);
-    			attr_dev(p3, "class", "flex flex-col justify-start items-center");
-    			add_location(p3, file$o, 75, 8, 2179);
-    			attr_dev(span6, "class", " pb-1");
-    			set_style(span6, "color", /*$settings*/ ctx[2].fontColor2);
-    			add_location(span6, file$o, 87, 12, 2597);
-    			attr_dev(span7, "class", "font-semibold text-lg");
-    			add_location(span7, file$o, 93, 12, 2763);
-    			attr_dev(p4, "class", "flex flex-col justify-start items-center");
-    			add_location(p4, file$o, 86, 8, 2531);
-    			attr_dev(span8, "class", " pb-1");
-    			set_style(span8, "color", /*$settings*/ ctx[2].fontColor2);
-    			add_location(span8, file$o, 98, 12, 2942);
-    			attr_dev(span9, "class", "font-semibold text-lg");
-    			add_location(span9, file$o, 104, 12, 3110);
-    			attr_dev(p5, "class", "flex flex-col justify-start items-center");
-    			add_location(p5, file$o, 97, 8, 2876);
-    			attr_dev(span10, "class", " pb-1");
-    			set_style(span10, "color", /*$settings*/ ctx[2].fontColor2);
-    			add_location(span10, file$o, 109, 12, 3295);
-    			attr_dev(span11, "class", "font-semibold text-lg");
-    			add_location(span11, file$o, 115, 12, 3462);
-    			attr_dev(p6, "class", "flex flex-col justify-start items-center");
-    			add_location(p6, file$o, 108, 8, 3229);
-    			attr_dev(div1, "class", "grid grid-cols-2 gap-x-2 gap-y-6");
-    			add_location(div1, file$o, 52, 4, 1443);
+    			attr_dev(ul, "class", " svelte-1fd2ujq");
+    			add_location(ul, file$o, 40, 8, 1050);
+    			attr_dev(div0, "class", "flex flex-col mb-2 svelte-1fd2ujq");
+    			add_location(div0, file$o, 39, 6, 1008);
+    			attr_dev(p1, "class", "svelte-1fd2ujq");
+    			add_location(p1, file$o, 54, 12, 1533);
+    			attr_dev(span0, "class", "ml-6 font-semibold text-lg svelte-1fd2ujq");
+    			add_location(span0, file$o, 55, 12, 1565);
+    			attr_dev(p2, "class", "svelte-1fd2ujq");
+    			add_location(p2, file$o, 56, 12, 1638);
+    			attr_dev(span1, "class", "ml-6 font-semibold text-lg svelte-1fd2ujq");
+    			add_location(span1, file$o, 57, 12, 1671);
+    			attr_dev(p3, "class", "svelte-1fd2ujq");
+    			add_location(p3, file$o, 58, 12, 1745);
+    			attr_dev(span2, "class", "ml-6 font-semibold text-lg svelte-1fd2ujq");
+    			add_location(span2, file$o, 59, 13, 1783);
+    			attr_dev(p4, "class", "svelte-1fd2ujq");
+    			add_location(p4, file$o, 60, 12, 1861);
+    			attr_dev(span3, "class", "ml-6 font-semibold text-lg svelte-1fd2ujq");
+    			add_location(span3, file$o, 61, 13, 1898);
+    			attr_dev(p5, "class", "svelte-1fd2ujq");
+    			add_location(p5, file$o, 62, 12, 1975);
+    			attr_dev(span4, "class", "ml-6 font-semibold text-lg svelte-1fd2ujq");
+    			add_location(span4, file$o, 63, 13, 2011);
+    			attr_dev(div1, "class", "flex flex-col items-start text-gray-50 svelte-1fd2ujq");
+    			add_location(div1, file$o, 53, 8, 1467);
+    			attr_dev(div2, "class", "h-64 overflow-x-hidden flex flex-col mb-2 svelte-1fd2ujq");
+    			add_location(div2, file$o, 37, 4, 943);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p0, anchor);
     			insert_dev(target, t0, anchor);
-    			insert_dev(target, div0, anchor);
+    			insert_dev(target, div2, anchor);
+    			append_dev(div2, div0);
     			append_dev(div0, ul);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].m(ul, null);
     			}
 
-    			insert_dev(target, t1, anchor);
-    			insert_dev(target, div1, anchor);
+    			append_dev(div2, t1);
+    			append_dev(div2, div1);
     			append_dev(div1, p1);
-    			append_dev(p1, span0);
-    			append_dev(span0, t2);
-    			append_dev(p1, t3);
-    			append_dev(p1, span1);
-    			append_dev(span1, t4);
+    			append_dev(div1, t3);
+    			append_dev(div1, span0);
+    			append_dev(span0, t4);
     			append_dev(div1, t5);
     			append_dev(div1, p2);
-    			append_dev(p2, span2);
-    			append_dev(span2, t6);
-    			append_dev(p2, t7);
-    			append_dev(p2, span3);
-    			append_dev(span3, t8);
+    			append_dev(div1, t7);
+    			append_dev(div1, span1);
+    			append_dev(span1, t8);
     			append_dev(div1, t9);
     			append_dev(div1, p3);
-    			append_dev(p3, span4);
-    			append_dev(span4, t10);
-    			append_dev(p3, t11);
-    			append_dev(p3, span5);
+    			append_dev(div1, t11);
+    			append_dev(div1, span2);
+    			append_dev(span2, t12);
     			append_dev(div1, t13);
     			append_dev(div1, p4);
-    			append_dev(p4, span6);
-    			append_dev(span6, t14);
-    			append_dev(p4, t15);
-    			append_dev(p4, span7);
-    			append_dev(span7, t16);
+    			append_dev(div1, t15);
+    			append_dev(div1, span3);
+    			append_dev(span3, t16);
     			append_dev(div1, t17);
     			append_dev(div1, p5);
-    			append_dev(p5, span8);
-    			append_dev(span8, t18);
-    			append_dev(p5, t19);
-    			append_dev(p5, span9);
-    			append_dev(span9, t20);
-    			append_dev(span9, t21);
-    			append_dev(div1, t22);
-    			append_dev(div1, p6);
-    			append_dev(p6, span10);
-    			append_dev(span10, t23);
-    			append_dev(p6, t24);
-    			append_dev(p6, span11);
-    			append_dev(span11, t25);
+    			append_dev(div1, t19);
+    			append_dev(div1, span4);
+    			append_dev(span4, t20);
     		},
     		p: function update(ctx, dirty) {
     			if (dirty & /*$settings*/ 4) {
@@ -11063,49 +10994,19 @@ var app = (function () {
     				each_blocks.length = each_value.length;
     			}
 
-    			if (dirty & /*$settings*/ 4) {
-    				set_style(span0, "color", /*$settings*/ ctx[2].fontColor2);
-    			}
-
     			if (dirty & /*data*/ 2 && t4_value !== (t4_value = /*data*/ ctx[1].ssid + "")) set_data_dev(t4, t4_value);
-
-    			if (dirty & /*$settings*/ 4) {
-    				set_style(span2, "color", /*$settings*/ ctx[2].fontColor2);
-    			}
-
     			if (dirty & /*data*/ 2 && t8_value !== (t8_value = /*data*/ ctx[1].bssid + "")) set_data_dev(t8, t8_value);
-
-    			if (dirty & /*$settings*/ 4) {
-    				set_style(span4, "color", /*$settings*/ ctx[2].fontColor2);
-    			}
-
-    			if (dirty & /*$settings*/ 4) {
-    				set_style(span6, "color", /*$settings*/ ctx[2].fontColor2);
-    			}
-
-    			if (dirty & /*data*/ 2 && t16_value !== (t16_value = /*data*/ ctx[1].channel + "")) set_data_dev(t16, t16_value);
-
-    			if (dirty & /*$settings*/ 4) {
-    				set_style(span8, "color", /*$settings*/ ctx[2].fontColor2);
-    			}
-
-    			if (dirty & /*data*/ 2 && t20_value !== (t20_value = /*data*/ ctx[1].frequency + "")) set_data_dev(t20, t20_value);
-
-    			if (dirty & /*$settings*/ 4) {
-    				set_style(span10, "color", /*$settings*/ ctx[2].fontColor2);
-    			}
-
-    			if (dirty & /*data*/ 2 && t25_value !== (t25_value = /*data*/ ctx[1].security + "")) set_data_dev(t25, t25_value);
+    			if (dirty & /*data*/ 2 && t12_value !== (t12_value = /*data*/ ctx[1].frequency + "")) set_data_dev(t12, t12_value);
+    			if (dirty & /*data*/ 2 && t16_value !== (t16_value = /*data*/ ctx[1].security + "")) set_data_dev(t16, t16_value);
+    			if (dirty & /*data*/ 2 && t20_value !== (t20_value = /*data*/ ctx[1].channel + "")) set_data_dev(t20, t20_value);
     		},
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(p0);
     			if (detaching) detach_dev(t0);
-    			if (detaching) detach_dev(div0);
+    			if (detaching) detach_dev(div2);
     			destroy_each(each_blocks, detaching);
-    			if (detaching) detach_dev(t1);
-    			if (detaching) detach_dev(div1);
     		}
     	};
 
@@ -11120,7 +11021,7 @@ var app = (function () {
     	return block;
     }
 
-    // (41:10) {#each info as wifi}
+    // (43:12) {#each info as wifi}
     function create_each_block$4(ctx) {
     	let li;
     	let t0_value = /*wifi*/ ctx[6].ssid + "";
@@ -11137,8 +11038,8 @@ var app = (function () {
     			li = element("li");
     			t0 = text(t0_value);
     			t1 = space();
-    			attr_dev(li, "class", "text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-semibold hover:bg-purple-600 cursor-pointer inline-block");
-    			add_location(li, file$o, 41, 10, 1100);
+    			attr_dev(li, "class", "text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-semibold hover:bg-purple-600 cursor-pointer inline-block svelte-1fd2ujq");
+    			add_location(li, file$o, 43, 12, 1145);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, li, anchor);
@@ -11160,7 +11061,7 @@ var app = (function () {
     		block,
     		id: create_each_block$4.name,
     		type: "each",
-    		source: "(41:10) {#each info as wifi}",
+    		source: "(43:12) {#each info as wifi}",
     		ctx
     	});
 
@@ -11272,7 +11173,7 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			const shell_changes = {};
 
-    			if (dirty & /*$$scope, data, $settings, info*/ 519) {
+    			if (dirty & /*$$scope, data, info, $settings*/ 519) {
     				shell_changes.$$scope = { dirty, ctx };
     			}
 
@@ -12751,7 +12652,7 @@ var app = (function () {
     /* src\Pages\_network.svelte generated by Svelte v3.19.1 */
     const file$s = "src\\Pages\\_network.svelte";
 
-    // (14:0) <Page _currPage="Network">
+    // (15:0) <Page _currPage="Network">
     function create_default_slot$l(ctx) {
     	let div1;
     	let div0;
@@ -12767,7 +12668,7 @@ var app = (function () {
     	const networkinterfaces = new NetworkInterfaces({ $$inline: true });
     	const dns = new Dns({ $$inline: true });
     	const ports = new Ports({ $$inline: true });
-    	const netstat = new Netstat({ $$inline: true });
+    	const info = new Info({ $$inline: true });
     	const sslchecker = new SslChecker({ $$inline: true });
 
     	const block = {
@@ -12784,13 +12685,13 @@ var app = (function () {
     			t3 = space();
     			create_component(ports.$$.fragment);
     			t4 = space();
-    			create_component(netstat.$$.fragment);
+    			create_component(info.$$.fragment);
     			t5 = space();
     			create_component(sslchecker.$$.fragment);
     			attr_dev(div0, "class", "col-span-1 md:col-span-2 xl:col-span-3");
-    			add_location(div0, file$s, 15, 6, 715);
-    			attr_dev(div1, "class", "p-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4");
-    			add_location(div1, file$s, 14, 4, 637);
+    			add_location(div0, file$s, 16, 6, 707);
+    			attr_dev(div1, "class", "p-6 pt-12 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4");
+    			add_location(div1, file$s, 15, 4, 623);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -12805,7 +12706,7 @@ var app = (function () {
     			append_dev(div1, t3);
     			mount_component(ports, div1, null);
     			append_dev(div1, t4);
-    			mount_component(netstat, div1, null);
+    			mount_component(info, div1, null);
     			append_dev(div1, t5);
     			mount_component(sslchecker, div1, null);
     			current = true;
@@ -12817,7 +12718,7 @@ var app = (function () {
     			transition_in(networkinterfaces.$$.fragment, local);
     			transition_in(dns.$$.fragment, local);
     			transition_in(ports.$$.fragment, local);
-    			transition_in(netstat.$$.fragment, local);
+    			transition_in(info.$$.fragment, local);
     			transition_in(sslchecker.$$.fragment, local);
     			current = true;
     		},
@@ -12827,7 +12728,7 @@ var app = (function () {
     			transition_out(networkinterfaces.$$.fragment, local);
     			transition_out(dns.$$.fragment, local);
     			transition_out(ports.$$.fragment, local);
-    			transition_out(netstat.$$.fragment, local);
+    			transition_out(info.$$.fragment, local);
     			transition_out(sslchecker.$$.fragment, local);
     			current = false;
     		},
@@ -12838,7 +12739,7 @@ var app = (function () {
     			destroy_component(networkinterfaces);
     			destroy_component(dns);
     			destroy_component(ports);
-    			destroy_component(netstat);
+    			destroy_component(info);
     			destroy_component(sslchecker);
     		}
     	};
@@ -12847,7 +12748,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$l.name,
     		type: "slot",
-    		source: "(14:0) <Page _currPage=\\\"Network\\\">",
+    		source: "(15:0) <Page _currPage=\\\"Network\\\">",
     		ctx
     	});
 
@@ -12920,7 +12821,7 @@ var app = (function () {
     		Dns,
     		Ports,
     		SslChecker,
-    		Netstat
+    		Info
     	});
 
     	return [];
@@ -12940,57 +12841,281 @@ var app = (function () {
     	}
     }
 
-    /* src\Pages\_diagnostics.svelte generated by Svelte v3.19.1 */
-    const file$t = "src\\Pages\\_diagnostics.svelte";
+    /* src\Components\Diagnostics\ArpLD\LocalDevices.svelte generated by Svelte v3.19.1 */
+    const file$t = "src\\Components\\Diagnostics\\ArpLD\\LocalDevices.svelte";
 
-    // (10:0) <Page _currPage="Diagnostics">
-    function create_default_slot$m(ctx) {
+    function get_each_context$8(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[3] = list[i];
+    	return child_ctx;
+    }
+
+    // (34:4) {:else}
+    function create_else_block$j(ctx) {
     	let div;
-    	let t0;
-    	let t1;
     	let current;
-    	const info = new Info({ $$inline: true });
-    	const passwordstrength = new PasswordStrength({ $$inline: true });
-    	const networkspeed = new NetworkSpeed({ $$inline: true });
+    	const loader = new Loader({ $$inline: true });
 
     	const block = {
     		c: function create() {
     			div = element("div");
-    			create_component(info.$$.fragment);
-    			t0 = space();
-    			create_component(passwordstrength.$$.fragment);
-    			t1 = space();
-    			create_component(networkspeed.$$.fragment);
-    			attr_dev(div, "class", "p-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4");
-    			add_location(div, file$t, 10, 4, 372);
+    			create_component(loader.$$.fragment);
+    			attr_dev(div, "class", "flex flex-row justify-center svelte-5avmh9");
+    			add_location(div, file$t, 34, 8, 1014);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
-    			mount_component(info, div, null);
-    			append_dev(div, t0);
-    			mount_component(passwordstrength, div, null);
-    			append_dev(div, t1);
-    			mount_component(networkspeed, div, null);
+    			mount_component(loader, div, null);
     			current = true;
     		},
+    		p: noop,
     		i: function intro(local) {
     			if (current) return;
-    			transition_in(info.$$.fragment, local);
-    			transition_in(passwordstrength.$$.fragment, local);
-    			transition_in(networkspeed.$$.fragment, local);
+    			transition_in(loader.$$.fragment, local);
     			current = true;
     		},
     		o: function outro(local) {
-    			transition_out(info.$$.fragment, local);
-    			transition_out(passwordstrength.$$.fragment, local);
-    			transition_out(networkspeed.$$.fragment, local);
+    			transition_out(loader.$$.fragment, local);
     			current = false;
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div);
-    			destroy_component(info);
-    			destroy_component(passwordstrength);
-    			destroy_component(networkspeed);
+    			destroy_component(loader);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block$j.name,
+    		type: "else",
+    		source: "(34:4) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (23:4) {#if data}
+    function create_if_block$l(ctx) {
+    	let div;
+    	let each_value = /*data*/ ctx[0];
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block$8(get_each_context$8(ctx, each_value, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			attr_dev(div, "class", "h-64 overflow-x-hidden svelte-5avmh9");
+    			add_location(div, file$t, 24, 4, 590);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(div, null);
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*$settings, data*/ 3) {
+    				each_value = /*data*/ ctx[0];
+    				validate_each_argument(each_value);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context$8(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block$8(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(div, null);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value.length;
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			destroy_each(each_blocks, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$l.name,
+    		type: "if",
+    		source: "(23:4) {#if data}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (26:4) {#each data as d}
+    function create_each_block$8(ctx) {
+    	let div;
+    	let p0;
+    	let t0;
+    	let span0;
+    	let t1_value = /*d*/ ctx[3].ip + "";
+    	let t1;
+    	let t2;
+    	let p1;
+    	let t3;
+    	let span1;
+    	let t4_value = /*d*/ ctx[3].mac + "";
+    	let t4;
+    	let t5;
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			p0 = element("p");
+    			t0 = text("• IP:");
+    			span0 = element("span");
+    			t1 = text(t1_value);
+    			t2 = space();
+    			p1 = element("p");
+    			t3 = text("• Mac:");
+    			span1 = element("span");
+    			t4 = text(t4_value);
+    			t5 = space();
+    			attr_dev(span0, "class", "ml-2 font-bold text-lg svelte-5avmh9");
+    			set_style(span0, "color", /*$settings*/ ctx[1].fontColor2);
+    			add_location(span0, file$t, 27, 22, 741);
+    			attr_dev(p0, "class", "svelte-5avmh9");
+    			add_location(p0, file$t, 27, 8, 727);
+    			attr_dev(span1, "class", "ml-2 font-bold text-lg svelte-5avmh9");
+    			set_style(span1, "color", /*$settings*/ ctx[1].fontColor2);
+    			add_location(span1, file$t, 28, 23, 859);
+    			attr_dev(p1, "class", "svelte-5avmh9");
+    			add_location(p1, file$t, 28, 8, 844);
+    			attr_dev(div, "class", "pl-2 mb-3 flex flex-col items-start text-gray-50 svelte-5avmh9");
+    			add_location(div, file$t, 26, 4, 655);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			append_dev(div, p0);
+    			append_dev(p0, t0);
+    			append_dev(p0, span0);
+    			append_dev(span0, t1);
+    			append_dev(div, t2);
+    			append_dev(div, p1);
+    			append_dev(p1, t3);
+    			append_dev(p1, span1);
+    			append_dev(span1, t4);
+    			append_dev(div, t5);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*data*/ 1 && t1_value !== (t1_value = /*d*/ ctx[3].ip + "")) set_data_dev(t1, t1_value);
+
+    			if (dirty & /*$settings*/ 2) {
+    				set_style(span0, "color", /*$settings*/ ctx[1].fontColor2);
+    			}
+
+    			if (dirty & /*data*/ 1 && t4_value !== (t4_value = /*d*/ ctx[3].mac + "")) set_data_dev(t4, t4_value);
+
+    			if (dirty & /*$settings*/ 2) {
+    				set_style(span1, "color", /*$settings*/ ctx[1].fontColor2);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block$8.name,
+    		type: "each",
+    		source: "(26:4) {#each data as d}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (19:0) <Shell      title={"Local Devices"}      tooltip={"Shows IPs of devices connected to the local network"}  >
+    function create_default_slot$m(ctx) {
+    	let current_block_type_index;
+    	let if_block;
+    	let if_block_anchor;
+    	let current;
+    	const if_block_creators = [create_if_block$l, create_else_block$j];
+    	const if_blocks = [];
+
+    	function select_block_type(ctx, dirty) {
+    		if (/*data*/ ctx[0]) return 0;
+    		return 1;
+    	}
+
+    	current_block_type_index = select_block_type(ctx);
+    	if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+
+    	const block = {
+    		c: function create() {
+    			if_block.c();
+    			if_block_anchor = empty();
+    		},
+    		m: function mount(target, anchor) {
+    			if_blocks[current_block_type_index].m(target, anchor);
+    			insert_dev(target, if_block_anchor, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			let previous_block_index = current_block_type_index;
+    			current_block_type_index = select_block_type(ctx);
+
+    			if (current_block_type_index === previous_block_index) {
+    				if_blocks[current_block_type_index].p(ctx, dirty);
+    			} else {
+    				group_outros();
+
+    				transition_out(if_blocks[previous_block_index], 1, 1, () => {
+    					if_blocks[previous_block_index] = null;
+    				});
+
+    				check_outros();
+    				if_block = if_blocks[current_block_type_index];
+
+    				if (!if_block) {
+    					if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+    					if_block.c();
+    				}
+
+    				transition_in(if_block, 1);
+    				if_block.m(if_block_anchor.parentNode, if_block_anchor);
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(if_block);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(if_block);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if_blocks[current_block_type_index].d(detaching);
+    			if (detaching) detach_dev(if_block_anchor);
     		}
     	};
 
@@ -12998,7 +13123,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$m.name,
     		type: "slot",
-    		source: "(10:0) <Page _currPage=\\\"Diagnostics\\\">",
+    		source: "(19:0) <Shell      title={\\\"Local Devices\\\"}      tooltip={\\\"Shows IPs of devices connected to the local network\\\"}  >",
     		ctx
     	});
 
@@ -13008,9 +13133,10 @@ var app = (function () {
     function create_fragment$u(ctx) {
     	let current;
 
-    	const page = new Page({
+    	const shell = new Shell({
     			props: {
-    				_currPage: "Diagnostics",
+    				title: "Local Devices",
+    				tooltip: "Shows IPs of devices connected to the local network",
     				$$slots: { default: [create_default_slot$m] },
     				$$scope: { ctx }
     			},
@@ -13019,35 +13145,35 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			create_component(page.$$.fragment);
+    			create_component(shell.$$.fragment);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			mount_component(page, target, anchor);
+    			mount_component(shell, target, anchor);
     			current = true;
     		},
     		p: function update(ctx, [dirty]) {
-    			const page_changes = {};
+    			const shell_changes = {};
 
-    			if (dirty & /*$$scope*/ 1) {
-    				page_changes.$$scope = { dirty, ctx };
+    			if (dirty & /*$$scope, data, $settings*/ 67) {
+    				shell_changes.$$scope = { dirty, ctx };
     			}
 
-    			page.$set(page_changes);
+    			shell.$set(shell_changes);
     		},
     		i: function intro(local) {
     			if (current) return;
-    			transition_in(page.$$.fragment, local);
+    			transition_in(shell.$$.fragment, local);
     			current = true;
     		},
     		o: function outro(local) {
-    			transition_out(page.$$.fragment, local);
+    			transition_out(shell.$$.fragment, local);
     			current = false;
     		},
     		d: function destroy(detaching) {
-    			destroy_component(page, detaching);
+    			destroy_component(shell, detaching);
     		}
     	};
 
@@ -13063,108 +13189,114 @@ var app = (function () {
     }
 
     function instance$t($$self, $$props, $$invalidate) {
-    	$$self.$capture_state = () => ({
-    		Page,
-    		PasswordStrength,
-    		NetworkSpeed,
-    		Info
+    	let $settings;
+    	validate_store(settings, "settings");
+    	component_subscribe($$self, settings, $$value => $$invalidate(1, $settings = $$value));
+    	const { ipcRenderer } = require("electron");
+    	let data;
+    	ipcRenderer.send("get-local-devices");
+
+    	ipcRenderer.on("get-local-devices", (e, deviceInfo) => {
+    		$$invalidate(0, data = deviceInfo);
+    		console.log(data);
     	});
 
-    	return [];
+    	$$self.$capture_state = () => ({
+    		Shell,
+    		Loader,
+    		settings,
+    		ipcRenderer,
+    		data,
+    		require,
+    		console,
+    		$settings
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ("data" in $$props) $$invalidate(0, data = $$props.data);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [data, $settings];
     }
 
-    class Diagnostics extends SvelteComponentDev {
+    class LocalDevices extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
     		init(this, options, instance$t, create_fragment$u, safe_not_equal, {});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
-    			tagName: "Diagnostics",
+    			tagName: "LocalDevices",
     			options,
     			id: create_fragment$u.name
     		});
     	}
     }
 
-    /* src\Pages\_system.svelte generated by Svelte v3.19.1 */
-    const file$u = "src\\Pages\\_system.svelte";
+    /* src\Pages\_diagnostics.svelte generated by Svelte v3.19.1 */
+    const file$u = "src\\Pages\\_diagnostics.svelte";
 
-    // (13:0) <Page _currPage="System">
+    // (11:0) <Page _currPage="Diagnostics">
     function create_default_slot$n(ctx) {
     	let div;
     	let t0;
     	let t1;
     	let t2;
-    	let t3;
-    	let t4;
     	let current;
-    	const cpu = new Cpu({ $$inline: true });
-    	const osinfo = new OSinfo({ $$inline: true });
-    	const ram = new Ram({ $$inline: true });
-    	const graphics = new Graphics({ $$inline: true });
-    	const disk = new Disk({ $$inline: true });
-    	const usage = new Usage({ $$inline: true });
+    	const netstat = new Netstat({ $$inline: true });
+    	const localdevices = new LocalDevices({ $$inline: true });
+    	const passwordstrength = new PasswordStrength({ $$inline: true });
+    	const networkspeed = new NetworkSpeed({ $$inline: true });
 
     	const block = {
     		c: function create() {
     			div = element("div");
-    			create_component(cpu.$$.fragment);
+    			create_component(netstat.$$.fragment);
     			t0 = space();
-    			create_component(osinfo.$$.fragment);
+    			create_component(localdevices.$$.fragment);
     			t1 = space();
-    			create_component(ram.$$.fragment);
+    			create_component(passwordstrength.$$.fragment);
     			t2 = space();
-    			create_component(graphics.$$.fragment);
-    			t3 = space();
-    			create_component(disk.$$.fragment);
-    			t4 = space();
-    			create_component(usage.$$.fragment);
-    			attr_dev(div, "class", "p-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4");
-    			add_location(div, file$u, 13, 4, 561);
+    			create_component(networkspeed.$$.fragment);
+    			attr_dev(div, "class", "p-6 pt-12 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4");
+    			add_location(div, file$u, 11, 4, 473);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
-    			mount_component(cpu, div, null);
+    			mount_component(netstat, div, null);
     			append_dev(div, t0);
-    			mount_component(osinfo, div, null);
+    			mount_component(localdevices, div, null);
     			append_dev(div, t1);
-    			mount_component(ram, div, null);
+    			mount_component(passwordstrength, div, null);
     			append_dev(div, t2);
-    			mount_component(graphics, div, null);
-    			append_dev(div, t3);
-    			mount_component(disk, div, null);
-    			append_dev(div, t4);
-    			mount_component(usage, div, null);
+    			mount_component(networkspeed, div, null);
     			current = true;
     		},
     		i: function intro(local) {
     			if (current) return;
-    			transition_in(cpu.$$.fragment, local);
-    			transition_in(osinfo.$$.fragment, local);
-    			transition_in(ram.$$.fragment, local);
-    			transition_in(graphics.$$.fragment, local);
-    			transition_in(disk.$$.fragment, local);
-    			transition_in(usage.$$.fragment, local);
+    			transition_in(netstat.$$.fragment, local);
+    			transition_in(localdevices.$$.fragment, local);
+    			transition_in(passwordstrength.$$.fragment, local);
+    			transition_in(networkspeed.$$.fragment, local);
     			current = true;
     		},
     		o: function outro(local) {
-    			transition_out(cpu.$$.fragment, local);
-    			transition_out(osinfo.$$.fragment, local);
-    			transition_out(ram.$$.fragment, local);
-    			transition_out(graphics.$$.fragment, local);
-    			transition_out(disk.$$.fragment, local);
-    			transition_out(usage.$$.fragment, local);
+    			transition_out(netstat.$$.fragment, local);
+    			transition_out(localdevices.$$.fragment, local);
+    			transition_out(passwordstrength.$$.fragment, local);
+    			transition_out(networkspeed.$$.fragment, local);
     			current = false;
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div);
-    			destroy_component(cpu);
-    			destroy_component(osinfo);
-    			destroy_component(ram);
-    			destroy_component(graphics);
-    			destroy_component(disk);
-    			destroy_component(usage);
+    			destroy_component(netstat);
+    			destroy_component(localdevices);
+    			destroy_component(passwordstrength);
+    			destroy_component(networkspeed);
     		}
     	};
 
@@ -13172,7 +13304,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$n.name,
     		type: "slot",
-    		source: "(13:0) <Page _currPage=\\\"System\\\">",
+    		source: "(11:0) <Page _currPage=\\\"Diagnostics\\\">",
     		ctx
     	});
 
@@ -13184,7 +13316,7 @@ var app = (function () {
 
     	const page = new Page({
     			props: {
-    				_currPage: "System",
+    				_currPage: "Diagnostics",
     				$$slots: { default: [create_default_slot$n] },
     				$$scope: { ctx }
     			},
@@ -13239,6 +13371,181 @@ var app = (function () {
     function instance$u($$self, $$props, $$invalidate) {
     	$$self.$capture_state = () => ({
     		Page,
+    		PasswordStrength,
+    		NetworkSpeed,
+    		Netstat,
+    		LocalDevices
+    	});
+
+    	return [];
+    }
+
+    class Diagnostics extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$u, create_fragment$v, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Diagnostics",
+    			options,
+    			id: create_fragment$v.name
+    		});
+    	}
+    }
+
+    /* src\Pages\_system.svelte generated by Svelte v3.19.1 */
+    const file$v = "src\\Pages\\_system.svelte";
+
+    // (13:0) <Page _currPage="System">
+    function create_default_slot$o(ctx) {
+    	let div;
+    	let t0;
+    	let t1;
+    	let t2;
+    	let t3;
+    	let t4;
+    	let current;
+    	const cpu = new Cpu({ $$inline: true });
+    	const osinfo = new OSinfo({ $$inline: true });
+    	const graphics = new Graphics({ $$inline: true });
+    	const ram = new Ram({ $$inline: true });
+    	const disk = new Disk({ $$inline: true });
+    	const usage = new Usage({ $$inline: true });
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			create_component(cpu.$$.fragment);
+    			t0 = space();
+    			create_component(osinfo.$$.fragment);
+    			t1 = space();
+    			create_component(graphics.$$.fragment);
+    			t2 = space();
+    			create_component(ram.$$.fragment);
+    			t3 = space();
+    			create_component(disk.$$.fragment);
+    			t4 = space();
+    			create_component(usage.$$.fragment);
+    			attr_dev(div, "class", "p-6 pt-12 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4");
+    			add_location(div, file$v, 13, 4, 561);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			mount_component(cpu, div, null);
+    			append_dev(div, t0);
+    			mount_component(osinfo, div, null);
+    			append_dev(div, t1);
+    			mount_component(graphics, div, null);
+    			append_dev(div, t2);
+    			mount_component(ram, div, null);
+    			append_dev(div, t3);
+    			mount_component(disk, div, null);
+    			append_dev(div, t4);
+    			mount_component(usage, div, null);
+    			current = true;
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(cpu.$$.fragment, local);
+    			transition_in(osinfo.$$.fragment, local);
+    			transition_in(graphics.$$.fragment, local);
+    			transition_in(ram.$$.fragment, local);
+    			transition_in(disk.$$.fragment, local);
+    			transition_in(usage.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(cpu.$$.fragment, local);
+    			transition_out(osinfo.$$.fragment, local);
+    			transition_out(graphics.$$.fragment, local);
+    			transition_out(ram.$$.fragment, local);
+    			transition_out(disk.$$.fragment, local);
+    			transition_out(usage.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			destroy_component(cpu);
+    			destroy_component(osinfo);
+    			destroy_component(graphics);
+    			destroy_component(ram);
+    			destroy_component(disk);
+    			destroy_component(usage);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot$o.name,
+    		type: "slot",
+    		source: "(13:0) <Page _currPage=\\\"System\\\">",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$w(ctx) {
+    	let current;
+
+    	const page = new Page({
+    			props: {
+    				_currPage: "System",
+    				$$slots: { default: [create_default_slot$o] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			create_component(page.$$.fragment);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(page, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, [dirty]) {
+    			const page_changes = {};
+
+    			if (dirty & /*$$scope*/ 1) {
+    				page_changes.$$scope = { dirty, ctx };
+    			}
+
+    			page.$set(page_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(page.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(page.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(page, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$w.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$v($$self, $$props, $$invalidate) {
+    	$$self.$capture_state = () => ({
+    		Page,
     		Cpu,
     		Speed,
     		OSinfo,
@@ -13254,22 +13561,22 @@ var app = (function () {
     class System extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$u, create_fragment$v, safe_not_equal, {});
+    		init(this, options, instance$v, create_fragment$w, safe_not_equal, {});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "System",
     			options,
-    			id: create_fragment$v.name
+    			id: create_fragment$w.name
     		});
     	}
     }
 
     /* src\Pages\_api.svelte generated by Svelte v3.19.1 */
-    const file$v = "src\\Pages\\_api.svelte";
+    const file$w = "src\\Pages\\_api.svelte";
 
     // (86:8) {#if isChecked}
-    function create_if_block$l(ctx) {
+    function create_if_block$m(ctx) {
     	let div;
     	let h3;
     	let t1;
@@ -13324,32 +13631,32 @@ var app = (function () {
     			td5 = element("td");
     			input2 = element("input");
     			attr_dev(h3, "class", "text-xl mb-2");
-    			add_location(h3, file$v, 87, 12, 3518);
+    			add_location(h3, file$w, 87, 12, 3518);
     			attr_dev(td0, "class", "py-2 pr-16");
     			set_style(td0, "color", /*$settings*/ ctx[4].fontColor2);
-    			add_location(td0, file$v, 92, 20, 3698);
+    			add_location(td0, file$w, 92, 20, 3698);
     			attr_dev(input0, "type", "checkbox");
-    			add_location(input0, file$v, 94, 24, 3829);
-    			add_location(td1, file$v, 93, 20, 3799);
-    			add_location(tr0, file$v, 91, 16, 3672);
+    			add_location(input0, file$w, 94, 24, 3829);
+    			add_location(td1, file$w, 93, 20, 3799);
+    			add_location(tr0, file$w, 91, 16, 3672);
     			attr_dev(td2, "class", "py-2 pr-16");
     			set_style(td2, "color", /*$settings*/ ctx[4].fontColor2);
-    			add_location(td2, file$v, 102, 20, 4126);
+    			add_location(td2, file$w, 102, 20, 4126);
     			attr_dev(input1, "type", "checkbox");
-    			add_location(input1, file$v, 104, 24, 4257);
-    			add_location(td3, file$v, 103, 20, 4227);
-    			add_location(tr1, file$v, 101, 16, 4100);
+    			add_location(input1, file$w, 104, 24, 4257);
+    			add_location(td3, file$w, 103, 20, 4227);
+    			add_location(tr1, file$w, 101, 16, 4100);
     			attr_dev(td4, "class", "py-2 pr-16");
     			set_style(td4, "color", /*$settings*/ ctx[4].fontColor2);
-    			add_location(td4, file$v, 112, 20, 4556);
+    			add_location(td4, file$w, 112, 20, 4556);
     			attr_dev(input2, "type", "checkbox");
-    			add_location(input2, file$v, 114, 24, 4690);
-    			add_location(td5, file$v, 113, 20, 4660);
-    			add_location(tr2, file$v, 111, 16, 4530);
+    			add_location(input2, file$w, 114, 24, 4690);
+    			add_location(td5, file$w, 113, 20, 4660);
+    			add_location(tr2, file$w, 111, 16, 4530);
     			attr_dev(table, "class", "table-auto text-md");
-    			add_location(table, file$v, 90, 12, 3620);
+    			add_location(table, file$w, 90, 12, 3620);
     			set_style(div, "color", /*$settings*/ ctx[4].fontColor2);
-    			add_location(div, file$v, 86, 8, 3460);
+    			add_location(div, file$w, 86, 8, 3460);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -13426,7 +13733,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$l.name,
+    		id: create_if_block$m.name,
     		type: "if",
     		source: "(86:8) {#if isChecked}",
     		ctx
@@ -13436,7 +13743,7 @@ var app = (function () {
     }
 
     // (59:0) <Page _currPage="API">
-    function create_default_slot$o(ctx) {
+    function create_default_slot$p(ctx) {
     	let div2;
     	let div0;
     	let h1;
@@ -13450,7 +13757,7 @@ var app = (function () {
     	let div1;
     	let t5;
     	let dispose;
-    	let if_block = /*isChecked*/ ctx[0] && create_if_block$l(ctx);
+    	let if_block = /*isChecked*/ ctx[0] && create_if_block$m(ctx);
 
     	const block = {
     		c: function create() {
@@ -13470,22 +13777,22 @@ var app = (function () {
     			if (if_block) if_block.c();
     			attr_dev(h1, "class", "text-xl mt-4");
     			set_style(h1, "color", /*$settings*/ ctx[4].fontColor2);
-    			add_location(h1, file$v, 61, 12, 2413);
+    			add_location(h1, file$w, 61, 12, 2413);
     			attr_dev(input, "type", "checkbox");
     			attr_dev(input, "id", "toggle-api");
     			attr_dev(input, "class", "svelte-1r7cmh2");
-    			add_location(input, file$v, 71, 16, 2788);
+    			add_location(input, file$w, 71, 16, 2788);
     			attr_dev(span, "class", "slider round svelte-1r7cmh2");
-    			add_location(span, file$v, 77, 16, 2994);
+    			add_location(span, file$w, 77, 16, 2994);
     			attr_dev(label, "for", "toggle-api");
     			attr_dev(label, "class", "switch ml-4 mt-6 svelte-1r7cmh2");
-    			add_location(label, file$v, 67, 12, 2672);
+    			add_location(label, file$w, 67, 12, 2672);
     			attr_dev(div0, "class", "flex flex-row justify-between items-center");
-    			add_location(div0, file$v, 60, 8, 2343);
+    			add_location(div0, file$w, 60, 8, 2343);
     			attr_dev(div1, "class", "text-white p-2 my-8 rounded-md bg-green-500 border-4 border-green-700 ");
-    			add_location(div1, file$v, 80, 8, 3071);
+    			add_location(div1, file$w, 80, 8, 3071);
     			attr_dev(div2, "class", "p-6");
-    			add_location(div2, file$v, 59, 4, 2316);
+    			add_location(div2, file$w, 59, 4, 2316);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div2, anchor);
@@ -13521,7 +13828,7 @@ var app = (function () {
     				if (if_block) {
     					if_block.p(ctx, dirty);
     				} else {
-    					if_block = create_if_block$l(ctx);
+    					if_block = create_if_block$m(ctx);
     					if_block.c();
     					if_block.m(div2, null);
     				}
@@ -13539,7 +13846,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot$o.name,
+    		id: create_default_slot$p.name,
     		type: "slot",
     		source: "(59:0) <Page _currPage=\\\"API\\\">",
     		ctx
@@ -13548,13 +13855,13 @@ var app = (function () {
     	return block;
     }
 
-    function create_fragment$w(ctx) {
+    function create_fragment$x(ctx) {
     	let current;
 
     	const page = new Page({
     			props: {
     				_currPage: "API",
-    				$$slots: { default: [create_default_slot$o] },
+    				$$slots: { default: [create_default_slot$p] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -13596,7 +13903,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$w.name,
+    		id: create_fragment$x.name,
     		type: "component",
     		source: "",
     		ctx
@@ -13624,7 +13931,7 @@ var app = (function () {
     	}
     }
 
-    function instance$v($$self, $$props, $$invalidate) {
+    function instance$w($$self, $$props, $$invalidate) {
     	let $settings;
     	validate_store(settings, "settings");
     	component_subscribe($$self, settings, $$value => $$invalidate(4, $settings = $$value));
@@ -13738,19 +14045,19 @@ var app = (function () {
     class Api extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$v, create_fragment$w, safe_not_equal, {});
+    		init(this, options, instance$w, create_fragment$x, safe_not_equal, {});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "Api",
     			options,
-    			id: create_fragment$w.name
+    			id: create_fragment$x.name
     		});
     	}
     }
 
     /* src\Pages\_settings.svelte generated by Svelte v3.19.1 */
-    const file$w = "src\\Pages\\_settings.svelte";
+    const file$x = "src\\Pages\\_settings.svelte";
 
     // (53:2) <Shell title={"Application Settings"} tooltip={"Change Application Settings"}>
     function create_default_slot_1(ctx) {
@@ -13859,94 +14166,94 @@ var app = (function () {
     			attr_dev(label0, "class", "font-semibold pb-2 text-center");
     			set_style(label0, "color", /*$settings*/ ctx[8].fontColor2);
     			attr_dev(label0, "for", "username");
-    			add_location(label0, file$w, 64, 10, 2939);
+    			add_location(label0, file$x, 64, 10, 2935);
     			attr_dev(input0, "class", "w-full sm:w-96 rounded-md p-1 text-gray-800");
     			input0.value = /*username*/ ctx[0];
     			attr_dev(input0, "type", "text");
     			attr_dev(input0, "id", "username");
-    			add_location(input0, file$w, 71, 10, 3162);
+    			add_location(input0, file$x, 71, 10, 3158);
     			attr_dev(div0, "class", "flex flex-col justify-start mb-6");
-    			add_location(div0, file$w, 63, 6, 2881);
+    			add_location(div0, file$x, 63, 6, 2877);
     			attr_dev(label1, "class", "font-semibold text-center pb-2");
     			set_style(label1, "color", /*$settings*/ ctx[8].fontColor2);
     			attr_dev(label1, "for", "Background Colors");
-    			add_location(label1, file$w, 80, 10, 3452);
+    			add_location(label1, file$x, 80, 10, 3448);
     			attr_dev(input1, "class", "mx-3 rounded-sm svelte-rgymr2");
     			input1.value = /*bgColor1*/ ctx[1];
     			attr_dev(input1, "type", "color");
     			attr_dev(input1, "id", "bgColor-1");
-    			add_location(input1, file$w, 88, 14, 3707);
+    			add_location(input1, file$x, 88, 14, 3703);
     			attr_dev(input2, "class", "mx-3 rounded-sm svelte-rgymr2");
     			input2.value = /*bgColor2*/ ctx[2];
     			attr_dev(input2, "type", "color");
     			attr_dev(input2, "id", "bgColor-2");
-    			add_location(input2, file$w, 94, 14, 3892);
+    			add_location(input2, file$x, 94, 14, 3888);
     			attr_dev(input3, "class", "mx-3 rounded-sm svelte-rgymr2");
     			input3.value = /*bgColor3*/ ctx[3];
     			attr_dev(input3, "type", "color");
     			attr_dev(input3, "id", "bgColor-3");
-    			add_location(input3, file$w, 100, 14, 4077);
+    			add_location(input3, file$x, 100, 14, 4073);
     			attr_dev(input4, "class", "mx-3 rounded-sm svelte-rgymr2");
     			input4.value = /*bgColor4*/ ctx[4];
     			attr_dev(input4, "type", "color");
     			attr_dev(input4, "id", "bgColor-4");
-    			add_location(input4, file$w, 106, 14, 4262);
-    			add_location(div1, file$w, 87, 10, 3686);
+    			add_location(input4, file$x, 106, 14, 4258);
+    			add_location(div1, file$x, 87, 10, 3682);
     			attr_dev(div2, "class", "flex flex-col justify-center mb-6");
-    			add_location(div2, file$w, 79, 6, 3393);
+    			add_location(div2, file$x, 79, 6, 3389);
     			attr_dev(label2, "class", "font-semibold text-center pb-2");
     			set_style(label2, "color", /*$settings*/ ctx[8].fontColor2);
     			attr_dev(label2, "for", "Font Colors");
-    			add_location(label2, file$w, 116, 10, 4558);
+    			add_location(label2, file$x, 116, 10, 4554);
     			attr_dev(input5, "class", "mx-3 rounded-sm svelte-rgymr2");
     			input5.value = /*fontColor1*/ ctx[5];
     			attr_dev(input5, "type", "color");
     			attr_dev(input5, "id", "fontColor-1");
-    			add_location(input5, file$w, 124, 14, 4798);
+    			add_location(input5, file$x, 124, 14, 4794);
     			attr_dev(input6, "class", "mx-3 rounded-sm svelte-rgymr2");
     			input6.value = /*fontColor2*/ ctx[6];
     			attr_dev(input6, "type", "color");
     			attr_dev(input6, "id", "fontColor-2");
-    			add_location(input6, file$w, 130, 14, 4987);
-    			add_location(div3, file$w, 123, 10, 4777);
+    			add_location(input6, file$x, 130, 14, 4983);
+    			add_location(div3, file$x, 123, 10, 4773);
     			attr_dev(div4, "class", "flex flex-col justify-center mb-6");
-    			add_location(div4, file$w, 115, 6, 4499);
+    			add_location(div4, file$x, 115, 6, 4495);
     			attr_dev(label3, "class", "font-semibold pb-2 text-center pb-2");
     			set_style(label3, "color", /*$settings*/ ctx[8].fontColor2);
     			attr_dev(label3, "for", "font");
-    			add_location(label3, file$w, 140, 10, 5280);
+    			add_location(label3, file$x, 140, 10, 5276);
     			option0.__value = "";
     			option0.value = option0.__value;
-    			add_location(option0, file$w, 153, 14, 5681);
+    			add_location(option0, file$x, 153, 14, 5677);
     			option1.__value = "Roboto";
     			option1.value = option1.__value;
-    			add_location(option1, file$w, 156, 14, 5766);
+    			add_location(option1, file$x, 156, 14, 5762);
     			option2.__value = "Open Sans";
     			option2.value = option2.__value;
-    			add_location(option2, file$w, 159, 14, 5856);
+    			add_location(option2, file$x, 159, 14, 5852);
     			option3.__value = "Lato";
     			option3.value = option3.__value;
-    			add_location(option3, file$w, 162, 14, 5952);
+    			add_location(option3, file$x, 162, 14, 5948);
     			option4.__value = "Montserrat";
     			option4.value = option4.__value;
-    			add_location(option4, file$w, 165, 14, 6038);
+    			add_location(option4, file$x, 165, 14, 6034);
     			attr_dev(select, "name", "font");
     			attr_dev(select, "id", "font");
     			attr_dev(select, "class", "w-max mb-4 px-2 py-1 rounded-md text-gray-800");
-    			add_location(select, file$w, 147, 10, 5496);
+    			add_location(select, file$x, 147, 10, 5492);
     			attr_dev(div5, "class", "flex flex-col justify-center mb-6");
-    			add_location(div5, file$w, 139, 6, 5221);
+    			add_location(div5, file$x, 139, 6, 5217);
     			attr_dev(button0, "class", "text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-semibold hover:bg-purple-600");
     			set_style(button0, "color", /*$settings*/ ctx[8].fontColor1);
-    			add_location(button0, file$w, 172, 10, 6254);
+    			add_location(button0, file$x, 172, 10, 6250);
     			attr_dev(button1, "class", "text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-semibold hover:bg-purple-600");
     			set_style(button1, "color", /*$settings*/ ctx[8].fontColor1);
-    			add_location(button1, file$w, 179, 10, 6544);
+    			add_location(button1, file$x, 179, 10, 6540);
     			attr_dev(div6, "class", "flex flex-row justify-center items-center");
-    			add_location(div6, file$w, 171, 6, 6187);
+    			add_location(div6, file$x, 171, 6, 6183);
     			attr_dev(div7, "class", "flex flex-col items-center justify-center rounded-md p-1");
     			set_style(div7, "background-color", /*$settings*/ ctx[8].bgColor3);
-    			add_location(div7, file$w, 53, 4, 2570);
+    			add_location(div7, file$x, 53, 4, 2570);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div7, anchor);
@@ -14098,7 +14405,7 @@ var app = (function () {
     }
 
     // (51:0) <Page _currPage="Settings">
-    function create_default_slot$p(ctx) {
+    function create_default_slot$q(ctx) {
     	let div;
     	let current;
 
@@ -14117,7 +14424,7 @@ var app = (function () {
     			div = element("div");
     			create_component(shell.$$.fragment);
     			attr_dev(div, "class", "p-6");
-    			add_location(div, file$w, 51, 0, 2465);
+    			add_location(div, file$x, 51, 0, 2465);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -14150,7 +14457,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot$p.name,
+    		id: create_default_slot$q.name,
     		type: "slot",
     		source: "(51:0) <Page _currPage=\\\"Settings\\\">",
     		ctx
@@ -14159,13 +14466,13 @@ var app = (function () {
     	return block;
     }
 
-    function create_fragment$x(ctx) {
+    function create_fragment$y(ctx) {
     	let current;
 
     	const page = new Page({
     			props: {
     				_currPage: "Settings",
-    				$$slots: { default: [create_default_slot$p] },
+    				$$slots: { default: [create_default_slot$q] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -14207,7 +14514,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$x.name,
+    		id: create_fragment$y.name,
     		type: "component",
     		source: "",
     		ctx
@@ -14216,7 +14523,7 @@ var app = (function () {
     	return block;
     }
 
-    function instance$w($$self, $$props, $$invalidate) {
+    function instance$x($$self, $$props, $$invalidate) {
     	let $settings;
     	validate_store(settings, "settings");
     	component_subscribe($$self, settings, $$value => $$invalidate(8, $settings = $$value));
@@ -14230,12 +14537,12 @@ var app = (function () {
     	let font = $settings.font;
 
     	const applyChanges = type => {
-    		// Set store values 
+    		// Set store values
     		set_store_value(
     			settings,
     			$settings.username = type == "save"
     			? document.getElementById("username").value
-    			: "Admin",
+    			: "Neuron",
     			$settings
     		);
 
@@ -14375,20 +14682,20 @@ var app = (function () {
     class Settings extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$w, create_fragment$x, safe_not_equal, {});
+    		init(this, options, instance$x, create_fragment$y, safe_not_equal, {});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "Settings",
     			options,
-    			id: create_fragment$x.name
+    			id: create_fragment$y.name
     		});
     	}
     }
 
     /* src\App.svelte generated by Svelte v3.19.1 */
 
-    function create_fragment$y(ctx) {
+    function create_fragment$z(ctx) {
     	let current;
 
     	const router = new Router({
@@ -14433,7 +14740,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$y.name,
+    		id: create_fragment$z.name,
     		type: "component",
     		source: "",
     		ctx
@@ -14442,7 +14749,7 @@ var app = (function () {
     	return block;
     }
 
-    function instance$x($$self, $$props, $$invalidate) {
+    function instance$y($$self, $$props, $$invalidate) {
     	$$self.$capture_state = () => ({
     		Router,
     		Main,
@@ -14459,13 +14766,13 @@ var app = (function () {
     class App extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$x, create_fragment$y, safe_not_equal, {});
+    		init(this, options, instance$y, create_fragment$z, safe_not_equal, {});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "App",
     			options,
-    			id: create_fragment$y.name
+    			id: create_fragment$z.name
     		});
     	}
     }

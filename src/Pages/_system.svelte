@@ -11,11 +11,11 @@
 </script>
 
 <Page _currPage="System">
-    <div class="p-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+    <div class="p-6 pt-12 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
           <Cpu />
           <OSinfo />
-          <Ram />
           <Graphics />
+          <Ram />
           <!-- <Speed /> -->
           <Disk />
           <Usage />

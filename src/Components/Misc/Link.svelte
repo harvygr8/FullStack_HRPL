@@ -26,7 +26,7 @@ a:hover {
           style="background:{$settings.bgColor3}"
         >
             <i class="fa {icon} text-center w-full md:w-8" />
-            <span class="hidden md:block pl-2 font-semibold">
+            <span class="hidden md:block pl-2 font-semibold uppercase">
                 {name}
             </span>
         </div>

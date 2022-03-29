@@ -21,21 +21,21 @@ let result = '';
 
 // fs.truncate('/path/to/file', 0, function(){console.log('done')})
 const getNetstatInfo = () => {
-  fs.unlink('./netstatlog.txt', function(){startRT()});
+  fs.unlink('./logs/raw_logs/netstatlog.txt', function(){startRT()});
 }
 
 
 const startRT = () => {
     ipcMain.on('get-netstat-info', e => {
 
-      let logStream = fs.createWriteStream('./netstatlog.txt', {flags: 'w'});
+      let logStream = fs.createWriteStream('./logs/raw_logs/netstatlog.txt', {flags: 'w'});
       const finalArr =[];
 
       exec(execMd, (err, stdout, stderr) => {
 
         logStream.write(stdout);
 
-        fs.readFile('./netstatlog.txt', function(err, data) {
+        fs.readFile('./logs/raw_logs/netstatlog.txt', function(err, data) {
             if(err) throw err;
             let array = data.toString().split("\n");
 

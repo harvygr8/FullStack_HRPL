@@ -14,8 +14,8 @@
     let font = $settings.font;
 
     const applyChanges = type => {
-        // Set store values 
-        $settings.username = type == 'save' ? document.getElementById('username').value : 'Admin';
+        // Set store values
+        $settings.username = type == 'save' ? document.getElementById('username').value : 'Neuron';
         $settings.bgColor1 = type == 'save' ? document.getElementById('bgColor-1').value : '#1F2937';
         $settings.bgColor2 = type == 'save' ? document.getElementById('bgColor-2').value : '#111827';
         $settings.bgColor3 = type == 'save' ? document.getElementById('bgColor-3').value : '#374151';
@@ -51,9 +51,9 @@
 <Page _currPage="Settings">
 <div class="p-6">
   <Shell title={"Application Settings"} tooltip={"Change Application Settings"}>
-    <div 
-    class="flex flex-col items-center justify-center rounded-md p-1" 
-    style="background-color: {$settings.bgColor3};"  
+    <div
+    class="flex flex-col items-center justify-center rounded-md p-1"
+    style="background-color: {$settings.bgColor3};"
     >
       <!-- <h2
           class="text-3xl mb-8 mt-4 font-bold"

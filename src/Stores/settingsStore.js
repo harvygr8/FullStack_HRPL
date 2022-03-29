@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 //Export
 export const settings = writable({
-    username: localStorage.username ? localStorage.username : 'Admin',
+    username: localStorage.username ? localStorage.username : 'Neuron',
     id: localStorage.id ? localStorage.id : uuidv4(),
     bgColor1 : localStorage.bgColor1 ? localStorage.bgColor1 : '#1F2937',
     bgColor2 : localStorage.bgColor2 ? localStorage.bgColor2 : '#111827',

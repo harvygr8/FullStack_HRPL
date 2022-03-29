@@ -7,12 +7,13 @@
     import Dns from '../Components/Network/Dns/Dns.svelte'
     import Ports from '../Components/Network/Ports/Ports.svelte'
     import SslChecker from '../Components/Diagnostics/SslChecker/SslChecker.svelte';
-    import Netstat from '../Components/Diagnostics/Netstat/Netstat.svelte';
+    import Info from '../Components/Wifi/Info/Info.svelte';
+
 
 </script>
 
 <Page _currPage="Network">
-    <div class="p-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+    <div class="p-6 pt-12 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
       <div class="col-span-1 md:col-span-2 xl:col-span-3">
         <Ping />
       </div>
@@ -20,7 +21,7 @@
       <NetworkInterfaces />
       <Dns />
       <Ports/>
-      <Netstat/>
+      <Info/>
       <SslChecker/>
     </div>
 </Page>

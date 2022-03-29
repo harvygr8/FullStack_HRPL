@@ -21,7 +21,7 @@
 </script>
 
 <Shell title={"Available Interfaces"} tooltip={"List of available network interfaces"}>
-    <div class="text-gray-50 max-h-48 overflow-auto">
+    <div class="text-gray-50 h-60 overflow-auto">
     {#if interfaces}
       <p class="font-semibold text-lg">&#8226; Current Public IP: <span class="font-semibold text-lg text-purple-400">{pIp}</span></p>
         {#if interfaces.length > 0}

@@ -144,24 +144,23 @@
 
 <Shell title={"Ping Tool"} tooltip={"Check Ping Data w/Graphs and Stats"}>
   <div class="flex flex-col">
-    <div class="flex flex-row justify-center mt-1">
+    <div class="flex flex-row justify-center mt-1 md:h-12">
     <input id="dname" type="text" placeholder="Enter IP/Domain" value="" class="w-3/5 rounded-md m-2 px-1 text-gray-800 font-semibold">
     <button type="button" on:click={sendData} class="text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-semibold hover:bg-purple-600">Start</button>
     <button type="button" on:click={stopTool} class="text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-semibold hover:bg-purple-600">Stop</button>
-    <button type="button" on:click={() => isChartVisible = !isChartVisible} class="text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-semibold hover:bg-purple-600">{isChartVisible ? 'Show Stats' : 'Show Graph'}</button>
-    <button type="button" on:click={clearData} class="text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-semibold hover:bg-purple-600">Clear Data</button>
+    <button type="button" on:click={() => isChartVisible = !isChartVisible} class="text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-semibold hover:bg-purple-600">{isChartVisible ? 'Stats' : 'Graph'}</button>
+    <button type="button" on:click={clearData} class="text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-semibold hover:bg-purple-600">Clear</button>
     </div>
-    <div class="mt-2 flex flex-col items-center text-gray-50">
+    <div class="mt-1 md:mt-3 flex flex-col items-center text-gray-50">
     {#if ping}
     {#if !isChartVisible}
-    <div class='grid grid-cols-2 md:grid-cols-3'>
+    <div class='h-36 grid grid-cols-5 md:grid-cols-5'>
 
 
     <div class='p-2 m-2 flex flex-col justify-center items-center'>
       <p class='text-white'>Host</p>
         <div class='flex flex-row'>
           <p class='font-semibold text-white text-xl'>{ping.hst}</p>&nbsp
-          <p class='font-semibold text-white text-sm'></p>
         </div>
     </div>
 
@@ -180,7 +179,7 @@
             </div>
         </div>
 
-        <div class='p-2 m-2 flex flex-col justify-center items-center'>
+        <div class='p-1 m-1 flex flex-col justify-center items-center'>
           <p class='text-white'>Alive</p>
             <div class='flex flex-row'>
               <p class='font-semibold text-white text-xl' style="text-transform: capitalize;">{ping.alive}</p>&nbsp
@@ -188,7 +187,7 @@
             </div>
         </div>
 
-        <div class='p-2 m-2 flex flex-col justify-center items-center'>
+        <div class='p-1 m-1 flex flex-col justify-center items-center'>
           <p class='text-white'>Loss</p>
             <div class='flex flex-row'>
               <p id="infoValueCPN" class='font-semibold text-white text-xl'>{ping.loss}</p>&nbsp
@@ -205,7 +204,7 @@
 
     {:else}
         {#if !isChartVisible}
-        <div class='grid grid-cols-2 md:grid-cols-3'>
+        <div class='h-36 grid grid-cols-5 md:grid-cols-5'>
         <div class='p-2 m-2 flex flex-col justify-center items-center'>
           <p class='text-white'>Host</p>
             <div class='flex flex-row'>
