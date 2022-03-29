@@ -19,12 +19,12 @@
 </script>
 
 <Shell title={"DNS Lookup"} tooltip={"DNS Lookup Information"}>
-    <div class="text-gray-50">
+    <div class="h-58 text-gray-50">
         <div class="flex flex-row">
         <input type="text" placeholder="Enter Domain Name" bind:value class="w-10/12 rounded-md m-2 px-1 text-gray-800 font-semibold">
             <button on:click={getDnsInfo} class="text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-semibold hover:bg-purple-600" type="button">Search</button>
         </div>
-        <div class="mt-2 max-h-48 overflow-auto">
+        <div class="mt-2 max-h-40 overflow-auto">
             {#if dns}
                 {#if !dns.err}
                     <p>&#8226; IP Address</p>
@@ -51,3 +51,27 @@
         </div>
     </div>
 </Shell>
+
+<style>
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+      width: 12px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+      background: #374151;
+      margin-top: 24px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+      background: #8B5CF6;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+      background: #6241ad;
+  }
+
+</style>

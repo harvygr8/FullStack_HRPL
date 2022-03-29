@@ -51,3 +51,27 @@
         </div>
     </div>
 </Shell>
+
+<style>
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+      width: 12px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+      background: #374151;
+      margin-top: 24px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+      background: #8B5CF6;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+      background: #6241ad;
+  }
+
+</style>

@@ -4760,15 +4760,18 @@ var app = (function () {
     			t9 = space();
     			span2 = element("span");
     			span2.textContent = "N/A";
-    			add_location(p0, file$b, 43, 12, 1671);
-    			attr_dev(span0, "class", "ml-8 font-semibold text-lg");
-    			add_location(span0, file$b, 44, 14, 1712);
-    			add_location(p1, file$b, 45, 12, 1777);
-    			attr_dev(span1, "class", "ml-8 font-semibold text-lg");
-    			add_location(span1, file$b, 46, 14, 1819);
-    			add_location(p2, file$b, 47, 12, 1884);
-    			attr_dev(span2, "class", "ml-8 font-semibold text-lg");
-    			add_location(span2, file$b, 48, 14, 1928);
+    			attr_dev(p0, "class", "svelte-5avmh9");
+    			add_location(p0, file$b, 43, 12, 1676);
+    			attr_dev(span0, "class", "ml-8 font-semibold text-lg svelte-5avmh9");
+    			add_location(span0, file$b, 44, 14, 1717);
+    			attr_dev(p1, "class", "svelte-5avmh9");
+    			add_location(p1, file$b, 45, 12, 1782);
+    			attr_dev(span1, "class", "ml-8 font-semibold text-lg svelte-5avmh9");
+    			add_location(span1, file$b, 46, 14, 1824);
+    			attr_dev(p2, "class", "svelte-5avmh9");
+    			add_location(p2, file$b, 47, 12, 1889);
+    			attr_dev(span2, "class", "ml-8 font-semibold text-lg svelte-5avmh9");
+    			add_location(span2, file$b, 48, 14, 1933);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p0, anchor);
@@ -4871,9 +4874,10 @@ var app = (function () {
     			p = element("p");
     			span = element("span");
     			span.textContent = "Error: DNS couldn't be found";
-    			attr_dev(span, "class", "font-semibold text-lg");
-    			add_location(span, file$b, 40, 23, 1538);
-    			add_location(p, file$b, 40, 20, 1535);
+    			attr_dev(span, "class", "font-semibold text-lg svelte-5avmh9");
+    			add_location(span, file$b, 40, 23, 1543);
+    			attr_dev(p, "class", "svelte-5avmh9");
+    			add_location(p, file$b, 40, 20, 1540);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -4952,11 +4956,14 @@ var app = (function () {
     			}
 
     			each1_anchor = empty();
-    			add_location(p0, file$b, 29, 20, 984);
-    			attr_dev(span, "class", "ml-8 font-semibold text-lg");
-    			add_location(span, file$b, 30, 22, 1033);
-    			add_location(p1, file$b, 31, 20, 1116);
-    			add_location(p2, file$b, 35, 20, 1312);
+    			attr_dev(p0, "class", "svelte-5avmh9");
+    			add_location(p0, file$b, 29, 20, 989);
+    			attr_dev(span, "class", "ml-8 font-semibold text-lg svelte-5avmh9");
+    			add_location(span, file$b, 30, 22, 1038);
+    			attr_dev(p1, "class", "svelte-5avmh9");
+    			add_location(p1, file$b, 31, 20, 1121);
+    			attr_dev(p2, "class", "svelte-5avmh9");
+    			add_location(p2, file$b, 35, 20, 1317);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p0, anchor);
@@ -5069,8 +5076,8 @@ var app = (function () {
     		c: function create() {
     			p = element("p");
     			t = text(t_value);
-    			attr_dev(p, "class", "ml-8 font-semibold text-lg");
-    			add_location(p, file$b, 33, 24, 1213);
+    			attr_dev(p, "class", "ml-8 font-semibold text-lg svelte-5avmh9");
+    			add_location(p, file$b, 33, 24, 1218);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -5105,8 +5112,8 @@ var app = (function () {
     		c: function create() {
     			p = element("p");
     			t = text(t_value);
-    			attr_dev(p, "class", "ml-8 font-semibold text-lg");
-    			add_location(p, file$b, 37, 24, 1411);
+    			attr_dev(p, "class", "ml-8 font-semibold text-lg svelte-5avmh9");
+    			add_location(p, file$b, 37, 24, 1416);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -5163,16 +5170,16 @@ var app = (function () {
     			if_block.c();
     			attr_dev(input, "type", "text");
     			attr_dev(input, "placeholder", "Enter Domain Name");
-    			attr_dev(input, "class", "w-10/12 rounded-md m-2 px-1 text-gray-800 font-semibold");
-    			add_location(input, file$b, 23, 8, 547);
-    			attr_dev(button, "class", "text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-semibold hover:bg-purple-600");
+    			attr_dev(input, "class", "w-10/12 rounded-md m-2 px-1 text-gray-800 font-semibold svelte-5avmh9");
+    			add_location(input, file$b, 23, 8, 552);
+    			attr_dev(button, "class", "text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-semibold hover:bg-purple-600 svelte-5avmh9");
     			attr_dev(button, "type", "button");
-    			add_location(button, file$b, 24, 12, 687);
-    			attr_dev(div0, "class", "flex flex-row");
-    			add_location(div0, file$b, 22, 8, 510);
-    			attr_dev(div1, "class", "mt-2 max-h-48 overflow-auto");
-    			add_location(div1, file$b, 26, 8, 866);
-    			attr_dev(div2, "class", "text-gray-50");
+    			add_location(button, file$b, 24, 12, 692);
+    			attr_dev(div0, "class", "flex flex-row svelte-5avmh9");
+    			add_location(div0, file$b, 22, 8, 515);
+    			attr_dev(div1, "class", "mt-2 max-h-40 overflow-auto svelte-5avmh9");
+    			add_location(div1, file$b, 26, 8, 871);
+    			attr_dev(div2, "class", "h-58 text-gray-50 svelte-5avmh9");
     			add_location(div2, file$b, 21, 4, 474);
     		},
     		m: function mount(target, anchor) {
@@ -5372,15 +5379,15 @@ var app = (function () {
     			t9 = space();
     			span2 = element("span");
     			span2.textContent = "N/A";
-    			add_location(p0, file$c, 34, 4, 1266);
+    			add_location(p0, file$c, 34, 4, 1288);
     			attr_dev(span0, "class", "ml-6 font-semibold text-lg");
-    			add_location(span0, file$c, 35, 4, 1300);
-    			add_location(p1, file$c, 36, 4, 1357);
+    			add_location(span0, file$c, 35, 4, 1322);
+    			add_location(p1, file$c, 36, 4, 1379);
     			attr_dev(span1, "class", "ml-6 font-semibold text-lg");
-    			add_location(span1, file$c, 37, 4, 1384);
-    			add_location(p2, file$c, 38, 4, 1447);
+    			add_location(span1, file$c, 37, 4, 1406);
+    			add_location(p2, file$c, 38, 4, 1469);
     			attr_dev(span2, "class", "ml-6 font-semibold text-lg");
-    			add_location(span2, file$c, 39, 4, 1484);
+    			add_location(span2, file$c, 39, 4, 1506);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p0, anchor);
@@ -5445,31 +5452,31 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			p0 = element("p");
-    			p0.textContent = "◆ Country";
+    			p0.textContent = "• Country";
     			t1 = space();
     			span0 = element("span");
     			t2 = text(t2_value);
     			t3 = space();
     			p1 = element("p");
-    			p1.textContent = "◆ Region";
+    			p1.textContent = "• Region";
     			t5 = space();
     			span1 = element("span");
     			t6 = text(t6_value);
     			t7 = space();
     			p2 = element("p");
-    			p2.textContent = "◆ ISP/ORG";
+    			p2.textContent = "• ISP/ORG";
     			t9 = space();
     			span2 = element("span");
     			t10 = text(t10_value);
-    			add_location(p0, file$c, 26, 8, 956);
+    			add_location(p0, file$c, 26, 8, 975);
     			attr_dev(span0, "class", "ml-6 font-semibold text-lg");
-    			add_location(span0, file$c, 27, 8, 987);
-    			add_location(p1, file$c, 28, 8, 1058);
+    			add_location(span0, file$c, 27, 8, 1007);
+    			add_location(p1, file$c, 28, 8, 1078);
     			attr_dev(span1, "class", "ml-6 font-semibold text-lg");
-    			add_location(span1, file$c, 29, 8, 1088);
-    			add_location(p2, file$c, 30, 8, 1156);
+    			add_location(span1, file$c, 29, 8, 1109);
+    			add_location(p2, file$c, 30, 8, 1177);
     			attr_dev(span2, "class", "ml-6 font-semibold text-lg");
-    			add_location(span2, file$c, 31, 9, 1188);
+    			add_location(span2, file$c, 31, 9, 1210);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p0, anchor);
@@ -5551,15 +5558,15 @@ var app = (function () {
     			attr_dev(input, "type", "text");
     			attr_dev(input, "placeholder", "Enter IP");
     			attr_dev(input, "class", "w-10/12 rounded-md m-2 px-1 text-gray-800 font-semibold");
-    			add_location(input, file$c, 21, 4, 579);
+    			add_location(input, file$c, 21, 4, 598);
     			attr_dev(button, "type", "button");
     			attr_dev(button, "class", "text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-semibold hover:bg-purple-600");
-    			add_location(button, file$c, 22, 4, 707);
+    			add_location(button, file$c, 22, 4, 726);
     			attr_dev(div0, "class", "flex flex-row justify-start");
-    			add_location(div0, file$c, 20, 4, 532);
+    			add_location(div0, file$c, 20, 4, 551);
     			attr_dev(div1, "class", "flex flex-col items-start text-gray-50");
-    			add_location(div1, file$c, 24, 4, 879);
-    			attr_dev(div2, "class", "flex flex-col");
+    			add_location(div1, file$c, 24, 4, 898);
+    			attr_dev(div2, "class", "h-54 overflow-auto flex flex-col");
     			add_location(div2, file$c, 19, 2, 499);
     		},
     		m: function mount(target, anchor) {
@@ -7463,8 +7470,9 @@ var app = (function () {
     			t1 = space();
     			span = element("span");
     			span.textContent = "N/A";
+    			attr_dev(p, "class", "svelte-5avmh9");
     			add_location(p, file$f, 47, 12, 1558);
-    			attr_dev(span, "class", "ml-8 font-semibold text-lg");
+    			attr_dev(span, "class", "ml-8 font-semibold text-lg svelte-5avmh9");
     			add_location(span, file$f, 48, 12, 1597);
     		},
     		m: function mount(target, anchor) {
@@ -7503,7 +7511,7 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			create_component(loader.$$.fragment);
-    			attr_dev(div, "class", "flex flex-row justify-center");
+    			attr_dev(div, "class", "flex flex-row justify-center svelte-5avmh9");
     			add_location(div, file$f, 41, 14, 1347);
     		},
     		m: function mount(target, anchor) {
@@ -7562,6 +7570,7 @@ var app = (function () {
     			}
 
     			each_1_anchor = empty();
+    			attr_dev(p, "class", "svelte-5avmh9");
     			add_location(p, file$f, 35, 14, 1079);
     		},
     		m: function mount(target, anchor) {
@@ -7630,7 +7639,7 @@ var app = (function () {
     		c: function create() {
     			span = element("span");
     			t = text(t_value);
-    			attr_dev(span, "class", "ml-8 font-semibold text-lg block");
+    			attr_dev(span, "class", "ml-8 font-semibold text-lg block svelte-5avmh9");
     			add_location(span, file$f, 37, 14, 1162);
     		},
     		m: function mount(target, anchor) {
@@ -7694,16 +7703,16 @@ var app = (function () {
     			if_block.c();
     			attr_dev(input, "type", "text");
     			attr_dev(input, "placeholder", "Enter IP");
-    			attr_dev(input, "class", "w-10/12 rounded-md m-2 px-1 text-gray-800 font-semibold");
+    			attr_dev(input, "class", "w-10/12 rounded-md m-2 px-1 text-gray-800 font-semibold svelte-5avmh9");
     			add_location(input, file$f, 30, 8, 682);
-    			attr_dev(button, "class", "text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-semibold hover:bg-purple-600");
+    			attr_dev(button, "class", "text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-semibold hover:bg-purple-600 svelte-5avmh9");
     			attr_dev(button, "type", "button");
     			add_location(button, file$f, 31, 12, 813);
-    			attr_dev(div0, "class", "flex flex-row");
+    			attr_dev(div0, "class", "flex flex-row svelte-5avmh9");
     			add_location(div0, file$f, 29, 8, 645);
-    			attr_dev(div1, "class", "mt-2 max-h-48 overflow-auto w-full");
+    			attr_dev(div1, "class", "mt-2 max-h-48 overflow-auto w-full svelte-5avmh9");
     			add_location(div1, file$f, 33, 8, 991);
-    			attr_dev(div2, "class", "text-gray-50");
+    			attr_dev(div2, "class", "text-gray-50 svelte-5avmh9");
     			add_location(div2, file$f, 28, 4, 609);
     		},
     		m: function mount(target, anchor) {
