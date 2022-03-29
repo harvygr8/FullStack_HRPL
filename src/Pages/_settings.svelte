@@ -2,7 +2,6 @@
     //Svelte
     import Page from './_page.svelte';
     import { settings } from '../Stores/settingsStore';
-    import Shell from '../Components/Misc/Shell.svelte'
 
     let username = $settings.username;
     let bgColor1 = $settings.bgColor1;
@@ -50,18 +49,23 @@
 
 <Page _currPage="Settings">
 <div class="p-6">
-  <Shell title={"Application Settings"} tooltip={"Change Application Settings"}>
     <div
-    class="flex flex-col items-center justify-center rounded-md p-1"
-    style="background-color: {$settings.bgColor3};"
+    class="flex flex-col items-start justify-center rounded-md "
+    
     >
+    <h1 
+    class="text-xl mb-10 font-semibold"
+    style="color: {$settings.fontColor2}"
+    >
+        Application Settings
+    </h1>    
       <!-- <h2
           class="text-3xl mb-8 mt-4 font-bold"
           style="color: {$settings.fontColor2};"
       >
       </h2> -->
       <!-- Username -->
-      <div class="flex flex-col justify-start mb-6">
+      <div class="flex flex-col items-start justify-start mb-6">
           <label
               class="font-semibold pb-2 text-center"
               style="color: {$settings.fontColor2};"
@@ -70,14 +74,14 @@
               Dashboard Username
           </label>
           <input
-              class="w-full sm:w-96 rounded-md p-1 text-gray-800"
+              class="w-96 rounded-md p-1 text-gray-800"
               value={username}
               type="text"
               id="username"
           />
       </div>
       <!-- Background Colors -->
-      <div class="flex flex-col justify-center mb-6">
+      <div class="flex flex-col items-start justify-center mb-6">
           <label
               class="font-semibold text-center pb-2"
               style="color: {$settings.fontColor2};"
@@ -87,7 +91,7 @@
           </label>
           <div>
               <input
-                  class="mx-3 rounded-sm"
+                  class="mr-3 rounded-sm"
                   value={bgColor1}
                   type="color"
                   id="bgColor-1"
@@ -113,7 +117,7 @@
           </div>
       </div>
       <!-- Font Colors -->
-      <div class="flex flex-col justify-center mb-6">
+      <div class="flex flex-col items-start justify-center mb-6">
           <label
               class="font-semibold text-center pb-2"
               style="color: {$settings.fontColor2};"
@@ -123,7 +127,7 @@
           </label>
           <div>
               <input
-                  class="mx-3 rounded-sm"
+                  class="mr-3 rounded-sm"
                   value={fontColor1}
                   type="color"
                   id="fontColor-1"
@@ -137,7 +141,7 @@
           </div>
       </div>
       <!-- Font -->
-      <div class="flex flex-col justify-center mb-6">
+      <div class="flex flex-col items-start justify-center mb-6">
           <label
               class="font-semibold pb-2 text-center pb-2"
               style="color: {$settings.fontColor2};"
@@ -169,16 +173,16 @@
           </select>
       </div>
       <!-- Buttons -->
-      <div class="flex flex-row justify-center items-center">
+      <div class="flex flex-row items-start justify-center items-center">
           <button
-              class="text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-semibold hover:bg-purple-600"
+              class="text-sm bg-purple-500 p-8 py-1 my-2 rounded-md mr-1 font-semibold hover:bg-purple-600"
               style="color: {$settings.fontColor1};"
               on:click={() => applyChanges('save')}
           >
               Apply
           </button>
           <button
-              class="text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-semibold hover:bg-purple-600"
+              class="text-sm bg-purple-500 px-8 py-1 m-2 rounded-md mx-1 font-semibold hover:bg-purple-600"
               style="color: {$settings.fontColor1};"
               on:click={() => applyChanges('reset')}
           >
@@ -187,7 +191,6 @@
       </div>
   </div>
 
-  </Shell>
 </div>
 </Page>
 
@@ -199,6 +202,7 @@
 	    border: none;
 	    border-radius: 9999px;
 	    background: none;
+        border-color: #f0f0f0;
     }
 
     input[type="color"]::-webkit-color-swatch-wrapper {
@@ -207,5 +211,6 @@
     input[type="color"]::-webkit-color-swatch {
 	    border: solid 1px #000; /*change color of the swatch border here*/
 	    border-radius: 9999px;
+        border-color: #333;
     }
 </style>

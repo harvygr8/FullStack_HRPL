@@ -20,6 +20,7 @@ const getNetworkSpeed = require('./Components/Diagnostics/NetworkSpeed/NetworkSp
 const getOsInfo = require('./Components/System/OS/OSInfo.js');
 const getIpInfo = require('./Components/Network/IPTools/IPTools.js');
 const getLocalDevices = require('./Components/Diagnostics/ArpLD/LocalDevices.js');
+const getNetmaskInfo = require('./Components/Diagnostics/Netmask/Netmask');
 
 // Live Reload
 require('electron-reload')(__dirname, {
@@ -96,3 +97,4 @@ getSslInfo();
 getNetstatInfo();
 getNetworkSpeed();
 getLocalDevices();
+getNetmaskInfo();
