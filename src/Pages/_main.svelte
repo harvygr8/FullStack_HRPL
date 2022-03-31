@@ -118,12 +118,12 @@
     <!-- <p class = "text-3xl text-white font-bold">Hello {$settings.username}!</p> -->
     {#if !localStorage.favorites}
     <div class="flex flex-col justify-center items-center h-full">
-      <h2 class="text-lg font-semibold" style="color: {$settings.fontColor1}">
+      <h2 class="text-lg" style="color: {$settings.fontColor1}">
         You do not have any favourite widgets.
       </h2>
     </div>
     {:else}
-    <h2 class="text-center text-2xl mt-4 px-6 font-medium" style="color: {$settings.fontColor1}">
+    <h2 class="mt-10 text-xl mt-4 px-6" style="color: {$settings.fontColor1}">
       Favourite Widgets
     </h2>
     <div class="p-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">

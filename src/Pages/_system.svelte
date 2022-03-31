@@ -8,6 +8,7 @@
     import Graphics from '../Components/System/Graphics/Graphics.svelte';
     import Usage from '../Components/System/Usage/Usage.svelte';
     import Disk from '../Components/System/Disk/Disk.svelte';
+    import Pstop from '../Components/System/Pstop/Pstop.svelte';
 </script>
 
 <Page _currPage="System">
@@ -19,5 +20,8 @@
           <!-- <Speed /> -->
           <Disk />
           <Usage />
+          <div class="col-span-1 md:col-span-2 xl:col-span-3">
+            <Pstop/>
+          </div>
     </div>
 </Page>

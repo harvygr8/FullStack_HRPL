@@ -6,6 +6,7 @@
     import Netstat from '../Components/Diagnostics/Netstat/Netstat.svelte';
     import LocalDevices from '../Components/Diagnostics/ArpLD/LocalDevices.svelte';
     import Netmask from '../Components/Diagnostics/Netmask/Netmask.svelte';
+    import NetworkX from '../Components/Diagnostics/NetworkX/NetworkX.svelte';
 </script>
 
 <Page _currPage="Diagnostics">
@@ -13,7 +14,8 @@
         <Netstat />
         <LocalDevices />
         <Netmask />
+        <NetworkX />
         <NetworkSpeed />
-        <PasswordStrength />
+        <!-- <PasswordStrength /> -->
     </div>
 </Page>

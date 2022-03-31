@@ -48,17 +48,17 @@
 </script>
 
 <Page _currPage="Settings">
-<div class="p-6">
+<div class="mt-4 p-6">
     <div
     class="flex flex-col items-start justify-center rounded-md "
-    
+
     >
-    <h1 
-    class="text-xl mb-10 font-semibold"
+    <h1
+    class="text-xl mb-10"
     style="color: {$settings.fontColor2}"
     >
-        Application Settings
-    </h1>    
+        Change the application fonts and tweak the theme to get a custom look and feel
+    </h1>
       <!-- <h2
           class="text-3xl mb-8 mt-4 font-bold"
           style="color: {$settings.fontColor2};"

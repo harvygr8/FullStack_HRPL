@@ -97,7 +97,7 @@
               <div class ="flex flex-row justify-center mt-1">
 
                   <div class="flex flex-col items-center text-gray-50 p-4">
-                  <p class='text-white font-medium text-lg text-xl'>{networkSpeed.err}</p>
+                  <p class='text-red-400 font-medium text-lg text-xl uppercase'>{networkSpeed.err}</p>
                   </div>
 
                 </div>

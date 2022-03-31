@@ -9,12 +9,12 @@
     let isSpeed = localStorage.speed === "true" ? true : false;
     let isLocation = localStorage.location === "true" ? true : false;
     let isFrequency = localStorage.frequency == "true" ? true : false;
-    
+
     // Function to toggle API checkbox
     function toggleAPI () {
         localStorage.checked = localStorage.checked === "true" ? false : true;
     }
-    
+
     // Function to toggle params checkbox
     function toggleParams (type) {
         switch (type) {
@@ -41,9 +41,9 @@
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    id: $settings.id, 
-                    speed: isSpeed && speed.trim() ? speed : null, 
-                    frequency: isFrequency && frequency.trim() ? frequency : null, 
+                    id: $settings.id,
+                    speed: isSpeed && speed.trim() ? speed : null,
+                    frequency: isFrequency && frequency.trim() ? frequency : null,
                     location: isLocation && location.trim() ? location : null
                 })
             })
@@ -53,23 +53,23 @@
     }
 
     // Call the function every 10 seconds
-    setInterval(sendData, 10000);
+    setInterval(sendData, 60000);
 </script>
 
 <Page _currPage="API">
     <div class="p-6">
         <div class="flex flex-row justify-between items-center">
-            <h1 
+            <h1
                 class="text-xl mt-4"
                 style="color: {$settings.fontColor2}"
             >
                 Allow Neuron to collect system related information such as network speed, location and frequency
             </h1>
-            <label 
+            <label
                 for="toggle-api"
                 class="switch ml-4 mt-6"
             >
-                <input 
+                <input
                     type="checkbox"
                     bind:checked={isChecked}
                     on:click={toggleAPI}
@@ -80,7 +80,7 @@
         </div>
         <div class="text-white p-2 my-8 rounded-md bg-green-500 border-4 border-green-700 ">
             Note : This information is only being collected as part of a public API for developers.
-            This data will only be used for building third-party applications, provide better services 
+            This data will only be used for building third-party applications, provide better services
             by Internet Service Providers etc.
         </div>
         {#if isChecked}
@@ -92,17 +92,17 @@
                 <tr>
                     <td class="py-2 pr-16" style="color: {$settings.fontColor2}">Network Speed</td>
                     <td>
-                        <input 
+                        <input
                             type="checkbox"
                             bind:checked={isSpeed}
-                            on:click={() => toggleParams('speed')}    
+                            on:click={() => toggleParams('speed')}
                         >
                     </td>
                 </tr>
                 <tr>
                     <td class="py-2 pr-16" style="color: {$settings.fontColor2}">Your Location</td>
                     <td>
-                        <input 
+                        <input
                             type="checkbox"
                             bind:checked={isLocation}
                             on:click={() => toggleParams('location')}
@@ -112,7 +112,7 @@
                 <tr>
                     <td class="py-2 pr-16" style="color: {$settings.fontColor2}">Signal Frequency</td>
                     <td>
-                        <input 
+                        <input
                             type="checkbox"
                             bind:checked={isFrequency}
                             on:click={() => toggleParams('frequency')}

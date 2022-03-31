@@ -23,12 +23,42 @@
     {#if data}
 
     <div class="h-64 overflow-x-hidden">
-    {#each data as d}
-    <div class="pl-2 mb-3 flex flex-col items-start text-gray-50">
+    <!-- <div class="pl-2 mb-3 flex flex-col items-start text-gray-50">
         <p>&#8226; IP:<span class="ml-2 font-bold text-lg" style="color: {$settings.fontColor2}">{d.ip}</span> </p>
         <p>&#8226; Mac:<span class="ml-2 font-bold text-lg" style="color: {$settings.fontColor2}">{d.mac}</span></p>
-    </div>
-    {/each}
+    </div> -->
+
+    <table class="">
+
+      <thead class="bg-gray border-b">
+        <tr>
+          <th scope="col" class="truncate text-sm font-medium px-24 py-1">
+            Local IP
+          </th>
+          <th scope="col" class="truncate text-sm font-medium px-24 py-1">
+            Mac Address
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+
+      {#each data as d}
+
+        <tr class="bg-gray border-b">
+          <td class="px-5 py-1 whitespace-nowrap text-sm font-medium text-center">
+            {d.ip}
+          </td>
+          <td class=" px-5 py-1 text-sm font-light whitespace-nowrap text-center">
+            {d.mac}
+          </td>
+        </tr>
+
+        {/each}
+
+      </tbody>
+
+    </table>
+
     </div>
 
     {:else}

@@ -16,12 +16,12 @@ router.get('/users', async (req, res) => {
         if (data.length === 0) {
             return res.status(404).json({
                 data: null,
-                error: 'Couldn\'t find any user' 
+                error: 'Couldn\'t find any user'
             });
         }
         return res.status(200).json({
             data: data,
-            error: null 
+            error: null
         });
     } catch (err) {
         return res.status(500).json({
@@ -46,12 +46,12 @@ router.get('/users/:id', async (req, res) => {
         return res.status(200).json({
             data: data,
             error: null
-        }) 
+        })
     } catch (err) {
         return res.status(500).json({
             data: null,
             error: err.message
-        }) 
+        })
     }
 });
 
@@ -88,6 +88,30 @@ router.get('/users/pages/:id', async (req, res) => {
     }
 });
 
+// GET data by location
+router.get('/location/:location', async (req, res) => {
+    try {
+        const data = await User.find({
+          location: req.params.location
+        });
+        if (data.length === 0) {
+            return res.status(404).json({
+                data: null,
+                error: 'Couldn\'t find user'
+            })
+        }
+        return res.status(200).json({
+            data: data,
+            error: null
+        })
+    } catch (err) {
+        return res.status(500).json({
+            data: null,
+            error: err.message
+        })
+    }
+});
+
 // POST user data
 router.post('/users', async (req, res) => {
     try {
@@ -111,5 +135,6 @@ router.post('/users', async (req, res) => {
         });
     }
 })
+
 
 module.exports = router;
