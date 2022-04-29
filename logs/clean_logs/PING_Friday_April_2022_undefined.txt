@@ -1,0 +1,9 @@
+[12:57:49]:[INFO]: Time:0 ms | Alive:false | Loss:NaN
+[12:57:50]:[INFO]: Time:0 ms | Alive:false | Loss:NaN
+[12:57:51]:[INFO]: Time:0 ms | Alive:false | Loss:NaN
+[12:57:52]:[INFO]: Time:0 ms | Alive:false | Loss:NaN
+[12:57:53]:[INFO]: Time:0 ms | Alive:false | Loss:NaN
+[12:57:54]:[INFO]: Time:0 ms | Alive:false | Loss:NaN
+[12:57:55]:[INFO]: Time:0 ms | Alive:false | Loss:NaN
+[12:57:56]:[INFO]: Time:0 ms | Alive:false | Loss:NaN
+[12:57:57]:[INFO]: Time:0 ms | Alive:false | Loss:NaN

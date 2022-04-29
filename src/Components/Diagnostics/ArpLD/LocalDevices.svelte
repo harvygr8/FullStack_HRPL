@@ -17,8 +17,8 @@
 </script>
 
 <Shell
-    title={"Local Devices"}
-    tooltip={"Shows IPs of devices connected to the local network"}
+    title={"ARP"}
+    tooltip={"Shows the IP and MAC address of devices connected to the local network"}
 >
     {#if data}
 

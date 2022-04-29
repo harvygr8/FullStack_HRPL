@@ -92,31 +92,52 @@
                 <tr>
                     <td class="py-2 pr-16" style="color: {$settings.fontColor2}">Network Speed</td>
                     <td>
-                        <input
-                            type="checkbox"
-                            bind:checked={isSpeed}
-                            on:click={() => toggleParams('speed')}
+                        <label 
+                        for="toggle-speed"
+                        class="switch ml-4"
                         >
+                        <input 
+                        type="checkbox"
+                        bind:checked={isSpeed}
+                        on:click={() => toggleParams('speed')}
+                        id="toggle-speed"
+                        >
+                        <span class="slider round" />
+                        </label>
                     </td>
                 </tr>
                 <tr>
                     <td class="py-2 pr-16" style="color: {$settings.fontColor2}">Your Location</td>
                     <td>
-                        <input
-                            type="checkbox"
-                            bind:checked={isLocation}
-                            on:click={() => toggleParams('location')}
+                        <label 
+                        for="toggle-location"
+                        class="switch ml-4"
                         >
+                        <input 
+                        type="checkbox"
+                        bind:checked={isLocation}
+                        on:click={() => toggleParams('location')}
+                        id="toggle-location"
+                        >
+                        <span class="slider round" />
+                        </label>
                     </td>
                 </tr>
                 <tr>
                     <td class="py-2 pr-16" style="color: {$settings.fontColor2}">Signal Frequency</td>
                     <td>
-                        <input
-                            type="checkbox"
-                            bind:checked={isFrequency}
-                            on:click={() => toggleParams('frequency')}
+                        <label 
+                        for="toggle-frequency"
+                        class="switch ml-4"
                         >
+                        <input 
+                        type="checkbox"
+                        bind:checked={isFrequency}
+                        on:click={() => toggleParams('frequency')}
+                        id="toggle-frequency"
+                        >
+                        <span class="slider round" />
+                        </label>
                     </td>
                 </tr>
             </table>

@@ -12164,7 +12164,7 @@ var app = (function () {
     			div = element("div");
     			create_component(loader.$$.fragment);
     			attr_dev(div, "class", "flex flex-row justify-center svelte-5avmh9");
-    			add_location(div, file$r, 64, 8, 1727);
+    			add_location(div, file$r, 64, 8, 1736);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -12237,20 +12237,20 @@ var app = (function () {
 
     			attr_dev(th0, "scope", "col");
     			attr_dev(th0, "class", "truncate text-sm font-medium px-24 py-1 svelte-5avmh9");
-    			add_location(th0, file$r, 34, 10, 1042);
+    			add_location(th0, file$r, 34, 10, 1051);
     			attr_dev(th1, "scope", "col");
     			attr_dev(th1, "class", "truncate text-sm font-medium px-24 py-1 svelte-5avmh9");
-    			add_location(th1, file$r, 37, 10, 1157);
+    			add_location(th1, file$r, 37, 10, 1166);
     			attr_dev(tr, "class", "svelte-5avmh9");
-    			add_location(tr, file$r, 33, 8, 1026);
+    			add_location(tr, file$r, 33, 8, 1035);
     			attr_dev(thead, "class", "bg-gray border-b svelte-5avmh9");
-    			add_location(thead, file$r, 32, 6, 984);
+    			add_location(thead, file$r, 32, 6, 993);
     			attr_dev(tbody, "class", "svelte-5avmh9");
-    			add_location(tbody, file$r, 42, 6, 1302);
+    			add_location(tbody, file$r, 42, 6, 1311);
     			attr_dev(table, "class", " svelte-5avmh9");
-    			add_location(table, file$r, 30, 4, 958);
+    			add_location(table, file$r, 30, 4, 967);
     			attr_dev(div, "class", "h-64 overflow-x-hidden svelte-5avmh9");
-    			add_location(div, file$r, 24, 4, 590);
+    			add_location(div, file$r, 24, 4, 599);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -12333,11 +12333,11 @@ var app = (function () {
     			t2 = text(t2_value);
     			t3 = space();
     			attr_dev(td0, "class", "px-5 py-1 whitespace-nowrap text-sm font-medium text-center svelte-5avmh9");
-    			add_location(td0, file$r, 47, 10, 1389);
+    			add_location(td0, file$r, 47, 10, 1398);
     			attr_dev(td1, "class", " px-5 py-1 text-sm font-light whitespace-nowrap text-center svelte-5avmh9");
-    			add_location(td1, file$r, 50, 10, 1510);
+    			add_location(td1, file$r, 50, 10, 1519);
     			attr_dev(tr, "class", "bg-gray border-b svelte-5avmh9");
-    			add_location(tr, file$r, 46, 8, 1348);
+    			add_location(tr, file$r, 46, 8, 1357);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -12368,7 +12368,7 @@ var app = (function () {
     	return block;
     }
 
-    // (19:0) <Shell      title={"Local Devices"}      tooltip={"Shows IPs of devices connected to the local network"}  >
+    // (19:0) <Shell      title={"ARP"}      tooltip={"Shows the IP and MAC address of devices connected to the local network"}  >
     function create_default_slot$k(ctx) {
     	let current_block_type_index;
     	let if_block;
@@ -12439,7 +12439,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$k.name,
     		type: "slot",
-    		source: "(19:0) <Shell      title={\\\"Local Devices\\\"}      tooltip={\\\"Shows IPs of devices connected to the local network\\\"}  >",
+    		source: "(19:0) <Shell      title={\\\"ARP\\\"}      tooltip={\\\"Shows the IP and MAC address of devices connected to the local network\\\"}  >",
     		ctx
     	});
 
@@ -12451,8 +12451,8 @@ var app = (function () {
 
     	const shell = new Shell({
     			props: {
-    				title: "Local Devices",
-    				tooltip: "Shows IPs of devices connected to the local network",
+    				title: "ARP",
+    				tooltip: "Shows the IP and MAC address of devices connected to the local network",
     				$$slots: { default: [create_default_slot$k] },
     				$$scope: { ctx }
     			},
@@ -15222,21 +15222,30 @@ var app = (function () {
     	let t2;
     	let t3;
     	let td1;
+    	let label0;
     	let input0;
     	let t4;
+    	let span0;
+    	let t5;
     	let tr1;
     	let td2;
-    	let t5;
     	let t6;
-    	let td3;
-    	let input1;
     	let t7;
+    	let td3;
+    	let label1;
+    	let input1;
+    	let t8;
+    	let span1;
+    	let t9;
     	let tr2;
     	let td4;
-    	let t8;
-    	let t9;
+    	let t10;
+    	let t11;
     	let td5;
+    	let label2;
     	let input2;
+    	let t12;
+    	let span2;
     	let dispose;
 
     	const block = {
@@ -15251,44 +15260,74 @@ var app = (function () {
     			t2 = text("Network Speed");
     			t3 = space();
     			td1 = element("td");
+    			label0 = element("label");
     			input0 = element("input");
     			t4 = space();
+    			span0 = element("span");
+    			t5 = space();
     			tr1 = element("tr");
     			td2 = element("td");
-    			t5 = text("Your Location");
-    			t6 = space();
-    			td3 = element("td");
-    			input1 = element("input");
+    			t6 = text("Your Location");
     			t7 = space();
+    			td3 = element("td");
+    			label1 = element("label");
+    			input1 = element("input");
+    			t8 = space();
+    			span1 = element("span");
+    			t9 = space();
     			tr2 = element("tr");
     			td4 = element("td");
-    			t8 = text("Signal Frequency");
-    			t9 = space();
+    			t10 = text("Signal Frequency");
+    			t11 = space();
     			td5 = element("td");
+    			label2 = element("label");
     			input2 = element("input");
+    			t12 = space();
+    			span2 = element("span");
     			attr_dev(h3, "class", "text-xl mb-2");
     			add_location(h3, file$z, 87, 12, 3503);
     			attr_dev(td0, "class", "py-2 pr-16");
     			set_style(td0, "color", /*$settings*/ ctx[4].fontColor2);
     			add_location(td0, file$z, 92, 20, 3683);
     			attr_dev(input0, "type", "checkbox");
-    			add_location(input0, file$z, 94, 24, 3814);
+    			attr_dev(input0, "id", "toggle-speed");
+    			attr_dev(input0, "class", "svelte-1r7cmh2");
+    			add_location(input0, file$z, 98, 24, 3963);
+    			attr_dev(span0, "class", "slider round svelte-1r7cmh2");
+    			add_location(span0, file$z, 104, 24, 4219);
+    			attr_dev(label0, "for", "toggle-speed");
+    			attr_dev(label0, "class", "switch ml-4 svelte-1r7cmh2");
+    			add_location(label0, file$z, 94, 24, 3814);
     			add_location(td1, file$z, 93, 20, 3784);
     			add_location(tr0, file$z, 91, 16, 3657);
     			attr_dev(td2, "class", "py-2 pr-16");
     			set_style(td2, "color", /*$settings*/ ctx[4].fontColor2);
-    			add_location(td2, file$z, 102, 20, 4106);
+    			add_location(td2, file$z, 109, 20, 4376);
     			attr_dev(input1, "type", "checkbox");
-    			add_location(input1, file$z, 104, 24, 4237);
-    			add_location(td3, file$z, 103, 20, 4207);
-    			add_location(tr1, file$z, 101, 16, 4080);
+    			attr_dev(input1, "id", "toggle-location");
+    			attr_dev(input1, "class", "svelte-1r7cmh2");
+    			add_location(input1, file$z, 115, 24, 4659);
+    			attr_dev(span1, "class", "slider round svelte-1r7cmh2");
+    			add_location(span1, file$z, 121, 24, 4924);
+    			attr_dev(label1, "for", "toggle-location");
+    			attr_dev(label1, "class", "switch ml-4 svelte-1r7cmh2");
+    			add_location(label1, file$z, 111, 24, 4507);
+    			add_location(td3, file$z, 110, 20, 4477);
+    			add_location(tr1, file$z, 108, 16, 4350);
     			attr_dev(td4, "class", "py-2 pr-16");
     			set_style(td4, "color", /*$settings*/ ctx[4].fontColor2);
-    			add_location(td4, file$z, 112, 20, 4535);
+    			add_location(td4, file$z, 126, 20, 5081);
     			attr_dev(input2, "type", "checkbox");
-    			add_location(input2, file$z, 114, 24, 4669);
-    			add_location(td5, file$z, 113, 20, 4639);
-    			add_location(tr2, file$z, 111, 16, 4509);
+    			attr_dev(input2, "id", "toggle-frequency");
+    			attr_dev(input2, "class", "svelte-1r7cmh2");
+    			add_location(input2, file$z, 132, 24, 5368);
+    			attr_dev(span2, "class", "slider round svelte-1r7cmh2");
+    			add_location(span2, file$z, 138, 24, 5636);
+    			attr_dev(label2, "for", "toggle-frequency");
+    			attr_dev(label2, "class", "switch ml-4 svelte-1r7cmh2");
+    			add_location(label2, file$z, 128, 24, 5215);
+    			add_location(td5, file$z, 127, 20, 5185);
+    			add_location(tr2, file$z, 125, 16, 5055);
     			attr_dev(table, "class", "table-auto text-md");
     			add_location(table, file$z, 90, 12, 3605);
     			set_style(div, "color", /*$settings*/ ctx[4].fontColor2);
@@ -15304,24 +15343,33 @@ var app = (function () {
     			append_dev(td0, t2);
     			append_dev(tr0, t3);
     			append_dev(tr0, td1);
-    			append_dev(td1, input0);
+    			append_dev(td1, label0);
+    			append_dev(label0, input0);
     			input0.checked = /*isSpeed*/ ctx[1];
-    			append_dev(table, t4);
+    			append_dev(label0, t4);
+    			append_dev(label0, span0);
+    			append_dev(table, t5);
     			append_dev(table, tr1);
     			append_dev(tr1, td2);
-    			append_dev(td2, t5);
-    			append_dev(tr1, t6);
+    			append_dev(td2, t6);
+    			append_dev(tr1, t7);
     			append_dev(tr1, td3);
-    			append_dev(td3, input1);
+    			append_dev(td3, label1);
+    			append_dev(label1, input1);
     			input1.checked = /*isLocation*/ ctx[2];
-    			append_dev(table, t7);
+    			append_dev(label1, t8);
+    			append_dev(label1, span1);
+    			append_dev(table, t9);
     			append_dev(table, tr2);
     			append_dev(tr2, td4);
-    			append_dev(td4, t8);
-    			append_dev(tr2, t9);
+    			append_dev(td4, t10);
+    			append_dev(tr2, t11);
     			append_dev(tr2, td5);
-    			append_dev(td5, input2);
+    			append_dev(td5, label2);
+    			append_dev(label2, input2);
     			input2.checked = /*isFrequency*/ ctx[3];
+    			append_dev(label2, t12);
+    			append_dev(label2, span2);
 
     			dispose = [
     				listen_dev(input0, "change", /*input0_change_handler*/ ctx[8]),
