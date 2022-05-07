@@ -8,7 +8,10 @@
     import Netstat from '../Components/Diagnostics/Netstat/Netstat.svelte';
     import NetworkSpeed from '../Components/Diagnostics/NetworkSpeed/NetworkSpeed.svelte';
     import PasswordStrength from '../Components/Diagnostics/PasswordStrength/PasswordStrength.svelte';
+    import ArpTable from '../Components/Diagnostics/ArpLD/LocalDevices.svelte';
+    import Netmask from '../Components/Diagnostics/Netmask/Netmask.svelte';
     import SslChecker from '../Components/Diagnostics/SslChecker/SslChecker.svelte';
+    import NetworkStatus from '../Components/Diagnostics/NetworkX/NetworkX.svelte';
     import Dns from '../Components/Network/Dns/Dns.svelte';
     import IpTools from '../Components/Network/IPTools/IPTools.svelte';
     import NetworkInterfaces from '../Components/Network/NetworkInterfaces/NetworkInterfaces.svelte';
@@ -16,7 +19,7 @@
     import Ports from '../Components/Network/Ports/Ports.svelte';
     import Whois from '../Components/Network/Whois/Whois.svelte';
     import Cpu from '../Components/System/Cpu/Cpu.svelte';
-    import Speed from '../Components/System/Cpu/Speed.svelte';
+    import ProcessList from '../Components/System/Pstop/Pstop.svelte';
     import Disk from '../Components/System/Disk/Disk.svelte';
     import Graphics from '../Components/System/Graphics/Graphics.svelte';
     import OSinfo from '../Components/System/OS/OSinfo.svelte';
@@ -53,16 +56,28 @@
         component: Ports
       },
       {
-        name: 'Netstat',
-        component: Netstat
-      },
-      {
         name: 'SSL Checker',
         component: SslChecker
       },
       {
-        name: 'Wifi Information',
+        name: 'Wifi Connections',
         component: Info
+      },
+      {
+        name: 'Netstat',
+        component: Netstat
+      },
+      {
+        name: 'ARP Table',
+        component: ArpTable
+      },
+      {
+        name: 'Netmask',
+        component: Netmask
+      },
+      {
+        name: 'Network Status',
+        component: NetworkStatus
       },
       {
         name: 'Password Checker',
@@ -95,6 +110,10 @@
       {
         name: 'CPU Utilization',
         component: Usage
+      },
+      {
+        name: 'Process List',
+        component: ProcessList
       }
     ];
 
