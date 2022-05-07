@@ -3,3 +3,4 @@
 [13:7:30]:[INFO]: Test Time:237.4 s | Speed:0.84 mbps
 [13:41:58]:[INFO]: Test Time:241 s | Speed:0.98 mbps
 [13:41:58]:[INFO]: Test Time:241 s | Speed:0.98 mbps
+[13:56:32]:[INFO]: Test Time:242.6 s | Speed:0.53 mbps

@@ -17,7 +17,7 @@
 </script>
 
 <Shell
-    title={"ARP"}
+    title={"ARP Table"}
     tooltip={"Shows the IP and MAC address of devices connected to the local network"}
 >
     {#if data}
@@ -32,10 +32,10 @@
 
       <thead class="bg-gray border-b">
         <tr>
-          <th scope="col" class="truncate text-sm font-medium px-24 py-1">
+          <th scope="col" class="truncate text-sm font-medium px-24 py-1 w-full">
             Local IP
           </th>
-          <th scope="col" class="truncate text-sm font-medium px-24 py-1">
+          <th scope="col" class="truncate text-sm font-medium px-24 py-1 w-full">
             Mac Address
           </th>
         </tr>

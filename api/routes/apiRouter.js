@@ -1,3 +1,4 @@
+// Import express framework and creating a router
 const express = require('express');
 const router = express.Router();
 const cors = require('cors');

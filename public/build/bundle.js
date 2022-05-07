@@ -12164,7 +12164,7 @@ var app = (function () {
     			div = element("div");
     			create_component(loader.$$.fragment);
     			attr_dev(div, "class", "flex flex-row justify-center svelte-5avmh9");
-    			add_location(div, file$r, 64, 8, 1736);
+    			add_location(div, file$r, 64, 8, 1756);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -12236,21 +12236,21 @@ var app = (function () {
     			}
 
     			attr_dev(th0, "scope", "col");
-    			attr_dev(th0, "class", "truncate text-sm font-medium px-24 py-1 svelte-5avmh9");
-    			add_location(th0, file$r, 34, 10, 1051);
+    			attr_dev(th0, "class", "truncate text-sm font-medium px-24 py-1 w-full svelte-5avmh9");
+    			add_location(th0, file$r, 34, 10, 1057);
     			attr_dev(th1, "scope", "col");
-    			attr_dev(th1, "class", "truncate text-sm font-medium px-24 py-1 svelte-5avmh9");
-    			add_location(th1, file$r, 37, 10, 1166);
+    			attr_dev(th1, "class", "truncate text-sm font-medium px-24 py-1 w-full svelte-5avmh9");
+    			add_location(th1, file$r, 37, 10, 1179);
     			attr_dev(tr, "class", "svelte-5avmh9");
-    			add_location(tr, file$r, 33, 8, 1035);
+    			add_location(tr, file$r, 33, 8, 1041);
     			attr_dev(thead, "class", "bg-gray border-b svelte-5avmh9");
-    			add_location(thead, file$r, 32, 6, 993);
+    			add_location(thead, file$r, 32, 6, 999);
     			attr_dev(tbody, "class", "svelte-5avmh9");
-    			add_location(tbody, file$r, 42, 6, 1311);
+    			add_location(tbody, file$r, 42, 6, 1331);
     			attr_dev(table, "class", " svelte-5avmh9");
-    			add_location(table, file$r, 30, 4, 967);
+    			add_location(table, file$r, 30, 4, 973);
     			attr_dev(div, "class", "h-64 overflow-x-hidden svelte-5avmh9");
-    			add_location(div, file$r, 24, 4, 599);
+    			add_location(div, file$r, 24, 4, 605);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -12333,11 +12333,11 @@ var app = (function () {
     			t2 = text(t2_value);
     			t3 = space();
     			attr_dev(td0, "class", "px-5 py-1 whitespace-nowrap text-sm font-medium text-center svelte-5avmh9");
-    			add_location(td0, file$r, 47, 10, 1398);
+    			add_location(td0, file$r, 47, 10, 1418);
     			attr_dev(td1, "class", " px-5 py-1 text-sm font-light whitespace-nowrap text-center svelte-5avmh9");
-    			add_location(td1, file$r, 50, 10, 1519);
+    			add_location(td1, file$r, 50, 10, 1539);
     			attr_dev(tr, "class", "bg-gray border-b svelte-5avmh9");
-    			add_location(tr, file$r, 46, 8, 1357);
+    			add_location(tr, file$r, 46, 8, 1377);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -12368,7 +12368,7 @@ var app = (function () {
     	return block;
     }
 
-    // (19:0) <Shell      title={"ARP"}      tooltip={"Shows the IP and MAC address of devices connected to the local network"}  >
+    // (19:0) <Shell      title={"ARP Table"}      tooltip={"Shows the IP and MAC address of devices connected to the local network"}  >
     function create_default_slot$k(ctx) {
     	let current_block_type_index;
     	let if_block;
@@ -12439,7 +12439,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$k.name,
     		type: "slot",
-    		source: "(19:0) <Shell      title={\\\"ARP\\\"}      tooltip={\\\"Shows the IP and MAC address of devices connected to the local network\\\"}  >",
+    		source: "(19:0) <Shell      title={\\\"ARP Table\\\"}      tooltip={\\\"Shows the IP and MAC address of devices connected to the local network\\\"}  >",
     		ctx
     	});
 
@@ -12451,7 +12451,7 @@ var app = (function () {
 
     	const shell = new Shell({
     			props: {
-    				title: "ARP",
+    				title: "ARP Table",
     				tooltip: "Shows the IP and MAC address of devices connected to the local network",
     				$$slots: { default: [create_default_slot$k] },
     				$$scope: { ctx }

@@ -1,11 +1,14 @@
+// Import the mongoose library and create a database connection
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/network-monitoring-app');
 const db = mongoose.connection;
 
+// Error handler
 db.on('error', err => {
     console.log(err);
 });
 
+// Successfully connecting to database
 db.once('open', () => {
     console.log('Database opened successfully');
 });
