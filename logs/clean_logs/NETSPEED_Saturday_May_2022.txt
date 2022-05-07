@@ -1,0 +1,2 @@
+[17:32:48]:[INFO]: Test Time:85.5 s | Speed:39.29 mbps
+[17:40:29]:[INFO]: Test Time:85.6 s | Speed:38.75 mbps

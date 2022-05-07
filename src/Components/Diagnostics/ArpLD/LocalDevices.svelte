@@ -27,15 +27,14 @@
         <p>&#8226; IP:<span class="ml-2 font-bold text-lg" style="color: {$settings.fontColor2}">{d.ip}</span> </p>
         <p>&#8226; Mac:<span class="ml-2 font-bold text-lg" style="color: {$settings.fontColor2}">{d.mac}</span></p>
     </div> -->
-
-    <table class="">
+    <table class="w-full">
 
       <thead class="bg-gray border-b">
         <tr>
-          <th scope="col" class="truncate text-sm font-medium px-24 py-1 w-full">
+          <th scope="col" class="text-sm font-medium  py-1 w-1/2">
             Local IP
           </th>
-          <th scope="col" class="truncate text-sm font-medium px-24 py-1 w-full">
+          <th scope="col" class="text-sm font-medium  py-1 w-1/2">
             Mac Address
           </th>
         </tr>

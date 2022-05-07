@@ -1,0 +1,9 @@
+[17:29:21]:[INFO]: Time:16 ms | Alive:true | Loss:0.00
+[17:29:22]:[INFO]: Time:11 ms | Alive:true | Loss:0.00
+[17:29:23]:[INFO]: Time:12 ms | Alive:true | Loss:0.00
+[17:29:24]:[INFO]: Time:12 ms | Alive:true | Loss:0.00
+[17:29:40]:[INFO]: Time:13 ms | Alive:true | Loss:0.00
+[17:29:41]:[INFO]: Time:13 ms | Alive:true | Loss:0.00
+[17:29:42]:[INFO]: Time:12 ms | Alive:true | Loss:0.00
+[18:7:6]:[INFO]: Time:12 ms | Alive:true | Loss:0.00
+[18:7:7]:[INFO]: Time:36 ms | Alive:true | Loss:0.00

@@ -1,5 +1,0 @@
-[12:54:44]:[INFO]: Test Time:29.4 s | Speed:108.92 mbps
-[12:54:44]:[INFO]: Test Time:29.4 s | Speed:108.92 mbps
-[12:59:36]:[INFO]: Test Time:31.8 s | Speed:120.79 mbps
-[13:22:37]:[INFO]: Test Time:29.1 s | Speed:114.73 mbps
-[13:22:37]:[INFO]: Test Time:29.1 s | Speed:114.73 mbps

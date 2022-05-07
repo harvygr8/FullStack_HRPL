@@ -59,7 +59,7 @@
               {:else}
                 <button type="button" on:click={startTest} class="text-sm bg-purple-500 px-2 py-1 m-2 rounded-md mx-1 font-semibold hover:bg-purple-600">Start Test</button>
 
-                <div class ="grid grid-cols-2 gap-x-2 mt-2 {networkSpeed && !networkSpeed.err ? 'invisble' : ''}">
+                <div class ="grid grid-cols-2 gap-x-2 mt-2 {networkSpeed && !networkSpeed.err ? 'hidden' : ''}">
                   <div class="flex flex-col justify-start items-center">
                     <span>Speed</span>
                     <p class="font-semibold text-xl">

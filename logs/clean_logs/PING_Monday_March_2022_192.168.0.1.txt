@@ -1,6 +1,0 @@
-[20:49:6]:[INFO]: Time:0 ms | Alive:false | Loss:100
-[20:49:7]:[INFO]: Time:0 ms | Alive:false | Loss:100
-[20:49:8]:[INFO]: Time:0 ms | Alive:false | Loss:100
-[20:49:9]:[INFO]: Time:0 ms | Alive:false | Loss:100
-[20:49:12]:[INFO]: Time:0 ms | Alive:false | Loss:100
-[20:49:14]:[INFO]: Time:0 ms | Alive:false | Loss:100
