@@ -35,7 +35,7 @@
             const frequency = fs.readFileSync('./logs/api_logs/PingLog.txt', 'utf8');
             const location = fs.readFileSync('./logs/api_logs/testServerLocationLog.txt', 'utf8');
 
-            fetch('http://127.0.0.1:3000/api/users', {
+            fetch('https://neuron-app-api.herokuapp.com/api/users/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
